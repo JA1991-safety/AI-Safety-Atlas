@@ -18,7 +18,7 @@ The rules that keep drafting safe to automate. Publishing is never automated: ev
 | Sensitive topics | Terms from `sensitive-topics.yml` mean a second reviewer is needed | Listed in the report |
 | Links and quotes | `npm run check-sources` loads every source and checks every quote appears in it. Runs in CI on each pull request (advisory) and weekly (strict). | Error or warning |
 
-The 90-day window is a change from the plan's 30 days. The weekly routine will keep the window fresh, but a first draft needs enough recent items to be useful. Change `DEVELOPMENT_WINDOW_DAYS` in `src/lib/load.mjs` to tighten it.
+The 90-day window replaces the plan's 30 days and was confirmed by the editor on 18 November 2026. The weekly routine will keep the window fresh, but a first draft needs enough recent items to be useful. Change `DEVELOPMENT_WINDOW_DAYS` in `src/lib/load.mjs` to tighten it.
 
 ## Standing instructions for every drafting run
 

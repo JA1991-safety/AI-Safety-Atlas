@@ -42,6 +42,6 @@ The built site uses relative links, so `dist/` can be served from any host or fo
 
 ## Licence
 
-Code is under the [MIT licence](LICENSE). Written content in `content/` and `editorial/` is under [Creative Commons Attribution 4.0](LICENSE-CONTENT.md). Quotes and figures from sources remain the work of their authors. Country shapes are from [Natural Earth](https://www.naturalearthdata.com/) via world-atlas, in the public domain.
+Confirmed by the editor on 18 November 2026: code is under the [MIT licence](LICENSE). Written content in `content/` and `editorial/` is under [Creative Commons Attribution 4.0](LICENSE-CONTENT.md). Quotes and figures from sources remain the work of their authors. Country shapes are from [Natural Earth](https://www.naturalearthdata.com/) via world-atlas, in the public domain.
 
 Borders are shown for navigation only and imply no position on any disputed territory.
