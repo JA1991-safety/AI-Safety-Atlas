@@ -1,0 +1,707 @@
+---
+import Base from '../layouts/Base.astro';
+import AreaCard from '../components/AreaCard.astro';
+import { loadAll } from '../lib/load.mjs';
+import { LABELS, fmtDate } from '../lib/site.mjs';
+
+const { areas, profiles } = loadAll();
+const base = '';
+const today = new Date().toISOString().slice(0, 10);
+const daysAgo = (d: string) => Math.round((Date.parse(today) - Date.parse(d)) / 86400000);
+
+// Data for the map, filters and search, embedded in the page as JSON.
+const clientAreas = areas.map((a) => {
+  const p = profiles[a.code];
+  const commitments = Object.fromEntries((p?.facets.commitments ?? []).map((c: any) => [c.key, c.status]));
+  return {
+    code: a.code,
+    name: a.name,
+    region: a.region,
+    mapIds: a.map_ids,
+    marker: a.marker ?? null,
+    href: `country/${a.code.toLowerCase()}.html`,
+    status: p ? (p.editor_approved ? 'published' : 'draft') : 'pending',
+    facets: p
+      ? {
+          regulatory_approach: p.facets.regulatory_approach,
+          safety_institute: p.facets.safety_institute.status,
+          frontier_developers: p.facets.frontier_developers.status,
+          national_polling: p.facets.national_polling,
+          recent: daysAgo(p.last_reviewed) <= 30 ? 'recent' : 'older',
+          ...Object.fromEntries(
+            Object.keys(LABELS.commitment).map((k) => {
+              const s = commitments[k];
+              return [`commit_${k}`, !s ? 'unknown' : ['signed', 'ratified', 'endorsed'].includes(s) ? 'yes' : s === 'not_signed' ? 'no' : 'unknown'];
+            })
+          ),
+        }
+      : null,
+  };
+});
+
+// Each lens colours the map by one comparable fact. Areas without a profile show as "not yet researched".
+const lenses = [
+  {
+    id: 'coverage',
+    label: 'Coverage',
+    question: 'Which areas have a profile?',
+    field: 'status',
+    categories: [
+      { value: 'published', label: 'Profile published', color: '--cat-1' },
+      { value: 'draft', label: 'Draft profile', color: '--covered-soft' },
+      { value: 'pending', label: 'Pilot area, in preparation', color: '--pending' },
+    ],
+  },
+  {
+    id: 'regulatory_approach',
+    label: 'Regulatory approach',
+    question: 'How is AI regulated?',
+    field: 'regulatory_approach',
+    categories: Object.entries(LABELS.regulatory_approach).map(([value, label], i) => ({ value, label, color: `--cat-${i + 1}` })),
+  },
+  {
+    id: 'safety_institute',
+    label: 'AI safety or security institute',
+    question: 'Which areas have an AI safety or security institute?',
+    field: 'safety_institute',
+    categories: [
+      { value: 'yes', label: 'Has an institute', color: '--cat-1' },
+      { value: 'equivalent', label: 'Has an equivalent body', color: '--cat-2' },
+      { value: 'no', label: 'None found', color: '--cat-4' },
+    ],
+  },
+  {
+    id: 'frontier_developers',
+    label: 'Frontier AI developers',
+    question: 'Which areas host frontier AI developers?',
+    field: 'frontier_developers',
+    categories: [
+      { value: 'yes', label: 'Hosts frontier developers', color: '--cat-1' },
+      { value: 'no', label: 'None found', color: '--cat-3' },
+    ],
+  },
+  ...Object.entries(LABELS.commitment).map(([key, label]) => ({
+    id: `commit_${key}`,
+    label,
+    question: `Who signed or endorsed the ${label.replace(/ \(\d{4}\)$/, '')}?`,
+    field: `commit_${key}`,
+    categories: [
+      { value: 'yes', label: 'Signed or endorsed', color: '--cat-1' },
+      { value: 'no', label: 'Did not sign', color: '--cat-2' },
+      { value: 'unknown', label: 'Not recorded yet', color: '--cat-3' },
+    ],
+  })),
+  {
+    id: 'recent',
+    label: 'Recently checked',
+    question: 'Which profiles were checked in the last 30 days?',
+    field: 'recent',
+    categories: [
+      { value: 'recent', label: 'Checked in the last 30 days', color: '--cat-1' },
+      { value: 'older', label: 'Checked longer ago', color: '--cat-2' },
+    ],
+  },
+];
+
+// Search index: area names plus every sourced statement, headline and quote.
+type Entry = { area: string; areaName: string; section: string; text: string; href: string };
+const search: Entry[] = [];
+for (const a of areas) {
+  const p = profiles[a.code];
+  if (!p) continue;
+  const href = `country/${a.code.toLowerCase()}.html`;
+  const add = (section: string, text: string, anchor: string) =>
+    search.push({ area: a.code, areaName: a.name, section, text, href: `${href}#${anchor}` });
+  p.summary.overview.forEach((s: any) => add('Summary', s.text, 'top'));
+  p.attitudes.headline_figures.forEach((f: any) => add('Public attitudes', `${f.value} ${f.label}`, 'attitudes'));
+  p.attitudes.statements.forEach((s: any) => add('Public attitudes', s.text, 'attitudes'));
+  p.regulation.items.forEach((r: any, i: number) => add('Frameworks and regulation', `${r.title}. ${r.text}`, `reg-${i + 1}`));
+  p.culture.summary.forEach((s: any) => add('Culture and industry', s.text, 'culture'));
+  p.culture.own_words.forEach((q: any) => add('In their own words', `“${q.quote}” ${q.speaker}, ${q.role}`, 'own-words'));
+  p.news.items.forEach((n: any) => add('News', `${n.headline}. ${n.summary}`, `news-${n.id}`));
+}
+
+const payload = JSON.stringify({ areas: clientAreas, lenses, search }).replace(/</g, '\\u003c');
+const pilotCount = areas.filter((a) => a.pilot).length;
+const drafted = areas.filter((a) => profiles[a.code]).length;
+---
+<Base
+  title="Common Ground"
+  description="A neutral, sourced reference on AI safety around the world: public attitudes, regulation, industry culture and news, country by country."
+  base={base}
+  current="map"
+  app
+>
+  <main class="atlas">
+    <section class="plate" aria-label="World map">
+      <div id="globe" class="globe" aria-hidden="true"></div>
+      <div class="plate-tools">
+        <div class="search">
+          <label class="visually-hidden" for="search-input">Search countries and topics</label>
+          <input
+            id="search-input"
+            type="search"
+            placeholder="Search countries or topics, e.g. institute, copyright"
+            autocomplete="off"
+            aria-controls="search-results"
+            aria-expanded="false"
+          />
+          <ul id="search-results" class="search-results" role="listbox" hidden></ul>
+        </div>
+        <div class="lens">
+          <label class="label" for="lens-select">Colour the map by</label>
+          <select id="lens-select">
+            {lenses.map((l) => <option value={l.id}>{l.label}</option>)}
+          </select>
+        </div>
+      </div>
+      <div id="legend" class="legend" aria-live="polite"></div>
+      <p class="map-note">Borders are shown for navigation only and imply no position on disputed territory.</p>
+    </section>
+
+    <aside id="panel" class="panel" aria-live="polite">
+      <section id="intro" class="intro">
+        <p class="label">Pilot · {drafted} of {pilotCount} areas drafted</p>
+        <h1>AI safety, country by country</h1>
+        <p class="lede">
+          What people think about AI, what governments have done, what the AI sector values, and the news that matters for AI
+          safety, with a source for every statement.
+        </p>
+        <p class="intro-hint">Select an area on the map, or choose one below.</p>
+        <h2 class="label" id="lens-question">Which areas have a profile?</h2>
+        <div id="area-groups" class="area-groups">
+          <ul class="area-list">
+            {
+              areas.map((a) => (
+                <li>
+                  <button type="button" class="area-button" data-select={a.code}>
+                    <span>{a.name}</span>
+                    <span class="mono area-meta">
+                      {profiles[a.code] ? `Draft · ${fmtDate(profiles[a.code].last_reviewed)}` : 'In preparation'}
+                    </span>
+                  </button>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </section>
+
+      <div id="cards">
+        <button type="button" class="back" id="back-button" hidden>← All areas</button>
+        {areas.map((a) => <AreaCard area={a} profile={profiles[a.code]} base={base} />)}
+        <article class="card" data-area="__other" hidden aria-labelledby="card-other">
+          <header class="card-head">
+            <p class="label">Not yet covered</p>
+            <h2 id="card-other">Area</h2>
+            <p class="card-status"><span class="pill pill-pending">Not in the pilot</span></p>
+          </header>
+          <div class="card-body">
+            <p>
+              The pilot covers 13 countries and the European Union. We plan to reach about 50 areas, adding each one only when it
+              has a local reviewer.
+            </p>
+            <p><a id="other-suggest" href="#">Suggest this area or offer to review it</a></p>
+          </div>
+        </article>
+      </div>
+      <footer class="panel-footer">
+        <p class="panel-note">Borders are shown for navigation only and imply no position on disputed territory.</p>
+        <p>
+          Edited by James Armitage. Drafted with Claude, an AI model made by Anthropic, and reviewed by people.
+          <a href="about.html">How it's made</a> · <a href="https://github.com/JA1991-safety/AI-Safety-Atlas">Sources and history on GitHub</a>
+        </p>
+      </footer>
+    </aside>
+  </main>
+
+  <script type="application/json" id="atlas-data" set:html={payload} />
+  <script>
+    import '../scripts/atlas.js';
+  </script>
+</Base>
+
+<style is:global>
+  html:has(body.app),
+  body.app {
+    height: 100%;
+  }
+  body.app {
+    display: flex;
+    flex-direction: column;
+  }
+  body.app > .atlas {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+  .atlas {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+  }
+  .plate {
+    position: relative;
+    background: var(--space);
+    min-height: 420px;
+    border-right: 1px solid var(--rule);
+  }
+  .panel {
+    overflow-y: auto;
+    display: grid;
+    align-content: start;
+    gap: 28px;
+  }
+  .panel-footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 14px;
+    font-size: var(--step--1);
+    color: var(--ink-3);
+  }
+  .globe {
+    position: absolute;
+    inset: 0;
+  }
+  .plate-tools {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    right: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    align-items: flex-end;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .plate-tools > * {
+    pointer-events: auto;
+  }
+  .search {
+    position: relative;
+    flex: 1 1 280px;
+    max-width: 460px;
+  }
+  .search input,
+  .lens select {
+    width: 100%;
+    font: inherit;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 9px 12px;
+  }
+  .lens {
+    display: grid;
+    gap: 4px;
+    flex: 0 1 260px;
+  }
+  .lens .label {
+    background: var(--paper);
+    justify-self: start;
+    padding: 0 6px;
+    border-radius: 3px;
+  }
+  .search-results {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.18);
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+  .search-results li a,
+  .search-results li button {
+    display: grid;
+    gap: 2px;
+    width: 100%;
+    text-align: left;
+    font: inherit;
+    color: var(--ink);
+    background: none;
+    border: 0;
+    padding: 8px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .search-results li a:hover,
+  .search-results li button:hover,
+  .search-results li [aria-selected='true'] {
+    background: var(--paper-2);
+  }
+  .search-results .result-where {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--ink-3);
+  }
+  .search-results mark {
+    background: color-mix(in srgb, var(--select) 30%, transparent);
+    color: inherit;
+    border-radius: 2px;
+  }
+  .search-empty {
+    padding: 8px 10px;
+    color: var(--ink-2);
+  }
+  .legend {
+    position: absolute;
+    left: 14px;
+    bottom: 34px;
+    z-index: 2;
+    display: grid;
+    gap: 4px;
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 8px 10px;
+    font-size: var(--step--1);
+    max-width: min(320px, calc(100% - 28px));
+  }
+  .legend-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    flex: none;
+    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.12);
+  }
+  .map-note {
+    position: absolute;
+    right: 14px;
+    bottom: 8px;
+    left: 14px;
+    z-index: 1;
+    text-align: right;
+    font-size: 0.72rem;
+    color: var(--ink-3);
+    pointer-events: none;
+  }
+  .maplibregl-ctrl-bottom-right {
+    bottom: 22px;
+  }
+  .maplibregl-popup-content {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    padding: 6px 10px;
+    border-radius: 4px;
+    box-shadow: 0 4px 16px rgb(0 0 0 / 0.2);
+  }
+  .maplibregl-popup-tip {
+    display: none;
+  }
+  .maplibregl-ctrl-attrib,
+  .maplibregl-ctrl-attrib.maplibregl-compact {
+    background: color-mix(in srgb, var(--paper) 85%, transparent) !important;
+  }
+  .maplibregl-ctrl-attrib-inner,
+  .maplibregl-ctrl-attrib-inner a {
+    color: var(--ink-2) !important;
+  }
+  .maplibregl-ctrl-attrib-button,
+  .maplibregl-ctrl-icon {
+    filter: var(--icon-filter);
+  }
+  .maplibregl-ctrl-group {
+    background: var(--paper) !important;
+    box-shadow: 0 0 0 1px var(--rule) !important;
+  }
+  .maplibregl-ctrl-group button + button {
+    border-top-color: var(--rule) !important;
+  }
+  .tip-name {
+    font-weight: 600;
+  }
+  .tip-status {
+    font-size: var(--step--1);
+    color: var(--ink-2);
+  }
+
+  .panel {
+    padding-block: 24px 32px;
+    padding-left: 24px;
+    padding-right: var(--gutter-r);
+    min-width: 0;
+    background: var(--paper);
+  }
+  .intro {
+    display: grid;
+    gap: 14px;
+  }
+  .intro h1 {
+    font-size: var(--step-3);
+  }
+  .lede {
+    color: var(--ink-2);
+    font-size: var(--step-1);
+    line-height: 1.45;
+  }
+  .intro-hint {
+    color: var(--ink-3);
+    font-size: var(--step--1);
+  }
+  #lens-question {
+    margin-top: 8px;
+    color: var(--ink-2);
+  }
+  .area-groups {
+    display: grid;
+    gap: 14px;
+  }
+  .area-group h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-head);
+    font-size: var(--step--1);
+    color: var(--ink-2);
+    margin-bottom: 4px;
+  }
+  .area-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .area-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    width: 100%;
+    font: inherit;
+    color: var(--ink);
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--rule);
+    padding: 9px 2px;
+    cursor: pointer;
+    text-align: left;
+  }
+  .area-button:hover {
+    color: var(--covered);
+  }
+  .area-meta {
+    color: var(--ink-3);
+    white-space: nowrap;
+  }
+  .back {
+    font: inherit;
+    font-size: var(--step--1);
+    color: var(--ink-2);
+    background: none;
+    border: 0;
+    padding: 0 0 12px;
+    cursor: pointer;
+  }
+  .back:hover {
+    color: var(--ink);
+  }
+
+  .card {
+    display: grid;
+    gap: 18px;
+  }
+  .card-head {
+    display: grid;
+    gap: 4px;
+  }
+  .card-head h2 {
+    font-size: var(--step-3);
+  }
+  .card-status {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-top: 4px;
+  }
+  .card-checked {
+    color: var(--ink-3);
+  }
+  .card-body {
+    display: grid;
+    gap: 20px;
+  }
+  .card-overview {
+    display: grid;
+    gap: 10px;
+  }
+  .card-block {
+    display: grid;
+    gap: 8px;
+    border-top: 1px solid var(--rule);
+    padding-top: 12px;
+  }
+  .figures {
+    display: grid;
+    gap: 12px;
+  }
+  .figure {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 12px;
+    align-items: start;
+    margin: 0;
+  }
+  .figure-value {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 2.25rem;
+    line-height: 1;
+    color: var(--covered);
+    font-variant-numeric: tabular-nums;
+    min-width: 3.2ch;
+  }
+  .figure figcaption {
+    display: grid;
+    gap: 2px;
+  }
+  .figure-meta {
+    color: var(--ink-3);
+    font-size: 0.72rem;
+  }
+  .stories {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+  }
+  .stories li {
+    display: grid;
+    gap: 0;
+  }
+  .story-date {
+    color: var(--ink-3);
+  }
+  .freshness {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 4px;
+  }
+  .freshness li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 12px;
+    align-items: center;
+  }
+  .depth {
+    display: inline-flex;
+    gap: 3px;
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1px var(--ink-3);
+  }
+  .dot.on {
+    background: var(--covered);
+    box-shadow: none;
+  }
+  .mix {
+    color: var(--ink-3);
+    margin-top: 4px;
+  }
+  .muted {
+    color: var(--ink-2);
+  }
+  .card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+    align-items: center;
+  }
+  .button {
+    display: inline-block;
+    background: var(--covered);
+    color: var(--paper);
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 9px 16px;
+    border-radius: var(--radius);
+  }
+  .button:hover {
+    filter: brightness(1.08);
+  }
+  .quiet {
+    color: var(--ink-2);
+    font-size: var(--step--1);
+  }
+
+  @media (max-width: 860px) {
+    html:has(body.app),
+    body.app {
+      height: auto;
+    }
+    body.app {
+      display: block;
+    }
+    .atlas {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .panel {
+      overflow-y: visible;
+    }
+    .plate {
+      min-height: 0;
+      height: 62vh;
+      border-right: 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .panel {
+      padding-left: var(--gutter);
+    }
+    .legend {
+      bottom: 30px;
+    }
+  }
+  @media (max-width: 520px) {
+    .plate {
+      height: 72vh;
+    }
+    .lens {
+      flex-basis: 100%;
+    }
+    .legend {
+      font-size: 0.75rem;
+      padding: 6px 8px;
+      gap: 2px;
+      bottom: 12px;
+      left: 10px;
+    }
+    .swatch {
+      width: 11px;
+      height: 11px;
+    }
+    .map-note {
+      display: none;
+    }
+    .panel-note {
+      display: block;
+    }
+  }
+  .panel-note {
+    display: none;
+  }
+</style>

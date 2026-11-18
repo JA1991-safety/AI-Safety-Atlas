@@ -1,0 +1,264 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, LABELS } from '../lib/site.mjs';
+import { CULTURE_MIN_INSIDE_SHARE, DEVELOPMENT_WINDOW_DAYS } from '../lib/load.mjs';
+const base = '';
+---
+<Base
+  title="About and method"
+  description="Why Common Ground exists, how it is made, and how sources are chosen, labelled and reviewed."
+  base={base}
+  current="about"
+>
+  <main class="about">
+    <header class="about-head">
+      <p class="label">About and method</p>
+      <h1>Understanding comes before agreement</h1>
+    </header>
+
+    <section class="statement" aria-labelledby="why">
+      <h2 id="why">Why I made this</h2>
+      <p>
+        AI is being built and governed everywhere, but most of us only follow the conversation in our own country and our own
+        language. Making AI safe is a global problem, and I don't think it can be solved by any one country, or by one set of values
+        being applied to everyone else. It will need countries to work together, and working together starts with understanding
+        each other.
+      </p>
+      <p>
+        Common Ground is an attempt to help with that. For each country it sets out what people there think about AI, what their
+        government has done, what the people building AI there care about, and the news that's shaping it now. It doesn't rank
+        countries or judge them. The only position it takes is that cooperation is worth working for, and that understanding comes
+        before agreement.
+      </p>
+      <p class="signature">
+        <strong>{SITE.editor}</strong>, Editor<br />
+        <span>
+          James lives and works in the UK and has recently moved into AI safety. James started Common Ground out of a commitment to
+          helping the world come together on the biggest challenge of our time.
+        </span>
+      </p>
+    </section>
+
+    <section aria-labelledby="how">
+      <h2 id="how">How it's made</h2>
+      <dl class="how">
+        <div>
+          <dt>Sources for everything</dt>
+          <dd>
+            Every statement links to its evidence, with a date and labels showing whether the source is from inside or outside the
+            country and what kind of source it is. A statement without a source cannot be published: the site's build checks this
+            automatically.
+          </dd>
+        </div>
+        <div>
+          <dt>Local voices first on culture</dt>
+          <dd>
+            Sections on a country's culture and industry give priority to sources from that country, including "in their own
+            words" quotes from its officials, researchers, companies, unions and media. At least {CULTURE_MIN_INSIDE_SHARE * 100}%
+            of a culture section's sources must come from inside the country, or the page says plainly that it falls short. Factual
+            claims draw equally on sources from inside and outside.
+          </dd>
+        </div>
+        <div>
+          <dt>AI-assisted, human-approved</dt>
+          <dd>
+            Claude, an AI model made by Anthropic, helps find sources, draft updates and translate pages. Nothing is published until
+            the editor has reviewed it, and culture sections are also reviewed by contributors from the country concerned. Because
+            Claude is made by Anthropic, anything that mentions Anthropic or its models always gets a second reviewer.
+          </dd>
+        </div>
+        <div>
+          <dt>Machine translation, clearly marked</dt>
+          <dd>Translated pages will say so, and readers can report problems from any page.</dd>
+        </div>
+        <div>
+          <dt>Open and correctable</dt>
+          <dd>
+            All content and its full edit history are public on <a href={SITE.repo}>GitHub</a>. If something is wrong or unfair,
+            please <a href={`${SITE.repo}/issues/new?template=correction.yml`}>tell us</a>. Corrections are logged publicly, and
+            anyone described here has a right of reply.
+          </dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="scope">
+      <h2 id="scope">What counts as AI safety here</h2>
+      <p id="definition">
+        We use a broad definition, following
+        <a href="https://hai.stanford.edu/ai-definitions/what-is-ai-safety">Stanford HAI's explainer on AI safety</a>, which
+        describes the field as ensuring AI systems behave reliably and don't cause harm. That includes preventing accidents and
+        misuse, keeping systems under human control, and building AI that is robust, secure and aligned with human intentions and
+        the values of the societies using it.
+      </p>
+      <p>
+        News is included when it is about AI safety or when it affects it. That covers new frontier models and open-weight releases,
+        changes to institutions and laws, compute and chip policy, public opinion, and changes in who holds political power.
+      </p>
+    </section>
+
+    <section aria-labelledby="labels">
+      <h2 id="labels">How sources are labelled</h2>
+      <div class="label-grid">
+        <div>
+          <h3>Origin</h3>
+          <ul class="plain">
+            <li><span class="tag tag-inside">inside</span> {LABELS.origin.inside}</li>
+            <li><span class="tag tag-outside">outside</span> {LABELS.origin.outside}</li>
+            <li><span class="tag tag-international">international</span> {LABELS.origin.international}, such as the OECD or UN</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Type</h3>
+          <p class="tags">{Object.values(LABELS.type).map((t) => <span class="tag">{t}</span>)}</p>
+        </div>
+        <div>
+          <h3>Language</h3>
+          <p>The source's original language, plus <span class="tag">machine-translated</span> when we translated it.</p>
+        </div>
+        <div>
+          <h3>Evidence depth</h3>
+          <p>
+            Each section says whether evidence is rich, moderate or limited, and lists the gaps we know about, so a short page reads
+            as a gap in the evidence rather than a lack of activity.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="review">
+      <h2 id="review">How content is reviewed</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Section</th><th scope="col">Updated</th><th scope="col">Review</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>News</td><td>Weekly</td><td>Light: the editor checks the headline, why it matters, and the source</td></tr>
+            <tr><td>Frameworks and regulation</td><td>Monthly</td><td>Medium: each change checked against the primary source</td></tr>
+            <tr><td>Public attitudes</td><td>When new polls appear</td><td>Medium: figures, sample and method checked against the release</td></tr>
+            <tr><td>Culture and industry</td><td>Quarterly</td><td>Strict: the editor and a local reviewer read it in full</td></tr>
+            <tr><td>Sensitive topics</td><td>As needed</td><td>Strict: the editor and a second reviewer; sources from more than one side</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        News is marked as a recent development only if it is less than {DEVELOPMENT_WINDOW_DAYS} days old when checked. Older stories
+        that explain the current picture are marked foundational. Automated checks also flag words that tend to judge rather than
+        describe, such as "lagging" or "draconian", for the editor to look at.
+      </p>
+    </section>
+
+    <section aria-labelledby="maps">
+      <h2 id="maps">Maps and borders</h2>
+      <p>
+        Country shapes come from Natural Earth. Borders are shown for navigation only and imply no position on any disputed
+        territory. During the pilot the European Union is shown as one area.
+      </p>
+    </section>
+
+    <section aria-labelledby="contribute">
+      <h2 id="contribute">Contribute</h2>
+      <p>
+        We are looking for people in each covered country to review culture sections, suggest sources in their own languages, and
+        check translations. You can contribute under your name or anonymously, and every contributor declares any conflicts of
+        interest. <a href={`${SITE.repo}/blob/main/CONTRIBUTING.md`}>Read how to contribute</a>.
+      </p>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .about {
+    max-width: 760px;
+    margin-inline: auto;
+    padding-block: 40px 56px;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter-r);
+    display: grid;
+    gap: 40px;
+  }
+  .about-head h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: clamp(2.25rem, 6vw, 3.5rem);
+    line-height: 0.98;
+    margin-top: 6px;
+  }
+  section {
+    display: grid;
+    gap: 14px;
+  }
+  h2 {
+    font-size: var(--step-2);
+  }
+  h3 {
+    font-size: var(--step-0);
+    margin-bottom: 6px;
+  }
+  .statement {
+    padding: 24px;
+    background: var(--paper-2);
+    border-radius: var(--radius);
+    font-size: var(--step-1);
+    line-height: 1.55;
+  }
+  .signature {
+    font-size: var(--step-0);
+    color: var(--ink-2);
+  }
+  .signature strong {
+    color: var(--ink);
+  }
+  .how {
+    margin: 0;
+    display: grid;
+    gap: 16px;
+  }
+  .how dt {
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: var(--step-1);
+  }
+  .how dd {
+    margin: 2px 0 0;
+    color: var(--ink-2);
+  }
+  .label-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .plain {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 6px;
+  }
+  .table-wrap {
+    overflow-x: auto;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 520px;
+    font-size: 0.9375rem;
+  }
+  th,
+  td {
+    text-align: left;
+    vertical-align: top;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+  th {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: var(--ink-3);
+  }
+</style>

@@ -1,0 +1,753 @@
+---
+import Base from '../../layouts/Base.astro';
+import Cite from '../../components/Cite.astro';
+import { loadAll, isNew, CULTURE_MIN_INSIDE_SHARE } from '../../lib/load.mjs';
+import { LABELS, fmtDate, correctionUrl, LANGUAGE_NAMES, SITE } from '../../lib/site.mjs';
+
+export function getStaticPaths() {
+  const { areas, profiles } = loadAll();
+  return areas.filter((a) => profiles[a.code]).map((a) => ({ params: { code: a.code.toLowerCase() }, props: { area: a, p: profiles[a.code] } }));
+}
+
+const { area, p } = Astro.props as any;
+const base = '../';
+const idx = p.derived.sourceIndex;
+const byId = Object.fromEntries(p.sources.map((s: any) => [s.id, s]));
+const mix = p.derived.cultureMix;
+const development = p.news.items.filter((n: any) => n.kind === 'development');
+const foundational = p.news.items.filter((n: any) => n.kind === 'foundational');
+const sections = [
+  { id: 'attitudes', title: 'Public attitudes', meta: p.attitudes.meta, tier: 'Medium review: figures checked against the poll release' },
+  { id: 'regulation', title: 'Frameworks and regulation', meta: p.regulation.meta, tier: 'Medium review: claims checked against primary sources' },
+  { id: 'culture', title: 'Culture and industry', meta: p.culture.meta, tier: 'Strict review: editor and a local reviewer' },
+  { id: 'news', title: 'News', meta: p.news.meta, tier: 'Light review: headline, relevance and source checked' },
+];
+const meta = Object.fromEntries(sections.map((s) => [s.id, s]));
+const commitStatus = (c: any) => LABELS.commitment_status[c.status];
+---
+<Base
+  title={area.name}
+  description={`AI safety in ${area.name}: public attitudes, regulation, industry culture and news, with sources.`}
+  base={base}
+>
+  <main class="profile" id="top">
+    <header class="profile-head">
+      <p class="label"><a href={`${base}index.html#${area.code.toLowerCase()}`}>Map</a> · {area.region}</p>
+      <h1>{area.name}</h1>
+      <div class="profile-status">
+        {!p.editor_approved && <span class="pill pill-draft">Draft · awaiting editor review</span>}
+        <span class="mono">Last checked {fmtDate(p.last_reviewed)}</span>
+        <span class="mono">{p.sources.length} sources</span>
+      </div>
+    </header>
+
+    <div class="profile-top">
+      <div class="profile-summary">
+        {
+          p.summary.overview.map((s: any) => (
+            <p>
+              {s.text}
+              <Cite ids={s.sources} index={idx} />
+            </p>
+          ))
+        }
+      </div>
+
+
+      <aside class="glance" aria-label="At a glance">
+      <dl>
+        <div>
+          <dt class="label">Regulatory approach</dt>
+          <dd>{LABELS.regulatory_approach[p.facets.regulatory_approach]}</dd>
+        </div>
+        <div>
+          <dt class="label">Safety or security institute</dt>
+          <dd>
+            {p.facets.safety_institute.name ?? LABELS.safety_institute[p.facets.safety_institute.status]}
+            <Cite ids={p.facets.safety_institute.sources} index={idx} />
+          </dd>
+        </div>
+        <div>
+          <dt class="label">Frontier developers</dt>
+          <dd>
+            {LABELS.frontier_developers[p.facets.frontier_developers.status]}
+            <Cite ids={p.facets.frontier_developers.sources} index={idx} />
+          </dd>
+        </div>
+        <div>
+          <dt class="label">International statements</dt>
+          <dd>
+            <ul class="commitments">
+              {
+                p.facets.commitments.map((c: any) => (
+                  <li>
+                    <span class={`commit commit-${c.status}`}>{commitStatus(c)}</span> {LABELS.commitment[c.key]}
+                    <Cite ids={c.sources} index={idx} />
+                  </li>
+                ))
+              }
+            </ul>
+          </dd>
+        </div>
+      </dl>
+      </aside>
+
+    </div>
+
+    <nav class="section-nav" aria-label="Sections">
+      {sections.map((s) => <a href={`#${s.id}`}>{s.title}</a>)}
+      <a href="#sources">Sources</a>
+    </nav>
+
+    <div class="profile-body">
+      {/* ---------- Public attitudes ---------- */}
+      <section id="attitudes" class="section" aria-labelledby="h-attitudes">
+        <header class="section-head">
+          <h2 id="h-attitudes">Public attitudes</h2>
+          <p class="section-meta mono">
+            Checked {fmtDate(meta.attitudes.meta.checked)} · {LABELS.evidence_depth[meta.attitudes.meta.evidence_depth]} ·
+            {LABELS.review[meta.attitudes.meta.review]}
+          </p>
+        </header>
+        <div class="figures-row">
+          {
+            p.attitudes.headline_figures.map((f: any) => (
+              <figure class="big-figure">
+                <span class="big-value">{f.value}</span>
+                <figcaption>
+                  <span>{f.label}</span>
+                  {f.question && <span class="question">Question: “{f.question}”</span>}
+                  <span class="mono figure-method">
+                    {byId[f.source].publisher} · Fieldwork {f.fieldwork} · {f.sample}
+                    <Cite ids={[f.source]} index={idx} />
+                  </span>
+                </figcaption>
+              </figure>
+            ))
+          }
+        </div>
+        <ul class="statements">
+          {
+            p.attitudes.statements.map((s: any) => (
+              <li>
+                {s.text}
+                <Cite ids={s.sources} index={idx} />
+              </li>
+            ))
+          }
+        </ul>
+        {meta.attitudes.meta.gaps && <p class="gaps"><span class="label">Gaps</span> {meta.attitudes.meta.gaps}</p>}
+      </section>
+
+      {/* ---------- Regulation ---------- */}
+      <section id="regulation" class="section" aria-labelledby="h-regulation">
+        <header class="section-head">
+          <h2 id="h-regulation">Frameworks and regulation</h2>
+          <p class="section-meta mono">
+            Checked {fmtDate(meta.regulation.meta.checked)} · {LABELS.evidence_depth[meta.regulation.meta.evidence_depth]} ·
+            {LABELS.review[meta.regulation.meta.review]}
+          </p>
+        </header>
+        <ol class="register">
+          {
+            [...p.regulation.items]
+              .map((r: any, i: number) => ({ ...r, n: i + 1 }))
+              .sort((a: any, b: any) => (a.date < b.date ? 1 : -1))
+              .map((r: any) => (
+                <li id={`reg-${r.n}`} class="register-item">
+                  <div class="register-when">
+                    <span class="mono">{fmtDate(r.date)}</span>
+                    <span class="kind">{LABELS.regulation_kind[r.kind]}</span>
+                  </div>
+                  <div class="register-what">
+                    <h3>{r.title}</h3>
+                    {r.status && <p class="register-status mono">{r.status}</p>}
+                    <p>
+                      {r.text}
+                      <Cite ids={r.sources} index={idx} />
+                    </p>
+                  </div>
+                </li>
+              ))
+          }
+        </ol>
+        {meta.regulation.meta.gaps && <p class="gaps"><span class="label">Gaps</span> {meta.regulation.meta.gaps}</p>}
+      </section>
+
+      {/* ---------- Culture ---------- */}
+      <section id="culture" class="section" aria-labelledby="h-culture">
+        <header class="section-head">
+          <h2 id="h-culture">Culture and industry</h2>
+          <p class="section-meta mono">
+            Checked {fmtDate(meta.culture.meta.checked)} · {LABELS.evidence_depth[meta.culture.meta.evidence_depth]} ·
+            {LABELS.review[meta.culture.meta.review]}
+          </p>
+        </header>
+        <div class="mixbar-wrap">
+          <p class="label">Whose voices this section rests on</p>
+          <div class="mixbar" role="img" aria-label={`${mix.inside} sources from inside ${area.name}, ${mix.outside} from outside, ${mix.international} international`}>
+            {mix.inside > 0 && <span class="mix-inside" style={`flex:${mix.inside}`}>{mix.inside} inside</span>}
+            {mix.outside > 0 && <span class="mix-outside" style={`flex:${mix.outside}`}>{mix.outside} outside</span>}
+            {mix.international > 0 && <span class="mix-international" style={`flex:${mix.international}`}>{mix.international} intl</span>}
+          </div>
+          <p class="mix-note">
+            Culture and industry sections lean on sources from inside the country (at least {CULTURE_MIN_INSIDE_SHARE * 100}%), because they
+            are more likely to reflect how people there see things.
+            {p.culture.limited_inside_sources && <strong> This section has fewer inside sources than we aim for.</strong>}
+          </p>
+        </div>
+        <ul class="statements">
+          {
+            p.culture.summary.map((s: any) => (
+              <li>
+                {s.text}
+                <Cite ids={s.sources} index={idx} />
+              </li>
+            ))
+          }
+        </ul>
+
+        <h3 class="subhead" id="own-words">In their own words</h3>
+        <div class="quotes">
+          {
+            p.culture.own_words.map((q: any) => (
+              <figure class="quote">
+                <span class="voice label">{LABELS.voice[q.voice]}</span>
+                <blockquote lang={q.original_language}>“{q.quote}”</blockquote>
+                {q.translation && <p class="translation">Translation: {q.translation}</p>}
+                <figcaption>
+                  <strong>{q.speaker}</strong>, {q.role}
+                  {q.date && <span class="mono"> · {fmtDate(q.date)}</span>}
+                  <Cite ids={[q.source]} index={idx} />
+                </figcaption>
+              </figure>
+            ))
+          }
+        </div>
+
+        {
+          p.culture.outside_analysis.length > 0 && (
+            <>
+              <h3 class="subhead">Outside analysis</h3>
+              <p class="mix-note">How observers outside {area.name} describe it. Shown separately so readers can weigh it.</p>
+              <ul class="statements outside">
+                {p.culture.outside_analysis.map((s: any) => (
+                  <li>
+                    {s.text}
+                    <Cite ids={s.sources} index={idx} />
+                  </li>
+                ))}
+              </ul>
+            </>
+          )
+        }
+        {meta.culture.meta.gaps && <p class="gaps"><span class="label">Gaps</span> {meta.culture.meta.gaps}</p>}
+      </section>
+
+      {/* ---------- News ---------- */}
+      <section id="news" class="section" aria-labelledby="h-news">
+        <header class="section-head">
+          <h2 id="h-news">News</h2>
+          <p class="section-meta mono">
+            Checked {fmtDate(meta.news.meta.checked)} · {LABELS.review[meta.news.meta.review]}
+          </p>
+        </header>
+        <p class="mix-note">
+          News that is about AI safety or affects it: policy, institutions, frontier models, public opinion and political change.
+          Each item says why it matters for AI safety, not whether it is good or bad.
+        </p>
+        {
+          [
+            ['Recent developments', 'Last 90 days', development],
+            ['Foundational', 'Older stories that explain the current picture', foundational],
+          ].map(([title, sub, items]: any) => (
+            <>
+              <h3 class="subhead">
+                {title} <span class="subhead-note">{sub}</span>
+              </h3>
+              <ol class="news">
+                {items.map((n: any) => (
+                  <li id={`news-${n.id}`} class="news-item">
+                    <div class="news-when">
+                      <span class="mono">{fmtDate(n.date)}</span>
+                      {n.kind === 'development' && isNew(n.date, p.news.meta.checked) && <span class="pill pill-new">New</span>}
+                    </div>
+                    <div class="news-what">
+                      <h4>{n.headline}</h4>
+                      <p>
+                        {n.summary}
+                        <Cite ids={n.sources} index={idx} />
+                      </p>
+                      <p class="why">
+                        <span class="label">Why it matters</span> {n.why_it_matters}
+                      </p>
+                      {n.topics.length > 0 && (
+                        <p class="tags">
+                          {n.topics.map((t: string) => (
+                            <span class="tag">{t}</span>
+                          ))}
+                        </p>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </>
+          ))
+        }
+      </section>
+
+      {/* ---------- Sources ---------- */}
+      <section id="sources" class="section" aria-labelledby="h-sources">
+        <header class="section-head">
+          <h2 id="h-sources">Sources</h2>
+          <p class="section-meta mono">
+            {p.derived.sourceMix.inside} from inside {area.name} · {p.derived.sourceMix.outside} from outside ·
+            {p.derived.sourceMix.international} international
+          </p>
+        </header>
+        <ol class="sources">
+          {
+            p.sources.map((s: any, i: number) => (
+              <li id={`src-${s.id}`}>
+                <span class="src-n mono">{i + 1}</span>
+                <div class="src-body">
+                  <a href={s.url} rel="noopener">
+                    {s.title}
+                  </a>
+                  <span class="src-pub">
+                    {s.publisher}
+                    {s.via && <> (via {s.via})</>}
+                    {' · '}
+                    {s.published ? fmtDate(s.published) : `Undated page, accessed ${fmtDate(s.accessed)}`}
+                  </span>
+                  <span class="tags">
+                    <span class={`tag tag-${s.origin}`} title={LABELS.origin[s.origin]}>
+                      {LABELS.origin_short[s.origin]}
+                    </span>
+                    <span class="tag">{LABELS.type[s.type]}</span>
+                    <span class="tag">{LANGUAGE_NAMES[s.language] ?? s.language}</span>
+                    {s.machine_translated && <span class="tag">machine-translated</span>}
+                  </span>
+                  {s.note && <span class="src-note">{s.note}</span>}
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <section class="section corrections">
+        <h2>Something wrong or missing?</h2>
+        <p>
+          Corrections are logged publicly, and anyone described here has a right of reply. <a href={correctionUrl(area.name)}
+            >Suggest a correction</a
+          > or <a href={`${SITE.repo}/issues/new?template=suggest-source.yml&title=${encodeURIComponent(`Sources for ${area.name}`)}`}
+            >suggest a source</a
+          >, especially one from inside {area.name}.
+        </p>
+      </section>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .profile {
+    max-width: 1080px;
+    margin-inline: auto;
+    padding-block: 32px 48px;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter-r);
+    display: grid;
+    gap: 28px;
+  }
+  .profile-head {
+    display: grid;
+    gap: 12px;
+  }
+  .profile-head h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    line-height: 0.95;
+  }
+  .profile-head .label a {
+    color: inherit;
+  }
+  .profile-status {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    align-items: center;
+    color: var(--ink-3);
+  }
+  .profile-summary {
+    display: grid;
+    gap: 10px;
+    max-width: var(--measure);
+    font-size: var(--step-1);
+    line-height: 1.5;
+  }
+  .profile-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
+    gap: 24px 48px;
+    align-items: start;
+  }
+  .glance dl {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+    padding: 16px;
+    background: var(--paper-2);
+    border-radius: var(--radius);
+  }
+  @media (max-width: 860px) {
+    .profile-top {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  .glance dd {
+    margin: 4px 0 0;
+    min-width: 0;
+  }
+  .commitments {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 4px;
+    font-size: 0.9375rem;
+  }
+  .commit {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--covered);
+  }
+  .commit-not_signed {
+    color: var(--select-ink);
+  }
+  .section-nav {
+    position: sticky;
+    top: calc(env(safe-area-inset-top, 0px) + 54px);
+    z-index: 5;
+    display: flex;
+    gap: 6px 18px;
+    flex-wrap: wrap;
+    background: var(--paper);
+    padding-block: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .section-nav a {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    color: var(--ink-2);
+    text-decoration: none;
+  }
+  .section-nav a:hover {
+    color: var(--ink);
+  }
+  .profile-body {
+    display: grid;
+    gap: 48px;
+  }
+  .section {
+    display: grid;
+    gap: 18px;
+    scroll-margin-top: 120px;
+  }
+  .section-head {
+    display: grid;
+    gap: 4px;
+  }
+  .section-head h2 {
+    font-size: var(--step-3);
+  }
+  .section-meta {
+    color: var(--ink-3);
+  }
+  .figures-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .big-figure {
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 16px;
+    padding: 16px;
+    background: var(--paper-2);
+    border-radius: var(--radius);
+  }
+  .big-value {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 3.5rem;
+    line-height: 0.9;
+    color: var(--covered);
+    font-variant-numeric: tabular-nums;
+  }
+  .big-figure figcaption {
+    display: grid;
+    gap: 6px;
+    align-content: start;
+  }
+  .question {
+    color: var(--ink-2);
+    font-style: italic;
+    font-size: 0.9375rem;
+  }
+  .figure-method {
+    color: var(--ink-3);
+  }
+  .statements {
+    margin: 0;
+    padding-left: 1.1em;
+    display: grid;
+    gap: 10px;
+    max-width: var(--measure);
+  }
+  .statements li::marker {
+    color: var(--ink-3);
+  }
+  .gaps {
+    max-width: var(--measure);
+    font-size: 0.9375rem;
+    color: var(--ink-2);
+    border-left: 2px solid var(--rule);
+    padding-left: 12px;
+  }
+  .gaps .label {
+    margin-right: 6px;
+  }
+  .register {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+  }
+  .register-item {
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr);
+    gap: 16px;
+    padding-block: 14px;
+    border-top: 1px solid var(--rule);
+    scroll-margin-top: 120px;
+  }
+  .register-when {
+    display: grid;
+    gap: 2px;
+    align-content: start;
+    color: var(--ink-2);
+  }
+  .kind {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--ink-3);
+  }
+  .register-what {
+    display: grid;
+    gap: 6px;
+    max-width: var(--measure);
+  }
+  .register-what h3 {
+    font-size: var(--step-1);
+  }
+  .register-status {
+    color: var(--ink-3);
+  }
+  .mixbar-wrap {
+    display: grid;
+    gap: 6px;
+    max-width: 560px;
+  }
+  .mixbar {
+    display: flex;
+    height: 22px;
+    border-radius: 4px;
+    overflow: hidden;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+  }
+  .mixbar span {
+    display: flex;
+    align-items: center;
+    padding-inline: 6px;
+    color: var(--paper);
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .mix-inside {
+    background: var(--tag-inside);
+  }
+  .mix-outside {
+    background: var(--tag-outside);
+  }
+  .mix-international {
+    background: var(--tag-international);
+  }
+  .mix-note {
+    color: var(--ink-2);
+    font-size: 0.9375rem;
+    max-width: var(--measure);
+  }
+  .subhead {
+    font-size: var(--step-2);
+    margin-top: 8px;
+  }
+  .subhead-note {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: var(--step--1);
+    color: var(--ink-3);
+    margin-left: 8px;
+  }
+  .quotes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .quote {
+    margin: 0;
+    display: grid;
+    gap: 8px;
+    align-content: start;
+    padding: 16px;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+  }
+  .quote blockquote {
+    margin: 0;
+    font-family: var(--font-head);
+    font-size: var(--step-1);
+    line-height: 1.35;
+  }
+  .quote figcaption {
+    font-size: 0.9375rem;
+    color: var(--ink-2);
+  }
+  .translation {
+    font-size: 0.9375rem;
+    color: var(--ink-2);
+  }
+  .statements.outside li {
+    color: var(--ink-2);
+  }
+  .news {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+  }
+  .news-item {
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr);
+    gap: 16px;
+    padding-block: 16px;
+    border-top: 1px solid var(--rule);
+    scroll-margin-top: 120px;
+  }
+  .news-item:target {
+    background: color-mix(in srgb, var(--select) 12%, transparent);
+  }
+  .news-when {
+    display: grid;
+    gap: 6px;
+    align-content: start;
+    justify-items: start;
+    color: var(--ink-2);
+  }
+  .news-what {
+    display: grid;
+    gap: 8px;
+    max-width: var(--measure);
+  }
+  .news-what h4 {
+    margin: 0;
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: var(--step-1);
+    line-height: 1.25;
+  }
+  .why {
+    font-size: 0.9375rem;
+    color: var(--ink-2);
+  }
+  .why .label {
+    margin-right: 6px;
+    color: var(--covered);
+  }
+  .sources {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+  }
+  .sources li {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 10px;
+    padding-block: 10px;
+    border-top: 1px solid var(--rule);
+    scroll-margin-top: 120px;
+  }
+  .sources li:target {
+    background: color-mix(in srgb, var(--select) 14%, transparent);
+  }
+  .src-n {
+    color: var(--ink-3);
+  }
+  .src-body {
+    display: grid;
+    gap: 4px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .src-pub {
+    color: var(--ink-2);
+    font-size: 0.9375rem;
+  }
+  .src-note {
+    color: var(--ink-3);
+    font-size: var(--step--1);
+  }
+  .corrections {
+    border-top: 1px solid var(--rule);
+    padding-top: 24px;
+  }
+  .corrections h2 {
+    font-size: var(--step-2);
+  }
+  .corrections p {
+    max-width: var(--measure);
+  }
+
+  @media (max-width: 640px) {
+    .register-item,
+    .news-item {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 6px;
+    }
+    .register-when,
+    .news-when {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .section-nav {
+      top: calc(env(safe-area-inset-top, 0px) + 84px);
+    }
+  }
+</style>
