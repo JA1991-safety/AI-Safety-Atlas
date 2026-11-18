@@ -29,7 +29,7 @@ function fillExpression() {
   for (const a of data.areas) {
     const value = categoryFor(a, lens);
     const cat = lens.categories.find((c) => c.value === value);
-    pairs.push(a.code, cat ? token(cat.color) : token('--pending'));
+    pairs.push(a.code, cat ? token(cat.color) : token('--map-pending'));
   }
   return ['match', ['get', 'area'], ...pairs, token('--land')];
 }
@@ -47,14 +47,14 @@ function renderLegend() {
         `<div class="legend-row"><span class="swatch" style="background:var(${c.color})"></span><span>${c.label}</span></div>`
     );
   if (lens.field !== 'status' && counts.__none)
-    rows.push(`<div class="legend-row"><span class="swatch" style="background:var(--pending)"></span><span>Pilot area, not yet researched</span></div>`);
+    rows.push(`<div class="legend-row"><span class="swatch" style="background:var(--map-pending)"></span><span>Pilot area, not yet researched</span></div>`);
   rows.push(`<div class="legend-row"><span class="swatch" style="background:var(--land)"></span><span>Not in the pilot</span></div>`);
   $('#legend').innerHTML = rows.join('');
 }
 
 function renderGroups() {
   $('#lens-question').textContent = lens.question;
-  const groups = [...lens.categories.map((c) => ({ ...c, items: [] })), { value: '__none', label: 'Not yet researched', color: '--pending', items: [] }];
+  const groups = [...lens.categories.map((c) => ({ ...c, items: [] })), { value: '__none', label: 'Not yet researched', color: '--map-pending', items: [] }];
   for (const a of data.areas) {
     const v = categoryFor(a, lens) ?? '__none';
     (groups.find((g) => g.value === v) ?? groups.at(-1)).items.push(a);
@@ -79,7 +79,10 @@ function applyLens(id) {
   $('#lens-select').value = lens.id;
   renderLegend();
   renderGroups();
-  if (map?.isStyleLoaded()) map.setPaintProperty('land', 'fill-color', fillExpression());
+  if (map?.isStyleLoaded()) {
+    map.setPaintProperty('land', 'fill-color', fillExpression());
+    map.setPaintProperty('markers', 'circle-color', fillExpression());
+  }
 }
 
 /* ---------- selecting an area ---------- */
@@ -200,7 +203,7 @@ async function initMap() {
       layers: [
         { id: 'sea', type: 'background', paint: { 'background-color': token('--sea') } },
         { id: 'land', type: 'fill', source: 'countries', paint: { 'fill-color': fillExpression() } },
-        { id: 'borders', type: 'line', source: 'countries', paint: { 'line-color': token('--land-edge'), 'line-width': 0.6 } },
+        { id: 'borders', type: 'line', source: 'countries', paint: { 'line-color': token('--land-edge'), 'line-width': 0.7 } },
         {
           id: 'hover',
           type: 'line',
@@ -213,29 +216,29 @@ async function initMap() {
           type: 'fill',
           source: 'countries',
           filter: ['==', ['get', 'area'], '__none'],
-          paint: { 'fill-color': token('--select'), 'fill-opacity': 0.35 },
+          paint: { 'fill-color': token('--map-select'), 'fill-opacity': 0.12 },
         },
         {
           id: 'selected',
           type: 'line',
           source: 'countries',
           filter: ['==', ['get', 'area'], '__none'],
-          paint: { 'line-color': token('--select'), 'line-width': 2 },
+          paint: { 'line-color': token('--map-select'), 'line-width': 2.2 },
         },
         {
           id: 'selected-other',
           type: 'line',
           source: 'countries',
           filter: ['==', ['get', 'iso'], '__none'],
-          paint: { 'line-color': token('--select'), 'line-width': 1.6 },
+          paint: { 'line-color': token('--map-select'), 'line-width': 1.8 },
         },
         {
           id: 'markers',
           type: 'circle',
           source: 'markers',
           paint: {
-            'circle-radius': 5,
-            'circle-color': token('--covered'),
+            'circle-radius': 5.5,
+            'circle-color': fillExpression(),
             'circle-stroke-color': token('--paper'),
             'circle-stroke-width': 1.5,
           },
@@ -290,10 +293,10 @@ async function initMap() {
     map.setPaintProperty('land', 'fill-color', fillExpression());
     map.setPaintProperty('borders', 'line-color', token('--land-edge'));
     map.setPaintProperty('hover', 'line-color', token('--ink'));
-    map.setPaintProperty('selected', 'line-color', token('--select'));
-    map.setPaintProperty('selected-fill', 'fill-color', token('--select'));
-    map.setPaintProperty('selected-other', 'line-color', token('--select'));
-    map.setPaintProperty('markers', 'circle-color', token('--covered'));
+    map.setPaintProperty('selected', 'line-color', token('--map-select'));
+    map.setPaintProperty('selected-fill', 'fill-color', token('--map-select'));
+    map.setPaintProperty('selected-other', 'line-color', token('--map-select'));
+    map.setPaintProperty('markers', 'circle-color', fillExpression());
     map.setPaintProperty('markers', 'circle-stroke-color', token('--paper'));
   };
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', recolour);
