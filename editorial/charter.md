@@ -25,10 +25,13 @@ We take no side between countries, governments, parties or companies. The only p
 - Disagreement inside a country, presented as disagreement
 - "Why it matters for AI safety" notes that explain the link to safety, not whether a development is good or bad
 - Quotes in the speaker's own words and original language, with a translation beside them
+- Areas for improvement in AI safety that named sources have identified, each set beside what is already in place. Approaches used in other countries are listed to help understanding, not as recommendations.
+- AI safety contacts: organisations in each country that people elsewhere can approach. Being listed is not an endorsement. Companies, including AI developers, and campaign groups are not listed.
 
 ## What we don't publish
 
 - Rankings, scores or league tables of countries
+- Comparisons that measure one country against another country's approach. Once the first set of countries is in, a comparison table may describe features of AI safety across countries, without rating them.
 - Characterisations of motive ("cynical", "genuine") or judgement words ("lagging", "draconian", "world-leading") in our own voice. Such words may appear inside a quote, attributed to the speaker.
 - Positions on disputed territory. Borders are shown for navigation only.
 - Anything that could put a contributor at risk
@@ -36,6 +39,8 @@ We take no side between countries, governments, parties or companies. The only p
 ## The same standard for every country
 
 Each country gets the same structure and the same level of detail where evidence allows. Before publishing a sentence, we apply the **swap test**: would it read as fair if it were written about a different country?
+
+**The same tone for every country.** No country's page should read as more positive or more negative than another's. The aim is to help people understand and engage with each other, not to rate countries.
 
 ## Review and accountability
 

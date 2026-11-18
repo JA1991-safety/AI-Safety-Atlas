@@ -5,7 +5,7 @@ import { LABELS, fmtDate } from '../lib/site.mjs';
 
 const { p, idx } = Astro.props as any;
 const sec = p.principles;
-const gapsFor = (key: string) => (p.gap_analysis?.items ?? []).filter((g: any) => g.principles.includes(key));
+const improvementsFor = (key: string) => (p.areas_for_improvement?.items ?? []).filter((g: any) => g.principles.includes(key));
 ---
 <section id="principles" class="section" aria-labelledby="h-principles">
   <header class="section-head">
@@ -37,7 +37,7 @@ const gapsFor = (key: string) => (p.gap_analysis?.items ?? []).filter((g: any) =
   <ol class="principles">
     {
       sec.items.map((it: any, n: number) => {
-        const related = gapsFor(it.key);
+        const related = improvementsFor(it.key);
         return (
           <li class="principle" id={`principle-${it.key}`}>
             <header class="principle-head">
@@ -87,11 +87,11 @@ const gapsFor = (key: string) => (p.gap_analysis?.items ?? []).filter((g: any) =
             </div>
             {related.length > 0 && (
               <p class="principle-gaps">
-                <span class="label">Gaps found</span>{' '}
+                <span class="label">Areas for improvement</span>{' '}
                 {related.map((g: any, i: number) => (
                   <>
                     {i > 0 && ' · '}
-                    <a href={`#gap-${g.id}`}>{g.title}</a>
+                    <a href={`#improve-${g.id}`}>{g.title}</a>
                   </>
                 ))}
               </p>

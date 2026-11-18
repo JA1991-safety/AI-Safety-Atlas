@@ -102,18 +102,12 @@ export function checkProfile(p) {
       ...refs(p.principles.intro),
       ...p.principles.items.flatMap((i) => [...refs(i.asks), ...refs(i.footing_note), ...refs(i.how_it_works), ...refs(i.evidence)]),
     ]);
-  if (p.gap_analysis)
-    check('gap_analysis', [
-      ...refs(p.gap_analysis.intro),
-      ...p.gap_analysis.items.flatMap((g) => [...refs(g.finding), ...refs(g.options)]),
+  if (p.areas_for_improvement)
+    check('areas_for_improvement', [
+      ...refs(p.areas_for_improvement.intro),
+      ...p.areas_for_improvement.items.flatMap((g) => [...refs(g.in_place), ...refs(g.identified), ...refs(g.elsewhere)]),
     ]);
-  if (p.comparison)
-    check('comparison', [
-      ...refs(p.comparison.intro),
-      ...refs(p.comparison.areas),
-      ...refs(p.comparison.cooperation),
-      ...p.comparison.approaches.flatMap((a) => [...refs(a.description), ...refs(a.evidence), ...refs(a.limits)]),
-    ]);
+  if (p.contacts) check('contacts', [...refs(p.contacts.intro), ...p.contacts.items.flatMap((c) => refs(c.about))]);
   for (const id of ids) if (!used.has(id)) warnings.push(`Source "${id}" is listed but never cited`);
 
   // 2. Culture leans on voices from inside the country.
@@ -141,21 +135,12 @@ export function checkProfile(p) {
     if (sec.meta.checked > today) errors.push(`${name}.meta.checked is in the future`);
   }
 
-  // 5. Comparison tables must answer every criterion for every area.
-  if (p.comparison) {
-    const keys = p.comparison.criteria.map((c) => c.key);
-    for (const a of p.comparison.areas) {
-      const missing = keys.filter((k) => !(k in a.answers));
-      if (missing.length) errors.push(`comparison: ${a.code} has no answer for ${missing.join(', ')}`);
-    }
-  }
-
-  // 6. Each statistic appears once outside the summary, so the page doesn't repeat itself.
+  // 5. Each statistic appears once outside the summary, so the page doesn't repeat itself.
   for (const d of duplicateStatistics(p)) {
     warnings.push(`Statistic "${d.stat}" (source ${d.source}) appears more than once: ${d.places.join(' and ')}`);
   }
 
-  // 7. Word lists: flag loaded terms and sensitive topics for the editor.
+  // 6. Word lists: flag loaded terms and sensitive topics for the editor.
   const { flagged, sensitive } = loadWordLists();
   for (const [at, text] of textFields(p)) {
     if (at.startsWith('culture.own_words') && at.endsWith('.quote')) continue; // quotes are the speaker's words

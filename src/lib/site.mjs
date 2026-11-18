@@ -31,14 +31,21 @@ export const LABELS = {
     partly_binding: 'Partly backed by binding law',
     guidance_only: 'Guidance only',
   },
-  gap_kind: {
+  improvement_kind: {
     legal_power: 'Legal powers',
     coverage: 'Coverage',
     capacity: 'Capacity',
     technical: 'Technical',
     redress: 'Redress',
   },
-  match: { yes: 'Yes', partly: 'Partly', no: 'No' },
+  contact_type: {
+    government: 'Government',
+    regulator: 'Regulator',
+    research_institute: 'Research institute',
+    university: 'University centre',
+    civil_society: 'Civil society',
+    network: 'Network',
+  },
   regulatory_approach: {
     binding_horizontal: 'General AI law in force',
     sector_and_existing_law: 'Existing regulators and sector rules',

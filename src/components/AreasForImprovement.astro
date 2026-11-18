@@ -1,25 +1,25 @@
 ---
-// Gap analysis: where evidence shows the five principles are not yet met, and the options
-// that other countries use or that UK bodies have proposed.
+// Areas for improvement in AI safety. Each area sets what is already in place beside what a named
+// source has identified, so the section reads in balance. Approaches used elsewhere are for information.
 import Cite from './Cite.astro';
 import { LABELS, fmtDate } from '../lib/site.mjs';
 
 const { p, idx, areaNames } = Astro.props as any;
-const sec = p.gap_analysis;
+const sec = p.areas_for_improvement;
 const nameOf = (c: string) => areaNames[c] ?? c;
 ---
-<section id="gaps" class="section" aria-labelledby="h-gaps">
+<section id="improvement" class="section" aria-labelledby="h-improvement">
   <header class="section-head">
-    <h2 id="h-gaps">Gap analysis</h2>
+    <h2 id="h-improvement">Areas for Improvement in AI Safety</h2>
     <p class="section-meta mono">
       Checked {fmtDate(sec.meta.checked)} · {LABELS.evidence_depth[sec.meta.evidence_depth]} · {LABELS.review[sec.meta.review]}
     </p>
   </header>
   <p class="analysis-note">
-    <span class="pill pill-analysis">Analysis</span>
+    <span class="pill pill-analysis">About this section</span>
     <span>
-      Each gap is one that a named source has shown, using the five principles as the yardstick. Options are interventions
-      already used in other countries or proposed by UK bodies. They are listed for comparison, not recommended.
+      Each area shows what is already in place and what named sources have identified, using the five principles as a frame.
+      Approaches used in other countries, or proposed at home, are listed to help understanding, not as recommendations.
     </span>
   </p>
   {
@@ -34,12 +34,12 @@ const nameOf = (c: string) => areaNames[c] ?? c;
       </div>
     )
   }
-  <ol class="gap-list">
+  <ol class="area-list">
     {
       sec.items.map((g: any) => (
-        <li class="gap" id={`gap-${g.id}`}>
-          <div class="gap-tags">
-            <span class={`kind kind-${g.kind}`}>{LABELS.gap_kind[g.kind]}</span>
+        <li class="area" id={`improve-${g.id}`}>
+          <div class="area-tags">
+            <span class="kind">{LABELS.improvement_kind[g.kind]}</span>
             {g.principles.map((k: string) => (
               <a class="chip" href={`#principle-${k}`}>
                 {LABELS.principle_short[k]}
@@ -47,15 +47,27 @@ const nameOf = (c: string) => areaNames[c] ?? c;
             ))}
           </div>
           <h3>{g.title}</h3>
-          <p class="finding">
-            {g.finding.text}
-            <Cite ids={g.finding.sources} index={idx} />
-          </p>
-          {g.options.length > 0 && (
+          <dl class="balance">
+            <div>
+              <dt class="label">In place</dt>
+              <dd>
+                {g.in_place.text}
+                <Cite ids={g.in_place.sources} index={idx} />
+              </dd>
+            </div>
+            <div>
+              <dt class="label">Identified for improvement</dt>
+              <dd>
+                {g.identified.text}
+                <Cite ids={g.identified.sources} index={idx} />
+              </dd>
+            </div>
+          </dl>
+          {g.elsewhere.length > 0 && (
             <div class="options">
-              <h4 class="label">Options seen elsewhere</h4>
+              <h4 class="label">Approaches used elsewhere</h4>
               <ul>
-                {g.options.map((o: any) => (
+                {g.elsewhere.map((o: any) => (
                   <li>
                     <span>
                       {o.text}
@@ -91,27 +103,27 @@ const nameOf = (c: string) => areaNames[c] ?? c;
     gap: 10px;
     max-width: var(--measure);
   }
-  .gap-list {
+  .area-list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: grid;
     gap: 0;
   }
-  .gap {
+  .area {
     display: grid;
     gap: 8px;
     padding-block: 18px;
     border-top: 1px solid var(--rule);
     scroll-margin-top: 120px;
   }
-  .gap-tags {
+  .area-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
     align-items: center;
   }
-  .gap-tags .chip {
+  .area-tags .chip {
     text-decoration: none;
   }
   .kind {
@@ -120,14 +132,27 @@ const nameOf = (c: string) => areaNames[c] ?? c;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     font-size: 0.78rem;
-    color: var(--select-ink);
+    color: var(--ink-2);
     margin-right: 4px;
   }
-  .gap h3 {
+  .area h3 {
     font-size: var(--step-1);
   }
-  .finding {
-    max-width: var(--measure);
+  .balance {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: 10px 24px;
+    max-width: 960px;
+  }
+  .balance div {
+    display: grid;
+    gap: 4px;
+    align-content: start;
+    min-width: 0;
+  }
+  .balance dd {
+    margin: 0;
   }
   .options {
     display: grid;

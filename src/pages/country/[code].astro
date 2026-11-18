@@ -2,8 +2,8 @@
 import Base from '../../layouts/Base.astro';
 import Cite from '../../components/Cite.astro';
 import Principles from '../../components/Principles.astro';
-import GapAnalysis from '../../components/GapAnalysis.astro';
-import Comparison from '../../components/Comparison.astro';
+import AreasForImprovement from '../../components/AreasForImprovement.astro';
+import Contacts from '../../components/Contacts.astro';
 import { loadAll, isNew, CULTURE_MIN_INSIDE_SHARE } from '../../lib/load.mjs';
 import { LABELS, fmtDate, correctionUrl, LANGUAGE_NAMES, SITE } from '../../lib/site.mjs';
 
@@ -16,7 +16,6 @@ export function getStaticPaths() {
 }
 
 const { area, p, areaNames } = Astro.props as any;
-const home = { name: area.name, short: area.short ?? area.name };
 const base = '../';
 const idx = p.derived.sourceIndex;
 const byId = Object.fromEntries(p.sources.map((s: any) => [s.id, s]));
@@ -30,13 +29,19 @@ const sections = [
   { id: 'news', title: 'News', meta: p.news.meta, tier: 'Light review: headline, relevance and source checked' },
 ];
 const meta = Object.fromEntries(sections.map((s) => [s.id, s]));
-// The principles, gap analysis and comparison sections sit between regulation and culture.
+// The principles and areas for improvement sit between regulation and culture; contacts come after news.
 const extra = [
   p.principles && { id: 'principles', title: 'Five principles' },
-  p.gap_analysis && { id: 'gaps', title: 'Gap analysis' },
-  p.comparison && { id: 'compare', title: 'Comparison' },
+  p.areas_for_improvement && { id: 'improvement', title: 'Areas for improvement' },
 ].filter(Boolean) as { id: string; title: string }[];
-const nav = [sections[0], sections[1], ...extra, sections[2], sections[3]];
+const nav = [
+  sections[0],
+  sections[1],
+  ...extra,
+  sections[2],
+  sections[3],
+  ...(p.contacts ? [{ id: 'contacts', title: 'AI safety contacts' }] : []),
+];
 const commitStatus = (c: any) => LABELS.commitment_status[c.status];
 ---
 <Base
@@ -189,8 +194,7 @@ const commitStatus = (c: any) => LABELS.commitment_status[c.status];
       </section>
 
       {p.principles && <Principles p={p} idx={idx} />}
-      {p.gap_analysis && <GapAnalysis p={p} idx={idx} areaNames={areaNames} />}
-      {p.comparison && <Comparison p={p} idx={idx} areaNames={areaNames} home={home} />}
+      {p.areas_for_improvement && <AreasForImprovement p={p} idx={idx} areaNames={areaNames} />}
 
       {/* ---------- Culture ---------- */}
       <section id="culture" class="section" aria-labelledby="h-culture">
@@ -314,6 +318,8 @@ const commitStatus = (c: any) => LABELS.commitment_status[c.status];
           ))
         }
       </section>
+
+      {p.contacts && <Contacts p={p} idx={idx} area={area} />}
 
       {/* ---------- Sources ---------- */}
       <section id="sources" class="section" aria-labelledby="h-sources">

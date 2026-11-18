@@ -1,0 +1,131 @@
+---
+// AI safety contacts: organisations in the area that people elsewhere can approach.
+// Listed alphabetically. Not a ranking or an endorsement.
+import Cite from './Cite.astro';
+import { LABELS, fmtDate, SITE } from '../lib/site.mjs';
+
+const { p, idx, area } = Astro.props as any;
+const sec = p.contacts;
+const items = [...sec.items].sort((a: any, b: any) =>
+  a.name.replace(/^The /, '').localeCompare(b.name.replace(/^The /, ''), 'en')
+);
+const host = (u: string) => new URL(u).hostname.replace(/^www\./, '');
+const suggest = `${SITE.repo}/issues/new?template=suggest-source.yml&title=${encodeURIComponent(`AI safety contact for ${area.name}`)}`;
+---
+<section id="contacts" class="section" aria-labelledby="h-contacts">
+  <header class="section-head">
+    <h2 id="h-contacts">AI Safety Contacts</h2>
+    <p class="section-meta mono">
+      Checked {fmtDate(sec.meta.checked)} · {LABELS.evidence_depth[sec.meta.evidence_depth]} · {LABELS.review[sec.meta.review]}
+    </p>
+  </header>
+  <p class="analysis-note">
+    <span class="pill pill-analysis">About this section</span>
+    <span>
+      Organisations working on AI safety here, so that people in other countries can find someone to talk to. Listed
+      alphabetically. Being listed is not an endorsement, and the list is not a ranking. Companies, including AI developers, and
+      campaign groups are not listed. <a href={suggest}>Suggest an organisation</a>.
+    </span>
+  </p>
+  {
+    sec.intro.length > 0 && (
+      <div class="intro">
+        {sec.intro.map((s: any) => (
+          <p>
+            {s.text}
+            <Cite ids={s.sources} index={idx} />
+          </p>
+        ))}
+      </div>
+    )
+  }
+  <ul class="contacts">
+    {
+      items.map((c: any) => (
+        <li class="contact">
+          <p class="contact-meta">
+            <span class="chip">{LABELS.contact_type[c.type]}</span>
+            {c.based && <span class="mono">{c.based}</span>}
+          </p>
+          <h3>
+            <a href={c.url} rel="noopener" target="_blank">
+              {c.name}
+            </a>
+          </h3>
+          <p class="about">
+            {c.about.text}
+            <Cite ids={c.about.sources} index={idx} />
+          </p>
+          <p class="links">
+            <a href={c.url} rel="noopener" target="_blank" class="mono">
+              {host(c.url)}
+            </a>
+            {c.links.map((l: any) => (
+              <a href={l.url} rel="noopener" target="_blank">
+                {l.label}
+              </a>
+            ))}
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+  {sec.meta.gaps && <p class="gaps"><span class="label">Gaps</span> {sec.meta.gaps}</p>}
+</section>
+
+<style>
+  .intro {
+    display: grid;
+    gap: 10px;
+    max-width: var(--measure);
+  }
+  .contacts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+    gap: 14px;
+  }
+  .contact {
+    display: grid;
+    gap: 8px;
+    align-content: start;
+    min-width: 0;
+    padding: 14px 16px;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+  }
+  .contact-meta {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    align-items: baseline;
+    color: var(--ink-3);
+  }
+  .contact h3 {
+    font-size: var(--step-1);
+    text-wrap: balance;
+  }
+  .contact h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .contact h3 a:hover,
+  .contact h3 a:focus-visible {
+    text-decoration: underline;
+  }
+  .about {
+    margin: 0;
+    font-size: 0.9375rem;
+  }
+  .links {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    font-size: 0.875rem;
+    overflow-wrap: anywhere;
+  }
+</style>
