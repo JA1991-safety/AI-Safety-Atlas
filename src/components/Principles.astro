@@ -1,0 +1,240 @@
+---
+// "How regulation works": the five cross-sector principles, one card each.
+import Cite from './Cite.astro';
+import { LABELS, fmtDate } from '../lib/site.mjs';
+
+const { p, idx } = Astro.props as any;
+const sec = p.principles;
+const improvementsFor = (key: string) => (p.areas_for_improvement?.items ?? []).filter((g: any) => g.principles.includes(key));
+---
+<section id="principles" class="section" aria-labelledby="h-principles">
+  <header class="section-head">
+    <h2 id="h-principles">How regulation works: the five principles</h2>
+    <p class="section-meta mono">
+      Checked {fmtDate(sec.meta.checked)} · {LABELS.evidence_depth[sec.meta.evidence_depth]} · {LABELS.review[sec.meta.review]}
+    </p>
+  </header>
+
+  {
+    sec.intro.length > 0 && (
+      <div class="intro">
+        {sec.intro.map((s: any) => (
+          <p>
+            {s.text}
+            <Cite ids={s.sources} index={idx} />
+          </p>
+        ))}
+      </div>
+    )
+  }
+
+  <dl class="footing-key" aria-label="How legal footing is classified">
+    <div><dt><span class="footing footing-binding">{LABELS.footing.binding}</span></dt><dd>Existing law requires what the principle asks, across most uses of AI.</dd></div>
+    <div><dt><span class="footing footing-partly_binding">{LABELS.footing.partly_binding}</span></dt><dd>Law requires it in some sectors or situations, but not others.</dd></div>
+    <div><dt><span class="footing footing-guidance_only">{LABELS.footing.guidance_only}</span></dt><dd>Only guidance, codes or voluntary commitments ask for it.</dd></div>
+  </dl>
+
+  <ol class="principles">
+    {
+      sec.items.map((it: any, n: number) => {
+        const related = improvementsFor(it.key);
+        return (
+          <li class="principle" id={`principle-${it.key}`}>
+            <header class="principle-head">
+              <span class="principle-n mono">{n + 1}</span>
+              <h3>{it.name}</h3>
+              <span class={`footing footing-${it.footing}`}>{LABELS.footing[it.footing]}</span>
+            </header>
+            <p class="asks">
+              {it.asks.text}
+              <Cite ids={it.asks.sources} index={idx} />
+            </p>
+            <p class="footing-note">
+              {it.footing_note.text}
+              <Cite ids={it.footing_note.sources} index={idx} />
+            </p>
+            <div class="principle-cols">
+              <div>
+                <h4 class="label">How it works now</h4>
+                <ul class="statements">
+                  {it.how_it_works.map((s: any) => (
+                    <li>
+                      {s.text}
+                      <Cite ids={s.sources} index={idx} />
+                    </li>
+                  ))}
+                </ul>
+                {it.regulators.length > 0 && (
+                  <p class="regulators">
+                    <span class="label">Main regulators</span>{' '}
+                    {it.regulators.map((r: string) => <span class="chip">{r}</span>)}
+                  </p>
+                )}
+              </div>
+              {it.evidence.length > 0 && (
+                <div class="evidence">
+                  <h4 class="label">In practice</h4>
+                  <ul class="statements">
+                    {it.evidence.map((s: any) => (
+                      <li>
+                        {s.text}
+                        <Cite ids={s.sources} index={idx} />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+            {related.length > 0 && (
+              <p class="principle-gaps">
+                <span class="label">Areas for improvement</span>{' '}
+                {related.map((g: any, i: number) => (
+                  <>
+                    {i > 0 && ' · '}
+                    <a href={`#improve-${g.id}`}>{g.title}</a>
+                  </>
+                ))}
+              </p>
+            )}
+          </li>
+        );
+      })
+    }
+  </ol>
+  {sec.meta.gaps && <p class="gaps"><span class="label">Gaps</span> {sec.meta.gaps}</p>}
+</section>
+
+<style>
+  .intro {
+    display: grid;
+    gap: 10px;
+    max-width: var(--measure);
+    font-size: var(--step-1);
+    line-height: 1.5;
+  }
+  .footing-key {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px 20px;
+    font-size: 0.875rem;
+    color: var(--ink-2);
+  }
+  .footing-key dd {
+    margin: 4px 0 0;
+  }
+  .footing {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .footing::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+  }
+  .footing-binding {
+    color: var(--covered);
+  }
+  .footing-binding::before {
+    background: currentColor;
+  }
+  .footing-partly_binding {
+    color: var(--covered);
+  }
+  .footing-partly_binding::before {
+    background: linear-gradient(90deg, currentColor 50%, transparent 50%);
+  }
+  .footing-guidance_only {
+    color: var(--select-ink);
+  }
+  .principles {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+  .principle {
+    display: grid;
+    gap: 12px;
+    padding: 18px 20px 20px;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    scroll-margin-top: 120px;
+  }
+  .principle-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 14px;
+  }
+  .principle-head h3 {
+    font-size: var(--step-2);
+  }
+  .principle-head .footing {
+    margin-left: auto;
+  }
+  .principle-n {
+    color: var(--ink-3);
+  }
+  .asks {
+    max-width: var(--measure);
+    font-size: var(--step-1);
+  }
+  .footing-note {
+    max-width: var(--measure);
+    color: var(--ink-2);
+  }
+  .principle-cols {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 16px 32px;
+  }
+  .principle-cols h4 {
+    margin: 0 0 8px;
+  }
+  .evidence {
+    padding: 12px 14px;
+    background: var(--paper-2);
+    border-radius: var(--radius);
+    align-self: start;
+  }
+  .evidence .statements {
+    font-size: 0.9375rem;
+  }
+  .regulators {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: baseline;
+  }
+  .principle-gaps {
+    font-size: 0.9375rem;
+    border-top: 1px solid var(--rule);
+    padding-top: 10px;
+  }
+  .principle-gaps .label {
+    margin-right: 6px;
+  }
+  @media (max-width: 760px) {
+    .principle-cols {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .principle {
+      padding: 14px;
+    }
+    .principle-head .footing {
+      margin-left: 0;
+    }
+  }
+</style>

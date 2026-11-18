@@ -123,7 +123,7 @@ export const HeadlineFigure = z
 
 export const RegulationItem = z
   .object({
-    kind: z.enum(['law', 'bill', 'strategy', 'guidance', 'institution', 'international', 'machinery']),
+    kind: z.enum(['law', 'bill', 'strategy', 'guidance', 'institution', 'international', 'machinery', 'enforcement']),
     title: z.string(),
     date: PartialDate,
     status: z.string().optional(), // e.g. "In force", "Announced", "Second reading scheduled"
@@ -155,6 +155,67 @@ export const NewsItem = z
     why_it_matters: z.string().min(10),
     sources: z.array(z.string()).min(1),
     topics: z.array(z.string()).default([]),
+  })
+  .strict();
+
+// ---------- Five principles, areas for improvement and contacts (optional, so profiles without them stay valid) ----------
+
+// The UK's five cross-sector principles. They frame the UK profile's areas for improvement.
+export const PRINCIPLE_KEYS = ['safety', 'transparency', 'fairness', 'accountability', 'contestability'];
+
+// How far a principle is backed by law. A classification, explained on the page, not a score.
+export const LEGAL_FOOTING = ['binding', 'partly_binding', 'guidance_only'];
+
+export const Principle = z
+  .object({
+    key: z.enum(PRINCIPLE_KEYS),
+    name: z.string(),
+    asks: Statement, // what the principle asks of regulators, in the government's words
+    footing: z.enum(LEGAL_FOOTING),
+    footing_note: Statement, // why it is classified that way
+    how_it_works: z.array(Statement).min(1), // the laws, regulators and tools that carry it
+    regulators: z.array(z.string()).default([]),
+    evidence: z.array(Statement).default([]), // statistics on how it works in practice
+  })
+  .strict();
+
+export const IMPROVEMENT_KINDS = ['legal_power', 'coverage', 'capacity', 'technical', 'redress'];
+
+// An approach already used in another country, or proposed at home. Listed for information, not recommended.
+export const ApproachElsewhere = z
+  .object({
+    text: z.string().min(10),
+    used_in: z.array(z.string()).default([]), // area codes or names where it is in use
+    proposed_by: z.string().optional(), // e.g. a committee or institute, when not yet used
+    sources: z.array(z.string()).min(1),
+  })
+  .strict();
+
+export const ImprovementArea = z
+  .object({
+    id: z.string().regex(/^[a-z0-9-]+$/),
+    title: z.string(),
+    kind: z.enum(IMPROVEMENT_KINDS),
+    principles: z.array(z.enum(PRINCIPLE_KEYS)).min(1),
+    in_place: Statement, // what already exists, so each area reads in balance
+    identified: Statement, // what a named source has identified
+    elsewhere: z.array(ApproachElsewhere).default([]),
+  })
+  .strict();
+
+// AI safety contacts: organisations people in other countries can approach. Not a ranking or an endorsement.
+export const CONTACT_TYPES = ['government', 'regulator', 'research_institute', 'university', 'civil_society', 'network'];
+
+export const Contact = z
+  .object({
+    name: z.string(),
+    type: z.enum(CONTACT_TYPES),
+    url: z.string().url().startsWith('https://', 'Use https links'), // the organisation's own site
+    about: Statement, // what it does, from its own pages
+    based: z.string().optional(), // e.g. "London"
+    links: z // contact, newsletter or get-involved pages, as the organisation names them
+      .array(z.object({ label: z.string().max(24), url: z.string().url().startsWith('https://') }).strict())
+      .default([]),
   })
   .strict();
 
@@ -205,6 +266,31 @@ export const Profile = z
         items: z.array(NewsItem).min(1),
       })
       .strict(),
+    // Five principles, areas for improvement and contacts (optional while other areas are drafted)
+    principles: z
+      .object({
+        meta: SectionMeta,
+        intro: z.array(Statement).default([]),
+        items: z.array(Principle).length(5),
+      })
+      .strict()
+      .optional(),
+    areas_for_improvement: z
+      .object({
+        meta: SectionMeta,
+        intro: z.array(Statement).default([]),
+        items: z.array(ImprovementArea).min(1),
+      })
+      .strict()
+      .optional(),
+    contacts: z
+      .object({
+        meta: SectionMeta,
+        intro: z.array(Statement).default([]),
+        items: z.array(Contact).min(1),
+      })
+      .strict()
+      .optional(),
     sources: z.array(Source).min(1),
   })
   .strict();

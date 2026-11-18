@@ -12,6 +12,40 @@ export const correctionUrl = (area, section) =>
   `${SITE.repo}/issues/new?template=correction.yml&title=${encodeURIComponent(`Correction: ${area}${section ? ` (${section})` : ''}`)}`;
 
 export const LABELS = {
+  principle: {
+    safety: 'Safety, security and robustness',
+    transparency: 'Transparency and explainability',
+    fairness: 'Fairness',
+    accountability: 'Accountability and governance',
+    contestability: 'Contestability and redress',
+  },
+  principle_short: {
+    safety: 'Safety',
+    transparency: 'Transparency',
+    fairness: 'Fairness',
+    accountability: 'Accountability',
+    contestability: 'Redress',
+  },
+  footing: {
+    binding: 'Backed by binding law',
+    partly_binding: 'Partly backed by binding law',
+    guidance_only: 'Guidance only',
+  },
+  improvement_kind: {
+    legal_power: 'Legal powers',
+    coverage: 'Coverage',
+    capacity: 'Capacity',
+    technical: 'Technical',
+    redress: 'Redress',
+  },
+  contact_type: {
+    government: 'Government',
+    regulator: 'Regulator',
+    research_institute: 'Research institute',
+    university: 'University centre',
+    civil_society: 'Civil society',
+    network: 'Network',
+  },
   regulatory_approach: {
     binding_horizontal: 'General AI law in force',
     sector_and_existing_law: 'Existing regulators and sector rules',
@@ -87,6 +121,7 @@ export const LABELS = {
     institution: 'Institution',
     international: 'International',
     machinery: 'Machinery of government',
+    enforcement: 'Enforcement',
   },
 };
 

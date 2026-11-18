@@ -362,3 +362,67 @@ body::before {
     scroll-behavior: auto !important;
   }
 }
+
+/* Profile sections. Shared by the country page and its section components. */
+.section {
+  display: grid;
+  gap: 18px;
+  scroll-margin-top: 120px;
+}
+.section-head {
+  display: grid;
+  gap: 4px;
+}
+.section-head h2 {
+  font-size: var(--step-3);
+}
+.section-meta {
+  color: var(--ink-3);
+}
+.statements {
+  margin: 0;
+  padding-left: 1.1em;
+  display: grid;
+  gap: 10px;
+  max-width: var(--measure);
+}
+.statements li::marker {
+  color: var(--ink-3);
+}
+.gaps {
+  max-width: var(--measure);
+  font-size: 0.9375rem;
+  color: var(--ink-2);
+  border-left: 2px solid var(--rule);
+  padding-left: 12px;
+}
+.gaps .label {
+  margin-right: 6px;
+}
+.analysis-note {
+  max-width: var(--measure);
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  background: var(--paper-2);
+  color: var(--ink-2);
+  font-size: 0.9375rem;
+}
+.pill-analysis {
+  color: var(--tag-outside);
+}
+.chip {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  padding: 1px 7px;
+  border-radius: 3px;
+  background: var(--paper-2);
+  color: var(--ink-2);
+  white-space: nowrap;
+}

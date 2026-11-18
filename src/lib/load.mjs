@@ -97,6 +97,17 @@ export function checkProfile(p) {
   check('regulation', refs(p.regulation.items));
   check('culture', [...refs(p.culture.summary), ...refs(p.culture.own_words), ...refs(p.culture.outside_analysis)]);
   check('news', refs(p.news.items));
+  if (p.principles)
+    check('principles', [
+      ...refs(p.principles.intro),
+      ...p.principles.items.flatMap((i) => [...refs(i.asks), ...refs(i.footing_note), ...refs(i.how_it_works), ...refs(i.evidence)]),
+    ]);
+  if (p.areas_for_improvement)
+    check('areas_for_improvement', [
+      ...refs(p.areas_for_improvement.intro),
+      ...p.areas_for_improvement.items.flatMap((g) => [...refs(g.in_place), ...refs(g.identified), ...refs(g.elsewhere)]),
+    ]);
+  if (p.contacts) check('contacts', [...refs(p.contacts.intro), ...p.contacts.items.flatMap((c) => refs(c.about))]);
   for (const id of ids) if (!used.has(id)) warnings.push(`Source "${id}" is listed but never cited`);
 
   // 2. Culture leans on voices from inside the country.
@@ -124,7 +135,12 @@ export function checkProfile(p) {
     if (sec.meta.checked > today) errors.push(`${name}.meta.checked is in the future`);
   }
 
-  // 5. Word lists: flag loaded terms and sensitive topics for the editor.
+  // 5. Each statistic appears once outside the summary, so the page doesn't repeat itself.
+  for (const d of duplicateStatistics(p)) {
+    warnings.push(`Statistic "${d.stat}" (source ${d.source}) appears more than once: ${d.places.join(' and ')}`);
+  }
+
+  // 6. Word lists: flag loaded terms and sensitive topics for the editor.
   const { flagged, sensitive } = loadWordLists();
   for (const [at, text] of textFields(p)) {
     if (at.startsWith('culture.own_words') && at.endsWith('.quote')) continue; // quotes are the speaker's words
@@ -139,6 +155,58 @@ export function checkProfile(p) {
   }
 
   return { errors, warnings, sensitive: [...sensitiveHits] };
+}
+
+// Figures worth tracking: percentages, money, and counted things ("13 regulators").
+const MONTHS = 'jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec';
+const STAT_RE = new RegExp(
+  [
+    String.raw`[£$€]\s?\d[\d,.]*\s?(?:bn|billion|m|million|k)?`, // money
+    String.raw`\d[\d,.]*\s?(?:%|per cent)`, // percentages
+    String.raw`\b\d{1,3}(?:,\d{3})+\b`, // large numbers with commas
+    String.raw`\b\d{2,3}x\b`, // multiples such as 40x
+    String.raw`\b(?!(?:19|20)\d{2}\b)\d{2,4}\s(?!(?:${MONTHS})|to\b|and\b|or\b)[a-z]{3,}`, // "88 countries"
+  ].join('|'),
+  'gi'
+);
+const normStat = (s) => s.toLowerCase().replace(/\s+/g, ' ').replace(' per cent', '%').replace(/(\d) %/, '$1%').trim();
+
+/**
+ * Statistics that appear in more than one place outside the summary and share a source.
+ * The same number from two different sources is treated as two different statistics.
+ */
+export function duplicateStatistics(p) {
+  const seen = new Map(); // "stat|source" -> places
+  const record = (stat, sources, where) => {
+    for (const src of sources) {
+      const key = `${normStat(stat)}|${src}`;
+      if (!seen.has(key)) seen.set(key, new Set());
+      seen.get(key).add(where);
+    }
+  };
+  const walk = (node, at, inherited) => {
+    if (Array.isArray(node)) return node.forEach((n, i) => walk(n, `${at}[${i}]`, inherited));
+    if (!node || typeof node !== 'object') return;
+    const sources = Array.isArray(node.sources) ? node.sources : typeof node.source === 'string' ? [node.source] : inherited;
+    for (const [k, v] of Object.entries(node)) {
+      if (['sources', 'source', 'url', 'id', 'accessed', 'published', 'date', 'checked', 'fieldwork', 'sample', 'question'].includes(k)) continue;
+      const where = at ? `${at}.${k}` : k;
+      if (typeof v === 'string') for (const m of v.match(STAT_RE) ?? []) record(m, sources, where.replace(/\.(text|label|value|summary|headline|why_it_matters|quote)$/, ''));
+      else walk(v, where, sources);
+    }
+  };
+  const { summary, sources, facets, derived, ...rest } = p; // the summary may repeat figures by design
+  walk(rest, '', []);
+  const out = [];
+  for (const [key, places] of seen) {
+    // one item can mention a figure in its headline and its body; count distinct items
+    const items = new Set([...places].map((w) => w.replace(/\.(headline|summary|why_it_matters|text|label|value)$/, '')));
+    if (items.size > 1) {
+      const [stat, source] = key.split('|');
+      out.push({ stat, source, places: [...items] });
+    }
+  }
+  return out;
 }
 
 export function cultureMix(p) {
