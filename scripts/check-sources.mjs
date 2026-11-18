@@ -108,6 +108,18 @@ for (const area of areas) {
     lines.push(`- ${level === 'error' ? '**Link error**' : 'Link warning'}: \`${s.id}\` returned ${r.status || r.error}: ${s.url}`);
   }
 
+  // Contact links are what readers act on, so check them too (as warnings, never errors).
+  const contactLinks = (p.contacts?.items ?? []).flatMap((c) => [
+    { label: c.name, url: c.url },
+    ...c.links.map((l) => ({ label: `${c.name} (${l.label})`, url: l.url })),
+  ]);
+  for (const { label, url, r } of await pool(contactLinks, async (l) => ({ ...l, r: await fetchPage(l.url) }))) {
+    if (r.status > 0 && r.status < 400) continue;
+    warnings++;
+    console.log(`  ! contact link ${label}: ${r.status || r.error} ${url}`);
+    lines.push(`- Contact link warning: ${label} returned ${r.status || r.error}: ${url}`);
+  }
+
   for (const q of p.culture.own_words) {
     const src = byId.get(q.source);
     const label = `"${q.quote.slice(0, 60)}${q.quote.length > 60 ? '…' : ''}" (${q.speaker})`;
