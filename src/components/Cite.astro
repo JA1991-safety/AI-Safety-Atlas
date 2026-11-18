@@ -1,0 +1,11 @@
+---
+// Superscript source numbers that link to the source list on the country page.
+interface Props {
+  ids: string[];
+  index: Record<string, number>;
+  href?: string; // page the source list is on; empty when on the same page
+}
+const { ids, index, href = '' } = Astro.props;
+const nums = [...new Set(ids)].map((id) => ({ id, n: index[id] })).sort((a, b) => a.n - b.n);
+---
+<span class="cite">[{nums.map((s, i) => <>{i > 0 && ','}<a href={`${href}#src-${s.id}`} aria-label={`Source ${s.n}`}>{s.n}</a></>)}]</span>

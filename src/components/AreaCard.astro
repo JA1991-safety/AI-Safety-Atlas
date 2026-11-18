@@ -1,0 +1,133 @@
+---
+// The summary card shown beside the globe when an area is selected.
+import Cite from './Cite.astro';
+import { LABELS, fmtDate, correctionUrl, SITE } from '../lib/site.mjs';
+
+interface Props {
+  area: { code: string; name: string; region: string };
+  profile?: any;
+  base: string;
+}
+const { area, profile: p, base } = Astro.props;
+const href = `${base}country/${area.code.toLowerCase()}.html`;
+const idx = p?.derived.sourceIndex ?? {};
+const byId = p ? Object.fromEntries(p.sources.map((s: any) => [s.id, s])) : {};
+const sections = p
+  ? [
+      ['Public attitudes', 'attitudes', p.attitudes.meta],
+      ['Frameworks and regulation', 'regulation', p.regulation.meta],
+      ['Culture and industry', 'culture', p.culture.meta],
+      ['News', 'news', p.news.meta],
+    ]
+  : [];
+const depthDots = { rich: 3, moderate: 2, limited: 1 } as Record<string, number>;
+const suggestUrl = `${SITE.repo}/issues/new?template=suggest-source.yml&title=${encodeURIComponent(`Sources for ${area.name}`)}`;
+---
+<article class="card" data-area={area.code} hidden aria-labelledby={`card-${area.code}`}>
+  <header class="card-head">
+    <p class="label">{area.region}</p>
+    <h2 id={`card-${area.code}`}>{area.name}</h2>
+    <p class="card-status">
+      {p && !p.editor_approved && <span class="pill pill-draft">Draft</span>}
+      {p && p.editor_approved && <span class="pill">Reviewed</span>}
+      {!p && <span class="pill pill-pending">In preparation</span>}
+      {p && <span class="mono card-checked">Checked {fmtDate(p.last_reviewed)}</span>}
+    </p>
+  </header>
+
+  {
+    !p && (
+      <div class="card-body">
+        <p>
+          This profile is being researched. Pilot areas are added one at a time, and each is checked by the editor before it is
+          published.
+        </p>
+        <p>
+          <a href={suggestUrl}>Suggest sources for {area.name}</a>, especially sources from inside the country and in its own
+          languages.
+        </p>
+      </div>
+    )
+  }
+
+  {
+    p && (
+      <div class="card-body">
+        <div class="card-overview">
+          {p.summary.overview.map((s: any) => (
+            <p>
+              {s.text}
+              <Cite ids={s.sources} index={idx} href={href} />
+            </p>
+          ))}
+        </div>
+
+        <section class="card-block" aria-labelledby={`reg-${area.code}`}>
+          <h3 class="label" id={`reg-${area.code}`}>Regulation</h3>
+          <p class="card-reg">
+            <strong>{LABELS.regulatory_approach[p.facets.regulatory_approach]}.</strong> {p.summary.regulation_line.text}
+            <Cite ids={p.summary.regulation_line.sources} index={idx} href={href} />
+          </p>
+        </section>
+
+        <section class="card-block" aria-labelledby={`att-${area.code}`}>
+          <h3 class="label" id={`att-${area.code}`}>Public attitudes</h3>
+          {p.attitudes.headline_figures.length === 0 && <p class="muted">No national polling found.</p>}
+          <div class="figures">
+            {p.attitudes.headline_figures.map((f: any) => (
+              <figure class="figure">
+                <span class="figure-value">{f.value}</span>
+                <figcaption>
+                  <span class="figure-label">{f.label}</span>
+                  <span class="figure-meta mono">
+                    {byId[f.source]?.publisher} · {f.fieldwork} · {f.sample}
+                    <Cite ids={[f.source]} index={idx} href={href} />
+                  </span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+        <section class="card-block" aria-labelledby={`top-${area.code}`}>
+          <h3 class="label" id={`top-${area.code}`}>Latest</h3>
+          <ol class="stories">
+            {p.derived.topStories.map((n: any) => (
+              <li>
+                <span class="mono story-date">{fmtDate(n.date)}</span>
+                <a href={`${href}#news-${n.id}`}>{n.headline}</a>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section class="card-block" aria-labelledby={`fresh-${area.code}`}>
+          <h3 class="label" id={`fresh-${area.code}`}>Evidence and review</h3>
+          <ul class="freshness">
+            {sections.map(([label, anchor, meta]: any) => (
+              <li>
+                <a href={`${href}#${anchor}`}>{label}</a>
+                <span class="depth" title={LABELS.evidence_depth[meta.evidence_depth]}>
+                  {[1, 2, 3].map((i) => (
+                    <span class={i <= depthDots[meta.evidence_depth] ? 'dot on' : 'dot'} />
+                  ))}
+                  <span class="visually-hidden">{LABELS.evidence_depth[meta.evidence_depth]}</span>
+                </span>
+                <span class="mono">{fmtDate(meta.checked)}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="mix mono">
+            {p.sources.length} sources: {p.derived.sourceMix.inside} from inside the country, {p.derived.sourceMix.outside} from
+            outside{p.derived.sourceMix.international ? `, ${p.derived.sourceMix.international} international` : ''}
+          </p>
+        </section>
+
+        <p class="card-actions">
+          <a class="button" href={href}>Open the full profile</a>
+          <a class="quiet" href={correctionUrl(area.name)}>Suggest a correction</a>
+        </p>
+      </div>
+    )
+  }
+</article>

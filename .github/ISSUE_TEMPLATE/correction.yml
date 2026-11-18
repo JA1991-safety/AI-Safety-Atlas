@@ -1,0 +1,57 @@
+name: Suggest a correction
+description: Something on a page is wrong, out of date, unfair or missing a source.
+title: '[Correction] '
+labels: [correction]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. Every correction is read by the editor and logged publicly. If you are, or represent, someone described on the page, you have a right of reply: say so below.
+        You do not need to give your name. Please don't include anything that could put you at risk.
+  - type: input
+    id: area
+    attributes:
+      label: Country or area
+      placeholder: e.g. United Kingdom
+    validations:
+      required: true
+  - type: dropdown
+    id: section
+    attributes:
+      label: Section
+      options:
+        - Summary card
+        - Public attitudes
+        - Frameworks and regulation
+        - Culture and industry
+        - News
+        - Sources
+        - Translation
+        - Map or borders
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong?
+      description: Quote or describe the statement, and what you think it should say.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Links to sources that support the correction. Sources in any language are welcome.
+  - type: dropdown
+    id: reply
+    attributes:
+      label: Is this a right of reply?
+      options:
+        - 'No'
+        - Yes, I am or represent a person or organisation described on the page
+  - type: textarea
+    id: interests
+    attributes:
+      label: Interests to declare
+      description: For example "I work for the regulator mentioned" or "None". This is published with the correction.

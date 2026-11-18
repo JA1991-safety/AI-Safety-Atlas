@@ -1,0 +1,63 @@
+---
+import '../styles/global.css';
+import { SITE } from '../lib/site.mjs';
+
+interface Props {
+  title: string;
+  description: string;
+  base: string; // '' for top-level pages, '../' for pages one folder down
+  current?: 'map' | 'about';
+  app?: boolean; // full-height app layout (the map page): the footer moves into the page itself
+}
+const { title, description, base, current, app = false } = Astro.props;
+const fullTitle = title === SITE.name ? `${SITE.name}: ${SITE.byline}` : `${title} · ${SITE.name}`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="claude:viewport-fit-sides" content="cover" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow+Semi+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap"
+    />
+  </head>
+  <body class={app ? 'app' : undefined}>
+    <header class="masthead">
+      <div class="masthead-inner">
+        <a class="wordmark" href={`${base}index.html`}>
+          <span class="wordmark-name">{SITE.name}</span>
+          <span class="wordmark-sub">{SITE.byline}</span>
+        </a>
+        <nav aria-label="Main">
+          <a href={`${base}index.html`} aria-current={current === 'map' ? 'page' : undefined}>Map</a>
+          <a href={`${base}about.html`} aria-current={current === 'about' ? 'page' : undefined}>About and method</a>
+        </nav>
+      </div>
+      {
+        SITE.status === 'preview' && (
+          <p class="preview-ribbon">
+            <strong>Pilot preview.</strong> Country content is a draft awaiting editor review and is not yet published.
+          </p>
+        )
+      }
+    </header>
+    <slot />
+    {!app && <footer class="site-footer">
+      <div class="site-footer-inner">
+        <p>
+          {SITE.name} is a free, public reference edited by {SITE.editor}. Drafted with Claude, an AI model made by Anthropic, and
+          reviewed by people. <a href={`${base}about.html`}>How it's made</a>.
+        </p>
+        <p>
+          <a href={SITE.repo}>Sources and history on GitHub</a> · Map shapes: Natural Earth
+        </p>
+      </div>
+    </footer>}
+  </body>
+</html>

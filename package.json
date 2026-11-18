@@ -1,0 +1,25 @@
+{
+  "name": "common-ground",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Common Ground: A Global Look at AI Safety. A neutral, sourced reference on AI safety, governance and public attitudes, country by country.",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/prepare-map.mjs && astro dev",
+    "validate": "node scripts/validate.mjs",
+    "check-sources": "node scripts/check-sources.mjs",
+    "build": "node scripts/validate.mjs && node scripts/prepare-map.mjs && astro build && node scripts/relativize.mjs",
+    "preview": "astro preview"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "astro": "5.18.2",
+    "js-yaml": "4.1.0",
+    "maplibre-gl": "5.24.1",
+    "topojson-client": "3.1.0",
+    "world-atlas": "2.0.2",
+    "zod": "3.25.76"
+  }
+}
