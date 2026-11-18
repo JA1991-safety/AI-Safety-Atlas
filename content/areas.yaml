@@ -4,6 +4,7 @@
 
 - code: GB
   name: United Kingdom
+  short: UK
   region: Europe
   pilot: true
   map_ids: ["826"]

@@ -1,0 +1,162 @@
+---
+// Gap analysis: where evidence shows the five principles are not yet met, and the options
+// that other countries use or that UK bodies have proposed.
+import Cite from './Cite.astro';
+import { LABELS, fmtDate } from '../lib/site.mjs';
+
+const { p, idx, areaNames } = Astro.props as any;
+const sec = p.gap_analysis;
+const nameOf = (c: string) => areaNames[c] ?? c;
+---
+<section id="gaps" class="section" aria-labelledby="h-gaps">
+  <header class="section-head">
+    <h2 id="h-gaps">Gap analysis</h2>
+    <p class="section-meta mono">
+      Checked {fmtDate(sec.meta.checked)} · {LABELS.evidence_depth[sec.meta.evidence_depth]} · {LABELS.review[sec.meta.review]}
+    </p>
+  </header>
+  <p class="analysis-note">
+    <span class="pill pill-analysis">Analysis</span>
+    <span>
+      Each gap is one that a named source has shown, using the five principles as the yardstick. Options are interventions
+      already used in other countries or proposed by UK bodies. They are listed for comparison, not recommended.
+    </span>
+  </p>
+  {
+    sec.intro.length > 0 && (
+      <div class="intro">
+        {sec.intro.map((s: any) => (
+          <p>
+            {s.text}
+            <Cite ids={s.sources} index={idx} />
+          </p>
+        ))}
+      </div>
+    )
+  }
+  <ol class="gap-list">
+    {
+      sec.items.map((g: any) => (
+        <li class="gap" id={`gap-${g.id}`}>
+          <div class="gap-tags">
+            <span class={`kind kind-${g.kind}`}>{LABELS.gap_kind[g.kind]}</span>
+            {g.principles.map((k: string) => (
+              <a class="chip" href={`#principle-${k}`}>
+                {LABELS.principle_short[k]}
+              </a>
+            ))}
+          </div>
+          <h3>{g.title}</h3>
+          <p class="finding">
+            {g.finding.text}
+            <Cite ids={g.finding.sources} index={idx} />
+          </p>
+          {g.options.length > 0 && (
+            <div class="options">
+              <h4 class="label">Options seen elsewhere</h4>
+              <ul>
+                {g.options.map((o: any) => (
+                  <li>
+                    <span>
+                      {o.text}
+                      <Cite ids={o.sources} index={idx} />
+                    </span>
+                    <span class="where">
+                      {o.used_in.length > 0 && (
+                        <>
+                          <span class="mono">Used in</span> {o.used_in.map((c: string) => <span class="chip">{nameOf(c)}</span>)}
+                        </>
+                      )}
+                      {o.proposed_by && (
+                        <>
+                          <span class="mono">Proposed by</span> <span class="chip">{o.proposed_by}</span>
+                        </>
+                      )}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+  {sec.meta.gaps && <p class="gaps"><span class="label">Gaps</span> {sec.meta.gaps}</p>}
+</section>
+
+<style>
+  .intro {
+    display: grid;
+    gap: 10px;
+    max-width: var(--measure);
+  }
+  .gap-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0;
+  }
+  .gap {
+    display: grid;
+    gap: 8px;
+    padding-block: 18px;
+    border-top: 1px solid var(--rule);
+    scroll-margin-top: 120px;
+  }
+  .gap-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+  .gap-tags .chip {
+    text-decoration: none;
+  }
+  .kind {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    color: var(--select-ink);
+    margin-right: 4px;
+  }
+  .gap h3 {
+    font-size: var(--step-1);
+  }
+  .finding {
+    max-width: var(--measure);
+  }
+  .options {
+    display: grid;
+    gap: 6px;
+    padding: 12px 14px;
+    border-left: 3px solid var(--covered-soft);
+    background: var(--paper-2);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    max-width: 860px;
+  }
+  .options h4 {
+    margin: 0;
+  }
+  .options ul {
+    margin: 0;
+    padding-left: 1.1em;
+    display: grid;
+    gap: 10px;
+    font-size: 0.9375rem;
+  }
+  .options li {
+    display: grid;
+    gap: 4px;
+  }
+  .where {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+    align-items: baseline;
+    color: var(--ink-3);
+  }
+</style>

@@ -1,5 +1,7 @@
 # United Kingdom: country profile
 # Status: DRAFT, researched by Claude on 18 November 2026, awaiting editor review.
+# Revised the same day to add how the five principles work, a gap analysis and a comparison,
+# and to use each statistic once outside the summary.
 # Every statement cites one or more sources from the list at the bottom of this file.
 # Direct quotes were copied from the source pages on the access date.
 
@@ -15,8 +17,9 @@ summary:
     - text: >-
         The UK has no general AI law. Existing regulators apply five cross-sector principles on a
         non-statutory basis, and the government has said it will legislate when it is confident that
-        doing so is right.
-      sources: [gov-regulation-response-2024, lewis-silkin-2026-09]
+        doing so is right. Parliamentarians and researchers have found gaps in regulators' powers, in
+        testing of the most capable models and in incident reporting.
+      sources: [gov-regulation-response-2024, lewis-silkin-2026-09, commons-sitc-2024, ada-regulating-2023, cltr-incidents-2024]
     - text: >-
         Its state body for advanced AI risk, the AI Security Institute, focuses on serious risks with
         security implications, such as chemical and biological weapons, cyber-attacks and crime. It
@@ -122,6 +125,11 @@ attitudes:
         The government's tracker survey found that public associations with AI "remain dominated by
         negative concepts", while use of AI chatbots for personal and work matters is growing.
       sources: [dsit-tracker-wave4]
+    - text: >-
+        People are turning to AI for personal support. In an AI Security Institute survey of 2,028 UK
+        participants, 33% had used AI for emotional purposes in the previous year, 8% weekly and 4%
+        daily.
+      sources: [aisi-trends-2025]
 
 regulation:
   meta:
@@ -130,8 +138,9 @@ regulation:
     review: draft
     gaps: >-
       The outcome of the Artificial Superintelligence Bill's second reading, scheduled for 13
-      November 2026, is not yet confirmed from a parliamentary source. The Online Safety Act 2023
-      and the role of individual regulators (ICO, CMA, Ofcom, FCA) are not yet covered.
+      November 2026, is not yet confirmed from a parliamentary source. How individual regulators
+      apply the principles is summarised in the five principles section, but we have not yet read
+      each regulator's own strategy in full.
   items:
     - kind: strategy
       title: Principles-based approach through existing regulators
@@ -170,8 +179,10 @@ regulation:
       status: In force
       text: >-
         Contains provisions on copyright works and AI systems, under which the government reported to
-        Parliament on copyright and AI.
-      sources: [leg-data-act-2025, gov-copyright-report-2026]
+        Parliament on copyright and AI. It also changed the rules on solely automated decisions with
+        significant effects: organisations must give people information about them and let them
+        contest them.
+      sources: [leg-data-act-2025, gov-copyright-report-2026, ico-adm-safeguards-2026]
     - kind: guidance
       title: Copyright and AI report
       date: 2026-03-18
@@ -228,6 +239,48 @@ regulation:
         recognition. The Ada Lovelace Institute welcomed it and called for the code of practice on
         private use to be mandatory.
       sources: [ada-frt-2026]
+    - kind: guidance
+      title: Regulators publish their approaches to AI
+      date: 2024-05-01
+      status: Published
+      text: >-
+        At the government's request, regulators including the Bank of England, the Competition and
+        Markets Authority, the Equality and Human Rights Commission, the FCA, the ICO, the MHRA and
+        Ofcom set out how they apply the five principles in their areas.
+      sources: [gov-regulators-approaches-2024]
+    - kind: guidance
+      title: AI Cyber Security Code of Practice
+      date: 2025-01-31
+      status: Published
+      text: >-
+        Sets baseline security principles for organisations that develop and deploy AI. The UK
+        submitted it to the European standards body ETSI as the basis for a global standard.
+      sources: [gov-ai-cyber-code-2025]
+    - kind: strategy
+      title: ICO AI and biometrics strategy
+      date: 2025-06-05
+      status: In place
+      text: >-
+        The data protection regulator set out its focus on transparency, bias and discrimination, and
+        rights and redress, with plans for a statutory code of practice on AI and automated
+        decision-making.
+      sources: [insideprivacy-ico-2025]
+    - kind: international
+      title: UK becomes coordinator of the international AI measurement network
+      date: 2025-12-09
+      status: In place
+      text: >-
+        The International Network of AI Safety Institutes was renamed the International Network for
+        Advanced AI Measurement, Evaluation and Science, with the UK as its coordinator.
+      sources: [gov-network-2025]
+    - kind: enforcement
+      title: Ofcom investigates X over its Grok chatbot
+      date: 2026-01-12
+      status: Investigation open
+      text: >-
+        Ofcom opened an Online Safety Act investigation into X over sexualised images made with the
+        Grok chatbot, and set out which AI chatbots the Act covers.
+      sources: [ofcom-x-2026]
     - kind: international
       title: International agreements
       date: 2026-02-21
@@ -245,7 +298,8 @@ culture:
     review: draft
     gaps: >-
       No local reviewer yet. Voices from devolved nations (Scotland, Wales, Northern Ireland) and
-      from AI researchers outside government are not yet represented.
+      from AI researchers outside government are not yet represented. Industry figures come from
+      two government surveys with different methods, so they are not directly comparable.
   summary:
     - text: >-
         Government pairs growth with safety and security. In 2025 the Prime Minister said the
@@ -277,6 +331,21 @@ culture:
         The industry trade body techUK and the Startup Coalition criticised the closure of the
         science and technology department as "the wrong change at the wrong time".
       sources: [techmag-dsit-2026]
+    - text: >-
+        The AI industry is growing fast. The government's latest AI sector study, whose estimates it
+        describes as experimental, counted 10,488 AI companies, up 79%, with £33.6bn in AI revenue
+        and AI-related employment of 130,400, up 51%.
+      sources: [dbist-sector-2026]
+    - text: >-
+        Use is spreading unevenly. Official statistics show around 35% of businesses with 10 or more
+        employees using AI by June 2026, up from around 12% in 2023, ranging from 58% in information
+        and communication to 13% in construction, and from 28% of the smallest firms to 49% of the
+        largest.
+      sources: [ons-ai-business-2026]
+    - text: >-
+        Skills are the most common barrier. In the government's 2026 adoption survey, 67% of
+        businesses using AI and 78% of those planning to said a lack of skills held them back.
+      sources: [dbist-adoption-2026]
   own_words:
     - quote: "When it comes to regulation – we will be pro-growth and pro-innovation."
       speaker: Keir Starmer
@@ -351,27 +420,56 @@ news:
         Public concern about this use differs across political groups.
       sources: [ada-frt-2026, natcen-bsa-2025]
       topics: [biometrics, policing, legislation]
+    - id: sector-study-2026
+      headline: Government publishes AI sector study and business adoption survey
+      date: 2026-10-29
+      kind: development
+      summary: >-
+        The sector study estimates that AI companies added £18.6bn in gross value added and raised
+        £6.3bn in investment. On the adoption survey's own measure, 32% of businesses were using AI,
+        up from 16% in 2025. Other figures from both are in Culture and industry and in the five
+        principles section.
+      why_it_matters: >-
+        The more widely AI is used across the economy, the more work falls to sector regulators under
+        the UK's approach.
+      sources: [dbist-sector-2026, dbist-adoption-2026]
+      topics: [industry, adoption, statistics]
     - id: ai-security-package
-      headline: £100m AI Biosecurity Lab and extra £120m for the AI Security Institute
+      headline: Chancellor announces AI Biosecurity Lab and more money for the AI Security Institute
       date: 2026-10-24
       kind: development
       summary: >-
         Ahead of the Autumn Budget, the Chancellor set out an AI package including a National AI
-        Biosecurity Initiative, an AI Biosecurity Lab backed by up to £200m in model credits from
-        OpenAI and Anthropic, more funding for the AI Security Institute, a National Cyber Shield
-        using agentic AI, and £10m a year to study AI's effect on jobs.
+        Biosecurity Initiative, an AI Biosecurity Lab backed by model credits from OpenAI and
+        Anthropic, more funding for the AI Security Institute, a National Cyber Shield using agentic
+        AI, and annual funding to study AI's effect on jobs. The amounts are in the regulation
+        section.
       why_it_matters: >-
         It directs new public money at specific AI risks, biological and cyber, and involves
         frontier developers directly in biosecurity work.
       sources: [gov-ai-package-2026, itv-biosecurity-2026, lbc-let-rip-2026]
       topics: [biosecurity, cybersecurity, funding, public-private partnership]
+    - id: aisi-model-access
+      headline: Minister says UK has access to safety-test the latest AI models
+      date: 2026-10-12
+      kind: development
+      summary: >-
+        A minister said the UK had been given access to safety-test the latest AI models, under
+        voluntary agreements with developers. Reuters reported that the White House had earlier asked
+        OpenAI and Anthropic to hold back new models from British testers pending a US review.
+      why_it_matters: >-
+        Testing of the most capable models depends on developers' cooperation, which parliamentarians
+        have raised as a concern (see the gap analysis).
+      sources: [reuters-aisi-access-2026, commons-sitc-2024]
+      topics: [testing, frontier AI, United States]
     - id: yougov-ai-companies
-      headline: Poll finds 59% of Britons view AI companies unfavourably
+      headline: Poll finds most Britons view AI companies unfavourably
       date: 2026-10-01
       kind: development
       summary: >-
-        A YouGov survey of 4,065 adults found 59% had an unfavourable opinion of AI companies, a
-        similar level to fast fashion firms, though below tobacco and gambling companies.
+        A YouGov survey found a majority with an unfavourable opinion of AI companies, a similar
+        level to fast fashion firms, though below tobacco and gambling companies. The figures are in
+        Public attitudes.
       why_it_matters: >-
         Low trust in developers shapes the political space for regulation and for public-private
         partnerships on AI safety.
@@ -396,8 +494,8 @@ news:
       date: 2026-08-20
       kind: development
       summary: >-
-        In a YouGov survey, 64% supported making companies legally liable for damage caused by their
-        AI systems, and 61% supported stricter government regulation of AI testing.
+        In a YouGov survey, 61% supported stricter government regulation of AI testing, and most
+        supported making companies legally liable for damage caused by their AI systems.
       why_it_matters: >-
         Public views on liability and testing bear directly on how pre-deployment evaluation might be
         governed.
@@ -494,7 +592,7 @@ news:
       date: 2025-01-13
       kind: foundational
       summary: >-
-        The Prime Minister launched a 50-recommendation plan to grow the AI sector and AI use, saying
+        The Prime Minister launched a plan to grow the AI sector and AI use, saying
         the government would be pro-growth on regulation and would make sure the technology is safe.
       why_it_matters: >-
         It set out the government's AI priorities, with adoption and economic growth first,
@@ -513,6 +611,699 @@ news:
         in 2026.
       sources: [gov-bletchley-2023]
       topics: [international cooperation, summits, frontier AI]
+
+principles:
+  meta:
+    checked: 2026-11-18
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      We have not yet read each regulator's own strategic approach in full. Figures on enforcement
+      under each principle are not published in one place, so the "In practice" figures come from
+      sector surveys and individual cases.
+  intro:
+    - text: >-
+        The UK does not regulate AI as a technology. In 2024 ministers asked existing regulators to
+        set out how they would apply five cross-sector principles in their own areas, and 13
+        regulators published strategic approaches, from the Bank of England and the Competition and
+        Markets Authority to Ofsted and Ofqual.
+      sources: [gov-regulators-approaches-2024, gov-regulation-response-2024]
+    - text: >-
+        Below, each principle is shown with what it asks, how far the law backs it, the laws,
+        regulators and tools that carry it today, and figures on how it works in practice.
+      sources: [gov-regulation-response-2024]
+  items:
+    - key: safety
+      name: Safety, security and robustness
+      asks:
+        text: >-
+          AI systems should work in a robust, secure and safe way throughout their life, with risks
+          identified, assessed and managed.
+        sources: [gov-regulation-response-2024]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          Product safety, medical device and online safety law apply in their own sectors. No law sets
+          safety requirements for the most capable general-purpose models, and the AI Security
+          Institute, which tests them, is not a regulator and relies on voluntary agreements.
+        sources: [commons-sitc-2024, reuters-aisi-access-2026]
+      how_it_works:
+        - text: >-
+            The AI Security Institute tests advanced models before and after release, with access
+            granted by developers under voluntary agreements.
+          sources: [reuters-aisi-access-2026, aisi-trends-2025]
+        - text: >-
+            Ofcom applies the Online Safety Act to AI chatbots that let users share content, search
+            the web, or can generate pornographic content. Chatbots that do none of these fall outside
+            the Act, and the Secretary of State has said the government will look at how chatbots
+            should be regulated.
+          sources: [ofcom-x-2026]
+        - text: >-
+            The MHRA regulates AI medical devices and runs the AI Airlock, a regulatory sandbox for
+            testing how its rules apply to AI in healthcare. Its findings include a need for guidance
+            on synthetic data and stronger monitoring after products reach the market.
+          sources: [mhra-airlock-2025]
+        - text: >-
+            The AI Cyber Security Code of Practice, published in January 2025, sets baseline security
+            principles for organisations that develop and deploy AI. The UK submitted it to the
+            European standards body ETSI as the basis for a global standard.
+          sources: [gov-ai-cyber-code-2025]
+      regulators: [Ofcom, MHRA, Health and Safety Executive, Office for Nuclear Regulation]
+      evidence:
+        - text: >-
+            By December 2025 the AI Security Institute had evaluated more than 30 frontier models. In
+            its tests, models completed apprentice-level cyber tasks 9% of the time in late 2023 and
+            50% of the time by late 2025.
+          sources: [aisi-trends-2025]
+        - text: >-
+            Ofcom opened an investigation into X in January 2026 over sexualised images made with its
+            Grok chatbot, examining whether X assessed the risk and removed illegal content quickly. It
+            was still open when this page was checked.
+          sources: [ofcom-x-2026]
+
+    - key: transparency
+      name: Transparency and explainability
+      asks:
+        text: >-
+          People should be told when and how AI is used, and organisations should be able to explain
+          how a system reaches its outputs, in a way that suits the context and the risk.
+        sources: [gov-regulation-response-2024]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          Data protection law requires information about solely automated decisions with significant
+          effects, and central government must record its algorithmic tools. We found no UK law that
+          requires AI-generated content to be labelled, unlike rules in China, South Korea and the EU.
+        sources: [ico-adm-safeguards-2026, gds-atrs-2025, loeb-china-labelling-2025, cooley-korea-2026, sidley-omnibus-2026]
+      how_it_works:
+        - text: >-
+            Central government departments must publish a record under the Algorithmic Transparency
+            Recording Standard for tools that significantly influence decisions with public effect or
+            that interact directly with the public. This became mandatory in 2024 and is being
+            extended to arm's-length bodies.
+          sources: [gds-atrs-2025]
+        - text: >-
+            Since the Data (Use and Access) Act 2025, organisations that make solely automated
+            decisions with significant effects must give people information about those decisions.
+          sources: [ico-adm-safeguards-2026]
+      regulators: [ICO, FCA, CMA]
+      evidence:
+        - text: >-
+            By May 2025 the government had published 59 algorithmic transparency records, 53 of them in
+            the previous 12 months.
+          sources: [gds-atrs-2025]
+        - text: >-
+            In a 2024 Bank of England and FCA survey of 118 financial firms, 46% said they had only a
+            partial understanding of the AI they use, against 34% reporting complete understanding. A
+            third of AI uses were third-party implementations.
+          sources: [boe-fca-2024]
+
+    - key: fairness
+      name: Fairness
+      asks:
+        text: >-
+          AI should not undermine people's legal rights, discriminate unfairly or create unfair market
+          outcomes.
+        sources: [gov-regulation-response-2024]
+      footing: binding
+      footing_note:
+        text: >-
+          Equality, data protection and consumer law apply to decisions made with AI as to any other
+          decision. Whether a regulator can enforce them depends on the sector, and many regulators
+          cannot require compliance with every principle.
+        sources: [ada-regulating-2023, gov-regulators-approaches-2024]
+      how_it_works:
+        - text: >-
+            The Equality and Human Rights Commission, the ICO, the Competition and Markets Authority
+            and the FCA each published in 2024 how they apply the principles in their areas.
+          sources: [gov-regulators-approaches-2024]
+        - text: >-
+            The ICO's AI and biometrics strategy, launched in June 2025, focuses on transparency and
+            explainability, bias and discrimination, and rights and redress. Its priorities include
+            recruitment by major employers, automated decisions in central government, police facial
+            recognition and a statutory code of practice on AI and automated decision-making.
+          sources: [insideprivacy-ico-2025]
+      regulators: [Equality and Human Rights Commission, ICO, CMA, FCA, Ofsted, Ofqual]
+      evidence:
+        - text: >-
+            In the government's 2026 AI adoption survey of 3,503 businesses, 56% of those using AI and
+            60% of those planning to were concerned about bias and lack of accuracy.
+          sources: [dbist-adoption-2026]
+
+    - key: accountability
+      name: Accountability and governance
+      asks:
+        text: >-
+          There should be clear lines of responsibility for AI across its life cycle, with governance
+          that ensures effective oversight of how it is supplied and used.
+        sources: [gov-regulation-response-2024]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          Data protection and sector rules, such as those for financial firms, assign responsibility
+          to the organisations that use AI. No law assigns responsibility to developers of the most
+          capable general-purpose models, for which the government said in 2024 that "further
+          targeted binding requirements" may be needed.
+        sources: [gov-regulation-response-2024, boe-fca-2024]
+      how_it_works:
+        - text: >-
+            In financial services, firms apply existing rules to AI. Firms surveyed by the Bank of
+            England and the FCA named data protection, operational resilience, third-party rules and
+            the FCA's Consumer Duty as the main regulatory constraints on their use of AI.
+          sources: [boe-fca-2024]
+        - text: >-
+            For government's own use of AI, the National Audit Office found that spending controls
+            "do not provide assurance that AI risks have been mitigated".
+          sources: [nao-ai-gov-2024]
+      regulators: [ICO, FCA, Bank of England, Legal Services Board]
+      evidence:
+        - text: >-
+            75% of financial firms were using AI in 2024 and a further 10% planned to within three
+            years. 55% of their AI uses involved some automated decision-making, and 2% were fully
+            autonomous.
+          sources: [boe-fca-2024]
+        - text: >-
+            Across all sectors, 81% of businesses using AI reported some human oversight of it in 2026,
+            slightly fewer than in 2025.
+          sources: [dbist-adoption-2026]
+        - text: >-
+            In a 2024 National Audit Office survey of 89 government bodies, 37% of those responding had
+            deployed AI and 70% were piloting or planning it.
+          sources: [nao-ai-gov-2024]
+
+    - key: contestability
+      name: Contestability and redress
+      asks:
+        text: >-
+          People affected by an AI decision should be able to contest a harmful decision or outcome
+          and get redress where appropriate.
+        sources: [gov-regulation-response-2024]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          Data protection law gives rights to challenge solely automated decisions with significant
+          effects. There is no AI-specific route to redress, such as an ombudsman, for other
+          decisions or for areas without a regulator.
+        sources: [ico-adm-safeguards-2026, ada-regulating-2023]
+      how_it_works:
+        - text: >-
+            For solely automated decisions with significant effects, organisations must let people
+            make representations, obtain human intervention, meaning a review that could change the
+            decision, and contest it. They must respond within one month, extendable by two months
+            for complex cases.
+          sources: [ico-adm-safeguards-2026]
+        - text: >-
+            Solely automated decisions using special category data, such as health or ethnicity,
+            remain prohibited unless the person gives explicit consent, the decision is needed for a
+            contract, or it is required or authorised by law.
+          sources: [ico-adm-special-2026]
+      regulators: [ICO]
+
+gap_analysis:
+  meta:
+    checked: 2026-11-18
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      Only gaps that a named source has shown are listed. Several findings date from 2023 and 2024,
+      and the government's own regulatory gap analysis, which the Commons committee asked for, has
+      not been found in published form. Evidence on how well each option works is early.
+  intro:
+    - text: >-
+        The UK approach relies on regulators applying the principles with the powers they already
+        have. Parliamentarians, researchers and the AI Security Institute's own results point to gaps
+        in legal powers, coverage, capacity and technical safeguards.
+      sources: [commons-sitc-2024, ada-regulating-2023, aisi-trends-2025]
+  items:
+    - id: no-statutory-footing
+      title: The principles have no legal force and regulators lack common powers
+      kind: legal_power
+      principles: [safety, transparency, fairness, accountability, contestability]
+      finding:
+        text: >-
+          The principles remain non-statutory. The Ada Lovelace Institute found that many regulators
+          "will be unable to force AI users and developers to comply with all the principles". The
+          Commons Science, Innovation and Technology Committee said the next government "should be
+          ready to introduce new AI-specific legislation".
+        sources: [ada-regulating-2023, commons-sitc-2024, gov-regulation-response-2024]
+      options:
+        - text: >-
+            A general AI law with duties set by level of risk, fines and named enforcement
+            authorities.
+          used_in: [EU, KR]
+          sources: [sidley-omnibus-2026, cooley-korea-2026]
+        - text: >-
+            A framework law without penalties that creates a central AI strategy body chaired by the
+            head of government, and relies on existing law and guidelines.
+          used_in: [JP]
+          sources: [fpf-japan-2025]
+        - text: >-
+            A statutory duty to have regard to the principles, and a common set of powers for
+            regulators.
+          proposed_by: Ada Lovelace Institute
+          sources: [ada-regulating-2023]
+        - text: >-
+            An independent AI commissioner under a risk-based AI law.
+          proposed_by: "Kenya's Artificial Intelligence Bill 2026 (not yet law)"
+          sources: [ey-kenya-2026]
+
+    - id: voluntary-testing
+      title: Pre-deployment testing of the most capable models depends on voluntary access
+      kind: legal_power
+      principles: [safety, accountability]
+      finding:
+        text: >-
+          The AI Security Institute is not a regulator and cannot require developers to share models.
+          In 2024 the Commons committee called reported problems securing pre-deployment access, if
+          accurate, "a major concern". In October 2026 Reuters reported that the White House had asked
+          OpenAI and Anthropic the previous month to withhold new models from British testers pending
+          a US review, before the minister confirmed testing of the latest models. In July 2026 the
+          minister declined to rule out legislation on testing, according to eWeek.
+        sources: [commons-sitc-2024, reuters-aisi-access-2026, eweek-testing-2026]
+      options:
+        - text: >-
+            Binding duties for developers of the largest models to publish a safety framework and
+            transparency reports, with whistleblower protection and fines of up to $1 million per
+            violation.
+          used_in: [California]
+          sources: [fpf-sb53-2025]
+        - text: >-
+            Safety duties for models trained with at least 10²⁶ operations, set out in a general AI
+            law.
+          used_in: [KR]
+          sources: [cooley-korea-2026]
+        - text: >-
+            Legal obligations for providers of general-purpose AI models, with a voluntary code of
+            practice as one way to show compliance.
+          used_in: [EU]
+          sources: [euronews-gpai-2025]
+        - text: >-
+            Voluntary testing agreements like the UK's. The US agreements have "no statutory basis",
+            so they share the same gap.
+          used_in: [US]
+          sources: [tnw-caisi-2026]
+
+    - id: incident-reporting
+      title: No system for reporting AI incidents
+      kind: capacity
+      principles: [safety, accountability]
+      finding:
+        text: >-
+          The Centre for Long-Term Resilience found that UK regulation "lacks an effective incident
+          reporting framework", leaving the government without a central picture of AI incidents. It
+          cited over 10,000 safety incidents in deployed AI systems recorded by news outlets since
+          2014.
+        sources: [cltr-incidents-2024]
+      options:
+        - text: >-
+            Mandatory reporting of critical safety incidents by frontier developers to a state agency
+            within 15 days, or 24 hours where there is imminent danger of death or serious injury.
+          used_in: [California]
+          sources: [fpf-sb53-2025]
+        - text: >-
+            A system for government to report incidents in its own use of AI, building on the
+            Algorithmic Transparency Recording Standard, plus a pilot incident database.
+          proposed_by: Centre for Long-Term Resilience
+          sources: [cltr-incidents-2024]
+        - text: >-
+            Incident reporting within a planned framework for testing, evaluating and releasing
+            models.
+          proposed_by: Government of Canada (in development)
+          sources: [hub-canada-2026]
+
+    - id: coverage
+      title: Uses of AI that no regulator fully covers
+      kind: coverage
+      principles: [fairness, accountability, contestability]
+      finding:
+        text: >-
+          The Ada Lovelace Institute found "significant gaps" in the UK's regulatory network and said
+          the government had not addressed how the principles apply in many sectors. AI chatbots that
+          do not share user content, search the web or generate pornography fall outside the Online
+          Safety Act. The Commons committee called for a gap analysis of whether regulators need new
+          powers, to be concluded as "a priority".
+        sources: [ada-regulating-2023, ofcom-x-2026, commons-sitc-2024]
+      options:
+        - text: >-
+            Set out how the principles apply where there is no specific regulator, and explore an AI
+            ombudsman.
+          proposed_by: Ada Lovelace Institute
+          sources: [ada-regulating-2023]
+        - text: >-
+            Binding rules for particular services, such as filing generative AI services with a
+            central regulator before launch.
+          used_in: [CN]
+          sources: [dpa-china-filings-2026]
+        - text: >-
+            Laws for specific high-risk uses, as the UK announced in November 2026 for police use of
+            facial recognition.
+          proposed_by: UK Home Office
+          sources: [ada-frt-2026]
+
+    - id: regulator-capacity
+      title: Regulators' funding and skills
+      kind: capacity
+      principles: [safety, transparency, fairness, accountability, contestability]
+      finding:
+        text: >-
+          Regulators received £10 million to build AI capability, which the Commons committee called
+          "clearly insufficient to meet the challenge". The National Audit Office reported that
+          government bodies had difficulty attracting and keeping staff with AI skills.
+        sources: [gov-regulators-approaches-2024, commons-sitc-2024, nao-ai-gov-2024]
+      options:
+        - text: >-
+            Shared testing and assurance tools that all regulators and firms can use, such as
+            Singapore's AI Verify toolkit and its assurance sandbox.
+          used_in: [SG]
+          sources: [tfgi-singapore-2026]
+        - text: >-
+            One authority to coordinate sector regulators on AI, proposed for Brazil's data protection
+            authority, which already runs an AI sandbox.
+          proposed_by: "Brazilian bill (December 2025)"
+          sources: [tozzini-brazil-2026]
+        - text: >-
+            A significant increase in regulators' funding for AI-related harms.
+          proposed_by: Ada Lovelace Institute
+          sources: [ada-regulating-2023]
+
+    - id: safeguards
+      title: Safeguards on advanced models can be bypassed
+      kind: technical
+      principles: [safety]
+      finding:
+        text: >-
+          The AI Security Institute found universal jailbreaks, ways around a model's safeguards, in
+          every system it tested. Safeguards are improving: the expert effort needed to find
+          biological misuse jailbreaks rose about 40x between two models released six months apart.
+          The institute cautions that a model's compliance in tests may not show whether its answers
+          are accurate or usable by a novice.
+        sources: [aisi-trends-2025]
+      options:
+        - text: >-
+            Shared evaluation methods through the International Network for Advanced AI Measurement,
+            Evaluation and Science, which the UK coordinates.
+          used_in: [Australia, CA, EU, France, JP, KE, KR, SG, US]
+          sources: [gov-network-2025]
+        - text: >-
+            A state AI safety research institute established in law, with a role in evaluating risk
+            and setting standards.
+          used_in: [KR]
+          sources: [cooley-korea-2026]
+
+    - id: content-labelling
+      title: No duty to label AI-generated content
+      kind: legal_power
+      principles: [transparency]
+      finding:
+        text: >-
+          We found no UK law requiring AI-generated content to be labelled, although surveys show
+          strong public support for labelling (see Public attitudes). Ofcom's investigation of X
+          concerns sexualised images made with an AI chatbot.
+        sources: [ico-omnibus-2026, ofcom-x-2026]
+      options:
+        - text: >-
+            Explicit labels on AI-generated text, images, audio, video and virtual scenes, and
+            implicit labels in file metadata, required since September 2025.
+          used_in: [CN]
+          sources: [loeb-china-labelling-2025]
+        - text: >-
+            A duty to label content produced by generative AI, in force since January 2026.
+          used_in: [KR]
+          sources: [cooley-korea-2026]
+        - text: >-
+            Transparency duties for AI systems, applying from December 2026 for systems already on
+            the market, with a new ban on AI that generates child sexual abuse material or
+            non-consensual intimate images.
+          used_in: [EU]
+          sources: [sidley-omnibus-2026]
+
+comparison:
+  meta:
+    checked: 2026-11-18
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      Entries for other areas are short summaries for comparison, mostly from law firm and policy
+      institute briefings rather than primary texts. They will be replaced by each area's own
+      profile as it is written. "No" for a testing body means we found none.
+  intro:
+    - text: >-
+        Most pilot areas govern AI the way the UK does: through existing laws and regulators, guided
+        by principles that are not law. The most different are the EU and South Korea, which have
+        general AI laws, and China, which has binding rules for specific AI services.
+      sources: [fpf-japan-2025, tfgi-singapore-2026, canlaw-aida-2026, sidley-omnibus-2026, cooley-korea-2026, loeb-china-labelling-2025]
+    - text: >-
+        Several areas that are structured like the UK are debating laws that would move them towards
+        the EU and Korean model: Kenya published a risk-based AI Bill in 2026, Brazil's Senate passed
+        an AI bill in December 2024, and Nigeria has AI bills before its National Assembly. In the US,
+        a December 2025 executive order seeks one national framework and challenges state AI laws.
+      sources: [ey-kenya-2026, tozzini-brazil-2026, dpa-nigeria-2026, skadden-us-eo-2025]
+  criteria:
+    - key: no_general_law
+      short: No general AI law
+      question: Is there no general, binding AI law in force?
+      home: "yes"
+    - key: existing_regulators
+      short: Existing regulators lead
+      question: Is AI governed mainly through existing laws and sector regulators?
+      home: "yes"
+    - key: soft_principles
+      short: Principles not in law
+      question: Are the cross-sector AI principles or guidelines non-statutory?
+      home: "yes"
+    - key: no_frontier_rules
+      short: No binding frontier rules
+      question: Are there no binding national rules for developers of the most capable models?
+      home: "yes"
+    - key: testing_body
+      short: State AI testing body
+      question: Is there a state AI safety or security institute that evaluates advanced AI?
+      home: "yes"
+  areas:
+    - code: CA
+      approach: >-
+        No AI law since the Artificial Intelligence and Data Act lapsed in 2025. Existing privacy and
+        human rights law, a voluntary code for generative AI, and a Canadian AI Safety Institute.
+      answers: {no_general_law: "yes", existing_regulators: "yes", soft_principles: "yes", no_frontier_rules: "yes", testing_body: "yes"}
+      sources: [canlaw-aida-2026, ised-code-2024, gov-network-2025]
+    - code: SG
+      approach: >-
+        No horizontal AI law. Existing laws, sector regulators and the AI Verify assurance toolkit.
+      answers: {no_general_law: "yes", existing_regulators: "yes", soft_principles: "yes", no_frontier_rules: "yes", testing_body: "yes"}
+      sources: [tfgi-singapore-2026, gov-network-2025]
+    - code: JP
+      approach: >-
+        The AI Promotion Act 2025 set up a Cabinet AI Strategy Headquarters but has no penalties.
+        Existing law and non-binding guidelines apply.
+      answers: {no_general_law: "yes", existing_regulators: "yes", soft_principles: "yes", no_frontier_rules: "yes", testing_body: "yes"}
+      sources: [fpf-japan-2025, gov-network-2025]
+    - code: US
+      approach: >-
+        No federal AI law. Sector agencies apply existing law, a federal testing centre runs
+        voluntary evaluations, and California regulates frontier developers.
+      answers: {no_general_law: "yes", existing_regulators: "yes", soft_principles: "yes", no_frontier_rules: partly, testing_body: "yes"}
+      sources: [skadden-us-eo-2025, tnw-caisi-2026, fpf-sb53-2025]
+    - code: IN
+      approach: >-
+        No AI law. November 2025 guidelines set seven principles and rely on existing laws and
+        regulators. An IndiaAI Safety Institute was announced in January 2025.
+      answers: {no_general_law: "yes", existing_regulators: "yes", soft_principles: "yes", no_frontier_rules: "yes", testing_body: partly}
+      sources: [azb-india-2025, indiaai-safety-2025]
+    - code: KE
+      approach: >-
+        No AI law yet. A National AI Strategy and data protection law apply; a risk-based AI Bill
+        with an AI Commissioner was published in 2026.
+      answers: {no_general_law: "yes", existing_regulators: "yes", soft_principles: "yes", no_frontier_rules: "yes", testing_body: partly}
+      sources: [ey-kenya-2026, gov-network-2025]
+    - code: NG
+      approach: >-
+        No AI law. A non-binding National AI Strategy and the Data Protection Act 2023 apply, with
+        AI bills before the National Assembly.
+      answers: {no_general_law: "yes", existing_regulators: "yes", soft_principles: "yes", no_frontier_rules: "yes", testing_body: "no"}
+      sources: [dpa-nigeria-2026]
+    - code: AE
+      approach: >-
+        No dedicated AI law. Data protection and cybercrime laws apply, guided by the 2024 UAE AI
+        Charter.
+      answers: {no_general_law: "yes", existing_regulators: "yes", soft_principles: "yes", no_frontier_rules: "yes", testing_body: "no"}
+      sources: [cms-uae-2026, uae-charter]
+    - code: BR
+      approach: >-
+        No AI law yet: a bill passed by the Senate awaits the Chamber of Deputies. Meanwhile the data
+        protection authority and sector regulators act, including binding AI principles for
+        telecoms.
+      answers: {no_general_law: "yes", existing_regulators: "yes", soft_principles: partly, no_frontier_rules: "yes", testing_body: "no"}
+      sources: [tozzini-brazil-2026]
+    - code: EU
+      approach: >-
+        The AI Act is a general law with duties by level of risk and for general-purpose AI
+        providers. Some deadlines were moved to 2027 and 2028 in 2026.
+      answers: {no_general_law: "no", existing_regulators: partly, soft_principles: "no", no_frontier_rules: "no", testing_body: "yes"}
+      sources: [sidley-omnibus-2026, euronews-gpai-2025, gov-network-2025]
+    - code: CN
+      approach: >-
+        No single AI law, but binding rules for specific services: generative AI services are filed
+        with the Cyberspace Administration of China, and AI-generated content must be labelled.
+      answers: {no_general_law: partly, existing_regulators: "no", soft_principles: "no", no_frontier_rules: "no", testing_body: partly}
+      sources: [dpa-china-filings-2026, loeb-china-labelling-2025, digichina-cnaisda-2025]
+    - code: KR
+      approach: >-
+        The AI Basic Act, in force since January 2026, is a general law with duties for high-impact
+        and generative AI and safety duties for the largest models.
+      answers: {no_general_law: "no", existing_regulators: "no", soft_principles: "no", no_frontier_rules: "no", testing_body: "yes"}
+      sources: [cooley-korea-2026, gov-network-2025]
+  approaches:
+    - key: principles_existing_regulators
+      name: Principles applied by existing regulators
+      used_by: [GB, CA, SG, JP, US, IN]
+      description:
+        text: >-
+          Governments set cross-sector principles and leave existing regulators to apply them, adding
+          guidance, sandboxes and voluntary testing of advanced models.
+        sources: [gov-regulators-approaches-2024, tfgi-singapore-2026, fpf-japan-2025]
+      evidence:
+        - text: >-
+            Voluntary testing has given state institutes early access to frontier models. The US
+            testing centre has completed more than 40 evaluations, under agreements that companies can
+            withdraw from at any time.
+          sources: [tnw-caisi-2026]
+        - text: >-
+            Japan's AI Promotion Act has no penalties; according to the Future of Privacy Forum its
+            main tool is publicly naming companies that do not cooperate.
+          sources: [fpf-japan-2025]
+        - text: >-
+            Singapore pairs existing laws with assurance tools. An analysis for the Tech For Good
+            Institute argues that "the scarcest commodity is not regulation, but proof" and that the
+            model depends on public trust.
+          sources: [tfgi-singapore-2026]
+      limits:
+        - text: >-
+            Coverage depends on each regulator's remit and resources. UK parliamentarians and
+            researchers have found gaps (see the gap analysis).
+          sources: [commons-sitc-2024, ada-regulating-2023]
+        - text: >-
+            Canada's attempt at a general law lapsed, and lawyers do not expect a standalone
+            replacement, leaving what one report calls a "patchwork" of laws.
+          sources: [canlaw-aida-2026]
+    - key: general_law
+      name: A general AI law with risk tiers
+      used_by: [EU, KR]
+      description:
+        text: >-
+          One law sets duties by level of risk, with penalties, and creates or names authorities to
+          enforce them.
+        sources: [sidley-omnibus-2026, cooley-korea-2026]
+      evidence:
+        - text: >-
+            In the EU, duties for general-purpose AI providers began in August 2025, with a voluntary
+            code of practice to show compliance. Meta said it would not sign the code.
+          sources: [euronews-gpai-2025]
+        - text: >-
+            In 2026 the EU moved stand-alone high-risk duties to 2 December 2027 and those for AI in
+            regulated products to 2 August 2028.
+          sources: [sidley-omnibus-2026, scl-omnibus-2026]
+        - text: >-
+            South Korea's maximum fine is KRW 30 million, about US$21,000, after a one-year grace
+            period. EU fines range from €7.5 million to €35 million.
+          sources: [cooley-korea-2026, fpf-japan-2025]
+      limits:
+        - text: >-
+            Korean businesses say terms such as "significant impact" are vague, and that the law and
+            early guidance "stop short of defining quantitative thresholds".
+          sources: [koreatimes-2026]
+        - text: >-
+            Evidence on outcomes is limited because the EU's main high-risk duties are not yet in
+            force.
+          sources: [sidley-omnibus-2026]
+    - key: service_rules
+      name: Binding rules for specific AI services
+      used_by: [CN]
+      description:
+        text: >-
+          Targeted regulations apply to particular kinds of AI service, with filing and labelling
+          duties enforced by a central regulator.
+        sources: [loeb-china-labelling-2025, dpa-china-filings-2026]
+      evidence:
+        - text: >-
+            Generative AI services are registered in batches: 48 new services and 46 AI applications or
+            functions completed filing in January and February 2026.
+          sources: [dpa-china-filings-2026]
+        - text: >-
+            Labelling rules issued by four agencies, including the Cyberspace Administration of China,
+            took effect on 1 September 2025 together with a mandatory national standard.
+          sources: [loeb-china-labelling-2025]
+      limits:
+        - text: >-
+            China's AI safety body is described by Stanford's DigiChina as a consortium of research
+            institutions, with no clear sign that it is a formal government office.
+          sources: [digichina-cnaisda-2025]
+    - key: strategy_then_law
+      name: Strategy now, law under debate
+      used_by: [KE, NG, BR, AE]
+      description:
+        text: >-
+          National strategies, charters and data protection law apply now, while AI bills are
+          debated.
+        sources: [ey-kenya-2026, dpa-nigeria-2026, tozzini-brazil-2026, cms-uae-2026]
+      evidence:
+        - text: >-
+            Brazil's bill has awaited a vote in the Chamber of Deputies since the Senate passed it
+            unanimously on 10 December 2024. Its data protection authority runs an AI sandbox with
+            three companies.
+          sources: [tozzini-brazil-2026]
+        - text: >-
+            Kenya's bill would require risk and human rights impact assessments before high-risk
+            systems are deployed, and records kept for at least five years.
+          sources: [ey-kenya-2026]
+      limits:
+        - text: >-
+            Nigeria's AI bills, introduced between October 2024 and October 2025, were still being
+            debated in August 2026.
+          sources: [dpa-nigeria-2026]
+  cooperation:
+    - name: OECD AI Principles
+      date: 2024-05
+      text: >-
+        Adopted in 2019 and updated in May 2024, with 47 adherents. Its five values-based principles
+        are inclusive growth and well-being; human rights and democratic values, including fairness
+        and privacy; transparency and explainability; robustness, security and safety; and
+        accountability.
+      home_role: >-
+        Four of the UK's five principles have a direct counterpart; contestability and redress is not
+        named as a separate principle.
+      principles: [safety, transparency, fairness, accountability]
+      sources: [oecd-principles, gov-regulation-response-2024]
+    - name: Council of Europe Framework Convention on AI
+      date: 2024-09-05
+      text: >-
+        An international treaty on AI, human rights, democracy and the rule of law, opened for
+        signature in September 2024.
+      home_role: Signed in September 2024.
+      sources: [gov-coe-convention-2024]
+    - name: AI summit series
+      date: 2026-02
+      text: >-
+        Leaders' declarations from the summits that began at Bletchley Park in 2023 and continued in
+        Paris in 2025 and New Delhi in 2026.
+      home_role: Hosted the first summit; signed or endorsed every declaration except the Paris statement.
+      principles: [safety]
+      sources: [gov-bletchley-2023, lbc-paris-2025, pti-new-delhi-2026]
+    - name: International Network for Advanced AI Measurement, Evaluation and Science
+      date: 2025-12-09
+      text: >-
+        Founded in November 2024 as the International Network of AI Safety Institutes and renamed in
+        December 2025. Its 10 members are Australia, Canada, the EU, France, Japan, Kenya, South
+        Korea, Singapore, the UK and the US.
+      home_role: Network coordinator since December 2025.
+      principles: [safety]
+      sources: [gov-network-2025]
+    - name: UN Scientific Panel and Global Dialogue on AI Governance
+      date: 2025-08
+      text: >-
+        The UN General Assembly created an Independent International Scientific Panel on AI and a
+        Global Dialogue on AI Governance, with sessions planned for Geneva in July 2026 and New York
+        in 2027.
+      sources: [dte-un-ai-2025]
 
 sources:
   # Government and legislation
@@ -866,3 +1657,427 @@ sources:
     type: industry
     language: en
     note: Lists London among the company's office locations.
+
+  # How the principles work, and gaps (UK)
+  - id: gov-regulators-approaches-2024
+    title: Regulators' strategic approaches to AI
+    publisher: Department for Science, Innovation and Technology
+    url: https://www.gov.uk/government/publications/regulators-strategic-approaches-to-ai/regulators-strategic-approaches-to-ai
+    published: 2024-05-01
+    accessed: 2026-11-18
+    origin: inside
+    type: government
+    language: en
+  - id: commons-sitc-2024
+    title: Governance of artificial intelligence (AI)
+    publisher: House of Commons Science, Innovation and Technology Committee
+    url: https://publications.parliament.uk/pa/cm5804/cmselect/cmsctech/38/summary.html
+    published: 2024-05-28
+    accessed: 2026-11-18
+    origin: inside
+    type: parliament
+    language: en
+    note: Third report of Session 2023-24, summary page.
+  - id: boe-fca-2024
+    title: Artificial intelligence in UK financial services - 2024
+    publisher: Bank of England and Financial Conduct Authority
+    url: https://www.bankofengland.co.uk/report/2024/artificial-intelligence-in-uk-financial-services-2024
+    published: 2024-11-21
+    accessed: 2026-11-18
+    origin: inside
+    type: regulator
+    language: en
+    note: Survey of 118 firms.
+  - id: gds-atrs-2025
+    title: Making the Algorithmic Transparency Recording Standard (ATRS) mandatory across government
+    publisher: Government Digital Service (Data in government blog)
+    url: https://dataingovernment.blog.gov.uk/2025/05/08/making-the-algorithmic-transparency-recording-standard-atrs-mandatory-across-government/
+    published: 2025-05-08
+    accessed: 2026-11-18
+    origin: inside
+    type: government
+    language: en
+  - id: cltr-incidents-2024
+    title: "AI incident reporting: Addressing a gap in the UK's regulation of AI"
+    publisher: Centre for Long-Term Resilience
+    url: https://www.longtermresilience.org/reports/ai-incident-reporting-addressing-a-gap-in-the-uks-regulation-of-ai/
+    published: 2024-06-26
+    accessed: 2026-11-18
+    origin: inside
+    type: civil_society
+    language: en
+  - id: ada-regulating-2023
+    title: Regulating AI in the UK
+    publisher: Ada Lovelace Institute
+    url: https://www.adalovelaceinstitute.org/report/regulating-ai-in-the-uk/
+    published: 2023-07-18
+    accessed: 2026-11-18
+    origin: inside
+    type: civil_society
+    language: en
+  - id: aisi-trends-2025
+    title: 5 key findings from our first Frontier AI Trends Report
+    publisher: AI Security Institute
+    url: https://www.aisi.gov.uk/blog/5-key-findings-from-our-first-frontier-ai-trends-report
+    published: 2025-12-18
+    accessed: 2026-11-18
+    origin: inside
+    type: government
+    language: en
+  - id: nao-ai-gov-2024
+    title: Government encouraged to tackle barriers to realising the benefits of AI
+    publisher: National Audit Office
+    url: https://www.nao.org.uk/press-releases/government-encouraged-to-tackle-barriers-to-realising-the-benefits-of-ai/
+    published: 2024-03-15
+    accessed: 2026-11-18
+    origin: inside
+    type: parliament
+    language: en
+    note: Press release for the report "Use of artificial intelligence in government". The NAO reports to Parliament.
+  - id: ons-ai-business-2026
+    title: "Artificial intelligence in UK businesses: 2023 to 2026"
+    publisher: Office for National Statistics
+    url: https://www.ons.gov.uk/businessindustryandtrade/business/businessservices/articles/artificialintelligenceinukbusinesses/2023to2026
+    published: 2026-07-20
+    accessed: 2026-11-18
+    origin: inside
+    type: government
+    language: en
+  - id: dbist-sector-2026
+    title: Artificial Intelligence sector study 2025
+    publisher: Department for Business, Innovation, Science and Trade
+    url: https://www.gov.uk/government/publications/artificial-intelligence-sector-study-2025/artificial-intelligence-sector-study-2025-web-version
+    published: 2026-10-29
+    accessed: 2026-11-18
+    origin: inside
+    type: government
+    language: en
+    note: The study describes its estimates as experimental.
+  - id: dbist-adoption-2026
+    title: "AI adoption survey report 2026: executive summary"
+    publisher: Department for Business, Innovation, Science and Trade
+    url: https://www.gov.uk/government/publications/ai-adoption-survey-2026/ai-adoption-survey-report-2026-executive-summary
+    published: 2026-10-29
+    accessed: 2026-11-18
+    origin: inside
+    type: government
+    language: en
+    note: 3,503 interviews. A different survey series from the ONS figures, so the two are not compared directly.
+  - id: insideprivacy-ico-2025
+    title: The ICO's AI and biometrics strategy
+    publisher: Covington & Burling (Inside Privacy)
+    url: https://www.insideprivacy.com/artificial-intelligence/the-icos-ai-and-biometrics-strategy/
+    published: 2025-07-11
+    accessed: 2026-11-18
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm summary of the ICO strategy launched on 5 June 2025.
+  - id: ofcom-x-2026
+    title: Investigation into X, and scope of the Online Safety Act
+    publisher: Ofcom
+    url: https://www.ofcom.org.uk/online-safety/illegal-and-harmful-content/investigation-into-x-and-scope-of-the-online-safety-act
+    published: 2026-02-03
+    accessed: 2026-11-18
+    origin: inside
+    type: regulator
+    language: en
+  - id: gov-ai-cyber-code-2025
+    title: AI Cyber Security Code of Practice
+    publisher: Department for Science, Innovation and Technology
+    url: https://www.gov.uk/government/publications/ai-cyber-security-code-of-practice
+    published: 2025-01-31
+    accessed: 2026-11-18
+    origin: inside
+    type: government
+    language: en
+  - id: mhra-airlock-2025
+    title: How the AI Airlock is charting a path for regulating AI in healthcare through sandboxes
+    publisher: Medicines and Healthcare products Regulatory Agency (MedRegs blog)
+    url: https://medregs.blog.gov.uk/2025/10/31/how-the-ai-airlock-is-charting-a-path-for-regulating-ai-in-healthcare-through-sandboxes
+    published: 2025-10-31
+    accessed: 2026-11-18
+    origin: inside
+    type: regulator
+    language: en
+  - id: ico-adm-safeguards-2026
+    title: What are the ADM safeguards?
+    publisher: Information Commissioner's Office
+    url: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/automated-decision-making/what-are-the-adm-safeguards/
+    published: 2026-03-31
+    accessed: 2026-11-18
+    origin: inside
+    type: regulator
+    language: en
+  - id: ico-adm-special-2026
+    title: When can we use special category data in our ADM?
+    publisher: Information Commissioner's Office
+    url: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/automated-decision-making/when-can-we-use-special-category-data-in-our-adm/
+    published: 2026-03-31
+    accessed: 2026-11-18
+    origin: inside
+    type: regulator
+    language: en
+  - id: eweek-testing-2026
+    title: UK Weighs Statutory AI Pre-Deployment Testing Amid Agent Security Incidents
+    publisher: eWeek
+    url: https://www.eweek.com/news/ai-predeployment-testing-emea-uk/
+    published: 2026-08-06
+    accessed: 2026-11-18
+    origin: outside
+    type: journalism
+    language: en
+    note: Used only for the minister's position on legislation. Its incident figures are not used.
+  - id: reuters-aisi-access-2026
+    title: UK given access to safety-test latest AI models, minister says
+    publisher: The Star (Malaysia)
+    url: https://www.thestar.com.my/tech/tech-news/2026/10/12/uk-given-access-to-safety-test-latest-ai-models-minister-says
+    published: 2026-10-12
+    accessed: 2026-11-18
+    origin: outside
+    type: journalism
+    language: en
+    via: Reuters
+  - id: gov-network-2025
+    title: Efforts to share best practices on AI measurement and evaluations driven forward through the International Network for Advanced AI Measurement, Evaluation and Science
+    publisher: Department for Science, Innovation and Technology and AI Security Institute
+    url: https://www.gov.uk/government/news/efforts-to-share-best-practices-on-ai-measurement-and-evaluations-driven-forward-through-the-international-network-for-advanced-ai-measurement-evalua
+    published: 2025-12-09
+    accessed: 2026-11-18
+    origin: inside
+    type: government
+    language: en
+
+  # Other pilot areas and international cooperation (summaries for comparison)
+  - id: oecd-principles
+    title: OECD AI Principles
+    publisher: OECD.AI
+    url: https://oecd.ai/principles/
+    accessed: 2026-11-18
+    origin: international
+    type: international_body
+    language: en
+  - id: dte-un-ai-2025
+    title: UNGA launches two new initiatives to strengthen global cooperation on AI governance
+    publisher: Down To Earth
+    url: https://www.downtoearth.org.in/governance/unga-launches-two-new-initiatives-to-strengthen-global-cooperation-on-ai-governance
+    published: 2025-08-27
+    accessed: 2026-11-18
+    origin: outside
+    type: journalism
+    language: en
+  - id: fpf-sb53-2025
+    title: "California's SB 53: The First Frontier AI Law, Explained"
+    publisher: Future of Privacy Forum
+    url: https://fpf.org/blog/californias-sb-53-the-first-frontier-ai-law-explained/
+    published: 2025-10-03
+    accessed: 2026-11-18
+    origin: outside
+    type: civil_society
+    language: en
+  - id: skadden-us-eo-2025
+    title: White House Launches National Framework Seeking To Preempt State AI Regulation
+    publisher: Skadden, Arps, Slate, Meagher & Flom
+    url: https://www.skadden.com/insights/publications/2025/12/white-house-launches-national-framework
+    published: 2025-12-15
+    accessed: 2026-11-18
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm summary of the executive order of 11 December 2025.
+  - id: tnw-caisi-2026
+    title: US government to test AI models from Google, Microsoft and xAI before release
+    publisher: The Next Web
+    url: https://thenextweb.com/news/us-ai-model-evaluation-google-microsoft-xai
+    published: 2026-05-05
+    accessed: 2026-11-18
+    origin: outside
+    type: journalism
+    language: en
+    note: Title paraphrased from the page address; check against the page.
+  - id: canlaw-aida-2026
+    title: "Artificial Intelligence and Data Act replacement unlikely under new national AI strategy: lawyers"
+    publisher: Canadian Lawyer
+    url: https://www.canadianlawyermag.com/news/general/artificial-intelligence-and-data-act-replacement-unlikely-under-new-national-ai-strategy-lawyers/394177
+    published: 2026-06-04
+    accessed: 2026-11-18
+    origin: outside
+    type: journalism
+    language: en
+  - id: ised-code-2024
+    title: Even more organizations adopting Canada's voluntary code of conduct on artificial intelligence development
+    publisher: Innovation, Science and Economic Development Canada
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2024/11/even-more-organizations-adopting-canadas-voluntary-code-of-conduct-on-artificial-intelligence-development.html
+    published: 2024-11-08
+    accessed: 2026-11-18
+    origin: outside
+    type: government
+    language: en
+  - id: hub-canada-2026
+    title: Canada's AI minister outlines his vision for balancing innovation and safety
+    publisher: The Hub
+    url: https://thehub.ca/2026/09/30/canadas-ai-minister-outlines-his-vision-for-balancing-innovation-and-safety/
+    published: 2026-09-30
+    accessed: 2026-11-18
+    origin: outside
+    type: journalism
+    language: en
+  - id: tozzini-brazil-2026
+    title: Without A Legal Framework, ANPD And Sectoral Regulators Advance AI Regulation
+    publisher: TozziniFreire Advogados
+    url: https://tozzinifreire.com.br/en/artigos/sem-marco-legal-anpd-e-setores-avancam-na-regulacao-da-ia
+    published: 2026-08-21
+    accessed: 2026-11-18
+    origin: outside
+    type: industry
+    language: en
+    note: Brazilian law firm briefing.
+  - id: sidley-omnibus-2026
+    title: EU Lawmakers Reach Provisional Agreement to Delay Key EU AI Act Obligations
+    publisher: Sidley Austin (Data Matters)
+    url: https://datamatters.sidley.com/2026/06/22/eu-lawmakers-reach-provisional-agreement-to-delay-key-eu-ai-act-obligations/
+    published: 2026-06-22
+    accessed: 2026-11-18
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing.
+  - id: scl-omnibus-2026
+    title: Council of the EU approves AI Omnibus reforms
+    publisher: Society for Computers and Law
+    url: https://www.scl.org/council-of-the-eu-approves-ai-omnibus-reforms/
+    published: 2026-07-01
+    accessed: 2026-11-18
+    origin: inside
+    type: civil_society
+    language: en
+  - id: euronews-gpai-2025
+    title: Meta rebuffs EU's AI Code of Practice
+    publisher: Euronews
+    url: https://www.euronews.com/2025/07/18/meta-rebuffs-eus-ai-code-of-practice
+    published: 2025-07-18
+    accessed: 2026-11-18
+    origin: outside
+    type: journalism
+    language: en
+  - id: cooley-korea-2026
+    title: "South Korea's AI Basic Act: Overview and Key Takeaways"
+    publisher: Cooley
+    url: https://www.cooley.com/news/insight/2026/2026-01-27-south-koreas-ai-basic-act-overview-and-key-takeaways
+    published: 2026-01-27
+    accessed: 2026-11-18
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing.
+  - id: koreatimes-2026
+    title: Unclear guidance, vague terms in AI Basic Act leave businesses in limbo
+    publisher: The Korea Times
+    url: https://www.koreatimes.co.kr/business/tech-science/20260129/unclear-guidance-vague-terms-in-ai-basic-act-leave-businesses-in-limbo
+    published: 2026-01-29
+    accessed: 2026-11-18
+    origin: outside
+    type: journalism
+    language: en
+  - id: fpf-japan-2025
+    title: "Understanding Japan's AI Promotion Act: An \"Innovation-First\" Blueprint for AI Regulation"
+    publisher: Future of Privacy Forum
+    url: https://fpf.org/blog/understanding-japans-ai-promotion-act-an-innovation-first-blueprint-for-ai-regulation/
+    published: 2025-07-05
+    accessed: 2026-11-18
+    origin: outside
+    type: civil_society
+    language: en
+  - id: azb-india-2025
+    title: MeitY releases India AI Governance Guidelines with deliberate focus on enabling innovation over restraint
+    publisher: AZB & Partners
+    url: https://www.azbpartners.com/bank/meity-releases-india-ai-governance-guidelines-with-deliberate-focus-on-enabling-innovation-over-restraint/
+    published: 2025-11-11
+    accessed: 2026-11-18
+    origin: outside
+    type: industry
+    language: en
+    note: Indian law firm briefing.
+  - id: indiaai-safety-2025
+    title: India takes the lead in establishing the IndiaAI Safety Institute for responsible AI innovation
+    publisher: IndiaAI (Government of India)
+    url: https://indiaai.gov.in/article/india-takes-the-lead-establishing-the-indiaai-safety-institute-for-responsible-ai-innovation
+    published: 2025-01-31
+    accessed: 2026-11-18
+    origin: outside
+    type: government
+    language: en
+  - id: tfgi-singapore-2026
+    title: "Assurance as Infrastructure: How Singapore Governs AI in Practice"
+    publisher: Tech For Good Institute
+    url: https://techforgoodinstitute.org/insights/country-spotlights/assurance-as-infrastructure-how-singapore-governs-ai-in-practice/
+    published: 2026-08-12
+    accessed: 2026-11-18
+    origin: outside
+    type: civil_society
+    language: en
+  - id: ey-kenya-2026
+    title: Kenya publishes Artificial Intelligence Bill, 2026, proposing a formal framework for AI governance
+    publisher: EY
+    url: https://www.ey.com/en_gl/technical/tax-alerts/kenya-publishes-artificial-intelligence-bill-2026-proposing-a-formal-framework-for-ai-governance
+    published: 2026-06-17
+    accessed: 2026-11-18
+    origin: outside
+    type: industry
+    language: en
+  - id: dpa-nigeria-2026
+    title: Nigeria's AI Governance Approach
+    publisher: Digital Policy Alert
+    url: https://digitalpolicyalert.org/report/nigeria-ai-governance-approach
+    published: 2026-08-05
+    accessed: 2026-11-18
+    origin: outside
+    type: civil_society
+    language: en
+  - id: cms-uae-2026
+    title: AI laws and regulation in United Arab Emirates
+    publisher: CMS
+    url: https://cms.law/en/int/expert-guides/ai-regulation-scanner/united-arab-emirates
+    published: 2026-02-17
+    accessed: 2026-11-18
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm guide.
+  - id: uae-charter
+    title: The UAE Charter for the Development and Use of Artificial Intelligence
+    publisher: The UAE Government portal (u.ae)
+    url: https://u.ae/en/about-the-uae/strategies-initiatives-and-awards/policies/Ai/The-UAE-Charter-for-the-Development-and-Use-of-Artificial-Intelligence
+    accessed: 2026-11-18
+    origin: outside
+    type: government
+    language: en
+    note: Undated page.
+  - id: dpa-china-filings-2026
+    title: Cyberspace Administration of China announced registered generative AI service information for January to February 2026
+    publisher: Digital Policy Alert
+    url: https://digitalpolicyalert.org/event/38517-cyberspace-administration-of-china-announced-registered-generative-ai-service-information-for-january-to-february-2026
+    published: 2026-03-17
+    accessed: 2026-11-18
+    origin: outside
+    type: civil_society
+    language: en
+  - id: loeb-china-labelling-2025
+    title: China's AI Labeling Measures and Mandatory National Standards Take Effect September 1
+    publisher: Loeb & Loeb
+    url: https://www.loeb.com/en/insights/publications/2025/03/chinas-ai-labeling-measures-and-mandatory-national-standards-take-effect-september-1
+    published: 2025-03
+    accessed: 2026-11-18
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing.
+  - id: digichina-cnaisda-2025
+    title: What do we know about China's new AI safety institute?
+    publisher: DigiChina, Stanford University
+    url: https://digichina.stanford.edu/work/what-do-we-know-about-chinas-new-ai-safety-institute/
+    published: 2025-02-06
+    accessed: 2026-11-18
+    origin: outside
+    type: academic
+    language: en

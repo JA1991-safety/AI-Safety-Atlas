@@ -1,15 +1,22 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Cite from '../../components/Cite.astro';
+import Principles from '../../components/Principles.astro';
+import GapAnalysis from '../../components/GapAnalysis.astro';
+import Comparison from '../../components/Comparison.astro';
 import { loadAll, isNew, CULTURE_MIN_INSIDE_SHARE } from '../../lib/load.mjs';
 import { LABELS, fmtDate, correctionUrl, LANGUAGE_NAMES, SITE } from '../../lib/site.mjs';
 
 export function getStaticPaths() {
   const { areas, profiles } = loadAll();
-  return areas.filter((a) => profiles[a.code]).map((a) => ({ params: { code: a.code.toLowerCase() }, props: { area: a, p: profiles[a.code] } }));
+  const areaNames = Object.fromEntries(areas.map((a) => [a.code, a.name]));
+  return areas
+    .filter((a) => profiles[a.code])
+    .map((a) => ({ params: { code: a.code.toLowerCase() }, props: { area: a, p: profiles[a.code], areaNames } }));
 }
 
-const { area, p } = Astro.props as any;
+const { area, p, areaNames } = Astro.props as any;
+const home = { name: area.name, short: area.short ?? area.name };
 const base = '../';
 const idx = p.derived.sourceIndex;
 const byId = Object.fromEntries(p.sources.map((s: any) => [s.id, s]));
@@ -23,6 +30,13 @@ const sections = [
   { id: 'news', title: 'News', meta: p.news.meta, tier: 'Light review: headline, relevance and source checked' },
 ];
 const meta = Object.fromEntries(sections.map((s) => [s.id, s]));
+// The principles, gap analysis and comparison sections sit between regulation and culture.
+const extra = [
+  p.principles && { id: 'principles', title: 'Five principles' },
+  p.gap_analysis && { id: 'gaps', title: 'Gap analysis' },
+  p.comparison && { id: 'compare', title: 'Comparison' },
+].filter(Boolean) as { id: string; title: string }[];
+const nav = [sections[0], sections[1], ...extra, sections[2], sections[3]];
 const commitStatus = (c: any) => LABELS.commitment_status[c.status];
 ---
 <Base
@@ -95,7 +109,7 @@ const commitStatus = (c: any) => LABELS.commitment_status[c.status];
     </div>
 
     <nav class="section-nav" aria-label="Sections">
-      {sections.map((s) => <a href={`#${s.id}`}>{s.title}</a>)}
+      {nav.map((s) => <a href={`#${s.id}`}>{s.title}</a>)}
       <a href="#sources">Sources</a>
     </nav>
 
@@ -173,6 +187,10 @@ const commitStatus = (c: any) => LABELS.commitment_status[c.status];
         </ol>
         {meta.regulation.meta.gaps && <p class="gaps"><span class="label">Gaps</span> {meta.regulation.meta.gaps}</p>}
       </section>
+
+      {p.principles && <Principles p={p} idx={idx} />}
+      {p.gap_analysis && <GapAnalysis p={p} idx={idx} areaNames={areaNames} />}
+      {p.comparison && <Comparison p={p} idx={idx} areaNames={areaNames} home={home} />}
 
       {/* ---------- Culture ---------- */}
       <section id="culture" class="section" aria-labelledby="h-culture">

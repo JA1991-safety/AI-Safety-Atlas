@@ -123,7 +123,7 @@ export const HeadlineFigure = z
 
 export const RegulationItem = z
   .object({
-    kind: z.enum(['law', 'bill', 'strategy', 'guidance', 'institution', 'international', 'machinery']),
+    kind: z.enum(['law', 'bill', 'strategy', 'guidance', 'institution', 'international', 'machinery', 'enforcement']),
     title: z.string(),
     date: PartialDate,
     status: z.string().optional(), // e.g. "In force", "Announced", "Second reading scheduled"
@@ -155,6 +155,92 @@ export const NewsItem = z
     why_it_matters: z.string().min(10),
     sources: z.array(z.string()).min(1),
     topics: z.array(z.string()).default([]),
+  })
+  .strict();
+
+// ---------- Principles, gap analysis and comparison (optional, so profiles without them stay valid) ----------
+
+// The UK's five cross-sector principles, used as the common frame for comparison during the pilot.
+export const PRINCIPLE_KEYS = ['safety', 'transparency', 'fairness', 'accountability', 'contestability'];
+
+// How far a principle is backed by law. A classification, explained on the page, not a score.
+export const LEGAL_FOOTING = ['binding', 'partly_binding', 'guidance_only'];
+
+export const Principle = z
+  .object({
+    key: z.enum(PRINCIPLE_KEYS),
+    name: z.string(),
+    asks: Statement, // what the principle asks of regulators, in the government's words
+    footing: z.enum(LEGAL_FOOTING),
+    footing_note: Statement, // why it is classified that way
+    how_it_works: z.array(Statement).min(1), // the laws, regulators and tools that carry it
+    regulators: z.array(z.string()).default([]),
+    evidence: z.array(Statement).default([]), // statistics on how it works in practice
+  })
+  .strict();
+
+export const GAP_KINDS = ['legal_power', 'coverage', 'capacity', 'technical', 'redress'];
+
+export const GapOption = z
+  .object({
+    text: z.string().min(10), // an intervention used elsewhere or proposed at home
+    used_in: z.array(z.string()).default([]), // area codes or names where it is in use
+    proposed_by: z.string().optional(), // e.g. a committee or institute, when not yet used
+    sources: z.array(z.string()).min(1),
+  })
+  .strict();
+
+export const Gap = z
+  .object({
+    id: z.string().regex(/^[a-z0-9-]+$/),
+    title: z.string(),
+    kind: z.enum(GAP_KINDS),
+    principles: z.array(z.enum(PRINCIPLE_KEYS)).min(1),
+    finding: Statement, // the evidence that shows the gap, and who found it
+    options: z.array(GapOption).default([]),
+  })
+  .strict();
+
+// Structural comparison: does an area share each feature of the UK approach?
+export const MATCH = ['yes', 'partly', 'no'];
+
+export const ComparisonCriterion = z
+  .object({
+    key: z.string().regex(/^[a-z_]+$/),
+    short: z.string().max(28), // column heading
+    question: z.string(),
+    home: z.enum(MATCH), // the answer for the profiled area itself
+  })
+  .strict();
+
+export const ComparedArea = z
+  .object({
+    code: z.string().regex(/^[A-Z]{2}$/),
+    approach: z.string().min(10), // one line on how the area regulates AI
+    answers: z.record(z.enum(MATCH)), // criterion key -> answer
+    sources: z.array(z.string()).min(1),
+  })
+  .strict();
+
+export const Approach = z
+  .object({
+    key: z.string().regex(/^[a-z_]+$/),
+    name: z.string(),
+    used_by: z.array(z.string()), // area codes
+    description: Statement,
+    evidence: z.array(Statement).min(1), // what is known so far about how well it works
+    limits: z.array(Statement).default([]),
+  })
+  .strict();
+
+export const CooperationItem = z
+  .object({
+    name: z.string(),
+    date: PartialDate,
+    text: z.string().min(10),
+    home_role: z.string().optional(), // the profiled area's part in it
+    principles: z.array(z.enum(PRINCIPLE_KEYS)).default([]), // which of the five it overlaps with
+    sources: z.array(z.string()).min(1),
   })
   .strict();
 
@@ -205,6 +291,34 @@ export const Profile = z
         items: z.array(NewsItem).min(1),
       })
       .strict(),
+    // How the five principles work, gaps and comparison (optional while other areas are drafted)
+    principles: z
+      .object({
+        meta: SectionMeta,
+        intro: z.array(Statement).default([]),
+        items: z.array(Principle).length(5),
+      })
+      .strict()
+      .optional(),
+    gap_analysis: z
+      .object({
+        meta: SectionMeta,
+        intro: z.array(Statement).default([]),
+        items: z.array(Gap).min(1),
+      })
+      .strict()
+      .optional(),
+    comparison: z
+      .object({
+        meta: SectionMeta,
+        intro: z.array(Statement).default([]),
+        criteria: z.array(ComparisonCriterion).min(3),
+        areas: z.array(ComparedArea).min(1),
+        approaches: z.array(Approach).default([]),
+        cooperation: z.array(CooperationItem).default([]),
+      })
+      .strict()
+      .optional(),
     sources: z.array(Source).min(1),
   })
   .strict();
@@ -213,6 +327,7 @@ export const Area = z
   .object({
     code: z.string().regex(/^[A-Z]{2}$/),
     name: z.string(),
+    short: z.string().optional(), // e.g. "UK", used in running text
     region: z.string(),
     pilot: z.boolean(),
     // ISO 3166-1 numeric codes of the map shapes that make up this area
