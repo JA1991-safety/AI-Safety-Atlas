@@ -622,6 +622,15 @@ principles:
       We have not yet read each regulator's own strategic approach in full. Figures on enforcement
       under each principle are not published in one place, so the "In practice" figures come from
       sector surveys and individual cases.
+  framework:
+    name: the five principles
+    nav: Five principles
+    basis: own
+    about:
+      text: >-
+        The UK government set out five cross-sector principles for regulators to apply within their
+        own remits, and confirmed them in its February 2024 response to consultation.
+      sources: [gov-regulation-response-2024]
   intro:
     - text: >-
         The UK does not regulate AI as a technology. In 2024 ministers asked existing regulators to
@@ -636,6 +645,7 @@ principles:
   items:
     - key: safety
       name: Safety, security and robustness
+      short: Safety
       asks:
         text: >-
           AI systems should work in a robust, secure and safe way throughout their life, with risks
@@ -684,6 +694,7 @@ principles:
 
     - key: transparency
       name: Transparency and explainability
+      short: Transparency
       asks:
         text: >-
           People should be told when and how AI is used, and organisations should be able to explain
@@ -721,6 +732,7 @@ principles:
 
     - key: fairness
       name: Fairness
+      short: Fairness
       asks:
         text: >-
           AI should not undermine people's legal rights, discriminate unfairly or create unfair market
@@ -753,6 +765,7 @@ principles:
 
     - key: accountability
       name: Accountability and governance
+      short: Accountability
       asks:
         text: >-
           There should be clear lines of responsibility for AI across its life cycle, with governance
@@ -794,6 +807,7 @@ principles:
 
     - key: contestability
       name: Contestability and redress
+      short: Redress
       asks:
         text: >-
           People affected by an AI decision should be able to contest a harmful decision or outcome

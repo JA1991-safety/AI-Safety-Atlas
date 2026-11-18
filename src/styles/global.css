@@ -423,6 +423,9 @@ body::before {
 .pill-analysis {
   color: var(--tag-outside);
 }
+.pill-own {
+  color: var(--tag-inside);
+}
 .chip {
   display: inline-block;
   font-family: var(--font-display);

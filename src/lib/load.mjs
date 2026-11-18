@@ -99,6 +99,7 @@ export function checkProfile(p) {
   check('news', refs(p.news.items));
   if (p.principles)
     check('principles', [
+      ...refs(p.principles.framework.about),
       ...refs(p.principles.intro),
       ...p.principles.items.flatMap((i) => [...refs(i.asks), ...refs(i.footing_note), ...refs(i.how_it_works), ...refs(i.evidence)]),
     ]);
@@ -108,6 +109,20 @@ export function checkProfile(p) {
       ...p.areas_for_improvement.items.flatMap((g) => [...refs(g.in_place), ...refs(g.identified), ...refs(g.elsewhere)]),
     ]);
   if (p.contacts) check('contacts', [...refs(p.contacts.intro), ...p.contacts.items.flatMap((c) => refs(c.about))]);
+  // Areas for improvement point at this profile's own principles.
+  if (p.areas_for_improvement) {
+    const keys = new Set((p.principles?.items ?? []).map((i) => i.key));
+    for (const g of p.areas_for_improvement.items)
+      for (const k of g.principles)
+        if (!keys.has(k)) errors.push(`Area for improvement "${g.id}" names principle "${k}", which this profile does not define`);
+  }
+  if (p.principles) {
+    const seen = new Set();
+    for (const i of p.principles.items) {
+      if (seen.has(i.key)) errors.push(`Principle key "${i.key}" is used twice`);
+      seen.add(i.key);
+    }
+  }
   for (const id of ids) if (!used.has(id)) warnings.push(`Source "${id}" is listed but never cited`);
 
   // 2. Culture leans on voices from inside the country.

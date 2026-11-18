@@ -7,6 +7,8 @@ import { LABELS, fmtDate } from '../lib/site.mjs';
 const { p, idx, areaNames } = Astro.props as any;
 const sec = p.areas_for_improvement;
 const nameOf = (c: string) => areaNames[c] ?? c;
+const shortOf = Object.fromEntries((p.principles?.items ?? []).map((i: any) => [i.key, i.short]));
+const frameName = p.principles?.framework.name ?? 'the principles';
 ---
 <section id="improvement" class="section" aria-labelledby="h-improvement">
   <header class="section-head">
@@ -18,7 +20,7 @@ const nameOf = (c: string) => areaNames[c] ?? c;
   <p class="analysis-note">
     <span class="pill pill-analysis">About this section</span>
     <span>
-      Each area shows what is already in place and what named sources have identified, using the five principles as a frame.
+      Each area shows what is already in place and what named sources have identified, using {frameName} as a frame.
       Approaches used in other countries, or proposed at home, are listed to help understanding, not as recommendations.
     </span>
   </p>
@@ -42,7 +44,7 @@ const nameOf = (c: string) => areaNames[c] ?? c;
             <span class="kind">{LABELS.improvement_kind[g.kind]}</span>
             {g.principles.map((k: string) => (
               <a class="chip" href={`#principle-${k}`}>
-                {LABELS.principle_short[k]}
+                {shortOf[k] ?? k}
               </a>
             ))}
           </div>

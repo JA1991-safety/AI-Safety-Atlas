@@ -1,5 +1,5 @@
 ---
-// "How regulation works": the five cross-sector principles, one card each.
+// "How regulation works": the country's own AI principles (or the OECD set where it has none), one card each.
 import Cite from './Cite.astro';
 import { LABELS, fmtDate } from '../lib/site.mjs';
 
@@ -9,11 +9,21 @@ const improvementsFor = (key: string) => (p.areas_for_improvement?.items ?? []).
 ---
 <section id="principles" class="section" aria-labelledby="h-principles">
   <header class="section-head">
-    <h2 id="h-principles">How regulation works: the five principles</h2>
+    <h2 id="h-principles">How regulation works: {sec.framework.name}</h2>
     <p class="section-meta mono">
       Checked {fmtDate(sec.meta.checked)} · {LABELS.evidence_depth[sec.meta.evidence_depth]} · {LABELS.review[sec.meta.review]}
     </p>
   </header>
+
+  <p class="analysis-note framework-note">
+    <span class={`pill ${sec.framework.basis === 'oecd' ? 'pill-analysis' : 'pill-own'}`}>
+      {sec.framework.basis === 'oecd' ? 'OECD AI Principles used' : 'This country\'s own principles'}
+    </span>
+    <span>
+      {sec.framework.about.text}
+      <Cite ids={sec.framework.about.sources} index={idx} />
+    </span>
+  </p>
 
   {
     sec.intro.length > 0 && (
