@@ -2,7 +2,8 @@
    Layout concept: an atlas plate (the globe) with a reference margin beside it, where every
    statement carries its source like a footnote in a gazetteer. */
 :root {
-  /* colour: cool map-paper neutrals, survey teal for covered areas, amber for selection */
+  /* colour: cool map-paper neutrals and survey teal for the interface. On the globe: a soft blue sea,
+     warm pale land for areas outside the pilot, and coral for pilot areas, so what you can open stands out */
   --paper: #f4f6f5;
   --paper-2: #e9eeed;
   --space: #eef2f2;
@@ -10,9 +11,9 @@
   --ink-2: #47555f;
   --ink-3: #6d7b84;
   --rule: #cfd8db;
-  --sea: #cddfe4;
-  --land: #e2e5e0;
-  --land-edge: #b9c2c0;
+  --sea: #c9e0ee;
+  --land: #f2efe8;
+  --land-edge: #d2cdc2;
   --covered: #1f6c74;
   --covered-soft: #4f9aa0;
   --pending: #a6c4c5;
@@ -24,12 +25,15 @@
   --tag-inside: #1f6c74;
   --tag-outside: #5d4f96;
   --tag-international: #7d6a1d;
-  --cat-1: #1f6c74;
-  --cat-2: #c7841a;
-  --cat-3: #5d4f96;
-  --cat-4: #b04a5a;
-  --cat-5: #6b7d2c;
+  --cat-1: #d0583c;
+  --cat-2: #e0a12a;
+  --cat-3: #6556b0;
+  --cat-4: #2f8a68;
+  --cat-5: #9a6a4f;
   --focus: #c7841a;
+  --map-draft: #e57f62;
+  --map-pending: #f3c2b0;
+  --map-select: #15212a;
 
   /* type */
   --font-display: 'Barlow Condensed', 'Arial Narrow', 'Roboto Condensed', system-ui, sans-serif;
@@ -60,9 +64,9 @@
     --ink-2: #aab7bd;
     --ink-3: #82939a;
     --rule: #2a363c;
-    --sea: #12222a;
-    --land: #262f33;
-    --land-edge: #3d4a50;
+    --sea: #10283a;
+    --land: #2b3036;
+    --land-edge: #454d56;
     --covered: #5fc0c5;
     --covered-soft: #3b8c92;
     --pending: #35585b;
@@ -74,12 +78,15 @@
     --tag-inside: #5fb8bd;
     --tag-outside: #a597e0;
     --tag-international: #d1b75a;
-    --cat-1: #7dd3d8;
-    --cat-2: #e6a53c;
-    --cat-3: #a597e0;
-    --cat-4: #e07a8a;
-    --cat-5: #a9bf5c;
+    --cat-1: #f0866a;
+    --cat-2: #f0bd4f;
+    --cat-3: #a598ec;
+    --cat-4: #62c49a;
+    --cat-5: #c99a7c;
     --focus: #e6a53c;
+    --map-draft: #d26c53;
+    --map-pending: #5e3d36;
+    --map-select: #ffffff;
     color-scheme: dark;
   }
 }
@@ -91,9 +98,9 @@
   --ink-2: #aab7bd;
   --ink-3: #82939a;
   --rule: #2a363c;
-  --sea: #12222a;
-  --land: #262f33;
-  --land-edge: #3d4a50;
+  --sea: #10283a;
+  --land: #2b3036;
+  --land-edge: #454d56;
   --covered: #5fc0c5;
   --covered-soft: #3b8c92;
   --pending: #35585b;
@@ -105,12 +112,15 @@
   --tag-inside: #5fb8bd;
   --tag-outside: #a597e0;
   --tag-international: #d1b75a;
-  --cat-1: #7dd3d8;
-  --cat-2: #e6a53c;
-  --cat-3: #a597e0;
-  --cat-4: #e07a8a;
-  --cat-5: #a9bf5c;
+  --cat-1: #f0866a;
+  --cat-2: #f0bd4f;
+  --cat-3: #a598ec;
+  --cat-4: #62c49a;
+  --cat-5: #c99a7c;
   --focus: #e6a53c;
+  --map-draft: #d26c53;
+  --map-pending: #5e3d36;
+  --map-select: #ffffff;
   color-scheme: dark;
 }
 

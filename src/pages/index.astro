@@ -48,8 +48,8 @@ const lenses = [
     field: 'status',
     categories: [
       { value: 'published', label: 'Profile published', color: '--cat-1' },
-      { value: 'draft', label: 'Draft profile', color: '--covered-soft' },
-      { value: 'pending', label: 'Pilot area, in preparation', color: '--pending' },
+      { value: 'draft', label: 'Draft profile', color: '--map-draft' },
+      { value: 'pending', label: 'Pilot area, in preparation', color: '--map-pending' },
     ],
   },
   {
@@ -141,7 +141,7 @@ const drafted = areas.filter((a) => profiles[a.code]).length;
           <input
             id="search-input"
             type="search"
-            placeholder="Search countries or topics, e.g. institute, copyright"
+            placeholder="Search countries or topics, e.g. regulation, institute"
             autocomplete="off"
             aria-controls="search-results"
             aria-expanded="false"
