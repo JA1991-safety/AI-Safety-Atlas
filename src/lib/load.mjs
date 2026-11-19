@@ -181,7 +181,7 @@ const STAT_RE = new RegExp(
     String.raw`\d[\d,.]*\s?(?:%|per cent)`, // percentages
     String.raw`\b\d{1,3}(?:,\d{3})+\b`, // large numbers with commas
     String.raw`\b\d{2,3}x\b`, // multiples such as 40x
-    String.raw`\b(?!(?:19|20)\d{2}\b)\d{2,4}\s(?!(?:${MONTHS})|to\b|and\b|or\b)[a-z]{3,}`, // "88 countries"
+    String.raw`(?<![A-Za-z]-)\b(?!(?:19|20)\d{2}\b)\d{2,4}\s(?!(?:${MONTHS})|to\b|and\b|or\b)[a-z]{3,}`, // "88 countries", but not bill numbers such as C-36
   ].join('|'),
   'gi'
 );
