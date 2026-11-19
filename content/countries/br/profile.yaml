@@ -537,7 +537,8 @@ principles:
     evidence_depth: moderate
     review: draft
     gaps: >-
-      The OECD AI Principles are used because Brazil has no set of AI principles of its own in force.
+      The OECD AI Principles are used because Brazil has no set of AI principles of its own in force; we
+      searched again on 19 November 2026.
       Sector rules are described from a law firm briefing; we did not read the resolutions themselves.
       How general consumer and anti-discrimination law apply to AI is not covered in this draft.
   framework:
@@ -548,8 +549,10 @@ principles:
       text: >-
         Brazil has no set of AI principles of its own in force. It adheres to the OECD AI Principles,
         adopted in 2019 and updated in May 2024, and its 2021 national AI strategy states that it follows
-        them. The AI bill, PL 2338/2023, sets out its own principles, but it is not law.
-      sources: [oecd-principles, oecd-recommendation, teletime-ebia-2021, casrai-pl2338-2026]
+        them. The proposed Brazilian AI Plan 2024-2028, "IA para o Bem de Todos", lists ten premises, such
+        as ethics and responsibility in the use of AI, but does not define them as principles. The AI bill,
+        PL 2338/2023, sets out its own principles, but it is not law.
+      sources: [oecd-principles, oecd-recommendation, teletime-ebia-2021, pbia-2024, casrai-pl2338-2026]
   intro:
     - text: >-
         Brazil has no general AI law. Some principles are backed by data protection law and by rules in
@@ -993,6 +996,16 @@ sources:
     type: journalism
     language: pt
     note: By Diógenes Freire Feitosa. The headline's description of the member countries is the newspaper's own; this profile uses the article only for the facts of Brazil's membership.
+  - id: pbia-2024
+    title: "IA para o Bem de Todos: Proposta de Plano Brasileiro de Inteligência Artificial 2024-2028"
+    publisher: Conselho Nacional de Ciência e Tecnologia
+    url: https://boletim.sbq.org.br/anexos/IA_para_o_Bem_de_Todos.pdf
+    published: 2024-07-29
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: pt
+    note: Proposal presented to the National Science and Technology Council; copy hosted by the Sociedade Brasileira de Química. Lists ten "premissas" (premises).
   - id: teletime-ebia-2021
     title: Governo cria a Estratégia Brasileira de Inteligência Artificial, EBIA
     publisher: TELETIME News (Mobile Time)
