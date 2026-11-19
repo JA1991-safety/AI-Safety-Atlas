@@ -1,0 +1,1060 @@
+# Nigeria: area profile
+# Status: DRAFT, researched by Claude on 19 November 2026, awaiting editor review.
+# Every statement cites one or more sources from the list at the bottom of this file.
+# Direct quotes were copied from the source pages on the access date.
+# Sources from the Government of Nigeria, its agencies, and organisations and media based in Nigeria
+# count as "inside".
+# The principles section uses the OECD AI Principles for now. NITDA says the National AI Strategy
+# (September 2025) is built on five guiding principles, but we found no published definition of them,
+# and the principles in the August 2024 draft could not be read in full (see the gaps note in the
+# principles section). The editor may prefer to switch to the strategy's own principles once they have
+# been checked, in line with the decision of 18 Nov 2026 to use each country's own principles.
+
+code: NG
+name: Nigeria
+status: draft
+last_reviewed: 2026-11-19
+editor_approved: false
+reviewers: []
+
+summary:
+  overview:
+    - text: >-
+        Nigeria has no AI-specific law. The National Digital Economy and E-Governance Bill, which includes
+        a framework for regulating AI systems by risk, was at third reading in the Senate in July 2026; we
+        found no report that it has been passed.
+      sources: [thisday-salisu-2026, dpa-report-2026]
+    - text: >-
+        The Nigeria Data Protection Act 2023 applies to AI that uses personal data, including a right not
+        to be subject to solely automated decisions. The data protection regulator plans to review the Act
+        to address AI.
+      sources: [aa-madueke-2026, nairametrics-ndpa-2026]
+    - text: >-
+        The National AI Strategy, published in September 2025, proposes an independent AI governance body,
+        a national AI risk management framework and an AI ethics expert group. Nigeria signed the Bletchley
+        Declaration in 2023 and the Paris AI Action Summit statement in 2025.
+      sources: [oecd-nais, gov-bletchley-2023, elysee-paris-2025]
+    - text: >-
+        Nigerians are more often excited than concerned about AI. In a 2026 Pew survey, 25% said AI in daily
+        life made them more excited than concerned and 21% more concerned; in a BCG survey, 91% said they used
+        AI at least weekly.
+      sources: [pew-topline-2026, bd-bcg-2026]
+  regulation_line:
+    text: >-
+      No AI-specific law: data protection law applies, an economy-wide bill with AI rules is before the
+      National Assembly, and the national AI strategy proposes a governance body and risk framework.
+    sources: [aa-madueke-2026, thisday-salisu-2026, oecd-nais]
+
+facets:
+  regulatory_approach: sector_and_existing_law
+  safety_institute:
+    status: "no"
+    sources: [dpa-report-2026, oecd-nais]
+  frontier_developers:
+    status: "no"
+    note: >-
+      We found no developer of frontier AI models based in Nigeria in our sources. N-ATLAS, an open-source
+      multilingual model for Nigerian languages launched by the government in 2025, is adapted from an
+      existing open model.
+    sources: [ncair-naic, itedge-gitex-2025]
+  national_polling: international_only
+  commitments:
+    - key: bletchley_declaration
+      status: signed
+      date: 2023-11-01
+      sources: [gov-bletchley-2023]
+    - key: seoul_declaration
+      status: not_signed
+      sources: [gov-seoul-2024]
+    - key: paris_statement
+      status: signed
+      date: 2025-02-11
+      sources: [elysee-paris-2025]
+
+attitudes:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: limited
+    review: draft
+    gaps: >-
+      We found no survey of attitudes to AI run by a Nigerian public body. The Pew figures are from the
+      published topline, which does not give Nigeria's fieldwork dates or sample size. The BCG and HP
+      figures are reported through Nigerian newspapers, without sample sizes or question wording; both
+      surveys were run by companies, and BCG's covers users of digital government services. Survey wording
+      differs, so figures from different polls should not be compared directly.
+  headline_figures:
+    - value: "21%"
+      label: >-
+        say the increased use of AI in daily life makes them more concerned than excited; 25% more
+        excited, and 30% equally concerned and excited
+      fieldwork: Spring 2026
+      sample: Adults in Nigeria, in the Pew Research Center's Spring 2026 Global Attitudes Survey
+      source: pew-topline-2026
+    - value: "61%"
+      label: >-
+        say AI's benefits outweigh its risks
+      fieldwork: Not stated
+      sample: Respondents in Nigeria to Boston Consulting Group's Digital Government Citizen Survey of 44 countries, reported by BusinessDay
+      source: bd-bcg-2026
+  statements:
+    - text: >-
+        In the Pew survey, 27% of Nigerians thought AI would lead to more jobs in Nigeria over the next 20
+        years and 26% to fewer jobs. 31% said they had heard or read a lot about AI.
+      sources: [pew-topline-2026]
+    - text: >-
+        In the BCG survey, 91% of Nigerian respondents said they used AI at least weekly, against a global
+        average of 64%. Job losses were the most common concern about AI in government (46%), and public
+        reporting on how AI performs was the most favoured safeguard (39%).
+      sources: [bd-bcg-2026]
+    - text: >-
+        In HP's 2026 Work Relationship Index, a survey of desk-based workers in 15 countries, more than 70%
+        of workers in Nigeria said they were happy with the use of AI at work.
+      sources: [thisday-hp-2026]
+
+regulation:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      We did not read the text of the National Digital Economy and E-Governance Bill; its AI provisions are
+      described from news reports, which differ in detail, and the latest dated report of its status is
+      from July 2026. We read the first part of the August 2024 draft of the national AI strategy; the final
+      strategy is described from the OECD's record and secondary sources.
+  items:
+    - kind: bill
+      title: National Digital Economy and E-Governance Bill
+      date: 2025-07-08
+      status: Passed second reading in the Senate in July 2025; at third reading in July 2026, as reported by ThisDay
+      text: >-
+        A wide-ranging bill on the digital economy that includes a framework for "the development,
+        implementation, and responsible use of Artificial Intelligence systems", in the words of its Senate
+        sponsor, Shuaib Afolabi Salisu. As reported in January 2026, it would apply stricter scrutiny to
+        higher-risk AI, for example in finance and automated decision-making; require annual impact
+        assessments and registration before deployment; let regulators suspend unsafe or non-compliant
+        systems; and set fines of up to ₦10 million or 2% of annual gross revenue. NITDA would be the
+        main regulator.
+      sources: [sun-second-2025, thisday-salisu-2026, bd-bill-2026, techhive-2025]
+    - kind: bill
+      title: Other AI bills
+      date: 2025-05
+      status: Introduced in the National Assembly in 2025
+      text: >-
+        Tech Hive Advisory lists other bills on AI, including a National Artificial Intelligence Commission
+        (Establishment) Bill introduced in May 2025, and expects that the digital economy bill may absorb
+        them.
+      sources: [techhive-2025]
+    - kind: law
+      title: Nigeria Data Protection Act, 2023
+      date: 2023-06-12
+      status: In force; the regulator plans a review to address AI
+      text: >-
+        Applies to AI systems that process personal data. Section 37 gives people a right not to be
+        subject to solely automated decisions with significant effects, with safeguards including human
+        intervention. The Nigeria Data Protection Commission (NDPC) enforces the Act, and in June 2026 said
+        it would review it to address AI, big data and robotics explicitly.
+      sources: [aa-madueke-2026, nairametrics-ndpa-2026]
+    - kind: strategy
+      title: National Artificial Intelligence Strategy
+      date: 2025-09
+      status: Published by the Federal Ministry of Communications, Innovation and Digital Economy; implemented by NITDA
+      text: >-
+        Built on five pillars, from AI infrastructure to responsible and ethical AI and a governance
+        framework. The governance pillar includes "an independent AI Governance Regulatory Body and a
+        National AI Risk Management Framework", according to the OECD's summary. The August 2024 draft
+        noted that the Data Protection Act "does not particularly address AI-related data concepts".
+      sources: [oecd-nais, ncair-strategy-2024]
+    - kind: guidance
+      title: Joint statement on AI-generated imagery
+      date: 2026-02-23
+      status: Non-binding statement by the NDPC with other data protection authorities
+      text: >-
+        The NDPC joined more than 60 data protection authorities in a statement on AI tools that create
+        realistic images of identifiable people without consent. It sets out expectations for developers,
+        including safeguards, transparency and fast removal of harmful content. The NDPC says "AI content
+        generation systems must be developed in strict accordance with data protection and privacy rules."
+      sources: [ndpc-joint-2026, itweb-ndpc-2026]
+    - kind: international
+      title: International agreements
+      date: 2025-02-11
+      status: See filters
+      text: >-
+        Nigeria signed the 2023 Bletchley Declaration and the Paris AI Action Summit statement in February
+        2025. It was not among the participants in the Seoul Declaration in May 2024.
+      sources: [gov-bletchley-2023, elysee-paris-2025, gov-seoul-2024]
+
+culture:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      No local reviewer yet. All sources are in English; debate in Hausa, Yoruba, Igbo and other languages
+      is not covered. Coverage of AI in national politics was left out, as it needs a second reviewer.
+  summary:
+    - text: >-
+        Government voices present AI as a matter of national participation and sovereignty. The minister for
+        the digital economy has said Nigeria will help shape AI, not only adopt it, and has argued that
+        models trained elsewhere do not reflect African data.
+      sources: [itedge-jos-2026, techsoma-tijani-2025]
+    - text: >-
+        Lawyers and consultants argue that the strategy needs binding rules and independent oversight
+        behind it, and that guidance alone may not be enough.
+      sources: [bd-akinniyi-2026, techcabal-olagunju-2025, aa-madueke-2026]
+    - text: >-
+        Regulators frame AI risks through data protection and cybersecurity. The data protection regulator
+        stresses human oversight, and Central Bank officials have warned banks about the access given to AI
+        agents.
+      sources: [nairametrics-ndpa-2026, bd-cbn-2026]
+    - text: >-
+        Use of AI is high, and in the Pew survey more Nigerians were excited than concerned about it. Skills
+        and jobs are a common theme in public debate.
+      sources: [pew-topline-2026, bd-bcg-2026, techsoma-tijani-2025]
+  own_words:
+    - quote: "Nigeria will not merely adopt artificial intelligence—we will help shape it"
+      speaker: Bosun Tijani
+      role: Minister of Communications, Innovation and Digital Economy, at the University of Jos
+      date: 2026-01
+      source: itedge-jos-2026
+      voice: government
+    - quote: "You cannot be ahead of innovation, but regulation is not just about giving commands."
+      speaker: Kashifu Inuwa Abdullahi
+      role: Director General, National Information Technology Development Agency (NITDA)
+      date: 2026-01
+      source: techinafrica-2026
+      voice: government
+    - quote: "It gives legality to AI and the digital economy."
+      speaker: Mohammed Tahir Monguno
+      role: Senate Chief Whip, on the National Digital Economy and E-Governance Bill
+      date: 2025-07-08
+      source: sun-second-2025
+      voice: parliament
+    - quote: "We still need the human component. We should not leave everything to artificial intelligence"
+      speaker: Vincent Olatunji
+      role: National Commissioner, Nigeria Data Protection Commission
+      date: 2026-06
+      source: nairametrics-ndpa-2026
+      voice: public_body
+    - quote: "AI should never be given more access, authority, or autonomy than the implementing institutions can safely manage."
+      speaker: Rakiya Yusuf
+      role: Director, Payments System Supervision Department, Central Bank of Nigeria
+      date: 2026-11
+      source: bd-cbn-2026
+      voice: public_body
+    - quote: "For a technology capable of influencing millions of lives simultaneously, voluntary guidance alone may not be enough."
+      speaker: Toluwani Akinniyi
+      role: Cybersecurity consultant
+      date: 2026-05
+      source: bd-akinniyi-2026
+      voice: industry
+    - quote: "AI cannot be driven by one ministry or an enthusiastic minister"
+      speaker: Timi Olagunju
+      role: Technology lawyer
+      date: 2025-10
+      source: techcabal-olagunju-2025
+      voice: industry
+    - quote: "Nigeria does not have to reject artificial intelligence in order to protect people from it."
+      speaker: Glory Chidera Madueke
+      role: Lawyer and writer, in African Arguments
+      date: 2026-09-10
+      source: aa-madueke-2026
+      voice: civil_society
+  outside_analysis:
+    - text: >-
+        Digital Policy Alert, in a report written with AI Safety Nigeria in August 2026, notes that Nigeria
+        "has not adopted AI-specific legislation" and that proposals for an AI regulator so far exist only in
+        bills before the National Assembly.
+      sources: [dpa-report-2026]
+
+news:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+  items:
+    - id: cbn-ai-agents
+      headline: Central Bank officials warn banks about the risks of AI agents
+      date: 2026-11-18
+      kind: development
+      summary: >-
+        At a cybersecurity conference for the banking sector, Central Bank of Nigeria officials urged banks
+        not to give AI agents more access or autonomy than they can safely manage, and called for human
+        oversight and secure AI supply chains. No new rule was announced.
+      why_it_matters: >-
+        Banks are among the first Nigerian institutions to deploy AI systems that act on their own, and
+        the warnings set out what the regulator expects.
+      sources: [bd-cbn-2026]
+      topics: [AI agents, finance, cybersecurity]
+    - id: cybersecurity-conference
+      headline: NITDA's cybersecurity conference calls for cooperation on AI-driven threats
+      date: 2026-11-12
+      kind: development
+      summary: >-
+        At the opening of the International Cybersecurity Conference in Abuja, organised by NITDA, officials
+        and the chairs of the Senate and House committees on ICT called for stronger international
+        cooperation against AI-driven cyber threats.
+      why_it_matters: >-
+        It shows AI risks being taken up in Nigeria's cybersecurity policy, alongside the pending digital
+        economy bill.
+      sources: [nitda-icsc-2026]
+      topics: [cybersecurity, international]
+    - id: trust-by-design
+      headline: Data protection regulator calls for safeguards across the AI lifecycle
+      date: 2026-10-28
+      kind: development
+      summary: >-
+        In a keynote titled "Trust by Design", Vincent Olatunji called for data protection, privacy, security
+        and accountability to be built into the development and deployment of AI.
+      why_it_matters: >-
+        The NDPC is the main regulator for AI that uses personal data.
+      sources: [von-ndpc-2026]
+      topics: [data protection, regulator]
+    - id: bill-third-reading
+      headline: Senate committee chair says the digital economy bill is close to becoming law
+      date: 2026-07-09
+      kind: foundational
+      summary: >-
+        Shuaib Afolabi Salisu said the bill was at third reading and that "In the next few weeks, that bill
+        will be passed into law". We found no later report that it has been passed.
+      why_it_matters: >-
+        The bill would give Nigeria its first binding rules for AI systems.
+      sources: [thisday-salisu-2026]
+      topics: [regulation, digital economy bill]
+    - id: ndpa-review
+      headline: Data protection regulator plans to review the law to cover AI
+      date: 2026-06-20
+      kind: foundational
+      summary: >-
+        Three years after the Data Protection Act was signed, the NDPC said it would review the Act to
+        address AI, big data and robotics, as its references to new technologies were general.
+      why_it_matters: >-
+        It would be the first change to Nigeria's main law on personal data to address AI directly.
+      sources: [nairametrics-ndpa-2026]
+      topics: [data protection, regulation]
+    - id: imagery-statement
+      headline: NDPC joins international statement on AI-generated images
+      date: 2026-02-23
+      kind: foundational
+      summary: >-
+        The NDPC joined data protection authorities from other countries in setting out expectations for
+        developers of AI tools that create realistic images of real people.
+      why_it_matters: >-
+        It is the NDPC's clearest statement on harms from AI-generated content.
+      sources: [ndpc-joint-2026, itweb-ndpc-2026]
+      topics: [deepfakes, data protection]
+    - id: strategy
+      headline: Nigeria publishes its National AI Strategy
+      date: 2025-09
+      kind: foundational
+      summary: >-
+        The strategy sets out five pillars and proposes an independent AI governance body and a national AI
+        risk management framework.
+      why_it_matters: >-
+        It is the government's main statement on AI.
+      sources: [oecd-nais]
+      topics: [strategy]
+    - id: naic-2026
+      headline: National AI Innovation Challenge for tools built on N-ATLAS
+      date: 2026-11-08
+      kind: development
+      stream: ai
+      summary: >-
+        The government's challenge invited Nigerian teams to build working tools on N-ATLAS, the
+        government's open-source multilingual model, with finals scheduled for 8 to 10 November 2026.
+      why_it_matters: >-
+        It encourages the use of a locally adapted model for Nigerian languages in public services and
+        business.
+      sources: [ncair-naic]
+      topics: [models, languages]
+    - id: youth-index
+      headline: Index finds young Nigerians expect to use AI for work and education
+      date: 2026-11-05
+      kind: development
+      stream: ai
+      summary: >-
+        The Ayre Think Tank's Commonwealth Youth AI Readiness Index, a desk-based study, ranked Nigeria 15th
+        of 56 countries, and found that about 90% of young Nigerians expect to use AI for education or work.
+      why_it_matters: >-
+        Young people are a large share of Nigeria's population, and their use of AI shapes where risks and
+        benefits fall.
+      sources: [ncw-ayre-2026]
+      topics: [adoption, skills]
+    - id: hp-index
+      headline: Workplace survey finds most Nigerian workers welcome AI
+      date: 2026-09-30
+      kind: development
+      stream: ai
+      summary: >-
+        HP's 2026 Work Relationship Index reported that most workers in Nigeria were happy with AI being used
+        at work.
+      why_it_matters: >-
+        Rapid adoption at work increases the importance of rules on how AI is used in employment.
+      sources: [thisday-hp-2026]
+      topics: [adoption, work]
+    - id: bcg-survey
+      headline: Survey finds Nigerians among the most frequent users of AI
+      date: 2026-09-08
+      kind: development
+      stream: ai
+      summary: >-
+        In BCG's survey of citizens' views of digital government, Nigerians reported using AI more often
+        than respondents in any other country surveyed, while wanting human oversight of government
+        services.
+      why_it_matters: >-
+        High use means more people are exposed to both the benefits and the risks of AI tools.
+      sources: [bd-bcg-2026]
+      topics: [adoption, public attitudes]
+    - id: jos-centre
+      headline: Government plans a national AI centre of excellence in Jos
+      date: 2026-01-08
+      kind: foundational
+      stream: ai
+      summary: >-
+        Bosun Tijani announced a National AI Centre of Excellence at the University of Jos, as a hub for AI
+        research and skills.
+      why_it_matters: >-
+        Research capacity in Nigeria is needed to test and adapt AI systems locally.
+      sources: [itedge-jos-2026]
+      topics: [research, skills]
+    - id: n-atlas
+      headline: Nigeria launches N-ATLAS, a model for Nigerian languages
+      date: 2025-10-19
+      kind: foundational
+      stream: ai
+      summary: >-
+        Nigeria presented its national AI strategy and N-ATLAS, an open-source multilingual model covering
+        Yoruba, Hausa, Igbo and Nigerian English, at GITEX Nigeria 2025.
+      why_it_matters: >-
+        Models trained on local languages are one way to reduce reliance on systems built elsewhere.
+      sources: [itedge-gitex-2025, ncair-naic]
+      topics: [models, languages]
+
+principles:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: limited
+    review: draft
+    gaps: >-
+      NITDA says the National AI Strategy is built on five guiding principles (responsibility, ethics,
+      inclusivity, sustainability and collaboration), but we found no published definition of them. The
+      August 2024 draft lists a longer set, in a section we could not read in full. So the OECD AI
+      Principles are used for now. How consumer, employment and financial regulation apply to AI is not
+      covered.
+  framework:
+    name: the OECD AI Principles
+    nav: OECD AI Principles
+    basis: oecd
+    about:
+      text: >-
+        NITDA describes Nigeria's National AI Strategy as "built upon five guiding principles:
+        responsibility, ethics, inclusivity, sustainability, and collaboration." We found no published
+        definition of them, so the OECD AI Principles, adopted in 2019 and updated in May 2024, are used for
+        now. The OECD's AI policy observatory maps Nigeria's strategy against them.
+      sources: [nitda-gitex-2025, oecd-nais, oecd-recommendation]
+  intro:
+    - text: >-
+        Nigeria has no AI-specific law. Data protection law backs some principles where AI uses personal
+        data; the others rest on the national strategy, regulators' statements and a bill that has not yet
+        passed.
+      sources: [aa-madueke-2026, thisday-salisu-2026, oecd-nais]
+    - text: >-
+        Below, each principle is shown with what it asks, how far Nigerian law backs it, the bodies and
+        tools that carry it today, and evidence on how it works in practice.
+      sources: [oecd-recommendation]
+  items:
+    - key: wellbeing
+      name: Inclusive growth, sustainable development and well-being
+      short: Well-being
+      asks:
+        text: >-
+          "Stakeholders should proactively engage in responsible stewardship of trustworthy AI in pursuit
+          of beneficial outcomes for people and the planet", such as inclusion and reducing inequalities.
+        sources: [oecd-recommendation]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          Set out in the national strategy, which is not law.
+        sources: [oecd-nais]
+      how_it_works:
+        - text: >-
+            The government's N-ATLAS model covers Yoruba, Hausa, Igbo and Nigerian English, and a national
+            challenge funds tools built on it.
+          sources: [ncair-naic]
+        - text: >-
+            The government plans a National AI Centre of Excellence at the University of Jos for research
+            and skills.
+          sources: [itedge-jos-2026]
+      regulators: [Federal Ministry of Communications, Innovation and Digital Economy, NITDA]
+
+    - key: rights
+      name: Respect for the rule of law, human rights and democratic values, including fairness and privacy
+      short: Rights & fairness
+      asks:
+        text: >-
+          "AI actors should respect the rule of law, human rights, democratic and human-centred values"
+          throughout the life of an AI system, including non-discrimination, privacy and fairness.
+        sources: [oecd-recommendation]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          The Data Protection Act applies to AI that processes personal data. We found no AI-specific duty on
+          fairness or non-discrimination in force.
+        sources: [aa-madueke-2026, dpa-report-2026]
+      how_it_works:
+        - text: >-
+            The NDPC says major data controllers must show how their AI models collect, process and protect
+            personal information, and that compliance audits will test the use of AI.
+          sources: [itweb-ndpc-2026]
+      regulators: [Nigeria Data Protection Commission (NDPC)]
+      evidence:
+        - text: >-
+            The NDPC's 2024 annual report, as quoted in African Arguments, described some data controllers as
+            "quite notorious in credit scoring" for disregarding the requirement for a human in decisions.
+          sources: [aa-madueke-2026]
+
+    - key: transparency
+      name: Transparency and explainability
+      short: Transparency
+      asks:
+        text: >-
+          "AI Actors should commit to transparency and responsible disclosure regarding AI systems."
+        sources: [oecd-recommendation]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          We found no binding duty to disclose the use of AI in our sources. The digital economy bill would
+          set standards on transparency, and the NDPC expects transparency from developers of image tools.
+        sources: [bd-bill-2026, ndpc-joint-2026]
+      how_it_works:
+        - text: >-
+            The joint statement the NDPC signed asks developers of AI image tools to be transparent about
+            what their systems can do.
+          sources: [ndpc-joint-2026]
+      regulators: [Nigeria Data Protection Commission (NDPC)]
+      evidence:
+        - text: >-
+            A Nigerian lawyer argues that the right to human review of automated decisions means little if
+            people cannot tell that an algorithm was used.
+          sources: [aa-madueke-2026]
+
+    - key: safety
+      name: Robustness, security and safety
+      short: Safety
+      asks:
+        text: >-
+          "AI systems should be robust, secure and safe throughout their entire lifecycle", and it should
+          be possible to override, repair or decommission them safely if they risk causing undue harm.
+        sources: [oecd-recommendation]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          We found no binding duty on the safety of AI systems in force. The digital economy bill would let
+          regulators suspend unsafe systems, and the strategy proposes a national AI risk management
+          framework.
+        sources: [bd-bill-2026, oecd-nais]
+      how_it_works:
+        - text: >-
+            Central Bank officials have urged banks to limit the access and autonomy of AI agents and to
+            secure their AI supply chains.
+          sources: [bd-cbn-2026]
+        - text: >-
+            NITDA's 2026 cybersecurity conference focused on AI-driven threats and international cooperation.
+          sources: [nitda-icsc-2026]
+      regulators: [NITDA, Central Bank of Nigeria]
+
+    - key: accountability
+      name: Accountability
+      short: Accountability
+      asks:
+        text: >-
+          "AI actors should be accountable for the proper functioning of AI systems and for the respect of
+          the above principles", including by making datasets, processes and decisions traceable.
+        sources: [oecd-recommendation]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          Under the Data Protection Act, people have a right not to be subject to solely automated decisions
+          with significant effects, with safeguards including human intervention. Wider duties, such as
+          annual impact assessments, are in the bill.
+        sources: [aa-madueke-2026, bd-bill-2026]
+      how_it_works:
+        - text: >-
+            The NDPC's head has said human oversight should remain central when AI is used, and that the
+            Data Protection Act will be reviewed to address AI.
+          sources: [nairametrics-ndpa-2026]
+      regulators: [Nigeria Data Protection Commission (NDPC)]
+
+areas_for_improvement:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      Each area is one that a named source has identified. The status of the digital economy bill after
+      July 2026 is not confirmed.
+  intro:
+    - text: >-
+        Nigeria has data protection law, a national AI strategy, and a bill with AI rules before the National
+        Assembly. Officials, lawyers and consultants point to areas where these could be strengthened.
+      sources: [aa-madueke-2026, oecd-nais, thisday-salisu-2026, bd-akinniyi-2026]
+  items:
+    - id: legal-basis
+      title: A legal framework for AI
+      kind: legal_power
+      principles: [safety, accountability]
+      in_place:
+        text: >-
+          Data protection law applies to AI that uses personal data. The digital economy bill, which would
+          set rules for AI systems by risk, had not been passed when last reported.
+        sources: [aa-madueke-2026, thisday-salisu-2026]
+      identified:
+        text: >-
+          A cybersecurity consultant has called for a National Artificial Intelligence Act, arguing that the
+          strategy gives less attention to enforceable governance, and a technology lawyer has said the
+          strategy lacks legislative backing.
+        sources: [bd-akinniyi-2026, techcabal-olagunju-2025]
+      elsewhere:
+        - text: >-
+            A general AI law that sorts AI systems by risk, with duties for high-risk systems and for
+            general-purpose AI models.
+          used_in: [EU]
+          sources: [ec-ai-act-page]
+
+    - id: data-law-ai
+      title: Updating data protection law for AI
+      kind: coverage
+      principles: [rights, transparency]
+      in_place:
+        text: >-
+          The Data Protection Act gives a right not to be subject to solely automated decisions. The NDPC
+          plans a review of the Act to address AI.
+        sources: [aa-madueke-2026, nairametrics-ndpa-2026]
+      identified:
+        text: >-
+          The August 2024 draft strategy noted that the Act "does not particularly address AI-related data
+          concepts". A lawyer writing in African Arguments argues that people need to be told when an
+          algorithm is used for the right to human review to work.
+        sources: [ncair-strategy-2024, aa-madueke-2026]
+      elsewhere: []
+
+    - id: independent-oversight
+      title: Independent oversight and audit of AI
+      kind: capacity
+      principles: [accountability, transparency]
+      in_place:
+        text: >-
+          The strategy proposes an independent AI governance body and an AI ethics expert group; Digital
+          Policy Alert reports that the ethics group is planned and the regulator exists only in bills.
+        sources: [oecd-nais, dpa-report-2026]
+      identified:
+        text: >-
+          A cybersecurity consultant names gaps in accountability, independent oversight, auditability,
+          explainability and the classification of high-risk systems.
+        sources: [bd-akinniyi-2026]
+      elsewhere: []
+
+    - id: risk-and-testing
+      title: Capacity to assess and test AI risks
+      kind: capacity
+      principles: [safety]
+      in_place:
+        text: >-
+          Nigeria has no AI safety institute. The strategy proposes a national AI risk management framework,
+          and Central Bank officials have issued recommendations on AI agents in banking.
+        sources: [oecd-nais, dpa-report-2026, bd-cbn-2026]
+      identified:
+        text: >-
+          Central Bank officials warned that AI may be "the greatest productivity tool ever given to
+          cybercriminals", and urged security by design and human oversight.
+        sources: [bd-cbn-2026]
+      elsewhere:
+        - text: >-
+            An AI safety and standards centre of excellence with a proposed AI research and testing lab,
+            launched in October 2026.
+          used_in: [Eswatini]
+          sources: [standard-eswatini-2026]
+
+contacts:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: limited
+    review: draft
+    gaps: >-
+      A starting list. Universities and civil society organisations working on AI safety outside Abuja and
+      Lagos are under-represented.
+  items:
+    - name: Nigeria Data Protection Commission (NDPC)
+      type: regulator
+      url: https://ndpc.gov.ng/
+      based: Abuja
+      about:
+        text: >-
+          The data protection regulator. It plans to review the Data Protection Act to address AI.
+        sources: [nairametrics-ndpa-2026]
+    - name: National Information Technology Development Agency (NITDA)
+      type: government
+      url: https://nitda.gov.ng/
+      based: Abuja
+      about:
+        text: >-
+          The government agency that implements the National AI Strategy and would regulate AI under the
+          digital economy bill.
+        sources: [oecd-nais, bd-bill-2026]
+    - name: National Centre for Artificial Intelligence and Robotics (NCAIR)
+      type: research_institute
+      url: https://ncair.nitda.gov.ng/
+      based: Abuja
+      about:
+        text: >-
+          A centre under NITDA that co-created the national AI strategy and runs the national AI
+          innovation challenge on N-ATLAS.
+        sources: [legal500-pavestones-2024, ncair-naic]
+    - name: Paradigm Initiative
+      type: civil_society
+      url: https://paradigmhq.org/
+      based: Lagos
+      about:
+        text: >-
+          A digital rights organisation whose work on AI covers research, capacity building and policy
+          input, including to NITDA.
+        sources: [paradigm-ai]
+
+sources:
+  # Government of Nigeria and its agencies
+  - id: ncair-strategy-2024
+    title: National Artificial Intelligence Strategy 2024 (draft)
+    publisher: Federal Ministry of Communications, Innovation and Digital Economy (copy hosted by NCAIR)
+    url: https://ncair.nitda.gov.ng/wp-content/uploads/2024/08/National-AI-Strategy_01082024-copy.pdf
+    published: 2024-08
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+    note: Marked "August, 2024 draft". Only about the first 17 pages could be read in full; the guiding principles section was not read.
+  - id: nitda-gitex-2025
+    title: "GITEX 2025: Nigeria Positions Itself As Africa's AI Powerhouse – NITDA DG"
+    publisher: NITDA
+    url: https://nitda.gov.ng/gitex-2025-nigeria-positions-itself-as-africas-ai-powerhouse-nitda-dg/9224/
+    published: 2025-12-01
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+    note: By Kinyiose Nwabuokei.
+  - id: nitda-icsc-2026
+    title: AI-Driven Cyber Threats Demand Global Action, Experts Warn at ICSC 2026
+    publisher: NITDA
+    url: https://nitda.gov.ng/ai-driven-cyber-threats-demand-global-action-experts-warn-at-icsc-2026/9920/
+    published: 2026-11-12
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+    note: By Mansour Aliyu Hassan.
+  - id: ncair-naic
+    title: National AI Innovation Challenge (NAIC) 2026
+    publisher: NCAIR, NITDA
+    url: https://ncair.nitda.gov.ng/naic/
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+    note: No publication date shown. Describes N-ATLAS as fine-tuned from an open model.
+  - id: ndpc-joint-2026
+    title: Joint Statement on AI-Generated Imagery and the Protection of Privacy, 23 February 2026
+    publisher: Nigeria Data Protection Commission
+    url: https://ndpc.gov.ng/joint-statement-on-ai-generated-imagery-and-the-protection-of-privacy-23-february-2026
+    published: 2026-02-23
+    accessed: 2026-11-19
+    origin: inside
+    type: regulator
+    language: en
+    note: The NDPC's news page was read; the statement itself is a download that was not read.
+  - id: von-ndpc-2026
+    title: NDPC Urges Data Protection Safeguards In AI Development
+    publisher: Voice of Nigeria
+    url: https://von.gov.ng/ndpc-urges-data-protection-safeguards-in-ai-development/
+    published: 2026-10-28
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Othniel Canice. State broadcaster.
+  # Nigerian media and organisations
+  - id: thisday-salisu-2026
+    title: "'National Digital Economy and e-Governance Act 2026 Ready in Weeks'"
+    publisher: ThisDay
+    url: https://www.thisdaylive.com/2026/07/09/national-digital-economy-and-e-governance-act-2026-ready-in-weeks/
+    published: 2026-07-09
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Emma Okonji. The latest dated report of the bill's status we found.
+  - id: sun-second-2025
+    title: Senate moves to legalise AI, E-Governance as National Digital Economy Bill passes second reading
+    publisher: The Sun Nigeria
+    url: https://thesun.ng/senate-moves-to-legalise-ai-e-governance-as-national-digital-economy-bill-passes-second-reading/
+    published: 2025-07-08
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Kenneth Udeh.
+  - id: bd-bill-2026
+    title: Nigeria set to pass AI law, among first in Africa to regulate sector
+    publisher: BusinessDay
+    url: https://businessday.ng/technology/article/nigeria-set-to-pass-ai-law-among-first-in-africa-to-regulate-sector/
+    published: 2026-01-13
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Oluwatosin Ogunjuyigbe, drawing on a Bloomberg interview.
+  - id: techhive-2025
+    title: "Nigeria: A 2025 Retrospective and 2026 Outlook"
+    publisher: Tech Hive Advisory
+    url: https://www.techhiveadvisory.africa/insights/nigeria-a-2025-retrospective-and-2026-outlook
+    published: 2025-12-30
+    accessed: 2026-11-19
+    origin: inside
+    type: industry
+    language: en
+    note: By Ridwan Oloyede and Victoria Adaramola.
+  - id: legal500-pavestones-2024
+    title: Analysis Of Nigeria's National Artificial Intelligence Strategy
+    publisher: Legal 500 (contributed by Pavestones)
+    url: https://www.legal500.com/intelligence/nigeria/technology/analysis-of-nigeria's-national-artificial-intelligence-strategy
+    published: 2024-08-19
+    accessed: 2026-11-19
+    origin: inside
+    type: industry
+    language: en
+    note: By Seun Timi-Koleolu and Olawale Atanda, on the August 2024 draft.
+  - id: nairametrics-ndpa-2026
+    title: NDPC to review Data Protection Act to address AI, robotics, big data
+    publisher: Nairametrics
+    url: https://nairametrics.com/2026/06/20/ndpc-to-review-data-protection-act-to-address-ai-robotics-big-data/
+    published: 2026-06-20
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Samuel Daniel.
+  - id: bd-cbn-2026
+    title: AI agents pose new risks to Nigerian banks, CBN warns
+    publisher: BusinessDay
+    url: https://businessday.ng/news/article/ai-agents-pose-new-risks-to-nigerian-banks-cbn-warns/
+    published: 2026-11-18
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Hope Moses-Ashike.
+  - id: bd-akinniyi-2026
+    title: Nigeria risks AI crisis without strong regulation, expert warns
+    publisher: BusinessDay
+    url: https://businessday.ng/technology/article/nigeria-risks-ai-crisis-without-strong-regulation-expert-warns/
+    published: 2026-05-13
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Royal Ibeh.
+  - id: itedge-jos-2026
+    title: Federal Government to establish Nigeria's first National AI Centre of Excellence at University of Jos
+    publisher: ITEdgeNews
+    url: https://www.itedgenews.africa/federal-government-to-establish-nigerias-first-national-ai-centre-of-excellence-at-university-of-jos/
+    published: 2026-01-08
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: itedge-gitex-2025
+    title: Nigeria unveils ambitious AI strategy and indigenous LLM at GITEX 2025
+    publisher: ITEdgeNews
+    url: https://www.itedgenews.africa/nigeria-unveils-ambitious-ai-strategy-and-indigenous-llm-at-gitex-2025/
+    published: 2025-10-19
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: techcabal-olagunju-2025
+    title: Why Nigeria's AI future depends on politics, not just policy
+    publisher: TechCabal
+    url: https://techcabal.com/2025/10/09/why-nigerias-ai-future-depends-on-politics/
+    published: 2025-10-09
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: Date taken from the page address; no author shown.
+  - id: techsoma-tijani-2025
+    title: "Unite on AI or Be Left Behind: Bosun Tijani's Stern Warning to Africa at GITEX Nigeria 2025"
+    publisher: Techsoma Africa
+    url: https://techsoma.africa/unite-on-ai-or-be-left-behind-bosun-tijanis-stern-warning-to-africa-at-gitex-nigeria-2025/
+    published: 2025-09-03
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Faith Amonimo.
+  - id: ncw-ayre-2026
+    title: Report Shows 90% of Nigerian Youths Expect to Use AI for Education, Work
+    publisher: Nigeria Communications Week
+    url: https://www.nigeriacommunicationsweek.com.ng/2026/11/05/report-shows-90-of-nigerian-youths-expect-to-use-ai-for-education-work
+    published: 2026-11-05
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Chike Onwuegbuchi. Reports the Ayre Think Tank's Commonwealth Youth AI Readiness Index, a desk-based study.
+  - id: paradigm-ai
+    title: AI Work at Paradigm Initiative
+    publisher: Paradigm Initiative
+    url: https://paradigmhq.org/programs/artificial-intelligence/
+    accessed: 2026-11-19
+    origin: inside
+    type: civil_society
+    language: en
+    note: Page last modified 29 July 2026.
+  # Polls
+  - id: bd-bcg-2026
+    title: Nigeria records highest weekly AI usage globally – report
+    publisher: BusinessDay
+    url: https://businessday.ng/technology/article/nigeria-records-highest-weekly-ai-usage-globally-report/
+    published: 2026-09-08
+    accessed: 2026-11-19
+    origin: inside
+    type: poll
+    language: en
+    note: By Chinwe Michael. Reports Boston Consulting Group's Digital Government Citizen Survey; some figures in the article are garbled, and only clearly stated figures are used.
+  - id: thisday-hp-2026
+    title: "WRI Index 2026: 70% of Nigerian Workers Approve AI Adoption in Work Places"
+    publisher: ThisDay
+    url: https://www.thisdaylive.com/2026/10/04/wri-index-2026-70-of-nigerian-workers-approve-ai-adoption-in-work-places/
+    published: 2026-10-04
+    accessed: 2026-11-19
+    origin: inside
+    type: poll
+    language: en
+    note: By Olawale Ajimotokan. HP released the findings on 30 September 2026.
+  - id: pew-topline-2026
+    title: "Spring 2026 Global Attitudes Survey: topline questionnaire on views of AI"
+    publisher: Pew Research Center
+    url: https://www.pewresearch.org/wp-content/uploads/sites/20/2026/09/pg_2026.09.17_global-views-of-ai_topline.pdf
+    published: 2026-09-17
+    accessed: 2026-11-19
+    origin: outside
+    type: poll
+    language: en
+  # Outside Nigeria
+  - id: aa-madueke-2026
+    title: Nigeria Is Building an AI Economy. Who Will Protect Nigerians When the Algorithms Get It Wrong?
+    publisher: African Arguments (via AllAfrica)
+    url: https://allafrica.com/stories/202609110013.html
+    published: 2026-09-10
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: Opinion by Glory Chidera Madueke, a Nigerian lawyer and writer.
+  - id: techinafrica-2026
+    title: Nigeria's Proposed AI Rules Could Set a Continental Precedent for Digital Governance
+    publisher: Tech In Africa
+    url: https://www.techinafrica.com/nigerias-proposed-ai-rules-could-set-a-continental-precedent-for-digital-governance/
+    published: 2026-01-14
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: By Grace Ashiru.
+  - id: itweb-ndpc-2026
+    title: Nigeria takes new measures to regulate AI
+    publisher: ITWeb Africa
+    url: https://itweb.africa/article/nigeria-takes-new-measures-to-regulate-ai/dgp45MaBb51qX9l8
+    published: 2026-03-04
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: By Samuel Olomu.
+  - id: dpa-report-2026
+    title: Nigeria's AI Governance Approach
+    publisher: Digital Policy Alert
+    url: https://digitalpolicyalert.org/report/nigeria-ai-governance-approach
+    published: 2026-08-05
+    accessed: 2026-11-19
+    origin: outside
+    type: civil_society
+    language: en
+    note: By Maria Buza and Sherif Taha, in collaboration with AI Safety Nigeria. Partly read.
+  # International
+  - id: oecd-nais
+    title: National Artificial Intelligence Strategy (NAIS)
+    publisher: OECD.AI
+    url: https://oecd.ai/en/dashboards/policy-initiatives/national-artificial-intelligence-strategy-nais
+    accessed: 2026-11-19
+    origin: international
+    type: government
+    language: en
+    note: Record in the OECD's AI policy observatory, updated 28 April 2026, which tags the strategy against the OECD AI Principles.
+  - id: oecd-recommendation
+    title: Recommendation of the Council on Artificial Intelligence
+    publisher: OECD
+    url: https://legalinstruments.oecd.org/public/doc/648/648.en.pdf
+    published: 2024-05-03
+    accessed: 2026-11-19
+    origin: international
+    type: government
+    language: en
+    note: OECD/LEGAL/0449. Adopted on 22 May 2019 and revised on 3 May 2024.
+  - id: gov-bletchley-2023
+    title: "The Bletchley Declaration by Countries Attending the AI Safety Summit, 1-2 November 2023"
+    publisher: Prime Minister's Office, 10 Downing Street
+    url: https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023
+    published: 2023-11-01
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+  - id: gov-seoul-2024
+    title: "Seoul Declaration for safe, innovative and inclusive AI by participants attending the Leaders' Session: AI Seoul Summit, 21 May 2024"
+    publisher: Department for Science, Innovation and Technology (UK)
+    url: https://gov.uk/government/publications/seoul-declaration-for-safe-innovative-and-inclusive-ai-ai-seoul-summit-2024/seoul-declaration-for-safe-innovative-and-inclusive-ai-by-participants-attending-the-leaders-session-ai-seoul-summit-21-may-2024
+    published: 2024-05-21
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+    note: Nigeria is not among the participants listed.
+  - id: elysee-paris-2025
+    title: Statement on Inclusive and Sustainable Artificial Intelligence for People and the Planet
+    publisher: Élysée (Presidency of the French Republic)
+    url: https://www.elysee.fr/en/emmanuel-macron/2025/02/11/statement-on-inclusive-and-sustainable-artificial-intelligence-for-people-and-the-planet
+    published: 2025-02-11
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+    note: Nigeria is signatory 44.
+  # Approaches elsewhere
+  - id: ec-ai-act-page
+    title: AI Act
+    publisher: European Commission
+    url: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+    note: Page last updated 19 October 2026.
+  - id: standard-eswatini-2026
+    title: Africa seeks control of AI safety as Eswatini launches standards centre
+    publisher: The Standard (Kenya)
+    url: https://www.standardmedia.co.ke/sports/sci-tech/2001561221/africa-seeks-control-of-ai-safety-as-eswatini-launches-standards-centre
+    published: 2026-10-30
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: By Juliet Omelo.
