@@ -12,20 +12,6 @@ export const correctionUrl = (area, section) =>
   `${SITE.repo}/issues/new?template=correction.yml&title=${encodeURIComponent(`Correction: ${area}${section ? ` (${section})` : ''}`)}`;
 
 export const LABELS = {
-  principle: {
-    safety: 'Safety, security and robustness',
-    transparency: 'Transparency and explainability',
-    fairness: 'Fairness',
-    accountability: 'Accountability and governance',
-    contestability: 'Contestability and redress',
-  },
-  principle_short: {
-    safety: 'Safety',
-    transparency: 'Transparency',
-    fairness: 'Fairness',
-    accountability: 'Accountability',
-    contestability: 'Redress',
-  },
   footing: {
     binding: 'Backed by binding law',
     partly_binding: 'Partly backed by binding law',
