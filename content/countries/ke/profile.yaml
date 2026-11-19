@@ -5,8 +5,8 @@
 # Sources from the Government of Kenya, its agencies, and organisations and media based in Kenya
 # count as "inside".
 # The principles section uses the OECD AI Principles for now. Kenya's National AI Strategy 2025-2030
-# has a section of guiding principles, but we could not read it for this draft (see the gaps note in
-# the principles section). The editor may prefer to switch to the strategy's own principles once they
+# has a section of guiding principles, but we could not read it (searched again 19 Nov 2026; see the
+# gaps note in the principles section). The editor may prefer to switch to the strategy's own principles once they
 # have been checked, in line with the decision of 18 Nov 2026 to use each country's own principles.
 
 code: KE
@@ -455,8 +455,10 @@ principles:
     evidence_depth: limited
     review: draft
     gaps: >-
-      Kenya's National AI Strategy 2025-2030 has a section of guiding principles, but we could not read
-      it for this draft, so the OECD AI Principles are used for now. The ODPC's guidance note is a draft,
+      Kenya's National AI Strategy 2025-2030 has a section of guiding principles. We searched again on
+      19 November 2026: the copy of the strategy we could read stops before that section, the
+      government's own copy could not be read automatically, and no source we found gives the full list
+      with definitions. So the OECD AI Principles are used for now. The ODPC's guidance note is a draft,
       and later sections of it were not read in full. How consumer and employment law apply to AI is not
       covered.
   framework:
@@ -465,10 +467,12 @@ principles:
     basis: oecd
     about:
       text: >-
-        Kenya's National AI Strategy 2025-2030 includes guiding principles, which we could not read in
-        full for this draft. Until they are checked, the OECD AI Principles, adopted in 2019 and updated
-        in May 2024, are used. The OECD's AI policy observatory maps Kenya's strategy against them.
-      sources: [ke-strategy-2025, oecd-kenya-strategy, oecd-recommendation]
+        Kenya's National AI Strategy 2025-2030 includes guiding principles. A review by the Global Center
+        on AI Governance names some of them, including inclusivity, co-creation, transparency and
+        accountability, local-first and environmental sustainability, but we could not read the full list
+        or its definitions. Until they are checked, the OECD AI Principles, adopted in 2019 and updated in
+        May 2024, are used. The OECD's AI policy observatory maps Kenya's strategy against them.
+      sources: [ke-strategy-2025, globalcenter-strategies-2025, oecd-kenya-strategy, oecd-recommendation]
   intro:
     - text: >-
         Kenya has no AI-specific law. Data protection law backs some principles where AI uses personal
@@ -839,6 +843,16 @@ sources:
     type: academic
     language: en
     note: By Anthony Mburu.
+  - id: globalcenter-strategies-2025
+    title: "African Countries Are Racing to Create AI Strategies - But Are They Putting the Cart Before the Horse?"
+    publisher: Global Center on AI Governance
+    url: https://www.globalcenter.ai/insights/african-countries-are-racing-to-create-ai-strategies-but-are-they-putting-the-cart-before-the-horse
+    published: 2025-04-03
+    accessed: 2026-11-19
+    origin: outside
+    type: academic
+    language: en
+    note: By Selamawit Engida Abdella and Ayantola Alayande.
   - id: cipit-strategy-2025
     title: Kenya's Efforts in AI and Implementation Plan of the Kenyan National AI Strategy
     publisher: CIPIT, Strathmore University
