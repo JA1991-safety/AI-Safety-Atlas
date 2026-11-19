@@ -10,7 +10,8 @@ A page for people moving into AI safety. Visitors pick up to three risks they ca
 
 ## Before launch
 
-- **Suggestion form.** Set `SUGGEST_ENDPOINT` near the top of the script in `index.html` to a form service URL, such as Tally or Formspree. Until then, the form only shows a thank-you message and sends nothing.
+- **Suggestion form.** Suggestions are emailed to igiveafabout@gmail.com through [FormSubmit](https://formsubmit.co), which needs no account. The first time someone submits the form on the live site, FormSubmit sends an activation email to that inbox. Click the link in it, and every later suggestion arrives as an email. The suggester's email, if they give one, is set as the reply-to address. To change the address, edit `SUGGEST_ENDPOINT` near the top of the script in `index.html`.
+- **Optional, to cut spam:** after activation, FormSubmit's email gives you a random string that can stand in for the address in `SUGGEST_ENDPOINT`. Using it keeps the Gmail address out of the page source.
 - **Fact-check.** The organisation descriptions and the role tags are short summaries. Check them against each organisation's own site.
 
 ## Publishing with GitHub Pages

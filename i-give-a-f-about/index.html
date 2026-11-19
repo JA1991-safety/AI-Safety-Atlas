@@ -215,7 +215,8 @@ form.suggest{display:grid;grid-template-columns:1fr 1fr;gap:12px}
         <div class="field full"><label for="s-risk">Which risk do they work on?</label><select id="s-risk" name="risk"></select></div>
         <div class="field full"><label for="s-why">What do they do about it?</label><textarea id="s-why" name="why" placeholder="One or two lines is plenty"></textarea></div>
         <div class="field full"><label for="s-email">Your email, if you'd like a reply (optional)</label><input id="s-email" name="email" type="email"></div>
-        <div class="btns"><button class="btn primary" type="submit">Send suggestion</button></div>
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <div class="btns"><button class="btn primary" type="submit" id="s-send">Send suggestion</button></div>
         <p class="sent" id="sent" hidden></p>
       </form>
     </section>
@@ -227,8 +228,10 @@ form.suggest{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 <script src="data.js"></script>
 <script src="scenes.js"></script>
 <script>
-/* Where suggestions go once this is live: a form service URL (Tally, Formspree, Google Forms...). null = mockup. */
-const SUGGEST_ENDPOINT = null;
+/* Suggestions are emailed to igiveafabout@gmail.com through FormSubmit (formsubmit.co), which needs no account.
+   The first submission sends a one-off activation email to that inbox; click the link in it to switch the form on.
+   null = send nothing (shows a thank-you only). */
+const SUGGEST_ENDPOINT = "https://formsubmit.co/ajax/igiveafabout@gmail.com";
 
 const LOOKUP={}; GROUPS.forEach(g=>g.items.forEach(([id,punch,formal])=>LOOKUP[id]={punch,formal}));
 const picks=[]; let filter="all";
@@ -368,10 +371,17 @@ $("#s-risk").innerHTML=GROUPS.map(g=>`<optgroup label="${g.name}">${g.items.map(
 $("#suggestform").addEventListener("submit",async e=>{
   e.preventDefault(); const out=$("#sent"); out.hidden=false;
   const data=Object.fromEntries(new FormData(e.target));
+  if(data._honey)return; /* bots fill the hidden field */
+  const riskName=data.risk==="other"?"Something else":LOOKUP[data.risk].punch;
+  const payload={_subject:`New organisation suggestion: ${data.organisation}`,_template:"table",_captcha:"false",
+    Organisation:data.organisation,Website:data.website,Risk:riskName,"What they do":data.why||"(not given)","Suggested by":data.email||"(no email given)"};
+  if(data.email)payload._replyto=data.email;
   if(!SUGGEST_ENDPOINT){out.textContent=`Thanks! This is a mockup, so nothing was sent. On the live site, "${data.organisation}" would go straight to our inbox to check and add.`;return}
-  try{const r=await fetch(SUGGEST_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(data)});
+  const btn=$("#s-send");btn.disabled=true;out.textContent="Sending…";
+  try{const r=await fetch(SUGGEST_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(payload)});
     if(!r.ok)throw 0; out.textContent=`Thanks! We'll take a look at ${data.organisation}.`; e.target.reset()}
   catch(err){out.textContent="That didn't send. Check your connection and try again."}
+  btn.disabled=false;
 });
 
 /* ---------- Scroll: clear each scene as its organisations pass the middle of the screen ---------- */
