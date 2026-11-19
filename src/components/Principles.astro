@@ -17,7 +17,7 @@ const improvementsFor = (key: string) => (p.areas_for_improvement?.items ?? []).
 
   <p class="analysis-note framework-note">
     <span class={`pill ${sec.framework.basis === 'oecd' ? 'pill-analysis' : 'pill-own'}`}>
-      {sec.framework.basis === 'oecd' ? 'OECD AI Principles used' : 'This country\'s own principles'}
+      {sec.framework.basis === 'oecd' ? 'OECD AI Principles used' : p.code === 'EU' ? 'The EU\'s own principles' : 'This country\'s own principles'}
     </span>
     <span>
       {sec.framework.about.text}

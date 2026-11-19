@@ -50,7 +50,7 @@ function* textFields(node, at = '') {
     for (let i = 0; i < node.length; i++) yield* textFields(node[i], `${at}[${i}]`);
   } else if (node && typeof node === 'object') {
     for (const [k, v] of Object.entries(node)) {
-      if (['sources', 'source', 'url', 'id', 'accessed', 'published', 'date', 'checked', 'language'].includes(k)) continue;
+      if (['sources', 'source', 'url', 'id', 'accessed', 'published', 'date', 'checked', 'language', 'derived'].includes(k)) continue;
       yield* textFields(v, at ? `${at}.${k}` : k);
     }
   }
