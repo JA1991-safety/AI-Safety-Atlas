@@ -83,7 +83,7 @@ const frameName = p.principles?.framework.name ?? 'the principles';
                       )}
                       {o.proposed_by && (
                         <>
-                          <span class="mono">Proposed by</span> <span class="chip">{o.proposed_by}</span>
+                          <span class="mono">Proposed by</span> <span class="chip chip-wrap">{o.proposed_by}</span>
                         </>
                       )}
                     </span>
@@ -178,6 +178,10 @@ const frameName = p.principles?.framework.name ?? 'the principles';
   .options li {
     display: grid;
     gap: 4px;
+  }
+  .chip-wrap {
+    white-space: normal;
+    max-width: 100%;
   }
   .where {
     display: flex;
