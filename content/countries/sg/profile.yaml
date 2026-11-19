@@ -1,0 +1,1222 @@
+# Singapore: area profile
+# Status: DRAFT, researched by Claude on 19 November 2026, awaiting editor review.
+# Every statement cites one or more sources from the list at the bottom of this file.
+# Direct quotes were copied from the source pages on the access date.
+# Sources from the Government of Singapore, its agencies, and organisations, universities, law firms
+# and media based in Singapore count as "inside".
+# The principles section uses the nine dimensions of the Model AI Governance Framework for Generative
+# AI (IMDA and the AI Verify Foundation, May 2024) as Singapore's own set, following the editor's
+# decision of 18 Nov 2026 to use each country's own principles.
+
+code: SG
+name: Singapore
+status: draft
+last_reviewed: 2026-11-19
+editor_approved: false
+reviewers: []
+
+summary:
+  overview:
+    - text: >-
+        Singapore has no law written specifically for AI. It relies on national strategies, voluntary
+        frameworks published by the Infocomm Media Development Authority (IMDA), and existing law such
+        as the Personal Data Protection Act.
+      sources: [duane-morris-2026, eversheds-mgf-2024]
+    - text: >-
+        Testing is central to its approach. The Singapore AI Safety Institute works on AI evaluation
+        and testing, and in October 2026 the AI Verify Foundation accredited its first five
+        independent AI testing firms.
+      sources: [sgaisi-about, ag-imda-2026]
+    - text: >-
+        Singapore is pressing for international rules. In September 2026 it signed a call for control
+        of frontier AI models, and its foreign minister proposed exploring a UN framework convention on
+        AI safeguards.
+      sources: [nl-frontier-call-2026, star-un-2026]
+    - text: >-
+        In a Milieu Insight survey in June 2025, 80% of respondents said they use AI tools for personal
+        purposes; 61% were worried about misinformation and 54% about becoming too dependent on AI.
+      sources: [techedt-milieu-2025]
+  regulation_line:
+    text: >-
+      No AI-specific law. Voluntary frameworks for generative and agentic AI, testing tools and
+      accredited testers, data protection law, and an online safety law enforced by a new commission.
+    sources: [duane-morris-2026, wong-mgf-2024, baker-agentic-2026, ag-imda-2026, rajah-osc-2026]
+
+facets:
+  regulatory_approach: sector_and_existing_law
+  safety_institute:
+    status: "yes"
+    name: Singapore AI Safety Institute
+    sources: [sgaisi-about]
+  frontier_developers:
+    status: "no"
+    note: >-
+      We found no developer of frontier AI models based in Singapore in our sources. Singapore has
+      developed open-source models, SEA-LION and MERaLiOn, and NVIDIA opened an AI research lab there
+      in 2026.
+    sources: [edb-nais-2026]
+  national_polling: "yes"
+  commitments:
+    - key: bletchley_declaration
+      status: signed
+      date: 2023-11-01
+      sources: [gov-bletchley-2023]
+    - key: seoul_declaration
+      status: signed
+      date: 2024-05-21
+      sources: [gov-seoul-2024]
+    - key: paris_statement
+      status: signed
+      date: 2025-02-11
+      sources: [elysee-paris-2025]
+
+attitudes:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      Few polls ask about AI risks or regulation. The Milieu Insight figures are reported through Tech
+      Edition, not Milieu's own release, and the article does not state the year of fieldwork; it was
+      published in September 2025. The RSIS figures for agreement add its "somewhat" and "strongly"
+      answers. The page we read for the Stanford AI Index figure does not name the underlying survey
+      or its fieldwork. No poll we found asks about frontier AI.
+  headline_figures:
+    - value: "61%"
+      label: >-
+        are worried about misinformation, and 54% are concerned about becoming too dependent on AI
+      fieldwork: 16 to 24 June 2025
+      sample: 1,000 people aged 16 and over, online (Milieu Insight)
+      source: techedt-milieu-2025
+    - value: "51%"
+      label: >-
+        agree that AI will be used to cause harm (40.6% somewhat, 10.2% strongly); 65% agree that it
+        will be used for good
+      fieldwork: May 2024
+      sample: 1,014 adults aged 21 and over, online (RSIS, Nanyang Technological University)
+      source: rsis-opinion-2025
+  statements:
+    - text: >-
+        Asked in the RSIS survey whether AI can be trusted, 38.1% were neutral and 37.5% somewhat
+        agreed. Scams and other cybercrime were the harm mentioned most often, in 46.3% of answers to
+        an open question about harms.
+      sources: [rsis-opinion-2025]
+    - text: >-
+        A later RSIS analysis of the same survey found that support for AI regulation was "most strongly
+        associated with age", with older people showing "greater support for regulatory oversight".
+      sources: [rsis-engagement-2026]
+    - text: >-
+        In the Milieu Insight survey, only 16% had used AI for financial advice and 14% for mental health
+        support.
+      sources: [techedt-milieu-2025]
+    - text: >-
+        In survey data compiled for the Stanford AI Index 2026, Singapore had the highest trust in
+        government regulation of AI, at 91%.
+      sources: [hai-index-2026]
+
+regulation:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      The frameworks for generative and agentic AI are described from law firm briefings, not the
+      frameworks themselves. How the Cybersecurity Act and sector rules from regulators such as the
+      Monetary Authority of Singapore apply to AI is not covered in this draft. The
+      online safety law is described from a law firm summary.
+  items:
+    - kind: strategy
+      title: National AI Strategy, refreshed
+      date: 2026-05-20
+      status: Published; the strategy was first updated as NAIS 2.0 in December 2023
+      text: >-
+        Sets ten refreshed priorities. Under the aim of a trusted environment, the government says "As
+        AI risks become more complex, we will further strengthen layered AI governance", and will build
+        AI testing, assurance and safety capabilities.
+      sources: [mddi-nais-2026]
+    - kind: law
+      title: Personal Data Protection Act 2012
+      date: 2012
+      status: In force
+      text: >-
+        Data protection "remains the primary source of binding legal obligations for AI systems in
+        Singapore where personal data is involved", according to the law firm Duane Morris & Selvam. The
+        Personal Data Protection Commission issued advisory guidelines on its use in AI recommendation
+        and decision systems in March 2024.
+      sources: [duane-morris-2026]
+    - kind: guidance
+      title: Model AI Governance Framework for Generative AI
+      date: 2024-05-30
+      status: Voluntary
+      text: >-
+        Published by IMDA and the AI Verify Foundation, it sets nine dimensions for addressing concerns
+        about generative AI "while continuing to facilitate innovation". It was Singapore's first
+        governance framework for generative AI.
+      sources: [wong-mgf-2024, eversheds-mgf-2024]
+    - kind: guidance
+      title: Model AI Governance Framework for Agentic AI
+      date: 2026-01-22
+      status: Launched at the World Economic Forum; open for feedback
+      text: >-
+        Sets four dimensions for organisations using AI agents: assess and bound risks upfront, make
+        humans meaningfully accountable, implement technical controls and processes, and enable
+        end-user responsibility.
+      sources: [baker-agentic-2026]
+    - kind: guidance
+      title: Agentic testing starter kit and AI tester accreditation
+      date: 2026-10-14
+      status: Launched
+      text: >-
+        IMDA published a starter kit for testing agentic AI systems for safety and reliability, and the
+        AI Verify Foundation accredited five testing firms under its AI Tester Accreditation Programme.
+      sources: [ag-imda-2026]
+    - kind: institution
+      title: Singapore AI Safety Institute
+      date: 2022-10
+      status: Operating; hosted by the Digital Trust Centre, funded from October 2022
+      text: >-
+        The Digital Trust Centre at Nanyang Technological University has been designated as the
+        institute, working with IMDA. It works on technical testing, studies of AI's impact on
+        society, and international partnerships.
+      sources: [sgaisi-about]
+    - kind: institution
+      title: Frontier AI Resilience and Security Taskforce (FAIRS)
+      date: 2026-10-14
+      status: Formed; report due by the first half of 2027
+      text: >-
+        Formed by IMDA with more than 20 members to strengthen the infocomm and media sector against
+        AI-enabled cyber threats.
+      sources: [ag-imda-2026]
+    - kind: law
+      title: Online Safety (Relief and Accountability) Act 2025
+      date: 2026-06-29
+      status: Online Safety Commission operating since 29 June 2026
+      text: >-
+        Lets victims of online harms, starting with harassment, doxxing, stalking and intimate image
+        abuse, report to the Online Safety Commission, which can direct that the harm be stopped or
+        limited. Other harms are being added in phases.
+      sources: [rajah-osc-2026]
+    - kind: international
+      title: International agreements
+      date: 2026-09-22
+      status: See filters
+      text: >-
+        Singapore signed the 2023 Bletchley Declaration and the 2024 Seoul Declaration, joined the Paris
+        AI Action Summit statement in February 2025, and in September 2026 signed A Call for Control of
+        Frontier AI Models.
+      sources: [gov-bletchley-2023, gov-seoul-2024, elysee-paris-2025, nl-frontier-call-2026]
+
+culture:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      No local reviewer yet. Sources are in English only; debate in Chinese, Malay and Tamil is not
+      covered. Most quoted voices are ministers; no industry, labour or parliamentary voice is quoted.
+  summary:
+    - text: >-
+        The government presents safety as part of what makes Singapore attractive for AI. Minister
+        Josephine Teo has said Singapore "will not, and cannot, try to outspend the world's biggest
+        spenders on AI", and that safety is part of its value proposition.
+      sources: [mddi-ise-2026]
+    - text: >-
+        Singapore hosts international work on the science of AI safety. It hosted the second
+        International Scientific Exchange for AI Safety in May 2026, and published the 2026 Singapore
+        Consensus on Global AI Safety Research Priorities in July.
+      sources: [mddi-india-2026, mddi-ise-2026, sgaisi-consensus-2026]
+    - text: >-
+        Scams are a leading public concern. Scams and cybercrime were the harm people mentioned most in
+        an RSIS survey, and the minister has said AI changes "the cost of deception".
+      sources: [rsis-opinion-2025, csa-sicw-2026]
+    - text: >-
+        Testing is a recurring theme. The AI Verify Foundation builds open-source AI testing tools with
+        the open-source community, and in October 2026 accredited its first independent AI testers.
+      sources: [aivf-about, ag-imda-2026]
+    - text: >-
+        Singapore increasingly calls for international rules. In September 2026 its foreign minister
+        told the UN General Assembly that "the work of building trust and laying the ground for global
+        cooperation must begin now".
+      sources: [star-un-2026]
+  own_words:
+    - quote: "For Singapore, safety is not viewed as a brake on innovation, but a vital aspect of our value proposition."
+      speaker: Josephine Teo
+      role: Minister for Digital Development and Information
+      date: 2026-05-18
+      source: mddi-ise-2026
+      voice: government
+    - quote: "The bigger the potential impact of an AI-enabled action, the stronger the safeguards and human oversight should be."
+      speaker: Josephine Teo
+      role: Minister for Digital Development and Information
+      date: 2026-10-02
+      source: malaymail-guardrails-2026
+      voice: government
+    - quote: "What AI changes is the cost of deception."
+      speaker: Josephine Teo
+      role: Minister for Digital Development and Information, at Singapore International Cyber Week
+      date: 2026-10-14
+      source: csa-sicw-2026
+      voice: government
+    - quote: "We must explore all options, including the idea of a UN Framework Convention on AI Safeguards."
+      speaker: Vivian Balakrishnan
+      role: Minister for Foreign Affairs, at the UN General Assembly
+      date: 2026-09-26
+      source: star-un-2026
+      voice: government
+    - quote: "Create a neutral platform for open collaboration and idea-sharing on testing and governing AI"
+      speaker: AI Verify Foundation
+      role: Mission statement of the not-for-profit foundation, a subsidiary of IMDA
+      source: aivf-about
+      voice: public_body
+    - quote: "Support for AI regulation shows the strongest association with ethical engagement."
+      speaker: Ysa Marie Cayabyab and Karryl Kim Sagun Trajano
+      role: Researchers, S. Rajaratnam School of International Studies, Nanyang Technological University
+      date: 2026-05
+      source: rsis-engagement-2026
+      voice: civil_society
+  outside_analysis: []
+
+news:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+  items:
+    - id: agentic-testing
+      headline: IMDA launches a testing kit for AI agents and accredits the first AI testers
+      date: 2026-10-14
+      kind: development
+      summary: >-
+        At the AI Assurance Exchange, IMDA published a starter kit for testing agentic AI systems, the AI
+        Verify Foundation accredited five testing firms, and IMDA formed the Frontier AI Resilience and
+        Security Taskforce. "The Agentic Testing Starter Kit provides practical guidance for
+        organisations beginning to test such systems."
+      why_it_matters: >-
+        It extends Singapore's voluntary testing approach to AI agents, which can act with more autonomy
+        than chatbots.
+      sources: [ag-imda-2026]
+      topics: [testing, agentic AI, assurance]
+    - id: ai-scams
+      headline: Minister sets out how Singapore uses AI against AI-enabled scams
+      date: 2026-10-14
+      kind: development
+      summary: >-
+        At Singapore International Cyber Week, Josephine Teo said a system built by GovTech and the
+        police scans more than 600,000 websites daily, and that GovTech is working with Google DeepMind
+        on real-time scam detection on devices. "Our response should not be to turn away from AI because
+        scammers misuse it."
+      why_it_matters: >-
+        Scams are the AI harm people in Singapore mention most often.
+      sources: [csa-sicw-2026, rsis-opinion-2025]
+      topics: [scams, cybersecurity]
+    - id: guardrails-post
+      headline: Minister says safeguards must grow with what AI can do
+      date: 2026-10-02
+      kind: development
+      summary: >-
+        Josephine Teo wrote that safeguards matter more as AI models gain access to data, tools and
+        processes, and called for "a multi-layered approach comprising stronger cyber defences, clear
+        limits on what AI can do", human oversight, and the ability to test and monitor AI.
+      why_it_matters: >-
+        It sets out the government's view on how to govern more autonomous AI systems.
+      sources: [malaymail-guardrails-2026]
+      topics: [government, agentic AI, oversight]
+    - id: un-convention
+      headline: Singapore proposes exploring a UN convention on AI safeguards
+      date: 2026-09-26
+      kind: development
+      summary: >-
+        In Singapore's national statement to the UN General Assembly, Foreign Minister Vivian
+        Balakrishnan called for common global AI rules and safeguards, with the UN playing a central
+        role, and raised the idea of an international institution that could set standards for AI.
+      why_it_matters: >-
+        It adds a proposal for binding international rules to Singapore's voluntary approach at home.
+      sources: [star-un-2026]
+      topics: [international cooperation, United Nations]
+    - id: frontier-call
+      headline: Singapore signs A Call for Control of Frontier AI Models
+      date: 2026-09-22
+      kind: development
+      summary: >-
+        Singapore was among the signatories of a joint statement led by Norway and Finland, which says
+        "AI must remain under human direction, oversight and control." At a later virtual meeting
+        co-hosted by Finland and Norway, Singapore proposed a voluntary international pilot for
+        reporting serious incidents and near misses involving frontier AI.
+      why_it_matters: >-
+        The statement asks companies for mandatory testing before release and independent evaluation,
+        which go further than Singapore's own voluntary frameworks.
+      sources: [nl-frontier-call-2026, star-un-2026, cxo-incident-2026]
+      topics: [frontier AI, incidents, international cooperation]
+    - id: singapore-consensus
+      headline: The 2026 Singapore Consensus sets out global AI safety research priorities
+      date: 2026-07-07
+      kind: foundational
+      summary: >-
+        The Singapore AI Safety Institute published the 2026 Singapore Consensus on Global AI Safety
+        Research Priorities, following the International Scientific Exchange for AI Safety held in
+        Singapore in May.
+      why_it_matters: >-
+        Singapore's proposal for international incident reporting builds on it.
+      sources: [sgaisi-consensus-2026, mddi-ise-2026, cxo-incident-2026]
+      topics: [research, international cooperation]
+    - id: online-safety-commission
+      headline: Online Safety Commission begins work
+      date: 2026-06-29
+      kind: foundational
+      summary: >-
+        The commission, set up under the Online Safety (Relief and Accountability) Act 2025, began
+        handling reports of online harms including harassment, doxxing, stalking and intimate image
+        abuse, with other harms to follow.
+      why_it_matters: >-
+        It gives victims of online harms a route to have content stopped or limited, whether or not AI
+        was involved.
+      sources: [rajah-osc-2026]
+      topics: [online safety, redress]
+    - id: ise-testers
+      headline: Singapore announces accreditation for third-party AI testers
+      date: 2026-05-18
+      kind: foundational
+      summary: >-
+        Opening the International Scientific Exchange for AI Safety, Josephine Teo said "Safety therefore
+        cannot be treated as an afterthought" and announced a programme to accredit third-party AI
+        testers. Firms including EY, PwC and Resaro expressed early interest.
+      why_it_matters: >-
+        It created the accreditation programme that certified its first testers in October 2026.
+      sources: [mddi-ise-2026, edb-aitap-2026]
+      topics: [testing, assurance]
+    - id: agentic-framework
+      headline: Singapore publishes a governance framework for agentic AI
+      date: 2026-01-22
+      kind: foundational
+      summary: >-
+        IMDA launched the Model AI Governance Framework for Agentic AI at the World Economic Forum. It
+        asks organisations to bound risks upfront, keep humans meaningfully accountable, use technical
+        controls, and enable end users to act responsibly.
+      why_it_matters: >-
+        It extends Singapore's frameworks from generative AI to AI agents.
+      sources: [baker-agentic-2026]
+      topics: [agentic AI, guidance]
+    - id: switch-measures
+      headline: Singapore announces programmes to help companies build AI products
+      date: 2026-10-27
+      kind: development
+      stream: ai
+      summary: >-
+        At the SWITCH innovation festival, Gan Kim Yong launched a Champions of AI programme with 24
+        companies, including DBS, OCBC, UOB, ST Engineering and Singtel, along with agentic AI workshops
+        for small businesses.
+      why_it_matters: >-
+        The workshops cover agentic AI, for which Singapore published a voluntary governance framework
+        in January 2026.
+      sources: [star-switch-2026, baker-agentic-2026]
+      topics: [adoption, companies]
+    - id: edb-roundup
+      headline: Databricks, Waymo and Google Cloud expand in Singapore
+      date: 2026-10-29
+      kind: development
+      stream: ai
+      summary: >-
+        In a round-up for July to September, the Economic Development Board reported that Databricks is
+        investing more than S$445 million over three years, that Waymo chose Singapore for its first
+        service in Southeast Asia, planning driverless ride-hailing from 2028, and that Google Cloud
+        opened a Singapore engineering centre.
+      why_it_matters: >-
+        Before driverless service begins, Waymo is to carry out mapping and validation driving in 2027
+        with the Ministry of Transport and the Land Transport Authority.
+      sources: [edb-roundup-2026]
+      topics: [investment, companies]
+    - id: nais-partnerships
+      headline: Singapore refreshes its AI strategy and signs partnerships with OpenAI and Google
+      date: 2026-05-20
+      kind: foundational
+      stream: ai
+      summary: >-
+        At ATxSummit, the government signed a memorandum of understanding with OpenAI, which "has
+        committed more than S$300 million" to Singapore's AI ecosystem, and announced a national AI
+        partnership with Google. NVIDIA launched an AI research lab in Singapore.
+      why_it_matters: >-
+        It was the first government partnership between Singapore and OpenAI.
+      sources: [edb-nais-2026, mddi-nais-2026]
+      topics: [strategy, companies, partnerships]
+    - id: research-funding
+      headline: Singapore commits over S$1 billion to public AI research
+      date: 2026-01
+      kind: foundational
+      stream: ai
+      summary: >-
+        The government said it would invest more than S$1 billion in public AI research over five years,
+        funding research centres, AI capabilities and talent. "Research serves as a key activity driver
+        in our AI efforts," the ministry said.
+      why_it_matters: >-
+        Other countries, including South Korea, Saudi Arabia and the UAE, are also pursuing their own
+        sovereign AI efforts.
+      sources: [star-research-2026]
+      topics: [research, investment]
+
+principles:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      The framework's dimensions are quoted from a law firm summary, not the framework itself, which
+      could not be read. How the Cybersecurity Act and sector rules apply to AI is not covered in this
+      draft.
+  framework:
+    name: the nine dimensions of the Model AI Governance Framework for Generative AI
+    nav: Nine dimensions
+    basis: own
+    about:
+      text: >-
+        IMDA and the AI Verify Foundation published the Model AI Governance Framework for Generative AI
+        on 30 May 2024. It sets nine dimensions for "a systematic and balanced approach to address
+        generative AI concerns while continuing to facilitate innovation". The framework is not binding.
+      sources: [wong-mgf-2024, eversheds-mgf-2024]
+  intro:
+    - text: >-
+        Singapore has no AI-specific law. The Personal Data Protection Act applies where AI uses personal
+        data, and regulators such as the Monetary Authority of Singapore issue guidance on AI in their
+        own sectors.
+      sources: [duane-morris-2026, eversheds-mgf-2024]
+    - text: >-
+        Below, each dimension is shown with what the framework asks, how far the law backs it, the
+        bodies and tools that carry it today, and evidence on how it works in practice.
+      sources: [wong-mgf-2024]
+  items:
+    - key: accountability
+      name: Accountability
+      short: Accountability
+      asks:
+        text: >-
+          Responsibility should be shared across those who build and use AI, by "instituting the right
+          incentive structure for different players".
+        sources: [wong-mgf-2024]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          The Personal Data Protection Act holds organisations accountable for personal data, and the
+          data protection regulator's guidance says this applies "even when AI decisions are automated
+          or outsourced". No law sets accountability duties for AI in general.
+        sources: [duane-morris-2026]
+      how_it_works:
+        - text: >-
+            The 2026 framework for agentic AI asks organisations to "Make humans meaningfully
+            accountable" for the AI agents they use.
+          sources: [baker-agentic-2026]
+      regulators: [Personal Data Protection Commission]
+
+    - key: data
+      name: Data
+      short: Data
+      asks:
+        text: >-
+          The framework asks for "data quality control measures" and for "more trusted datasets".
+        sources: [wong-mgf-2024]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          Data protection law "applies across the AI lifecycle" where personal data is involved. Other
+          data used to build AI is covered only by guidance.
+        sources: [duane-morris-2026]
+      how_it_works:
+        - text: >-
+            In March 2024 the Personal Data Protection Commission issued advisory guidelines on the use
+            of personal data in AI recommendation and decision systems, which explain how the Act
+            applies.
+          sources: [duane-morris-2026]
+      regulators: [Personal Data Protection Commission]
+
+    - key: trusted-development
+      name: Trusted Development and Deployment
+      short: Development
+      asks:
+        text: >-
+          The framework calls for "enhancing transparency in relation to baseline safety and hygiene
+          measures".
+        sources: [wong-mgf-2024]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          Only frameworks and guidance ask for this. The IMDA frameworks are described as "formally
+          non-binding".
+        sources: [duane-morris-2026]
+      how_it_works:
+        - text: >-
+            The framework for agentic AI asks organisations to "Assess and bound risks upfront" and
+            "Implement technical controls and processes".
+          sources: [baker-agentic-2026]
+        - text: >-
+            IMDA published a starter kit for testing applications built on large language models in
+            January 2026.
+          sources: [edb-aitap-2026]
+      regulators: [Infocomm Media Development Authority (IMDA)]
+
+    - key: incident-reporting
+      name: Incident Reporting
+      short: Incident reporting
+      asks:
+        text: >-
+          Organisations should "establish structures and processes to enable incident reporting".
+        sources: [wong-mgf-2024]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          We found no law in our sources that requires AI incidents to be reported. The framework that
+          asks for it is not binding.
+        sources: [eversheds-mgf-2024, duane-morris-2026]
+      how_it_works:
+        - text: >-
+            In September 2026 Singapore signed a call for control of frontier AI models, which asks
+            governments to strengthen transparency, including shared reporting of serious safety
+            incidents.
+          sources: [nl-frontier-call-2026]
+        - text: >-
+            Singapore has since proposed a voluntary international pilot in which countries would report
+            and exchange information on serious frontier AI incidents and near misses.
+          sources: [cxo-incident-2026]
+      regulators: []
+
+    - key: testing-assurance
+      name: Testing and Assurance
+      short: Testing
+      asks:
+        text: >-
+          The framework says "third-party testing and assurance helps to provide external validation
+          and added trust".
+        sources: [wong-mgf-2024]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          Testing is voluntary. The accreditation programme aims to help businesses choose accredited
+          testers; we found no law in our sources that requires AI systems to be tested.
+        sources: [ag-imda-2026]
+      how_it_works:
+        - text: >-
+            The AI Verify Foundation, a not-for-profit subsidiary of IMDA, develops AI testing tools with
+            the open-source community.
+          sources: [aivf-about]
+        - text: >-
+            Its AI Tester Accreditation Programme accredited its first five firms in October 2026, for
+            sectors including healthcare, finance, recruitment and public services.
+          sources: [ag-imda-2026]
+        - text: >-
+            The Singapore AI Safety Institute carries out technical testing, including of multilingual
+            and agentic AI systems.
+          sources: [sgaisi-about]
+      regulators: [Infocomm Media Development Authority (IMDA)]
+
+    - key: security
+      name: Security
+      short: Security
+      asks:
+        text: >-
+          The framework notes that "generative AI models are threatened by novel threat vectors".
+        sources: [wong-mgf-2024]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          Our sources describe guidance and a taskforce, not legal duties, on the security of AI systems.
+          How the Cybersecurity Act applies to AI is not covered in this draft.
+        sources: [ag-imda-2026]
+      how_it_works:
+        - text: >-
+            In October 2026 IMDA formed the Frontier AI Resilience and Security Taskforce to strengthen
+            the infocomm and media sector against AI-enabled cyber threats.
+          sources: [ag-imda-2026]
+        - text: >-
+            The government also uses AI against scams. GovTech is working with Google DeepMind on
+            real-time scam detection on devices.
+          sources: [csa-sicw-2026]
+      regulators: [Infocomm Media Development Authority (IMDA), Cyber Security Agency of Singapore]
+      evidence:
+        - text: >-
+            A system built by GovTech and the police disrupts around 20,000 malicious websites a month,
+            the minister said in October 2026.
+          sources: [csa-sicw-2026]
+
+    - key: content-provenance
+      name: Content Provenance
+      short: Provenance
+      asks:
+        text: >-
+          The framework calls for "being transparent to end-users about where content comes from".
+        sources: [wong-mgf-2024]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          We found no law in our sources that requires AI-generated content to be labelled. Police can
+          direct online services to restrict impersonation scam content "regardless of whether it was
+          generated through AI".
+        sources: [mha-deepfake-2026]
+      how_it_works:
+        - text: >-
+            Under the Online Criminal Harms Act, the police can issue directions to online service
+            providers to restrict access to scam content for users in Singapore.
+          sources: [mha-deepfake-2026]
+      regulators: []
+
+    - key: safety-research
+      name: Safety and Alignment R&D
+      short: Safety research
+      asks:
+        text: >-
+          The framework calls for "accelerating research and development (R&D) through global
+          cooperation".
+        sources: [wong-mgf-2024]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          This dimension concerns research and international cooperation rather than rules for those
+          who build or use AI.
+        sources: [wong-mgf-2024]
+      how_it_works:
+        - text: >-
+            The Singapore AI Safety Institute's work includes studies of AI's impact on society, such as
+            emotional dependency, and a network for advanced AI measurement, evaluation and science.
+          sources: [sgaisi-about]
+        - text: >-
+            Singapore hosted the International Scientific Exchange for AI Safety in May 2026, and its AI
+            Safety Institute published the 2026 Singapore Consensus on research priorities.
+          sources: [mddi-ise-2026, sgaisi-consensus-2026]
+      regulators: []
+      evidence:
+        - text: >-
+            The refreshed national strategy commits over S$1 billion to public AI research and talent
+            from 2025 to 2030.
+          sources: [mddi-nais-2026]
+
+    - key: public-good
+      name: AI for Public Good
+      short: Public good
+      asks:
+        text: >-
+          The framework calls for "harnessing AI to benefit the public by democratising access".
+        sources: [wong-mgf-2024]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          This dimension concerns public programmes rather than rules.
+        sources: [wong-mgf-2024]
+      how_it_works:
+        - text: >-
+            The national AI strategy was refreshed in May 2026 with priorities to harness AI for the
+            public good, including a programme to help 10,000 enterprises use AI.
+          sources: [mddi-nais-2026, edb-nais-2026]
+      regulators: []
+
+areas_for_improvement:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      Each area is one that a named source has identified. Most of these sources are Singapore's own
+      ministers and statements it has signed; no independent Singapore critic of the approach was
+      found in our sources.
+  intro:
+    - text: >-
+        Singapore relies on voluntary frameworks, testing and existing law. Its ministers, a question in
+        Parliament and an international statement Singapore signed point to areas where this could be
+        strengthened.
+      sources: [star-un-2026, mha-deepfake-2026, nl-frontier-call-2026, mddi-ise-2026]
+  items:
+    - id: frontier-incidents
+      title: Reporting serious incidents with frontier AI
+      kind: coverage
+      principles: [incident-reporting, security]
+      in_place:
+        text: >-
+          The generative AI framework asks organisations to set up incident reporting, on a voluntary
+          basis.
+        sources: [wong-mgf-2024, eversheds-mgf-2024]
+      identified:
+        text: >-
+          Singapore has proposed a voluntary international pilot for reporting serious frontier AI
+          incidents and near misses, and signed a statement asking for shared reporting of serious
+          safety incidents.
+        sources: [cxo-incident-2026, nl-frontier-call-2026]
+      elsewhere:
+        - text: >-
+            A state law requiring frontier developers to report critical safety incidents.
+          used_in: [US]
+          sources: [fpf-sb53-2025]
+
+    - id: global-rules
+      title: Binding rules for advanced AI
+      kind: legal_power
+      principles: [accountability, testing-assurance]
+      in_place:
+        text: >-
+          Voluntary frameworks for generative and agentic AI, testing tools, and accredited testers.
+        sources: [wong-mgf-2024, baker-agentic-2026, ag-imda-2026]
+      identified:
+        text: >-
+          Foreign Minister Vivian Balakrishnan told the UN General Assembly in September 2026 that
+          countries "must explore all options, including the idea of a UN Framework Convention on AI
+          Safeguards".
+        sources: [star-un-2026]
+      elsewhere:
+        - text: >-
+            A general AI law with duties set by level of risk.
+          used_in: [EU]
+          sources: [ec-ai-act-page]
+        - text: >-
+            A general AI law with duties for high-impact AI systems.
+          used_in: [KR]
+          sources: [cooley-korea-2026]
+        - text: >-
+            An international treaty on AI, which the Council of Europe calls "the first-ever
+            international legally binding treaty in this field".
+          proposed_by: Council of Europe
+          sources: [coe-convention-page]
+
+    - id: deepfake-data
+      title: Measuring AI-enabled scams and deepfakes
+      kind: capacity
+      principles: [content-provenance, security]
+      in_place:
+        text: >-
+          Police can direct online services to restrict scam content, and the government uses AI to find
+          and disrupt scam websites.
+        sources: [mha-deepfake-2026, csa-sicw-2026]
+      identified:
+        text: >-
+          Asked in Parliament in July 2026 how many reports and enforcement actions involved AI-generated
+          deepfakes, the Ministry of Home Affairs said "The Singapore Police Force (SPF) does not track
+          the requested data", because identifying such content needs detailed forensic work.
+        sources: [mha-deepfake-2026]
+      elsewhere:
+        - text: >-
+            Duties to mark AI-generated content and label deepfakes, under a general AI law.
+          used_in: [EU]
+          sources: [ec-ai-act-page]
+        - text: >-
+            A duty for online services to label synthetic content, including deepfakes.
+          proposed_by: Government of Canada (Bill C-34, before Parliament)
+          sources: [dlapiper-c34-2026]
+
+    - id: agentic-risks
+      title: Understanding risks from AI agents
+      kind: technical
+      principles: [trusted-development, testing-assurance, security]
+      in_place:
+        text: >-
+          A governance framework for agentic AI, a starter kit for testing agentic systems, and testing
+          of agentic AI by the Singapore AI Safety Institute.
+        sources: [baker-agentic-2026, ag-imda-2026, sgaisi-about]
+      identified:
+        text: >-
+          Josephine Teo said in May 2026 that "Experts are surfacing other security concerns like loss of
+          control", and that "Governments may otherwise regulate too slowly or react in ways that are not
+          effective."
+        sources: [mddi-ise-2026]
+      elsewhere:
+        - text: >-
+            Mandatory testing of frontier AI models before release, and independent evaluation.
+          proposed_by: A Call for Control of Frontier AI Models (September 2026), which Singapore signed
+          sources: [nl-frontier-call-2026]
+
+contacts:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      A starting list, described from each organisation's own pages or official sources. University
+      research groups other than RSIS, and civil society groups, are not yet listed.
+  items:
+    - name: AI Verify Foundation
+      type: network
+      url: https://aiverifyfoundation.sg/
+      about:
+        text: >-
+          A not-for-profit foundation, "a wholly owned subsidiary" of IMDA, that aims to develop AI
+          testing tools with "the global open-source community". It runs the AI Tester Accreditation
+          Programme.
+        sources: [aivf-about, ag-imda-2026]
+      links:
+        - label: About the Foundation
+          url: https://aiverifyfoundation.sg/ai-verify-foundation/
+    - name: Infocomm Media Development Authority (IMDA)
+      type: regulator
+      url: https://www.imda.gov.sg/
+      about:
+        text: >-
+          Published Singapore's model AI governance frameworks for generative AI, with the AI Verify
+          Foundation, and for agentic AI, and formed the Frontier AI Resilience and Security Taskforce in
+          October 2026.
+        sources: [wong-mgf-2024, baker-agentic-2026, ag-imda-2026]
+    - name: Ministry of Digital Development and Information
+      type: government
+      url: https://www.mddi.gov.sg/
+      about:
+        text: >-
+          Leads Singapore's National AI Strategy, refreshed in May 2026.
+        sources: [mddi-nais-2026]
+    - name: Personal Data Protection Commission
+      type: regulator
+      url: https://www.pdpc.gov.sg/
+      about:
+        text: >-
+          Administers the Personal Data Protection Act, and issued advisory guidelines on the use of
+          personal data in AI systems in March 2024.
+        sources: [duane-morris-2026]
+    - name: S. Rajaratnam School of International Studies (RSIS)
+      type: university
+      url: https://rsis.edu.sg/
+      based: Nanyang Technological University
+      about:
+        text: >-
+          Its Future Issues and Technology cluster has published surveys of public opinion on AI and AI
+          governance in Singapore.
+        sources: [rsis-opinion-2025, rsis-engagement-2026]
+    - name: Singapore AI Safety Institute
+      type: research_institute
+      url: https://sgaisi.sg/
+      based: Digital Trust Centre, Nanyang Technological University
+      about:
+        text: >-
+          Says it "will drive Singapore's AI evaluation and testing work, to support addressing gaps in
+          global AI safety sciences".
+        sources: [sgaisi-about]
+      links:
+        - label: About us
+          url: https://sgaisi.sg/about-us/
+        - label: Resources
+          url: https://sgaisi.sg/resources/
+
+sources:
+  # Government of Singapore and its agencies
+  - id: mddi-nais-2026
+    title: "Update to Singapore's National AI Strategy: Refreshed Priorities to Harness AI for the Public Good (Factsheet)"
+    publisher: Ministry of Digital Development and Information
+    url: https://www.mddi.gov.sg/newsroom/update-to-singapore-s-national-ai-strategy--refreshed-priorities-to-harness-ai-for-the-public-good-factsheet
+    published: 2026-05-20
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: mddi-ise-2026
+    title: Opening Speech by Minister Josephine Teo at the International Scientific Exchange for AI Safety 2026 Main Conference
+    publisher: Ministry of Digital Development and Information
+    url: https://www.mddi.gov.sg/newsroom/opening-speech-by-minister-josephine-teo-at-the-international-scientific-exchange-for-ai-safety-2026-main-conference/
+    published: 2026-05-18
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: mddi-india-2026
+    title: "Minister Josephine Teo's Visit to India for India AI Impact Summit (19 Feb – 20 Feb 2026) (Factsheet)"
+    publisher: Ministry of Digital Development and Information
+    url: https://www.mddi.gov.sg/newsroom/minister-josephine-teo-s-visit-to-india-for-india-ai-impact-summit--19-feb---20-feb-2026---factsheet--/
+    published: 2026-02-20
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: csa-sicw-2026
+    title: Opening Address by Minister Josephine Teo at the Singapore International Cyber Week (Day 2) on 14 Oct 2026
+    publisher: Cyber Security Agency of Singapore
+    url: https://www.csa.gov.sg/news-events/speeches/opening-address-by-minister-josephine-teo-at-the-singapore-international-cyber-week-day-2-on-14-oct-2026/
+    published: 2026-10-14
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: mha-deepfake-2026
+    title: Reports and enforcement actions involving AI-generated deepfake content impersonating public figures, businesses or government agencies
+    publisher: Ministry of Home Affairs
+    url: https://www.mha.gov.sg/media-room/newsroom/reports-and-enforcement-actions-involving-ai-generated-deepfake-content-impersonating-public-figures-businesses-or-government-agencies/
+    published: 2026-07-07
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+    note: Written reply by the Minister for Home Affairs to a parliamentary question from Melvin Yong.
+  - id: sgaisi-about
+    title: About Us
+    publisher: Singapore AI Safety Institute
+    url: https://sgaisi.sg/about-us/
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: sgaisi-consensus-2026
+    title: The 2026 Singapore Consensus on Global AI Safety Research Priorities
+    publisher: Singapore AI Safety Institute
+    url: https://sgaisi.sg/resources/the-2026-singapore-consensus-on-global-ai-safety-research-priorities/
+    published: 2026-07-07
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: aivf-about
+    title: About us
+    publisher: AI Verify Foundation
+    url: https://aiverifyfoundation.sg/ai-verify-foundation/
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+    note: A not-for-profit subsidiary of IMDA. Page last modified 8 September 2026.
+  - id: edb-aitap-2026
+    title: New Singapore scheme to certify firms that test and jailbreak AI systems
+    publisher: Economic Development Board (from The Straits Times)
+    url: https://www.edb.gov.sg/en/business-insights/insights/new-singapore-scheme-to-certify-firms-that-test-and-jailbreak-ai-systems.html
+    published: 2026-05-18
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: edb-nais-2026
+    title: Singapore updates national AI strategy, partners Google and OpenAI
+    publisher: Economic Development Board (from The Business Times)
+    url: https://www.edb.gov.sg/en/news-and-insights/singapore-updates-national-ai-strategy-partners-google-and-openai
+    published: 2026-05-20
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: edb-roundup-2026
+    title: "Latest in Singapore's AI scene that businesses should know – a round-up from July to September 2026"
+    publisher: Economic Development Board
+    url: https://www.edb.gov.sg/en/news-and-insights/latest-in-singapores-ai-scene-that-businesses-should-know-a-round-up-from-july-to-september-2026
+    published: 2026-10-29
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  # Polls and research
+  - id: rsis-opinion-2025
+    title: "Navigating Public Opinion on AI in Singapore: Awareness, Perceptions and Vulnerabilities"
+    publisher: S. Rajaratnam School of International Studies, Nanyang Technological University
+    url: https://rsis.edu.sg/wp-content/uploads/2025/09/PR_Navigating-Public-Opinion-on-AI-in-Singapore-Awareness-Perceptions-and-Vulnerabilities-.pdf
+    published: 2025-09
+    accessed: 2026-11-19
+    origin: inside
+    type: poll
+    language: en
+    note: Policy report by Karryl Kim Sagun Trajano, Seth Seet Kai, Ysa Marie Cayabyab and Edson Tandoc Jr. Survey of 1,014 adults, May 2024.
+  - id: rsis-engagement-2026
+    title: Ethical Engagement and Public Support for AI Governance in Singapore
+    publisher: S. Rajaratnam School of International Studies, Nanyang Technological University
+    url: https://rsis.edu.sg/wp-content/uploads/2026/05/PR260525_Ethical-Engagement-and-Public-Support-for-AI-Governance-in-SG.pdf
+    published: 2026-05
+    accessed: 2026-11-19
+    origin: inside
+    type: academic
+    language: en
+    note: Policy report by Ysa Marie Cayabyab and Karryl Kim Sagun Trajano, analysing the May 2024 survey.
+  - id: techedt-milieu-2025
+    title: 80% of Singaporeans use AI daily but few trust it for finance or mental health, survey finds
+    publisher: Tech Edition
+    url: https://www.techedt.com/80-of-singaporeans-use-ai-daily-but-few-trust-it-for-finance-or-mental-health-survey-finds
+    published: 2025-09-10
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: Reports a Milieu Insight survey. The headline says "daily", but the article's figure is for use for personal purposes.
+  - id: hai-index-2026
+    title: "Public Opinion | The 2026 AI Index Report"
+    publisher: Stanford Institute for Human-Centered Artificial Intelligence
+    url: https://hai.stanford.edu/ai-index/2026-ai-index-report/public-opinion
+    published: 2026
+    accessed: 2026-11-19
+    origin: outside
+    type: academic
+    language: en
+  # Law firms and analysis
+  - id: wong-mgf-2024
+    title: The Model AI Governance Framework for Generative AI
+    publisher: WongPartnership
+    url: https://wongpartnership.com/upload/medias/KnowledgeInsight/document/21189/TheModelAIGovernanceFrameworkforGenerativeAI.pdf
+    published: 2024-06
+    accessed: 2026-11-19
+    origin: inside
+    type: industry
+    language: en
+    note: Law firm briefing. The framework itself could not be read.
+  - id: eversheds-mgf-2024
+    title: New Generative AI Governance Framework in Singapore
+    publisher: Eversheds Sutherland
+    url: https://www.eversheds-sutherland.com/en/global/insights/singapore-new-generative-ai-governance-framework
+    published: 2024-06-06
+    accessed: 2026-11-19
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing.
+  - id: duane-morris-2026
+    title: "Singapore's Digital & AI Governance: A Pro-Innovation, Framework-Driven Model"
+    publisher: Duane Morris & Selvam
+    url: https://blogs.duanemorris.com/duanemorrisandselvam/2026/03/03/singapores-digital-ai-governance-a-pro-innovation-framework-driven-model/
+    published: 2026-03-03
+    accessed: 2026-11-19
+    origin: inside
+    type: industry
+    language: en
+    note: Law firm briefing by Leon Yee and Sally Kim of the Singapore practice.
+  - id: baker-agentic-2026
+    title: "Singapore: Governance Framework for Agentic AI Launched"
+    publisher: Baker McKenzie
+    url: https://www.bakermckenzie.com/en/insight/publications/2026/01/singapore-governance-framework-for-agentic-ai-launched
+    published: 2026-01-29
+    accessed: 2026-11-19
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing.
+  - id: ag-imda-2026
+    title: IMDA introduces new AI testing and cybersecurity initiatives
+    publisher: Allen & Gledhill
+    url: https://www.allenandgledhill.com/sg/publication/articles/34742/imda-introduces-new-ai-testing-and-cybersecurity-initiatives
+    published: 2026-10-28
+    accessed: 2026-11-19
+    origin: inside
+    type: industry
+    language: en
+    note: Law firm briefing.
+  - id: rajah-osc-2026
+    title: "Online Safety Commission Begins Operations on 29 June 2026: Details on Procedure and Remedies"
+    publisher: Rajah & Tann Singapore
+    url: https://sg.rajahtannasia.com/viewpoints/online-safety-commission-begins-operations-on-29-june-2026-details-on-procedure-and-remedies/
+    published: 2026-06-29
+    accessed: 2026-11-19
+    origin: inside
+    type: industry
+    language: en
+    note: Law firm briefing. Only part of the page could be read.
+  # Media
+  - id: malaymail-guardrails-2026
+    title: "Stronger brakes for smarter AI: Singapore pushes tougher guardrails"
+    publisher: Malay Mail (from Bernama)
+    url: https://www.malaymail.com/amp/news/singapore/2026/10/03/stronger-brakes-for-smarter-ai-singapore-pushes-tougher-guardrails/237455
+    published: 2026-10-03
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: Reports a Facebook post by the minister on 2 October 2026.
+  - id: star-un-2026
+    title: Singapore seeks swift action on global AI rules and safeguards
+    publisher: The Star (from Bernama)
+    url: https://www.thestar.com.my/aseanplus/aseanplus-news/2026/09/27/singapore-seeks-swift-action-on-global-ai-rules-and-safeguards
+    published: 2026-09-27
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: The statement was delivered "on Saturday", taken here as 26 September 2026.
+  - id: star-switch-2026
+    title: S'pore unveils AI measures to spur new products
+    publisher: The Star (from The Straits Times)
+    url: https://www.thestar.com.my/business/business-news/2026/10/29/spore-unveils-ai-measures-to-spur-new-products
+    published: 2026-10-29
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+  - id: star-research-2026
+    title: Singapore pours US$786mil into race to become AI powerhouse
+    publisher: The Star (from Bloomberg)
+    url: https://www.thestar.com.my/business/business-news/2026/01/26/singapore-pours-us786mil-into-race-to-become-ai-powerhouse
+    published: 2026-01-26
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+  - id: cxo-incident-2026
+    title: Singapore Proposes International Pilot for Reporting Frontier-AI Incidents
+    publisher: CXO Digital Pulse
+    url: https://www.cxodigitalpulse.com/singapore-proposes-international-pilot-for-reporting-frontier-ai-incidents/
+    published: 2026-10-29
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: The article does not give the date of the virtual leaders' meeting.
+  # International
+  - id: nl-frontier-call-2026
+    title: A Call for Control of Frontier AI Models
+    publisher: Government of the Netherlands
+    url: https://www.government.nl/documents/2026/09/22/a-call-for-control-of-frontier-ai-models
+    published: 2026-09-22
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+    note: Joint statement by leaders of 20 countries and the European Commission, including Singapore.
+  - id: gov-bletchley-2023
+    title: "The Bletchley Declaration by Countries Attending the AI Safety Summit, 1-2 November 2023"
+    publisher: Prime Minister's Office, 10 Downing Street
+    url: https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023
+    published: 2023-11-01
+    accessed: 2026-11-18
+    origin: outside
+    type: government
+    language: en
+  - id: gov-seoul-2024
+    title: "Seoul Declaration for safe, innovative and inclusive AI by participants attending the Leaders' Session: AI Seoul Summit, 21 May 2024"
+    publisher: Department for Science, Innovation and Technology (UK)
+    url: https://gov.uk/government/publications/seoul-declaration-for-safe-innovative-and-inclusive-ai-ai-seoul-summit-2024/seoul-declaration-for-safe-innovative-and-inclusive-ai-by-participants-attending-the-leaders-session-ai-seoul-summit-21-may-2024
+    published: 2024-05-21
+    accessed: 2026-11-18
+    origin: outside
+    type: government
+    language: en
+  - id: elysee-paris-2025
+    title: Statement on Inclusive and Sustainable Artificial Intelligence for People and the Planet
+    publisher: Élysée (Presidency of the French Republic)
+    url: https://www.elysee.fr/en/emmanuel-macron/2025/02/11/statement-on-inclusive-and-sustainable-artificial-intelligence-for-people-and-the-planet
+    published: 2025-02-11
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+  - id: coe-convention-page
+    title: The Framework Convention on Artificial Intelligence
+    publisher: Council of Europe
+    url: https://www.coe.int/en/web/artificial-intelligence/the-framework-convention-on-artificial-intelligence
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+  # Approaches elsewhere
+  - id: ec-ai-act-page
+    title: AI Act
+    publisher: European Commission
+    url: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+  - id: cooley-korea-2026
+    title: "South Korea's AI Basic Act: Overview and Key Takeaways"
+    publisher: Cooley
+    url: https://www.cooley.com/news/insight/2026/2026-01-27-south-koreas-ai-basic-act-overview-and-key-takeaways
+    published: 2026-01-27
+    accessed: 2026-11-18
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing.
+  - id: fpf-sb53-2025
+    title: "California's SB 53: The First Frontier AI Law, Explained"
+    publisher: Future of Privacy Forum
+    url: https://fpf.org/blog/californias-sb-53-the-first-frontier-ai-law-explained/
+    published: 2025-10-03
+    accessed: 2026-11-18
+    origin: outside
+    type: civil_society
+    language: en
+  - id: dlapiper-c34-2026
+    title: An overview of Canada's Safe Social Media Act (Bill C-34)
+    publisher: DLA Piper
+    url: https://www.dlapiper.com/en-ca/insights/publications/2026/06/an-overview-of-canadas-safe-social-media-act
+    published: 2026-06-15
+    accessed: 2026-11-19
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing.
