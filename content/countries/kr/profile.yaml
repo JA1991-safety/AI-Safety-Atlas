@@ -1,0 +1,1228 @@
+# South Korea: area profile
+# Status: DRAFT, researched by Claude on 19 November 2026, awaiting editor review.
+# Every statement cites one or more sources from the list at the bottom of this file.
+# Direct quotes were copied from the source pages on the access date.
+# Sources from the Government of the Republic of Korea, its agencies, and organisations and media
+# based in South Korea count as "inside".
+# The principles section uses the seven national AI ethics principles announced by the Ministry of
+# Science and ICT in August 2026 as South Korea's own set, following the editor's decision of
+# 18 Nov 2026 to use each country's own principles.
+
+code: KR
+name: South Korea
+status: draft
+last_reviewed: 2026-11-19
+editor_approved: false
+reviewers: []
+
+summary:
+  overview:
+    - text: >-
+        South Korea's AI Basic Act took effect on 22 January 2026. It sets duties for operators of
+        high-impact AI and requires AI-generated content to be labelled. Fines are capped at 30 million
+        won, and the government has suspended them for at least a year while businesses adjust.
+      sources: [cooley-korea-2026, asiae-labelling-2026]
+    - text: >-
+        A revision in force since 21 July 2026 details the labelling and high-impact AI rules. In August
+        2026 the Ministry of Science and ICT announced seven national AI ethics principles, which it
+        describes as nonbinding.
+      sources: [asiae-revision-2026, koreatimes-ethics-2026]
+    - text: >-
+        The Korea AI Safety Institute, which opened in November 2024, assessed 34 AI models from January
+        to August 2026. Its head has said it is short of both staff and computing resources.
+      sources: [joongang-aisi-2024, digitaltoday-aisi-models-2026]
+    - text: >-
+        In a 2025 Pew Research Center survey reported by MIT Technology Review, 16% of South Koreans
+        said they were more concerned than excited about AI. In a 2025 KPMG and University of Melbourne
+        study, 64% said AI regulation is required.
+      sources: [mittr-korea-2026, kpmg-korea-2025]
+  regulation_line:
+    text: >-
+      A general AI law in force since January 2026, with fines suspended during a guidance period,
+      nonbinding national ethics principles, and a safety institute that evaluates AI models.
+    sources: [cooley-korea-2026, asiae-labelling-2026, koreatimes-ethics-2026, digitaltoday-aisi-models-2026]
+
+facets:
+  regulatory_approach: binding_horizontal
+  safety_institute:
+    status: "yes"
+    name: Korea AI Safety Institute (AISI)
+    sources: [aisi-assessment-page, joongang-aisi-2024]
+  frontier_developers:
+    status: "yes"
+    note: >-
+      LG AI Research, Naver Cloud, SK Telecom, Upstage and NC AI led the consortia in a government
+      project to build national AI foundation models. LG AI Research says it aims to complete a
+      "frontier-level" model by January 2027.
+    sources: [lds-foundation-2025, asiae-exaone-2026]
+  national_polling: "yes"
+  commitments:
+    - key: bletchley_declaration
+      status: signed
+      date: 2023-11-01
+      sources: [gov-bletchley-2023]
+    - key: seoul_declaration
+      status: signed
+      date: 2024-05-21
+      sources: [gov-seoul-2024]
+    - key: paris_statement
+      status: signed
+      date: 2025-02-11
+      sources: [elysee-paris-2025]
+    - key: new_delhi_declaration
+      status: endorsed
+      date: 2026-02
+      sources: [theprint-new-delhi-2026]
+
+attitudes:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      The Pew figure is reported through MIT Technology Review, which gives no fieldwork dates or
+      sample size. The KPMG summary for South Korea does not give fieldwork dates or a sample size. The
+      Korea Media and Communications Commission survey on online abuse is reported through wire copy,
+      and the SBS and Seoul National University survey through a news report with no sample size.
+      Survey wording differs, so figures from different polls should not be compared directly.
+  headline_figures:
+    - value: "16%"
+      label: >-
+        say they are more concerned than excited about AI
+      fieldwork: "2025"
+      sample: Adults in South Korea, in a Pew Research Center survey of 25 countries (reported by MIT Technology Review)
+      source: mittr-korea-2026
+    - value: "89.4%"
+      label: >-
+        of teenagers say AI-driven cyber abuse is a serious problem; 87.6% of adults said the same
+      fieldwork: September to November 2025
+      sample: 9,296 school students and 7,521 adults aged 19 to 69 (Korea Media and Communications Commission)
+      source: lokmat-kmcc-2026
+  statements:
+    - text: >-
+        In the KPMG and University of Melbourne global study published in 2025, 64% of respondents in
+        South Korea said AI regulation is required and 37% that current safeguards are sufficient. 44%
+        said they were willing to trust AI, and 83% were concerned about negative outcomes from AI.
+      sources: [kpmg-korea-2025]
+    - text: >-
+        In a government survey of 4,324 smartphone users aged 18 to 72, for the Korea Media and
+        Communications Commission and the Korea Information Society Development Institute, 38.9% said
+        they had used generative AI in 2025. The share who believed AI could be used to spread false
+        information rose 9.6 percentage points on the year.
+      sources: [koreatimes-genai-poll-2026]
+    - text: >-
+        In a survey by the broadcaster SBS and Seoul National University's Institute for Future
+        Strategy, published in November 2026, one in three respondents said they trust AI's opinions
+        more than their own judgment. Respondents said humans should keep making ethical judgments and
+        final decisions.
+      sources: [sbs-trust-poll-2026]
+
+regulation:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      The AI Basic Act and its enforcement decree are described from law firm briefings and news
+      reports; we did not read the decree itself. Two MLex reports, on the revised enforcement decree
+      and on a business group's call for amendments, could not be read. How the Personal Information
+      Protection Act and sector rules apply to AI is covered only through the privacy regulator's
+      guidance.
+  items:
+    - kind: law
+      title: Act on the Development of Artificial Intelligence and Establishment of Trust (AI Basic Act)
+      date: 2026-01-22
+      status: In force since 22 January 2026; fines suspended during a guidance period of at least one year
+      text: >-
+        Requires operators of high-impact AI, in areas such as healthcare, energy, transportation, hiring
+        and biometric analysis, to provide explainability, a user protection plan, human oversight and
+        documentation. Users must be told in advance when a product uses AI, and AI-generated content
+        must be labelled. Fines of up to 30 million won apply to some breaches.
+      sources: [cooley-korea-2026, asiae-labelling-2026]
+    - kind: law
+      title: Revision of the AI Basic Act
+      date: 2026-07-21
+      status: In force since 21 July 2026
+      text: >-
+        Details the labelling duties for generative AI and the management of high-impact AI. It also
+        supports public procurement of AI products, AI startups and access to AI for vulnerable groups.
+        The government plans a guidance period of at least one year to develop guidelines.
+      sources: [asiae-revision-2026]
+    - kind: guidance
+      title: AI Transparency Assurance Guidelines
+      date: 2026-01
+      status: Issued by the Ministry of Science and ICT under the AI Basic Act
+      text: >-
+        Set out how AI service providers, including overseas providers serving users in Korea, must
+        label AI-generated content. Content shared outside a service needs a visible or audible
+        watermark, or a notice combined with machine-readable metadata. Deepfakes must be clearly
+        labelled "without exception".
+      sources: [asiae-labelling-2026]
+    - kind: bill
+      title: Bill to require disclosure of conversational AI systems
+      date: 2026-09-01
+      status: Introduced to the National Assembly; under deliberation
+      text: >-
+        Would amend the AI Basic Act to require businesses that provide conversational AI to disclose
+        it to users.
+      sources: [dpa-bill-2026]
+    - kind: guidance
+      title: National AI ethics principles
+      date: 2026-08-24
+      status: Announced by the Ministry of Science and ICT; not binding
+      text: >-
+        Seven principles built on three core values: human dignity, the common good and the
+        sustainability of humanity. They revise the national AI ethics standards adopted in December
+        2020, after two public drafts in 2026.
+      sources: [koreatimes-ethics-2026, pebblous-ethics-2026]
+    - kind: guidance
+      title: Guidelines for the Processing of Personal Information for Generative AI Development and Use
+      date: 2025-08-06
+      status: Issued by the Personal Information Protection Commission
+      text: >-
+        Ask developers and users of generative AI to set a specific, lawful purpose for using personal
+        data, to remove identifiers such as resident registration numbers before training, and to set
+        up internal AI privacy governance.
+      sources: [asiae-pipc-guidelines-2025]
+    - kind: institution
+      title: Korea AI Safety Institute (AISI)
+      date: 2024-11-27
+      status: Operating, as a unit of the Electronics and Telecommunications Research Institute (ETRI)
+      text: >-
+        Opened as a follow-up to the AI Seoul Summit. It defines and evaluates AI risks that need
+        national-level management, develops safety frameworks and builds evaluation datasets and tools.
+      sources: [joongang-aisi-2024, aisi-assessment-page, zdnet-aisi-staff-2026]
+    - kind: international
+      title: International agreements
+      date: 2026-02
+      status: See filters
+      text: >-
+        South Korea signed the 2023 Bletchley Declaration, signed the Seoul Declaration at the AI Seoul
+        Summit in May 2024, joined the Paris AI Action Summit statement in February 2025, and endorsed
+        the New Delhi Declaration in February 2026. Its safety institute is part of the International
+        Network of AI Safety Institutes.
+      sources: [gov-bletchley-2023, gov-seoul-2024, elysee-paris-2025, theprint-new-delhi-2026, aisi-collab-page]
+
+culture:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      No local reviewer yet. Most sources are English editions of Korean media, several of them
+      machine-translated, and Korean-language debate is under-represented. No minister is quoted
+      directly.
+  summary:
+    - text: >-
+        Government policy pairs support for the AI industry with rules on trust. The 2026 revision of
+        the AI Basic Act adds support for public procurement of AI and for AI startups alongside its
+        labelling and high-impact AI rules.
+      sources: [asiae-revision-2026]
+    - text: >-
+        Building AI in Korea is a theme for government and industry. Consortia led by Naver Cloud,
+        Upstage, SK Telecom, LG AI Research and NC AI are developing national AI foundation models with
+        government support.
+      sources: [lds-foundation-2025, edaily-exaone-2026]
+    - text: >-
+        Surveys find AI widely used, with concern focused on specific harms such as AI-driven online
+        abuse and the spread of false information.
+      sources: [koreatimes-genai-poll-2026, lokmat-kmcc-2026]
+    - text: >-
+        The AI Basic Act has drawn comment from several sides. Businesses and startups have raised
+        compliance burdens and unclear terms, while civil society groups and the national human rights
+        commission have said it may not protect users enough.
+      sources: [koreatimes-limbo-2026, stimson-korea-2026]
+    - text: >-
+        The AI Seoul Summit was held in South Korea in May 2024. The Korea AI Safety Institute opened as
+        a follow-up that November, and its first head said it would support companies to reduce risks
+        rather than work as a regulator.
+      sources: [joongang-aisi-2024]
+  own_words:
+    - quote: "a common but nonbinding reference"
+      speaker: Ministry of Science and ICT
+      role: Describing the national AI ethics principles, as reported by The Korea Times
+      date: 2026-08-24
+      source: koreatimes-ethics-2026
+      voice: government
+    - quote: "Watermarks on AI-generated content are a minimum safety measure to prevent the misuse of deepfakes"
+      speaker: Ministry of Science and ICT
+      role: On the AI Transparency Assurance Guidelines
+      date: 2026-01
+      source: asiae-labelling-2026
+      voice: government
+    - quote: "AI안전연구소에 법적 독립성을 부여하고 독자적인 예산과 인사권을 보장해 실질적인 대응 역량을 강화해야 한다"
+      speaker: Lee Jeong-heon
+      role: Member of the National Assembly's science and ICT committee
+      date: 2026-09-28
+      source: zdnet-aisi-staff-2026
+      original_language: ko
+      translation: >-
+        The AI Safety Institute should be given legal independence and guaranteed its own budget and
+        personnel authority, to strengthen its real capacity to respond.
+      voice: parliament
+    - quote: "we are short of both manpower and GPU resources."
+      speaker: Kim Myung-joo
+      role: Head of the Korea AI Safety Institute
+      date: 2026-09-18
+      source: digitaltoday-aisi-models-2026
+      voice: public_body
+    - quote: "This is not an obligation"
+      speaker: Choi Kyoung-jin
+      role: Director, Center for AI, Data and Policy, Gachon University, on the national AI ethics principles
+      date: 2026-08-24
+      source: koreatimes-ethics-2026
+      voice: civil_society
+    - quote: "Because AI development and deployment cycles are so short, compliance must be repeated with each new version"
+      speaker: Lee Seong-yeob
+      role: Professor, Graduate School of Management of Technology, Korea University
+      date: 2026-01-29
+      source: koreatimes-limbo-2026
+      voice: civil_society
+    - quote: "We will focus on completing a frontier-level EXAONE model by January next year."
+      speaker: Lim Woohyung
+      role: Co-head, LG AI Research
+      date: 2026-11-09
+      source: asiae-exaone-2026
+      voice: industry
+    - quote: "Without labor-management agreement, not a single robot using new technology will be allowed to enter the workplace."
+      speaker: Hyundai Motor Group union
+      role: As reported by MIT Technology Review
+      date: 2026-06-15
+      source: mittr-korea-2026
+      voice: labour
+  outside_analysis: []
+
+news:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+  items:
+    - id: trust-survey
+      headline: Survey finds one in three trust AI's opinions more than their own judgment
+      date: 2026-11-05
+      kind: development
+      summary: >-
+        In what the broadcaster SBS and Seoul National University's Institute for Future Strategy called
+        the first survey of its kind, more respondents trusted AI's judgment on social and policy issues
+        than the National Assembly, the courts or the government. Respondents said humans should keep
+        making ethical judgments and final decisions, and named misinformation and deepfakes as concerns.
+      why_it_matters: >-
+        It bears on the first national ethics principle, that AI should support human judgment rather
+        than replace it.
+      sources: [sbs-trust-poll-2026, koreatimes-ethics-2026]
+      topics: [public attitudes, trust]
+    - id: openai-workshop
+      headline: Safety experts and OpenAI hold a workshop in Seoul on frontier AI risks
+      date: 2026-10
+      kind: development
+      summary: >-
+        About 60 specialists took part in a two-day workshop on cybersecurity, national security and
+        agentic AI, held under a cooperation agreement signed in June. The AI Safety Institute is pushing
+        for a larger role for the international network of safety institutes in evaluating AI systems.
+      why_it_matters: >-
+        It puts into practice the June agreement between the institute and a frontier AI developer on
+        evaluating AI in high-risk fields.
+      sources: [mlex-openai-workshop-2026, digitaltoday-openai-mou-2026]
+      topics: [frontier AI, evaluation, international cooperation]
+    - id: aisi-staffing
+      headline: Data released by a lawmaker show six technical staff evaluating AI models at the safety institute
+      date: 2026-09-28
+      kind: development
+      summary: >-
+        Figures from the Ministry of Science and ICT and the institute, released by the office of
+        National Assembly member Lee Jeong-heon, show an AI safety evaluation division of seven people,
+        six of whom evaluate models. The institute's 2026 budget is 8.9 billion won. Lee called for the
+        institute to be given legal independence and its own budget and staffing powers.
+      why_it_matters: >-
+        The institute's capacity limits how many AI models it can evaluate; its head has said evaluation
+        has to be selective.
+      sources: [zdnet-aisi-staff-2026, digitaltoday-aisi-models-2026]
+      topics: [safety institute, capacity]
+    - id: pipc-agentic
+      headline: Privacy regulator plans guidelines on personal information in AI agents
+      date: 2026-09-23
+      kind: development
+      summary: >-
+        The Personal Information Protection Commission told its AI privacy policy council that it will
+        publish guidelines on how AI agents may process personal information at the end of 2026.
+        Research presented to the council named prompt injection attacks and excessive authority given
+        to AI agents as the main risks.
+      why_it_matters: >-
+        It extends the commission's guidance on generative AI to agents that act on users' behalf.
+      sources: [asiae-pipc-agentic-2026]
+      topics: [privacy, agentic AI]
+    - id: aisi-evaluations
+      headline: Safety institute reports evaluating 34 AI models this year, more than half of them open-weight
+      date: 2026-09-18
+      kind: development
+      summary: >-
+        From January to August 2026 the institute assessed 34 models, 19 of them open-weight; 11 of the
+        open-weight models came from Chinese developers. Tests covered risks including prompt injection,
+        leaks of sensitive information, cybersecurity and harmful responses. Its head said selective
+        evaluation is unavoidable, "depending on importance and pending issues".
+      why_it_matters: >-
+        It shows the scale of the institute's testing, which its head says is limited by staff and
+        computing resources.
+      sources: [digitaltoday-aisi-models-2026]
+      topics: [safety institute, evaluation, open-weight models]
+    - id: conversational-ai-bill
+      headline: Bill would require disclosure of conversational AI systems
+      date: 2026-09-01
+      kind: development
+      summary: >-
+        A bill introduced to the National Assembly would amend the AI Basic Act to require businesses
+        that provide conversational AI to disclose it. It is under deliberation.
+      why_it_matters: >-
+        It would add to the transparency duties that the Act already places on AI services.
+      sources: [dpa-bill-2026, cooley-korea-2026]
+      topics: [legislation, transparency]
+    - id: ethics-principles
+      headline: Government announces seven national AI ethics principles
+      date: 2026-08-24
+      kind: development
+      summary: >-
+        The Ministry of Science and ICT's principles cover human-centeredness, privacy, fairness and
+        inclusiveness, accountability, safety, reliability and transparency, and revise the 2020 ethics
+        standards. A Gachon University researcher and an industry official told The Korea Times that the
+        principles have little practical effect without penalties.
+      why_it_matters: >-
+        They are South Korea's own statement of what responsible AI means, alongside the binding rules of
+        the AI Basic Act.
+      sources: [koreatimes-ethics-2026, pebblous-ethics-2026]
+      topics: [principles, ethics]
+    - id: revised-act
+      headline: Revised AI Basic Act takes effect
+      date: 2026-07-21
+      kind: foundational
+      summary: >-
+        The revision details labelling duties for generative AI and the management of high-impact AI,
+        and adds support for public procurement of AI and for AI startups. "The government plans to
+        operate a guidance period of at least one year".
+      why_it_matters: >-
+        It sets the detailed rules that operators of high-impact and generative AI will follow once the
+        guidance period ends.
+      sources: [asiae-revision-2026]
+      topics: [AI Basic Act, labelling]
+    - id: aisi-publish
+      headline: Safety institute moves to publish model evaluation results
+      date: 2026-06-19
+      kind: foundational
+      summary: >-
+        The institute published a joint report with Singapore's AI Safety Institute on data leakage
+        risks in AI agents, with model names anonymised. Its head, Kim Myung-joo, said it plans to
+        publish as much of each evaluation as possible unless the company concerned objects.
+      why_it_matters: >-
+        Published results let others see how AI models perform in safety tests; earlier lists gave only
+        model names and what was tested.
+      sources: [zdnet-aisi-publish-2026]
+      topics: [safety institute, evaluation, transparency]
+    - id: ai-basic-act
+      headline: AI Basic Act takes effect
+      date: 2026-01-22
+      kind: foundational
+      summary: >-
+        The Act sets duties for operators of high-impact AI and requires AI-generated content to be
+        labelled. During a grace period of about a year, "the law technically applies, but there are no
+        penalties", and the government runs a support desk for businesses.
+      why_it_matters: >-
+        It is the main law governing AI in South Korea.
+      sources: [cooley-korea-2026, koreatimes-limbo-2026]
+      topics: [AI Basic Act, legislation]
+    - id: exaone
+      headline: LG AI Research releases K-EXAONE 2.5 and aims for a frontier-level model
+      date: 2026-11-09
+      kind: development
+      stream: ai
+      summary: >-
+        LG AI Research announced the model, a further-trained version of its entry in the national
+        foundation model project, at Nvidia AI Day Seoul, and made its API free to use on its own
+        platform. Its co-head said it aims to complete a frontier-level model by January 2027.
+      why_it_matters: >-
+        Models from Korean developers are among those the AI Safety Institute evaluates.
+      sources: [asiae-exaone-2026, digitaltoday-aisi-models-2026]
+      topics: [foundation models, companies]
+    - id: nvidia-day
+      headline: Government and Nvidia expand cooperation on sovereign AI
+      date: 2026-11-09
+      kind: development
+      stream: ai
+      summary: >-
+        The Ministry of Science and ICT announced an agreement between Nvidia, SK Telecom and the Korean
+        chip designer Rebellions to pair their chips in data centres. Nvidia also set out work with
+        Samsung, Hyundai Motor Group, LG and Kakao Mobility, and investments in Korean startups. "Many of
+        the announcements on the day were in planning and review stages".
+      why_it_matters: >-
+        The plans include enterprise AI agents and a Korean company's security platform for them, an area
+        the safety institute and the privacy regulator are also examining.
+      sources: [digitaltoday-nvidia-2026, khan-nvidia-2026, mlex-openai-workshop-2026, asiae-pipc-agentic-2026]
+      topics: [compute, chips, companies]
+    - id: cyber-model
+      headline: Naver Cloud consortium chosen to build a sovereign AI model for cybersecurity
+      date: 2026-09-03
+      kind: development
+      stream: ai
+      summary: >-
+        The Ministry of Science and ICT chose a consortium of 32 companies and institutions led by Naver
+        Cloud. It plans one model for defensive security tasks and one focused on "offensive
+        capabilities", to be tested in sectors including energy, finance and telecommunications. The
+        government provides up to 256 Nvidia B200 chips for ten months.
+      why_it_matters: >-
+        Cybersecurity is one of the risks the AI Safety Institute tests models for.
+      sources: [koreatimes-naver-security-2026, digitaltoday-aisi-models-2026]
+      topics: [cybersecurity, foundation models]
+    - id: foundation-project
+      headline: LG's model passes the second evaluation in the national foundation model project
+      date: 2026-08-18
+      kind: foundational
+      stream: ai
+      summary: >-
+        The Ministry of Science and ICT's project began with five consortia and uses regular evaluations
+        to narrow the field to two finalists by the first half of 2027. LG AI Research's K-EXAONE passed
+        the second evaluation in August 2026.
+      why_it_matters: >-
+        The project is the main public effort to build large AI models in South Korea.
+      sources: [edaily-exaone-2026, lds-foundation-2025]
+      topics: [foundation models, investment]
+
+principles:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      The principles are described from news reports and a company blog; we did not read the
+      government's own text. The Korea Times describes safety and reliability together, and one source
+      calls reliability "trustworthiness". How general anti-discrimination law applies to AI is not
+      covered in this draft.
+  framework:
+    name: the seven national AI ethics principles
+    nav: Seven principles
+    basis: own
+    about:
+      text: >-
+        The Ministry of Science and ICT announced seven national AI ethics principles in August 2026,
+        built on three core values: human dignity, the common good and the sustainability of humanity.
+        They revise the national AI ethics standards of December 2020, which had three principles and
+        ten core requirements. The ministry describes them as nonbinding.
+      sources: [koreatimes-ethics-2026, pebblous-ethics-2026, asiae-ethics-2020]
+  intro:
+    - text: >-
+        South Korea's AI Basic Act sets binding duties for high-impact and generative AI, with fines
+        suspended during a guidance period of at least one year. The ethics principles apply to everyone
+        involved with AI and carry no penalties.
+      sources: [cooley-korea-2026, asiae-labelling-2026, koreatimes-ethics-2026]
+    - text: >-
+        Below, each principle is shown with what it asks, how far the law backs it, the bodies and tools
+        that carry it today, and evidence on how it works in practice.
+      sources: [koreatimes-ethics-2026]
+  items:
+    - key: human-centred
+      name: Human-Centeredness
+      short: Human-centred
+      asks:
+        text: >-
+          "AI should support human judgment and decision-making rather than replace it."
+        sources: [koreatimes-ethics-2026]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          The AI Basic Act requires human oversight of high-impact AI systems. For other AI, only the
+          principles ask for this.
+        sources: [cooley-korea-2026]
+      how_it_works:
+        - text: >-
+            Operators of high-impact AI, in areas such as healthcare, hiring and biometric analysis, must
+            provide human oversight and a user protection plan.
+          sources: [cooley-korea-2026]
+      regulators: [Ministry of Science and ICT]
+
+    - key: privacy
+      name: Privacy Protection
+      short: Privacy
+      asks:
+        text: >-
+          Calls for "personal information to be processed only for specified purposes and within the
+          necessary scope."
+        sources: [koreatimes-ethics-2026]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          The Personal Information Protection Commission applies privacy law to AI, and says its
+          guidelines for generative AI will "resolve legal uncertainties in the field".
+        sources: [asiae-pipc-guidelines-2025]
+      how_it_works:
+        - text: >-
+            The commission's 2025 guidelines ask developers to set a specific, lawful purpose for using
+            personal data, and to remove identifiers such as resident registration numbers before
+            training.
+          sources: [asiae-pipc-guidelines-2025]
+        - text: >-
+            In March 2026 the commission reviewed the privacy policies of generative AI services, will
+            issue recommendations to companies that need to improve, and plans to reassess them in 2027.
+          sources: [asiae-pipc-policies-2026]
+      regulators: [Personal Information Protection Commission]
+      evidence:
+        - text: >-
+            In the commission's 2026 review, generative AI services scored lowest of seven sectors on the
+            readability and accessibility of their privacy policies, and overseas operators scored lower
+            than Korean companies.
+          sources: [asiae-pipc-policies-2026]
+
+    - key: fairness
+      name: Fairness and Inclusiveness
+      short: Fairness
+      asks:
+        text: >-
+          Sets standards for "fair treatment and participation in the development and use of AI."
+        sources: [koreatimes-ethics-2026]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          We found no AI-specific fairness duty in our sources. Operators of high-impact AI must make
+          efforts to assess the impact on fundamental rights.
+        sources: [cooley-korea-2026]
+      how_it_works:
+        - text: >-
+            The AI Safety Institute's tests have included bias in AI agents whose memory has been
+            contaminated.
+          sources: [digitaltoday-aisi-models-2026]
+      regulators: []
+
+    - key: accountability
+      name: Accountability
+      short: Accountability
+      asks:
+        text: >-
+          Calls for "responsibilities to be clearly assigned among AI-related actors."
+        sources: [koreatimes-ethics-2026]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          The AI Basic Act requires documentation from operators of high-impact AI and a domestic
+          representative for large foreign operators. Fines for some breaches are suspended during the
+          guidance period.
+        sources: [cooley-korea-2026, asiae-labelling-2026]
+      how_it_works:
+        - text: >-
+            Foreign operators with no office in Korea must appoint a local representative if their
+            revenue or number of daily users in Korea passes set thresholds.
+          sources: [cooley-korea-2026]
+      regulators: [Ministry of Science and ICT]
+
+    - key: safety
+      name: Safety
+      short: Safety
+      asks:
+        text: >-
+          The Korea Times describes safety and reliability together, as calling for "risk management and
+          performance standards appropriate to each system's purpose".
+        sources: [koreatimes-ethics-2026]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          The Ministry of Science and ICT can order the suspension of an AI service that poses a safety
+          threat, and the AI Basic Act sets duties for high-impact AI.
+        sources: [cooley-korea-2026]
+      how_it_works:
+        - text: >-
+            The Korea AI Safety Institute evaluates AI models for risks including prompt injection, leaks
+            of sensitive information, cybersecurity and harmful responses.
+          sources: [digitaltoday-aisi-models-2026]
+        - text: >-
+            Since June 2026 the institute has said it will publish as much of each evaluation as
+            possible, unless the company concerned objects.
+          sources: [zdnet-aisi-publish-2026]
+      regulators: [Ministry of Science and ICT]
+
+    - key: reliability
+      name: Reliability
+      short: Reliability
+      asks:
+        text: >-
+          Described with safety, as calling for performance standards appropriate to each AI system's
+          purpose.
+        sources: [koreatimes-ethics-2026]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          According to The Korea Times, no quantitative performance thresholds, such as error rates, are
+          set in the AI Basic Act or early guidance.
+        sources: [koreatimes-limbo-2026]
+      how_it_works:
+        - text: >-
+            Operators of high-impact AI must provide explainability and keep documentation of their
+            systems.
+          sources: [cooley-korea-2026]
+      regulators: []
+
+    - key: transparency
+      name: Transparency
+      short: Transparency
+      asks:
+        text: >-
+          Calls for "information about AI use, its limitations and decision-making criteria to be
+          provided", especially when AI affects people's rights or opportunities.
+        sources: [koreatimes-ethics-2026]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          The AI Basic Act requires users to be told in advance when a product uses AI, and AI-generated
+          content to be labelled. Fines and fact-finding investigations are suspended for at least a
+          year.
+        sources: [cooley-korea-2026, asiae-labelling-2026]
+      how_it_works:
+        - text: >-
+            Under the ministry's transparency guidelines, content shared outside a service needs a
+            visible or audible watermark, or a notice combined with machine-readable metadata.
+          sources: [asiae-labelling-2026]
+        - text: >-
+            A bill introduced in September 2026 would require disclosure of conversational AI systems.
+          sources: [dpa-bill-2026]
+      regulators: [Ministry of Science and ICT]
+
+areas_for_improvement:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      Each area is one that a named source has identified. The IAPP article discusses the draft
+      enforcement decree of September 2025, not the final text.
+  intro:
+    - text: >-
+        South Korea has a general AI law in force, a safety institute and privacy guidance for AI.
+        Lawmakers, researchers, the safety institute and civil society point to areas where these could
+        be strengthened.
+      sources: [zdnet-aisi-staff-2026, iapp-korea-2025, stimson-korea-2026, digitaltoday-aisi-models-2026]
+  items:
+    - id: penalties
+      title: Penalties and the guidance period
+      kind: legal_power
+      principles: [accountability, transparency, safety]
+      in_place:
+        text: >-
+          The AI Basic Act sets fines for some breaches, and the government has suspended fines and
+          fact-finding investigations for at least a year while businesses adjust.
+        sources: [cooley-korea-2026, asiae-labelling-2026]
+      identified:
+        text: >-
+          Kyoungsic Min, writing for the IAPP, called the fine cap "a mere KRW30 million" and said the
+          grace period "removes the immediate threat of punishment that gives regulations their teeth". A
+          Stimson Center paper recommends phased enforcement with higher penalties instead of extending
+          the grace period.
+        sources: [iapp-korea-2025, stimson-korea-2026]
+      elsewhere:
+        - text: >-
+            Fines of up to €35 million for the most serious breaches, under a general AI law.
+          used_in: [EU]
+          sources: [stimson-korea-2026]
+
+    - id: institute-capacity
+      title: Staff and independence of the safety institute
+      kind: capacity
+      principles: [safety, reliability]
+      in_place:
+        text: >-
+          The Korea AI Safety Institute is a unit of ETRI, a government research institute. Its AI
+          safety evaluation division has seven people, six of whom evaluate models.
+        sources: [zdnet-aisi-staff-2026]
+      identified:
+        text: >-
+          Lee Jeong-heon, a member of the National Assembly, has called for the institute to be given
+          legal independence and its own budget and staffing powers. Its head, Kim Myung-joo, said it is
+          short of both staff and computing resources.
+        sources: [zdnet-aisi-staff-2026, digitaltoday-aisi-models-2026]
+      elsewhere:
+        - text: >-
+            Accreditation of independent firms that test AI systems.
+          used_in: [SG]
+          sources: [ag-imda-2026]
+
+    - id: frontier-testing
+      title: Testing of advanced and open-weight models
+      kind: technical
+      principles: [safety, transparency]
+      in_place:
+        text: >-
+          The institute evaluates models selectively, has an agreement with OpenAI on evaluating AI in
+          high-risk fields, and has said it will publish evaluation results unless the company concerned
+          objects.
+        sources: [digitaltoday-aisi-models-2026, digitaltoday-openai-mou-2026, zdnet-aisi-publish-2026]
+      identified:
+        text: >-
+          Kim Myung-joo said selective evaluation is unavoidable with the institute's resources. The
+          institute is pushing for a larger role for the international network of safety institutes in
+          evaluating AI systems and in oversight of frontier AI.
+        sources: [digitaltoday-aisi-models-2026, mlex-openai-workshop-2026]
+      elsewhere:
+        - text: >-
+            A state law requiring large frontier developers to publish safety frameworks and report
+            critical safety incidents.
+          used_in: [US]
+          sources: [fpf-sb53-2025]
+        - text: >-
+            Mandatory testing of frontier AI models before release, and independent evaluation.
+          proposed_by: A Call for Control of Frontier AI Models (September 2026), signed by 20 countries and the European Commission
+          sources: [nl-frontier-call-2026]
+
+    - id: user-protection
+      title: Protecting users from AI harms
+      kind: coverage
+      principles: [human-centred, transparency, privacy]
+      in_place:
+        text: >-
+          The AI Basic Act requires AI-generated content to be labelled, with clear labels on deepfakes,
+          and sets duties for operators of high-impact AI.
+        sources: [asiae-labelling-2026, cooley-korea-2026]
+      identified:
+        text: >-
+          Civil society groups say the Act does not sufficiently protect users from AI risks such as
+          impersonation and fraud, and the national human rights commission warned that unclear rules
+          could leave gaps, according to the Stimson Center. The Korea Times reports that overseas apps
+          beyond Korea's reach are the main source of deepfakes.
+        sources: [stimson-korea-2026, koreatimes-limbo-2026]
+      elsewhere: []
+
+contacts:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: limited
+    review: draft
+    gaps: >-
+      A starting list. Korean civil society groups and university research groups working on AI safety
+      are under-represented because we found few sources on them in English.
+  items:
+    - name: Korea AI Safety Institute (AISI)
+      type: government
+      url: https://www.aisi.re.kr/
+      based: Seongnam
+      about:
+        text: >-
+          Opened in November 2024. It "aims to systematically define and evaluate AI risks that require
+          national-level management to ensure the safety of advanced AI."
+        sources: [aisi-assessment-page, joongang-aisi-2024]
+      links:
+        - label: AI safety assessment
+          url: https://www.aisi.re.kr/eng/sub/30
+        - label: Collaboration
+          url: https://www.aisi.re.kr/eng/sub/33
+    - name: Ministry of Science and ICT (MSIT)
+      type: government
+      url: https://www.msit.go.kr/eng/index.do
+      about:
+        text: >-
+          Responsible for the AI Basic Act and its guidelines, and announced the national AI ethics
+          principles.
+        sources: [cooley-korea-2026, koreatimes-ethics-2026]
+    - name: Personal Information Protection Commission (PIPC)
+      type: regulator
+      url: https://www.pipc.go.kr/eng/index.do
+      about:
+        text: >-
+          Issues guidance on personal information in generative AI, and is preparing guidelines for AI
+          agents.
+        sources: [asiae-pipc-guidelines-2025, asiae-pipc-agentic-2026]
+    - name: Electronics and Telecommunications Research Institute (ETRI)
+      type: research_institute
+      url: https://www.etri.re.kr/eng/main/main.etri
+      about:
+        text: >-
+          A government research institute. The Korea AI Safety Institute operates as a unit of ETRI.
+        sources: [zdnet-aisi-staff-2026]
+    - name: Korea Information Society Development Institute (KISDI)
+      type: research_institute
+      url: https://www.kisdi.re.kr/eng/main.do
+      about:
+        text: >-
+          A government research institute that worked on the 2026 national AI ethics principles and
+          runs surveys on the use of generative AI.
+        sources: [pebblous-ethics-2026, koreatimes-genai-poll-2026]
+
+sources:
+  # Government of the Republic of Korea and its agencies
+  - id: aisi-assessment-page
+    title: AI Safety Assessment
+    publisher: Korea AI Safety Institute
+    url: https://www.aisi.re.kr/eng/sub/30
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+    note: Undated page on the institute's work.
+  - id: aisi-collab-page
+    title: Collaboration
+    publisher: Korea AI Safety Institute
+    url: https://www.aisi.re.kr/eng/sub/33
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+    note: Undated page; lists the International Network of AI Safety Institutes from November 2024.
+  # Polls
+  - id: koreatimes-genai-poll-2026
+    title: "Four out of 10 Koreans used generative AI in 2025: poll"
+    publisher: The Korea Times (Yonhap)
+    url: https://www.koreatimes.co.kr/business/tech-science/20260528/four-out-of-10-koreans-used-generative-ai-in-2025-poll
+    published: 2026-05-28
+    accessed: 2026-11-19
+    origin: inside
+    type: poll
+    language: en
+    note: Reports a survey by the Korea Media and Communications Commission and the Korea Information Society Development Institute; fieldwork dates not given.
+  - id: sbs-trust-poll-2026
+    title: '"AI More Trustworthy Than National Assembly, Courts, Government"... First Public Perception Survey'
+    publisher: SBS
+    url: https://news.sbs.co.kr/english/article.do?news_id=N1008831124
+    published: 2026-11-05
+    accessed: 2026-11-19
+    origin: inside
+    type: poll
+    language: en
+    note: By Jung Yeon. Machine-translated. Reports a survey by SBS and Seoul National University's Institute for Future Strategy; no sample size given.
+  - id: kpmg-korea-2025
+    title: "Trust, attitudes and use of artificial intelligence: A global study 2025 (Korea insights)"
+    publisher: KPMG and The University of Melbourne
+    url: https://assets.kpmg.com/content/dam/kpmgsites/xx/pdf/2025/05/trust-attitudes-and-use-of-ai-korea-snapshot.pdf
+    published: 2025-05
+    accessed: 2026-11-19
+    origin: outside
+    type: poll
+    language: en
+  - id: lokmat-kmcc-2026
+    title: Over 80 pc of S. Korean teens, adults concerned over AI-based online abuse
+    publisher: Lokmat Times (IANS)
+    url: https://www.lokmattimes.com/health/over-80-pc-of-s-korean-teens-adults-concerned-over-ai-based-online-abuse-1/amp
+    published: 2026-03-30
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: Wire copy citing Yonhap, on a Korea Media and Communications Commission survey. Published automatically from the wire.
+  - id: mittr-korea-2026
+    title: Why do South Koreans love AI so much?
+    publisher: MIT Technology Review
+    url: https://www.technologyreview.com/2026/06/15/1138983/why-do-south-koreans-love-ai-so-much/
+    published: 2026-06-15
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: By Michelle Kim. Partly behind a paywall.
+  # Media and analysis in South Korea
+  - id: koreatimes-ethics-2026
+    title: "[COVER STORY] Korea's AI ethics principles lack binding force, specificity"
+    publisher: The Korea Times
+    url: https://www.koreatimes.co.kr/business/tech-science/20260824/koreas-ai-ethics-principles-lack-binding-force-specificity
+    published: 2026-08-24
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Lee Gyu-lee.
+  - id: koreatimes-limbo-2026
+    title: Unclear guidance, vague terms in AI Basic Act leave businesses in limbo
+    publisher: The Korea Times
+    url: https://www.koreatimes.co.kr/business/tech-science/20260129/unclear-guidance-vague-terms-in-ai-basic-act-leave-businesses-in-limbo
+    published: 2026-01-29
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Lee Gyu-lee.
+  - id: koreatimes-naver-security-2026
+    title: Naver Cloud consortium to develop sovereign AI model for cybersecurity
+    publisher: The Korea Times (Yonhap)
+    url: https://www.koreatimes.co.kr/business/tech-science/20260903/naver-cloud-consortium-to-develop-sovereign-ai-model-for-cybersecurity
+    published: 2026-09-03
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: pebblous-ethics-2026
+    title: Korea's AI Ethics Principles Grow From Six to Seven
+    publisher: Pebblous
+    url: https://blog.pebblous.ai/blog/korea-ai-ethics-principles-2026/en/
+    published: 2026-08-15
+    accessed: 2026-11-19
+    origin: inside
+    type: industry
+    language: en
+    note: Company blog by the Pebblous Data Communication Team, reporting the second public forum on the draft principles.
+  - id: asiae-ethics-2020
+    title: "Ministry of Science and ICT Unveils 'Human-Centered' National AI Ethics Guidelines...To Be Finalized After Public Hearing Next Month"
+    publisher: The Asia Business Daily
+    url: https://www.asiae.co.kr/en/article/2020112709230011917
+    published: 2020-11-27
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: Date taken from the article address.
+  - id: asiae-labelling-2026
+    title: When and How Should AI-Generated Content Be Labeled? Government Releases New Standards
+    publisher: The Asia Business Daily
+    url: https://www.asiae.co.kr/en/article/2026012112451263037
+    published: 2026-01
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: The page gives no date; the article address suggests 21 January 2026. Machine-translated.
+  - id: asiae-revision-2026
+    title: Revised AI Basic Act Takes Effect Today... Mandatory Generative AI Labeling Begins in Earnest
+    publisher: The Asia Business Daily
+    url: https://www.asiae.co.kr/en/article/2026072018350629507
+    published: 2026-07-21
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Lee Myeonghwan. Machine-translated.
+  - id: asiae-pipc-guidelines-2025
+    title: Guidelines for the Processing of Personal Information for Generative AI Development and Use
+    publisher: The Asia Business Daily
+    url: https://www.asiae.co.kr/en/article/2025080616394733213
+    published: 2025-08-06
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: Machine-translated report on guidelines from the Personal Information Protection Commission.
+  - id: asiae-pipc-policies-2026
+    title: Generative AI Privacy Policies Found Lacking... Personal Information Commission Calls for Greater Transparency
+    publisher: The Asia Business Daily
+    url: https://www.asiae.co.kr/en/article/2026030416391407960
+    published: 2026-03-04
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: Machine-translated.
+  - id: asiae-pipc-agentic-2026
+    title: How Should We Protect Personal Information in the Agentic AI Era? ... Personal Information Protection Commission Discusses Institutional Innovation
+    publisher: The Asia Business Daily
+    url: https://www.asiae.co.kr/en/article/2026092316064585178
+    published: 2026-09-23
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Noh Kyoungjo. Machine-translated.
+  - id: asiae-exaone-2026
+    title: LG Unveils K-EXAONE 2.5, Boosts Agentic AI Performance by 70%
+    publisher: The Asia Business Daily
+    url: https://www.asiae.co.kr/en/article/2026110908593029581
+    published: 2026-11-09
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Park Joonyi. Machine-translated.
+  - id: zdnet-aisi-staff-2026
+    title: AI 위험 검증 강화하는 주요국…韓 안전 평가 인력 6명뿐
+    publisher: ZDNet Korea
+    url: https://zdnet.co.kr/view/?no=20260928132902
+    published: 2026-09-28
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: ko
+    note: "By Kim Dong-won. Title in English: Major countries strengthen checks on AI risks; Korea has only six safety evaluation staff."
+  - id: zdnet-aisi-publish-2026
+    title: "'깜깜이' 평가 벗는다…AI안전연구소, 모델 성적표 공개 기조로"
+    publisher: ZDNet Korea
+    url: https://zdnet.co.kr/view/?no=20260619100049
+    published: 2026-06-19
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: ko
+    note: "By Lee Na-yeon. Title in English: Shedding opaque evaluation: AI Safety Institute moves to publish model report cards."
+  - id: digitaltoday-aisi-models-2026
+    title: More than half of AI Safety Institute assessed models are open-weight, 58 percent Chinese
+    publisher: DigitalToday
+    url: https://www.digitaltoday.co.kr/en/view/105031/more-than-half-of-ai-safety-institute-assessed-models-are-open-weight-58-percent-chinese
+    published: 2026-09-18
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Seulgi Son. Produced with AI assistance and translated from a Korean original.
+  - id: digitaltoday-openai-mou-2026
+    title: AI Safety Institute, OpenAI sign MOU to ensure safety of high-risk AI
+    publisher: DigitalToday
+    url: https://www.digitaltoday.co.kr/en/view/66216/ai-safety-institute-openai-sign-mou-to-ensure-safety-of-high-risk-ai
+    published: 2026-06-17
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Seulgi Son. Produced with AI assistance.
+  - id: digitaltoday-nvidia-2026
+    title: Nvidia broadens AI cooperation with South Korean government and companies, from semiconductors to robots and startups
+    publisher: DigitalToday
+    url: https://www.digitaltoday.co.kr/en/view/123139/nvidia-broadens-ai-cooperation-with-south-korean-government-and-companies-from-semiconductors-to-robots-and-startups
+    published: 2026-11-09
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Daegeon Seok. Produced with AI assistance.
+  - id: khan-nvidia-2026
+    title: "Korean AI semiconductors join Nvidia's ecosystem···SKT and Rebellions in three-way collaboration"
+    publisher: The Kyunghyang Shinmun
+    url: https://www.khan.co.kr/en/article/202611091536027
+    published: 2026-11-09
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Kim Se-Hoon. Machine-translated.
+  - id: edaily-exaone-2026
+    title: "National AI Team Qualifies... LG Corp. AI Research Institute Director Lim Woo-hyung: \"We'll Compete with Global AI in the Same Weight Class… and Continue to Take on the Challenge\""
+    publisher: Edaily
+    url: https://en.edaily.co.kr/news/eda202608185327
+    published: 2026-08-18
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Kim Hyun-ah. Machine-translated.
+  - id: joongang-aisi-2024
+    title: Korea opens AI safety institute to tackle emerging risks
+    publisher: Korea JoongAng Daily (Yonhap)
+    url: https://www.koreajoongangdaily.com/korea/korea-opens-ai-safety-institute-to-tackle-emerging-risks/12241406
+    published: 2024-11-27
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  # Analysis outside South Korea
+  - id: cooley-korea-2026
+    title: "South Korea's AI Basic Act: Overview and Key Takeaways"
+    publisher: Cooley
+    url: https://www.cooley.com/news/insight/2026/2026-01-27-south-koreas-ai-basic-act-overview-and-key-takeaways
+    published: 2026-01-27
+    accessed: 2026-11-19
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing.
+  - id: iapp-korea-2025
+    title: "Opinion: South Korea's AI Act designed to be all roar, no bite"
+    publisher: IAPP
+    url: https://iapp.org/news/a/south-korea-s-ai-act-designed-to-be-all-roar-no-bite
+    published: 2025-09-10
+    accessed: 2026-11-19
+    origin: outside
+    type: civil_society
+    language: en
+    note: Opinion by Kyoungsic Min, IAPP Country Leader for South Korea, on the draft enforcement decree of September 2025.
+  - id: stimson-korea-2026
+    title: "South Korea's AI Basic Act: Seeking Balance Between Industry Innovation and Social Risk"
+    publisher: Stimson Center
+    url: https://www.stimson.org/2026/south-koreas-ai-basic-act-seeking-balance-between-industry-innovation-and-social-risk/
+    published: 2026
+    accessed: 2026-11-19
+    origin: outside
+    type: civil_society
+    language: en
+    note: The page gives no date; it covers events up to March 2026.
+  - id: dpa-bill-2026
+    title: "Republic of Korea: Bill amending AI Basic Act to require disclosure of conversational AI systems was introduced to National Assembly"
+    publisher: Digital Policy Alert
+    url: https://digitalpolicyalert.org/event/43379-bill-amending-ai-basic-act-to-establish-designation-and-management-systems-for-high-risk-ai-models-posing-threats-to-national-security-and-critical-infrastructure-was-introduced-to-national-assembly
+    published: 2026-09-01
+    accessed: 2026-11-19
+    origin: outside
+    type: civil_society
+    language: en
+    note: The page address names a different bill from the page title and text; the title and text are used here.
+  - id: mlex-openai-workshop-2026
+    title: OpenAI, South Korean experts explore ways to address frontier AI risks
+    publisher: MLex
+    url: https://www.mlex.com/mlex/articles/2541589
+    published: 2026-10-23
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: By Choonsik Yoo. Behind a paywall; only the opening was read.
+  - id: lds-foundation-2025
+    title: South Korea Unveils National AI Foundation Models
+    publisher: Let's Data Science
+    url: https://letsdatascience.com/news/south-korea-unveils-national-ai-foundation-models-bf8f17ae
+    published: 2025-12-30
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: Compiled from public sources.
+  # International
+  - id: gov-bletchley-2023
+    title: "The Bletchley Declaration by Countries Attending the AI Safety Summit, 1-2 November 2023"
+    publisher: Prime Minister's Office, 10 Downing Street
+    url: https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023
+    published: 2023-11-01
+    accessed: 2026-11-18
+    origin: outside
+    type: government
+    language: en
+  - id: gov-seoul-2024
+    title: "Seoul Declaration for safe, innovative and inclusive AI by participants attending the Leaders' Session: AI Seoul Summit, 21 May 2024"
+    publisher: Department for Science, Innovation and Technology (UK)
+    url: https://gov.uk/government/publications/seoul-declaration-for-safe-innovative-and-inclusive-ai-ai-seoul-summit-2024/seoul-declaration-for-safe-innovative-and-inclusive-ai-by-participants-attending-the-leaders-session-ai-seoul-summit-21-may-2024
+    published: 2024-05-21
+    accessed: 2026-11-18
+    origin: outside
+    type: government
+    language: en
+  - id: elysee-paris-2025
+    title: Statement on Inclusive and Sustainable Artificial Intelligence for People and the Planet
+    publisher: Élysée (Presidency of the French Republic)
+    url: https://www.elysee.fr/en/emmanuel-macron/2025/02/11/statement-on-inclusive-and-sustainable-artificial-intelligence-for-people-and-the-planet
+    published: 2025-02-11
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+  - id: theprint-new-delhi-2026
+    title: AI Summit ends with 88 nations adopting New Delhi Declaration, calls for cooperation, sovereignty
+    publisher: ThePrint
+    url: https://theprint.in/tech/ai-summit-ends-with-88-nations-adopting-new-delhi-declaration-calls-for-cooperation-sovereignty/2860446
+    published: 2026-02-21
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+  - id: nl-frontier-call-2026
+    title: A Call for Control of Frontier AI Models
+    publisher: Government of the Netherlands
+    url: https://www.government.nl/documents/2026/09/22/a-call-for-control-of-frontier-ai-models
+    published: 2026-09-22
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+    note: Joint statement by leaders of 20 countries and the European Commission. South Korea is not a signatory.
+  # Approaches elsewhere
+  - id: ag-imda-2026
+    title: IMDA introduces new AI testing and cybersecurity initiatives
+    publisher: Allen & Gledhill
+    url: https://www.allenandgledhill.com/sg/publication/articles/34742/imda-introduces-new-ai-testing-and-cybersecurity-initiatives
+    published: 2026-10-28
+    accessed: 2026-11-19
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing on Singapore.
+  - id: fpf-sb53-2025
+    title: "California's SB 53: The First Frontier AI Law, Explained"
+    publisher: Future of Privacy Forum
+    url: https://fpf.org/blog/californias-sb-53-the-first-frontier-ai-law-explained/
+    published: 2025-10-03
+    accessed: 2026-11-18
+    origin: outside
+    type: civil_society
+    language: en
