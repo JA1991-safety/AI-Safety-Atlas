@@ -6,7 +6,7 @@
 # in the UAE count as "inside".
 # The principles section uses the UAE Charter for the Development and Use of Artificial Intelligence
 # (July 2024), the country's own published set, in line with the decision of 18 Nov 2026. The Charter
-# has twelve principles; the page shows at most ten, so two are named in the about text only.
+# has twelve principles, all shown.
 
 code: AE
 name: United Arab Emirates
@@ -388,9 +388,8 @@ principles:
     evidence_depth: limited
     review: draft
     gaps: >-
-      The Charter's principle descriptions are paraphrased, with short quotes. Two of its twelve principles,
-      Strengthening Human-Machine Ties and Technological Excellence, are not shown separately because the
-      page shows at most ten. We found no published evidence on how well the Charter is followed.
+      The Charter's principle descriptions are paraphrased, with short quotes. We found no published
+      evidence on how well the Charter is followed.
   framework:
     name: the UAE Charter for the Development and Use of Artificial Intelligence
     nav: UAE AI Charter
@@ -398,9 +397,8 @@ principles:
     about:
       text: >-
         The Charter, published in July 2024, describes itself as "a guiding framework" that aims to achieve
-        the goals of the UAE's AI strategy. It has twelve principles. Ten are shown below; the other two,
-        Strengthening Human-Machine Ties and Technological Excellence, concern the relationship between
-        people and AI and the UAE's leadership in AI innovation.
+        the goals of the UAE's AI strategy. All twelve of its principles are shown below, in the Charter's
+        order.
       sources: [charter-pdf, uae-charter-page]
   intro:
     - text: >-
@@ -412,6 +410,26 @@ principles:
         carry it today, and evidence on how it works in practice.
       sources: [charter-pdf]
   items:
+    - key: ties
+      name: Strengthening Human-Machine Ties
+      short: Human-AI ties
+      asks:
+        text: >-
+          The relationship between people and AI should be harmonious and beneficial, with all AI developments
+          putting human well-being and progress first.
+        sources: [charter-pdf]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          Set out in the Charter; we found no law that gives it effect.
+        sources: [charter-pdf, tamimi-authority-2026]
+      how_it_works:
+        - text: >-
+            Dubai has approved an initiative to use AI agents across its government, and has launched agents
+            for human resources, finance and procurement in government bodies.
+          sources: [dubai-mediaoffice-2026]
+      regulators: [Federal Authority for Artificial Intelligence and Data]
+
     - key: safety
       name: Safety
       short: Safety
@@ -540,6 +558,26 @@ principles:
             Cabinet and checks compliance across federal bodies.
           sources: [morganlewis-authority-2026]
       regulators: [Federal Authority for Artificial Intelligence and Data]
+
+    - key: excellence
+      name: Technological Excellence
+      short: Excellence
+      asks:
+        text: >-
+          AI should reflect the UAE's aim of digital, technological and scientific excellence, driving
+          innovation and competitiveness and improving quality of life.
+        sources: [charter-pdf]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          A policy aim of the Charter and the national AI strategy, not a legal duty.
+        sources: [charter-pdf, twobirds-tracker]
+      how_it_works:
+        - text: >-
+            AI models are developed in the UAE by the Technology Innovation Institute (Falcon) and by MBZUAI's
+            Institute of Foundation Models (K2 and JAIS).
+          sources: [tii-falcon-2025, mbzuai-ifm-2025]
+      regulators: []
 
     - key: rights
       name: Human Commitment
