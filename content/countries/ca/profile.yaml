@@ -1,0 +1,1339 @@
+# Canada: area profile
+# Status: DRAFT, researched by Claude on 19 November 2026, awaiting editor review.
+# Every statement cites one or more sources from the list at the bottom of this file.
+# Direct quotes were copied from the source pages on the access date.
+# Sources from Canadian governments, Parliament, regulators, and organisations and media based in
+# Canada count as "inside".
+# The principles section uses the six principles of Canada's Voluntary Code of Conduct on the
+# Responsible Development and Management of Advanced Generative AI Systems (September 2023) as
+# Canada's own set, following the editor's decision of 18 Nov 2026 to use each country's own principles.
+
+code: CA
+name: Canada
+status: draft
+last_reviewed: 2026-11-19
+editor_approved: false
+reviewers: []
+
+summary:
+  overview:
+    - text: >-
+        Canada has no law written specifically for AI. A proposed Artificial Intelligence and Data
+        Act ended when Parliament was prorogued in January 2025, and the national AI strategy
+        launched in June 2026 relies on privacy and online safety bills rather than an AI-specific
+        law.
+      sources: [gowling-c36-2026, geist-strategy-2026]
+    - text: >-
+        Two bills before Parliament touch AI: Bill C-36 on privacy, which would require explanations
+        of automated decisions, and Bill C-34, the Safe Social Media Act, which would place duties on
+        some AI chatbots and was sent to committee in October 2026.
+      sources: [gowling-c36-2026, dlapiper-c34-2026, legisinfo-c34]
+    - text: >-
+        The Canadian AI Safety Institute, created in November 2024 with $50 million over five years,
+        funds research on the risks of advanced AI. It is reviewing OpenAI's practices after a mass
+        shooting in Tumbler Ridge, British Columbia, raised questions about when AI companies alert
+        police.
+      sources: [qp-caisi-2025, cp24-tumbler-ridge-2026]
+    - text: >-
+        In an Angus Reid survey in May 2026, 68% of Canadians said governments must heavily regulate
+        AI even if it slows development, and 74% said no government is equipped to regulate it
+        quickly enough.
+      sources: [angus-reid-2026]
+  regulation_line:
+    text: >-
+      No AI-specific law. A voluntary code for generative AI, privacy law enforced by federal and
+      provincial commissioners, and bills on privacy and online safety, including AI chatbots,
+      before Parliament.
+    sources: [ised-code-2023, opc-openai-2026, gowling-c36-2026, legisinfo-c34]
+
+facets:
+  regulatory_approach: sector_and_existing_law
+  safety_institute:
+    status: "yes"
+    name: Canadian Artificial Intelligence Safety Institute (CAISI)
+    sources: [ised-caisi, qp-caisi-2025]
+  frontier_developers:
+    status: "yes"
+    note: >-
+      Cohere builds AI models for businesses and governments, and signed the Paris Call for AI
+      Safety and Security in November 2026. The Government of Canada invested in its 2026 funding
+      round.
+    sources: [lightreading-cohere-2026, elysee-paris-call-2026]
+  national_polling: "yes"
+  commitments:
+    - key: bletchley_declaration
+      status: signed
+      date: 2023-11-01
+      sources: [gov-bletchley-2023]
+    - key: seoul_declaration
+      status: signed
+      date: 2024-05-21
+      sources: [gov-seoul-2024]
+    - key: coe_convention
+      status: signed
+      date: 2025-02-11
+      sources: [gac-coe-2025]
+    - key: paris_statement
+      status: signed
+      date: 2025-02-11
+      sources: [elysee-paris-2025]
+    - key: new_delhi_declaration
+      status: endorsed
+      date: 2026-02
+      sources: [theprint-new-delhi-2026]
+
+attitudes:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: rich
+    review: draft
+    gaps: >-
+      The Leger and North Poll figures are reported through news coverage, not the pollsters' own
+      releases. The North Poll report does not state the year of fieldwork; it was published in
+      January 2026. Online panels cannot be given a margin of error in the usual way. Views in
+      Quebec and among Indigenous peoples are not shown separately.
+  headline_figures:
+    - value: "68%"
+      label: >-
+        say Canadian governments must heavily regulate AI and tech companies, even if it slows
+        development; 16% prefer self-regulation by the companies
+      fieldwork: 7 to 11 May 2026
+      sample: 1,803 adults, online (Angus Reid Forum)
+      source: angus-reid-2026
+    - value: "85%"
+      label: believe governments should regulate AI tools to ensure ethical and safe use
+      fieldwork: 22 to 25 Aug 2025
+      sample: 1,518 adults, online (Leger)
+      source: nsnews-leger-2025
+  statements:
+    - text: >-
+        In the same Angus Reid survey, 74% said no government is truly equipped to regulate AI
+        quickly enough to keep pace with the technology, and 70% said government should be cautious
+        about adopting AI because of the risks.
+      sources: [angus-reid-2026]
+    - text: >-
+        45% expected AI to significantly reduce the number of jobs available over the next decade,
+        and 79% supported heavier taxes on companies that replace workers with AI. About two-thirds
+        would oppose a large AI data centre being built within a few blocks of their home.
+      sources: [angus-reid-2026]
+    - text: >-
+        In the Leger survey, 78% said AI tools threaten human jobs, and a majority said they had used
+        an AI tool.
+      sources: [nsnews-leger-2025]
+    - text: >-
+        In a North Poll Strategies survey of 1,687 Canadians, reported in January 2026, 60% said they
+        would prefer the government to be sceptical of AI rather than supportive. The same share
+        rated legislation to ensure ethical and safe AI as a top or very high priority.
+      sources: [bnn-northpoll-2026]
+
+regulation:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: rich
+    review: draft
+    gaps: >-
+      The text of the national strategy and of Bills C-34 and C-36 has not been read in full; they
+      are described from government releases, Parliament's bill page, law firm briefings and
+      commentary. Sources differ on the name of the commission that would enforce the privacy bill.
+      Provincial laws, including Quebec's privacy law, and the federal Directive on Automated
+      Decision-Making are not yet covered.
+  items:
+    - kind: strategy
+      title: AI for All, Canada's national AI strategy
+      date: 2026-06-04
+      status: Published; a five-year plan
+      text: >-
+        Sets six pillars, the first of which is "Protecting Canadians and Safeguarding Democracy". It
+        adds $50 million to expand the Canadian AI Safety Institute, proposes a voluntary trusted AI
+        certification, and commits to modernise privacy law and extend online safety law to AI.
+      sources: [gowling-strategy-2026, geist-strategy-2026]
+    - kind: bill
+      title: Bill C-36, Protecting Privacy and Consumer Data Act
+      date: 2026-06-15
+      status: Tabled in the House of Commons
+      text: >-
+        Would replace the privacy part of the federal private-sector privacy law (PIPEDA), require
+        organisations to explain their use of automated decision-making and how to challenge
+        decisions, and treat children's information as sensitive. Penalties would reach $10 million
+        or 3% of gross global revenue.
+      sources: [gowling-c36-2026, aljazeera-c36-2026]
+    - kind: bill
+      title: Bill C-34, Safe Social Media Act
+      date: 2026-06-10
+      status: Referred to the House of Commons Canadian Heritage committee, 29 October 2026
+      text: >-
+        Would create a Digital Safety Commission of Canada and set duties for social media services
+        and some AI chatbots. Chatbots would have to interrupt users who express suicidal thoughts
+        and point them to crisis services, and must not pose as humans. Children under 16 could not
+        hold accounts on designated social media services.
+      sources: [heritage-c34-2026, dlapiper-c34-2026, legisinfo-c34]
+    - kind: bill
+      title: Artificial Intelligence and Data Act (part of Bill C-27)
+      date: 2022-06-16
+      status: Ended on the Order Paper, January 2025
+      text: >-
+        A proposed federal law on AI systems, which ended when Parliament was prorogued. Bill C-36
+        "does not contain AI-specific legislation akin to the Artificial Intelligence and Data Act".
+      sources: [gowling-c36-2026]
+    - kind: guidance
+      title: Voluntary Code of Conduct on the Responsible Development and Management of Advanced Generative AI Systems
+      date: 2023-09
+      status: Voluntary
+      text: >-
+        Sets six principles for organisations that develop or manage advanced generative AI systems.
+        A guide for managers of AI systems was added in March 2025.
+      sources: [ised-code-2023, ised-code-2025]
+    - kind: institution
+      title: Canadian Artificial Intelligence Safety Institute (CAISI)
+      date: 2024-11
+      status: Operating
+      text: >-
+        Led by Innovation, Science and Economic Development Canada. It funds investigator-led research
+        through CIFAR and government-directed projects at the National Research Council, and is a
+        founding member of the International Network of AI Safety Institutes.
+      sources: [ised-caisi, qp-caisi-2025]
+    - kind: enforcement
+      title: Joint investigation of OpenAI's ChatGPT by privacy regulators
+      date: 2026-05-06
+      status: Concluded; OpenAI's commitments are being monitored
+      text: >-
+        The federal, Quebec, British Columbia and Alberta privacy regulators found that ChatGPT's
+        initial training did not comply with privacy law, citing overcollection, a lack of valid
+        consent and transparency, and inaccurate information about people. OpenAI said it had
+        "significantly limited the personal information and sensitive information that is used to
+        train new ChatGPT models".
+      sources: [opc-openai-2026]
+    - kind: international
+      title: International agreements
+      date: 2026-11-09
+      status: See filters
+      text: >-
+        Canada signed the 2023 Bletchley Declaration and the 2024 Seoul Declaration, signed the
+        Council of Europe AI convention in February 2025, joined the Paris AI Action Summit statement,
+        endorsed the New Delhi Declaration in February 2026, and signed the Paris Call for AI Safety
+        and Security in November 2026.
+      sources: [gov-bletchley-2023, gov-seoul-2024, gac-coe-2025, elysee-paris-2025, theprint-new-delhi-2026, elysee-paris-call-2026]
+
+culture:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      No local reviewer yet. Most sources are in English; French-language debate in Quebec, and
+      Indigenous perspectives, are under-represented. No industry voice is quoted.
+  summary:
+    - text: >-
+        Trust is the government's main theme. AI minister Evan Solomon said the national strategy
+        would put trust at its centre, and in September 2026 argued that governments, not companies,
+        must regulate AI.
+      sources: [cp-strategy-2026, hub-canada-2026]
+    - text: >-
+        Canada is home to large AI research institutes, including Mila in Montreal, founded by
+        Yoshua Bengio, and Bengio's non-profit LawZero, which is developing what it calls
+        safe-by-design AI.
+      sources: [mila-roost-2026, lawzero-release-2026]
+    - text: >-
+        Child safety has shaped much of the debate. Ministers summoned OpenAI representatives after the
+        Tumbler Ridge shooting in February 2026, and children's advocates and the Privacy
+        Commissioner have since called for stronger rules and powers.
+      sources: [globalnews-openai-2026, cp24-c34-2026]
+    - text: >-
+        Critics from law, human rights and labour say the strategy relies more on investment than on
+        new law. The Canadian Human Rights Commission called for human rights impact evaluations
+        before AI is used in areas such as employment, housing, health care and policing.
+      sources: [geist-strategy-2026, hrreporter-strategy-2026, canlawyer-chrc-2026]
+    - text: >-
+        Sovereignty is a recurring theme. 46% of Canadians told Angus Reid that the country needs its
+        own AI infrastructure to keep control of it.
+      sources: [angus-reid-2026]
+  own_words:
+    - quote: "Adoption moves at the speed of trust."
+      speaker: Evan Solomon
+      role: Minister of Artificial Intelligence and Digital Innovation
+      date: 2026-09
+      source: hub-canada-2026
+      voice: government
+    - quote: "Without effective and enforceable rules and public control over key infrastructure, the AI strategy is like playing short-handed in hockey."
+      speaker: Bert Blundon
+      role: President, National Union of Public and General Employees
+      date: 2026-06
+      source: hrreporter-strategy-2026
+      voice: labour
+    - quote: "AI safety should not be left to a handful of large companies making trade-offs behind closed doors."
+      speaker: Valérie Pisano
+      role: President and Chief Executive, Mila
+      date: 2026-06-02
+      source: mila-roost-2026
+      voice: safety_research
+    - quote: "We cannot wait to discover harms after the fact"
+      speaker: Charlotte-Anne Malischewski
+      role: Chief Commissioner, Canadian Human Rights Commission
+      date: 2026-06
+      source: canlawyer-chrc-2026
+      voice: public_body
+    - quote: "We need more tools. We need more enforcement powers."
+      speaker: Philippe Dufresne
+      role: Privacy Commissioner of Canada
+      date: 2026-10-23
+      source: cp24-c34-2026
+      voice: public_body
+    - quote: "the strategy funds the infrastructure but defers on the law."
+      speaker: Michael Geist
+      role: Law professor and technology law commentator
+      date: 2026-06
+      source: geist-strategy-2026
+      voice: civil_society
+    - quote: "They are being hooked by algorithms engineered on purpose to keep them scrolling past midnight"
+      speaker: Melissa Lantsman
+      role: Conservative Member of Parliament, in the Bill C-34 debate
+      date: 2026-10-28
+      source: hub-c34-2026
+      voice: parliament
+    - quote: "few challenges are more urgent than ensuring AI is safe, predictable and beneficial for all"
+      speaker: Elissa Strome
+      role: Executive Director, Pan-Canadian AI Strategy, CIFAR
+      date: 2025-07-31
+      source: betakit-caisi-uk-2025
+      voice: safety_research
+  outside_analysis: []
+
+news:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: rich
+    review: draft
+  items:
+    - id: paris-call
+      headline: Canada signs the Paris Call for AI Safety and Security
+      date: 2026-11-09
+      kind: development
+      summary: >-
+        Canada was among 18 governments to sign, alongside ten AI companies including Cohere. The
+        signatories committed to "establishing a common framework for the evaluation and risk
+        management of frontier models".
+      why_it_matters: >-
+        It adds a commitment on frontier AI safety to Canada's international agreements, which
+        already include the Council of Europe AI convention.
+      sources: [elysee-paris-call-2026, gac-coe-2025]
+      topics: [international cooperation, frontier AI, commitments]
+    - id: c34-committee
+      headline: Safe Social Media Act, which covers some AI chatbots, goes to committee
+      date: 2026-10-29
+      kind: development
+      summary: >-
+        The House of Commons sent Bill C-34 to its Canadian Heritage committee after second reading.
+        Government members said in the debate that the bill "also reaches artificial intelligence
+        chatbots". Children's advocates and the Privacy Commissioner had called for stronger
+        protections and powers ahead of the debate.
+      why_it_matters: >-
+        It would place duties on some AI chatbots, including how they respond to users at risk of
+        self-harm.
+      sources: [legisinfo-c34, hub-c34-2026, cp24-c34-2026, dlapiper-c34-2026]
+      topics: [legislation, chatbots, children]
+    - id: minister-vision
+      headline: AI minister says governments must regulate AI
+      date: 2026-09-30
+      kind: development
+      summary: >-
+        At an Empire Club of Canada event, Evan Solomon said "It is for us as sovereign governments to
+        regulate because we are accountable to citizens and this is a democracy". The Hub reported
+        that he set out a framework covering testing, model evaluation, model release and incident
+        reporting, and that he said announcements on legislation would follow.
+      why_it_matters: >-
+        It sets out the minister's view on regulating advanced AI at a time when no AI-specific bill
+        is before Parliament.
+      sources: [hub-canada-2026, geist-strategy-2026]
+      topics: [government, regulation, frontier AI]
+    - id: tumbler-ridge-openai
+      headline: Ottawa says report raises "serious questions" about OpenAI's response to warning signs before the Tumbler Ridge shooting
+      date: 2026-09-25
+      kind: development
+      summary: >-
+        In February 2026, OpenAI said that in June 2025 it had banned a ChatGPT account belonging to
+        the person who later carried out the shooting, without alerting police, and that the person
+        had then used a second account. Ministers summoned OpenAI representatives to Ottawa. After a Mother Jones report on the
+        accounts in September, the office of AI minister Evan Solomon said it "raises serious questions
+        about how OpenAI identified and responded to warning signs", and that a Canadian AI Safety
+        Institute review of OpenAI's practices was continuing.
+      why_it_matters: >-
+        It raised the question of when AI companies should tell police about warning signs, and led to
+        calls for a national standard.
+      sources: [cp24-tumbler-ridge-2026, cp-openai-account-2026, globalnews-openai-2026]
+      topics: [incidents, chatbots, policing]
+    - id: lawzero-funding
+      headline: Canada and Germany commit up to C$300 million to LawZero
+      date: 2026-09-16
+      kind: development
+      summary: >-
+        LawZero, a Montreal non-profit founded by Yoshua Bengio, is developing "Scientist AI", which it
+        says is "expected to provide guardrails for today's frontier models". The money is for
+        research staff, an office in Berlin and computing capacity in Canada.
+      why_it_matters: >-
+        It puts public money into technical research on making advanced AI safe by design, alongside
+        the government's own safety institute.
+      sources: [lawzero-release-2026]
+      topics: [research, frontier AI, funding]
+    - id: privacy-bill
+      headline: Privacy bill would require explanations of automated decisions
+      date: 2026-06-15
+      kind: foundational
+      summary: >-
+        Bill C-36, the Protecting Privacy and Consumer Data Act, would treat information inferred
+        about people as personal information, require organisations to explain certain automated
+        decisions, and give children's information extra protection.
+      why_it_matters: >-
+        The strategy relies on privacy and online safety laws, rather than an AI-specific law, to
+        build trust in AI.
+      sources: [gowling-c36-2026, aljazeera-c36-2026, geist-strategy-2026]
+      topics: [legislation, privacy, automated decisions]
+    - id: national-strategy
+      headline: Government launches AI for All, its national AI strategy
+      date: 2026-06-04
+      kind: foundational
+      summary: >-
+        The five-year strategy funds training, adoption, computing capacity in Canada and an expanded
+        AI Safety Institute. Mila called it a vision "propelling Canada toward scientific and
+        technological leadership", while Michael Geist wrote that "today's release feels like AI
+        Strategy 1.0".
+      why_it_matters: >-
+        It sets the government's approach: trust built through privacy and online safety laws and
+        voluntary certification, rather than a general AI law.
+      sources: [gowling-strategy-2026, mila-strategy-2026, geist-strategy-2026]
+      topics: [strategy, investment, trust]
+    - id: chatgpt-investigation
+      headline: Privacy regulators find ChatGPT's initial training did not comply with privacy law
+      date: 2026-05-06
+      kind: foundational
+      summary: >-
+        Privacy Commissioner Philippe Dufresne found the complaint well-founded and conditionally
+        resolved, based on steps OpenAI had taken or committed to. He said "updated laws would help
+        further support the safe deployment of new technologies".
+      why_it_matters: >-
+        It shows privacy law being used to hold an AI developer to account where there is no
+        AI-specific law.
+      sources: [opc-openai-2026, gowling-c36-2026]
+      topics: [enforcement, privacy, generative AI]
+    - id: coe-convention
+      headline: Canada signs the Council of Europe convention on AI and human rights
+      date: 2025-02-11
+      kind: foundational
+      summary: >-
+        Canada signed alongside Japan at a ceremony during the AI Action Summit in Paris. The
+        government said it was "proud to sign the first international convention on AI and human
+        rights".
+      why_it_matters: >-
+        It is the first international treaty on AI, covering human rights, democracy and the rule of
+        law.
+      sources: [gac-coe-2025]
+      topics: [international cooperation, human rights]
+    - id: cohere-series-e
+      headline: Cohere opens a funding round of up to C$7 billion
+      date: 2026-10-29
+      kind: development
+      stream: ai
+      summary: >-
+        The company says the round values it at C$35.7 billion and is "the largest private financing
+        round ever undertaken by a Canadian technology company". Schwarz Group led the round, and the
+        Government of Canada is among the new investors.
+      why_it_matters: >-
+        The government is now an investor in a Canadian AI model developer that has signed the Paris
+        Call's commitments on frontier AI safety.
+      sources: [lightreading-cohere-2026, elysee-paris-call-2026]
+      topics: [companies, investment]
+    - id: bell-saskatchewan
+      headline: Bell plans up to C$52.5 billion of AI infrastructure in Saskatchewan
+      date: 2026-09-14
+      kind: development
+      stream: ai
+      summary: >-
+        The government welcomed Bell Canada's plan for up to 900 MW of new capacity, part of a
+        1.2-gigawatt AI hub, which it called "the largest private-sector investment in Saskatchewan's
+        history".
+      why_it_matters: >-
+        The national strategy treats computing capacity in Canada as part of AI sovereignty. Michael
+        Geist argues that sovereignty also depends on privacy law that limits foreign access to data.
+      sources: [ised-bell-2026, gowling-strategy-2026, geist-strategy-2026]
+      topics: [compute, infrastructure, sovereignty]
+    - id: germany-alliance
+      headline: Canada and Germany sign an AI declaration and launch a Sovereign Technology Alliance
+      date: 2026-02-17
+      kind: foundational
+      stream: ai
+      summary: >-
+        The two countries signed a "Joint Declaration of Intent on Artificial Intelligence" and
+        launched an alliance "for stronger co-operation among partners on advanced technologies".
+      why_it_matters: >-
+        Germany later joined Canada in funding LawZero's research on safe-by-design AI.
+      sources: [law360-germany-2026, lawzero-release-2026]
+      topics: [international cooperation, sovereignty]
+
+principles:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      How federal and provincial human rights law, consumer protection law and Quebec's privacy law
+      apply to AI is not covered in this draft. The federal Directive on Automated Decision-Making,
+      which applies to government use of AI, is not yet covered.
+  framework:
+    name: the voluntary code's six principles
+    nav: Six principles
+    basis: own
+    about:
+      text: >-
+        Innovation, Science and Economic Development Canada published the Voluntary Code of Conduct on
+        the Responsible Development and Management of Advanced Generative AI Systems in September
+        2023. It sets six principles for developers and managers of these systems, and 46
+        organisations had signed it by March 2025.
+      sources: [ised-code-2023, ised-code-2025]
+  intro:
+    - text: >-
+        Canada has no AI-specific law. Privacy law, enforced by federal and provincial privacy
+        commissioners, applies to AI that uses personal information, and bills before Parliament
+        would add rules on automated decisions and AI chatbots.
+      sources: [opc-openai-2026, gowling-c36-2026, legisinfo-c34]
+    - text: >-
+        Below, each principle is shown with how the code describes it, how far the law backs it, the
+        laws and bodies that carry it today, and evidence on how it works in practice.
+      sources: [ised-code-2023]
+  items:
+    - key: accountability
+      name: Accountability
+      short: Accountability
+      asks:
+        text: >-
+          Organisations should "understand their role with regard to the systems they develop or
+          manage".
+        sources: [ised-code-2023]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          Privacy law holds organisations accountable for the personal information they use, including
+          in AI systems. Regulators found a lack of accountability among the problems with how
+          ChatGPT was first trained. No law sets accountability duties for AI systems in general.
+        sources: [opc-openai-2026, gowling-c36-2026]
+      how_it_works:
+        - text: >-
+            Federal, Quebec, British Columbia and Alberta privacy regulators can investigate jointly,
+            as they did with ChatGPT. Bill C-36 would replace the federal private-sector privacy law
+            and raise penalties.
+          sources: [opc-openai-2026, gowling-c36-2026]
+      regulators: [Office of the Privacy Commissioner of Canada, Provincial privacy commissioners]
+
+    - key: safety
+      name: Safety
+      short: Safety
+      asks:
+        text: >-
+          Developers and managers should make sure that systems "are subject to risk assessments".
+        sources: [ised-code-2023]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          No law in force requires risk assessments of AI systems. Bill C-34 would require some AI
+          chatbots to reduce the risk of communicating harmful content; it is before a House of Commons
+          committee.
+        sources: [heritage-c34-2026, legisinfo-c34]
+      how_it_works:
+        - text: >-
+            The Canadian AI Safety Institute studies the risks of advanced AI, including "risks posed
+            by synthetic content, including impersonation and fraud".
+          sources: [ised-caisi]
+        - text: >-
+            After the Tumbler Ridge shooting, OpenAI told the minister it would strengthen its
+            protocols for referring threats to police and its detection of banned users opening new
+            accounts.
+          sources: [cp-openai-account-2026]
+      regulators: []
+      evidence:
+        - text: >-
+            OpenAI said it had banned the shooter's first ChatGPT account in June 2025 but "did not
+            identify credible and imminent planning that met our threshold to refer the matter to law
+            enforcement".
+          sources: [cp-openai-account-2026]
+
+    - key: fairness-equity
+      name: Fairness and Equity
+      short: Fairness
+      asks:
+        text: >-
+          The code asks that "potential impacts with regard to fairness and equity are assessed and
+          addressed".
+        sources: [ised-code-2023]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          We found no rule in our sources that sets fairness duties specific to AI. How general human
+          rights law applies to AI is not covered in this draft.
+        sources: [canlawyer-chrc-2026]
+      how_it_works:
+        - text: >-
+            The Canadian Human Rights Commission has called for human rights impact evaluations before
+            AI is rolled out in services, benefits, employment, education, housing, health care,
+            policing and justice.
+          sources: [canlawyer-chrc-2026]
+      regulators: [Canadian Human Rights Commission]
+
+    - key: transparency
+      name: Transparency
+      short: Transparency
+      asks:
+        text: >-
+          The code asks that "sufficient information is published to allow consumers to make informed
+          decisions".
+        sources: [ised-code-2023]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          Privacy law requires organisations to be open about how they use personal information:
+          regulators found that ChatGPT's initial training lacked valid consent and transparency. No
+          law in force requires AI-generated content to be labelled.
+        sources: [opc-openai-2026, dlapiper-c34-2026]
+      how_it_works:
+        - text: >-
+            Bill C-36 would require organisations to disclose their use of automated decision systems,
+            the criteria used, and how people can challenge decisions.
+          sources: [gowling-c36-2026]
+        - text: >-
+            Bill C-34 would require operators to label synthetic content, including deepfakes. The
+            national strategy proposes a voluntary Canada Trusted AI Certification.
+          sources: [dlapiper-c34-2026, gowling-strategy-2026]
+      regulators: [Office of the Privacy Commissioner of Canada]
+
+    - key: human-oversight
+      name: Human Oversight and Monitoring
+      short: Human oversight
+      asks:
+        text: >-
+          "System use is monitored after deployment, and updates are implemented as needed to address
+          any risks that materialize."
+        sources: [ised-code-2023]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          We found no law in force in our sources that requires monitoring of AI systems after
+          deployment. Under Bill C-34, "automated crisis responses alone will not suffice" for chatbots
+          when users are at risk.
+        sources: [dlapiper-c34-2026]
+      how_it_works:
+        - text: >-
+            The Canadian AI Safety Institute's research covers systems "that may be dangerous or hinder
+            human oversight".
+          sources: [ised-caisi]
+        - text: >-
+            The institute is reviewing OpenAI's practices after the Tumbler Ridge shooting.
+          sources: [cp24-tumbler-ridge-2026]
+      regulators: []
+
+    - key: validity-robustness
+      name: Validity and Robustness
+      short: Robustness
+      asks:
+        text: >-
+          Systems should "operate as intended" and be "secure against cyber attacks".
+        sources: [ised-code-2023]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          Only the voluntary code asks for this. Testing of AI systems in Canada is mainly research led
+          by the Canadian AI Safety Institute.
+        sources: [ised-code-2023, ised-caisi]
+      how_it_works:
+        - text: >-
+            The National Research Council carries out government-directed projects for the institute,
+            on topics including deepfake detection, risks from autonomous AI agents and benchmarks.
+          sources: [qp-caisi-2025]
+        - text: >-
+            The national strategy funds the institute to track emerging risks and carry out transparent
+            model evaluations.
+          sources: [gowling-strategy-2026]
+      regulators: []
+      evidence:
+        - text: >-
+            In 2025 the institute funded ten research projects through CIFAR's Catalyst Grant Program,
+            and pledged $1 million to the UK AI Security Institute's Alignment Project.
+          sources: [qp-caisi-2025, betakit-caisi-uk-2025]
+
+areas_for_improvement:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      Each area is one that a named source has identified. Bills C-34 and C-36 may change in
+      Parliament. Provincial approaches are not yet covered.
+  intro:
+    - text: >-
+        Canada relies on a voluntary code, privacy law and bills before Parliament. Legal scholars,
+        the Privacy Commissioner, the Canadian Human Rights Commission, provincial leaders and
+        children's advocates have identified areas where this could be strengthened.
+      sources: [geist-strategy-2026, opc-openai-2026, canlawyer-chrc-2026, cp-openai-account-2026, cp24-c34-2026]
+  items:
+    - id: ai-law
+      title: A law for AI systems
+      kind: legal_power
+      principles: [safety, accountability, human-oversight]
+      in_place:
+        text: >-
+          A voluntary code for generative AI, privacy law, and bills on privacy and online safety, one
+          of which covers some AI chatbots.
+        sources: [ised-code-2023, gowling-c36-2026, heritage-c34-2026]
+      identified:
+        text: >-
+          Michael Geist wrote that "The government has no plans for AI-specific regulation" and that
+          the strategy defers on the law. The minister has said announcements on legislation will
+          follow.
+        sources: [geist-strategy-2026, hub-canada-2026]
+      elsewhere:
+        - text: >-
+            A general AI law with duties set by level of risk.
+          used_in: [EU]
+          sources: [ec-ai-act-page]
+        - text: >-
+            A general AI law with duties for high-impact AI systems.
+          used_in: [KR]
+          sources: [cooley-korea-2026]
+        - text: >-
+            A federal law on AI systems, proposed in Canada in 2022 as the Artificial Intelligence and
+            Data Act.
+          proposed_by: Government of Canada (Bill C-27, not passed)
+          sources: [gowling-c36-2026]
+
+    - id: incident-reporting
+      title: Reporting warning signs and incidents
+      kind: coverage
+      principles: [safety, human-oversight]
+      in_place:
+        text: >-
+          After the Tumbler Ridge shooting, OpenAI said it would strengthen its police referral
+          protocols, and the minister's office said OpenAI now has direct contact with the RCMP's
+          National Cybercrime Coordination Centre.
+        sources: [cp-openai-account-2026, cp24-tumbler-ridge-2026]
+      identified:
+        text: >-
+          British Columbia's premier called for a national minimum standard for when companies refer
+          threats to police. The minister's office said in September 2026 that "it would be premature
+          to say" OpenAI's changes were sufficient.
+        sources: [cp-openai-account-2026, cp24-tumbler-ridge-2026]
+      elsewhere:
+        - text: >-
+            A state law requiring frontier developers to report critical safety incidents.
+          used_in: [US]
+          sources: [fpf-sb53-2025]
+        - text: >-
+            A commitment by developers to "share timely information on serious cyber and AI control
+            incidents".
+          proposed_by: Paris Call for AI Safety and Security, which Canada signed in November 2026
+          sources: [elysee-paris-call-2026]
+        - text: >-
+            A framework for testing, model evaluation, model release and incident reporting. The
+            minister said "We need kind of like a red phone if things are happening".
+          proposed_by: Evan Solomon, Minister of Artificial Intelligence and Digital Innovation
+          sources: [hub-canada-2026]
+
+    - id: privacy-powers
+      title: Powers for the privacy regulator
+      kind: legal_power
+      principles: [accountability, transparency]
+      in_place:
+        text: >-
+          Federal and provincial privacy regulators investigated ChatGPT together and found the
+          complaint well-founded. Bill C-36 would replace federal private-sector privacy law and raise
+          penalties.
+        sources: [opc-openai-2026, gowling-c36-2026]
+      identified:
+        text: >-
+          Privacy Commissioner Philippe Dufresne said in May 2026 that "updated laws would help further
+          support the safe deployment of new technologies", and in October that he needs more
+          enforcement powers.
+        sources: [opc-openai-2026, cp24-c34-2026]
+
+    - id: transparency-rules
+      title: Transparency about AI systems
+      kind: coverage
+      principles: [transparency]
+      in_place:
+        text: >-
+          Bill C-36 would require explanations of automated decisions, Bill C-34 would require labels
+          on synthetic content, and the strategy proposes voluntary certification.
+        sources: [gowling-c36-2026, dlapiper-c34-2026, gowling-strategy-2026]
+      identified:
+        text: >-
+          Michael Geist wrote that the strategy sets no clear transparency requirements and does not
+          require disclosure of training data, and urged a dedicated AI transparency law.
+        sources: [geist-strategy-2026]
+      elsewhere:
+        - text: >-
+            Duties to mark AI-generated content and label deepfakes, under a general AI law.
+          used_in: [EU]
+          sources: [ec-ai-act-page]
+
+    - id: human-rights-assessments
+      title: Human rights assessments and redress
+      kind: redress
+      principles: [fairness-equity, accountability]
+      in_place:
+        text: >-
+          The voluntary code asks signatories to assess and address impacts on fairness and equity.
+        sources: [ised-code-2023]
+      identified:
+        text: >-
+          The Canadian Human Rights Commission called for human rights impact evaluations before
+          rollout, and said "people must have access to effective redress mechanisms" where AI causes
+          harm.
+        sources: [canlawyer-chrc-2026]
+      elsewhere:
+        - text: >-
+            A state law on automated decisions that relies on notices before and after use and a right
+            to ask for human review.
+          used_in: [US]
+          sources: [skadden-colorado-2026]
+        - text: >-
+            Duties for high-risk uses such as recruitment and credit scoring, under a general AI law.
+          used_in: [EU]
+          sources: [ec-ai-act-page]
+
+    - id: children-chatbots
+      title: Protecting children who use AI chatbots
+      kind: coverage
+      principles: [safety, human-oversight]
+      in_place:
+        text: >-
+          Bill C-34 would set a duty to protect children for regulated services, including some AI
+          chatbots, and Bill C-36 would give children's information extra protection.
+        sources: [heritage-c34-2026, gowling-c36-2026]
+      identified:
+        text: >-
+          Children First Canada named AI chatbots among the privacy risks to children. Ignacio Cofone
+          of the University of Oxford told Al Jazeera that the privacy bill's child provisions are
+          "modest", and that the bigger need is "age-appropriate design".
+        sources: [cp24-c34-2026, aljazeera-c36-2026]
+      elsewhere:
+        - text: >-
+            Open-source safeguards to detect harmful conversations with chatbots, including on
+            self-harm, and redirect young users to support.
+          proposed_by: Mila and ROOST (partnership announced in June 2026)
+          sources: [mila-roost-2026]
+
+contacts:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      A starting list, described from each organisation's own pages. CIFAR, provincial regulators and
+      Quebec-based groups other than Mila and LawZero are not yet listed.
+  items:
+    - name: AIGS Canada (Gouvernance et Sécurité de l'IA Canada)
+      type: civil_society
+      url: https://aigs.ca/
+      based: Ottawa
+      about:
+        text: >-
+          Describes itself, on its French-language pages, as "un organisme à but non lucratif et non
+          partisan" (a non-profit and nonpartisan organisation) working on AI governance and safety.
+        sources: [gsia-about]
+      links:
+        - label: Newsletter (French)
+          url: https://gsia.ca/infolettre-slack/
+        - label: Volunteer (French)
+          url: https://gsia.ca/benevolat/
+    - name: Canadian Artificial Intelligence Safety Institute (CAISI)
+      type: government
+      url: https://ised-isde.canada.ca/site/ised/en/canadian-artificial-intelligence-safety-institute
+      about:
+        text: >-
+          A government institute "led by Innovation, Science and Economic Development Canada", set up
+          "to ensure that governments are well positioned to understand and act on the risks of
+          advanced AI systems".
+        sources: [ised-caisi]
+    - name: LawZero
+      type: research_institute
+      url: https://lawzero.org/en
+      based: Montreal
+      about:
+        text: >-
+          Describes itself as "a nonprofit dedicated to safe-by-design artificial intelligence (AI)".
+          It was founded by Yoshua Bengio.
+        sources: [lawzero-safety-case-2026, lawzero-release-2026]
+      links:
+        - label: Careers
+          url: https://job-boards.greenhouse.io/lawzero
+    - name: Mila – Quebec Artificial Intelligence Institute
+      type: research_institute
+      url: https://mila.quebec/en
+      based: Montreal
+      about:
+        text: >-
+          Describes itself as "the world's largest academic AI research center specialized in deep
+          learning". It works with ROOST on open-source safety tools for AI chatbots.
+        sources: [mila-roost-2026]
+      links:
+        - label: Contact
+          url: https://mila.quebec/en/about/contact
+        - label: Media
+          url: https://mila.quebec/en/media-resources
+    - name: Office of the Privacy Commissioner of Canada
+      type: regulator
+      url: https://www.priv.gc.ca/en/
+      based: Ottawa
+      about:
+        text: >-
+          The Privacy Commissioner of Canada "is an Agent of Parliament whose mission is to protect and
+          promote privacy rights". The office led the 2026 joint investigation of ChatGPT.
+        sources: [opc-openai-2026]
+      links:
+        - label: Contact
+          url: https://www.priv.gc.ca/en/contact-the-opc/
+        - label: Who we are
+          url: https://www.priv.gc.ca/en/about-the-opc/who-we-are/
+    - name: Schwartz Reisman Institute for Technology and Society
+      type: university
+      url: https://srinstitute.utoronto.ca/
+      based: University of Toronto
+      about:
+        text: >-
+          An institute at the University of Toronto that "supports ground-breaking interdisciplinary
+          research". Its director is leading an initiative "to make AI systems safer and more secure
+          from end to end".
+        sources: [sri-research]
+      links:
+        - label: Contact
+          url: https://srinstitute.utoronto.ca/contact
+        - label: AI safety mailing list
+          url: https://docs.google.com/forms/d/e/1FAIpQLSfk1CgJmVKz_RLUMGenDHgZYmU7e9gfRX33MIV7SQPF8s7DaQ/viewform?usp=sf_link
+    - name: Vector Institute
+      type: research_institute
+      url: https://vectorinstitute.ai/
+      about:
+        text: >-
+          Says its researchers "are addressing both near term and existential risk in privacy and
+          security".
+        sources: [vector-safety]
+
+sources:
+  # Government of Canada, Parliament and regulators
+  - id: ised-code-2023
+    title: Voluntary Code of Conduct on the Responsible Development and Management of Advanced Generative AI Systems
+    publisher: Innovation, Science and Economic Development Canada
+    url: https://ised-isde.canada.ca/site/ised/en/node/181
+    published: 2023-09
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+    note: Page last modified 4 June 2026. Lists the signatories.
+  - id: ised-code-2025
+    title: Canada moves toward safe and responsible artificial intelligence
+    publisher: Innovation, Science and Economic Development Canada
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2025/03/canada-moves-toward-safe-and-responsible-artificial-intelligence.html
+    published: 2025-03-06
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: ised-caisi
+    title: Canadian Artificial Intelligence Safety Institute
+    publisher: Innovation, Science and Economic Development Canada
+    url: https://ised-isde.canada.ca/site/ised/canadian-artificial-intelligence-safety-institute
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+    note: Page last modified 8 July 2026.
+  - id: qp-caisi-2025
+    title: "Question Period Note: Canadian Artificial Intelligence Safety Institute"
+    publisher: Innovation, Science and Economic Development Canada (Open Government Portal)
+    url: https://search.open.canada.ca/qpnotes/record/ic,AIDI-2026-QP-00001
+    published: 2025-09-15
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+    note: Dated 15 September 2025 on the portal, but describes events up to November 2025.
+  - id: gac-coe-2025
+    title: Canada signs the Council of Europe Framework Convention on Artificial Intelligence and Human Rights, Democracy and the Rule of Law
+    publisher: Global Affairs Canada
+    url: https://www.canada.ca/en/global-affairs/news/2025/02/canada-signs-the-council-of-europe-framework-convention-on-artificial-intelligence-and-human-rights-democracy-and-the-rule-of-law.html
+    published: 2025-02-11
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: heritage-c34-2026
+    title: Government of Canada introduces legislation to make social media services and AI chatbots safer for children
+    publisher: Canadian Heritage
+    url: https://www.canada.ca/en/canadian-heritage/news/2026/06/government-of-canada-introduces-legislation-to-make-social-media-services-and-ai-chatbots-safer-for-children.html
+    published: 2026-06-10
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: legisinfo-c34
+    title: "C-34 (45-1): Safe Social Media Act"
+    publisher: Parliament of Canada (LEGISinfo)
+    url: https://www.parl.ca/LegisInfo/en/bill/45-1/c-34
+    accessed: 2026-11-19
+    origin: inside
+    type: parliament
+    language: en
+  - id: ised-bell-2026
+    title: Government of Canada welcomes major new investment in sovereign AI infrastructure in Saskatchewan
+    publisher: Innovation, Science and Economic Development Canada
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/09/government-of-canada-welcomes-major-new-investment-in-sovereign-ai-infrastructure-in-saskatchewan.html
+    published: 2026-09-14
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: opc-openai-2026
+    title: Joint investigation by Canadian privacy regulators into OpenAI's ChatGPT leads to better protections for Canadians' personal information
+    publisher: Office of the Privacy Commissioner of Canada
+    url: https://www.priv.gc.ca/en/opc-news/news-and-announcements/2026/nr-c_260506/
+    published: 2026-05-06
+    accessed: 2026-11-19
+    origin: inside
+    type: regulator
+    language: en
+  # Polls
+  - id: angus-reid-2026
+    title: Canadians call for heavy AI regulation, but three-quarters doubt any government can keep up with the technology
+    publisher: Angus Reid Institute
+    url: https://angusreid.org/wp-content/uploads/2026/06/2026.06.01_AI_Policy_data_centres.pdf
+    published: 2026-06-02
+    accessed: 2026-11-19
+    origin: inside
+    type: poll
+    language: en
+  - id: nsnews-leger-2025
+    title: Poll suggests 85% of Canadians want governments to regulate AI
+    publisher: North Shore News
+    url: https://www.nsnews.com/science-news/poll-suggests-85-of-canadians-want-governments-to-regulate-ai-11136552
+    published: 2025-08-27
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    via: The Canadian Press
+    note: Reports a Leger survey.
+  - id: bnn-northpoll-2026
+    title: Critics, pollsters warn Canadians are wary of AI, want government to set guardrails
+    publisher: BNN Bloomberg
+    url: https://www.bnnbloomberg.ca/business/artificial-intelligence/2026/01/21/critics-pollsters-warn-canadians-are-wary-of-ai-want-government-to-set-guardrails/
+    published: 2026-01-21
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    via: The Canadian Press
+    note: Reports a North Poll Strategies survey.
+  # Canadian media
+  - id: cp-strategy-2026
+    title: Federal government's new AI strategy will emphasize trust, minister says
+    publisher: BNN Bloomberg
+    url: https://www.bnnbloomberg.ca/business/politics/2026/06/02/federal-governments-new-ai-strategy-will-emphasize-trust-minister-says/
+    published: 2026-06-02
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    via: The Canadian Press
+  - id: hub-canada-2026
+    title: Canada's AI minister outlines his vision for balancing innovation and safety
+    publisher: The Hub
+    url: https://thehub.ca/2026/09/30/canadas-ai-minister-outlines-his-vision-for-balancing-innovation-and-safety/
+    published: 2026-09-30
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: hub-c34-2026
+    title: "Parliament Today: Safe Social Media Act back for second reading"
+    publisher: The Hub
+    url: https://thehub.ca/2026/10/29/parliament-today-safe-social-media-act-back-for-second-reading/
+    published: 2026-10-29
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: cp24-c34-2026
+    title: "'Waiting too long': Calls to strengthen Safe Social Media Act ahead of second reading debate"
+    publisher: CP24
+    url: https://www.cp24.com/news/canada/2026/10/23/waiting-too-long-calls-to-strengthen-safe-social-media-act-ahead-of-second-reading-debate/
+    published: 2026-10-23
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: cp24-tumbler-ridge-2026
+    title: Ottawa says Tumbler Ridge ChatGPT report raises 'serious questions' about OpenAI
+    publisher: CP24
+    url: https://www.cp24.com/news/canada/2026/09/26/ottawa-says-tumbler-ridge-chatgpt-report-raises-serious-questions-about-openai/
+    published: 2026-09-25
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: CTV News story. Refers to a Mother Jones report published on 24 September 2026.
+  - id: cp-openai-account-2026
+    title: "Tumbler Ridge shooter evaded ban with second ChatGPT account: OpenAI"
+    publisher: CP24
+    url: https://www.cp24.com/news/canada/2026/02/26/tumbler-ridge-shooter-had-second-chatgpt-account-after-ban-openai/
+    published: 2026-02-26
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    via: The Canadian Press
+  - id: globalnews-openai-2026
+    title: OpenAI reps summoned to Ottawa to discuss concerns following Tumbler Ridge shooting
+    publisher: Global News
+    url: https://globalnews.ca/news/11679797/openai-reps-summoned-ottawa-concerns-tumbler-ridge-shooting/
+    published: 2026-02-23
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: betakit-caisi-uk-2025
+    title: Canada's AI safety institute pledges $1 million to UK counterpart for research collaboration
+    publisher: BetaKit
+    url: https://betakit.com/canadas-ai-safety-institute-pledges-1-million-to-uk-counterpart-for-research-collaboration/
+    published: 2025-07-31
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: canlawyer-chrc-2026
+    title: Canadian Human Rights Commission urges government to engage diverse communities in AI development
+    publisher: Canadian Lawyer
+    url: https://www.canadianlawyermag.com/news/general/canadian-human-rights-commission-urges-government-to-engage-diverse-communities-in-ai-development/394217
+    published: 2026-06-14
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: hrreporter-strategy-2026
+    title: Human rights, labour advocates raise concerns about 'AI for All' strategy
+    publisher: Canadian HR Reporter
+    url: https://www.hrreporter.com/focus-areas/automation-ai/human-rights-labour-advocates-raise-concerns-about-ai-for-all-strategy/394544
+    published: 2026-06-09
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: law360-germany-2026
+    title: Canada, Germany sign AI declaration, launch Sovereign Technology Alliance
+    publisher: Law360 Canada
+    url: https://www.law360.ca/ca/articles/2442697
+    published: 2026-02-17
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: Only the opening paragraph is free to read.
+  # Analysis, research institutes and companies
+  - id: geist-strategy-2026
+    title: "AI for All, Details to Follow: Government Releases a Big-Spending AI Strategy That Is Still Short on the Specifics That Matter"
+    publisher: Michael Geist (michaelgeist.ca)
+    url: https://www.michaelgeist.ca/2026/06/ai-for-all-details-to-follow-government-releases-a-big-spending-ai-strategy-that-is-still-short-on-the-specifics-that-matter/
+    published: 2026-06
+    accessed: 2026-11-19
+    origin: inside
+    type: academic
+    language: en
+    note: Blog of a University of Ottawa law professor, published on the day the strategy was released.
+  - id: gowling-strategy-2026
+    title: Canada launches "AI for All" national AI strategy
+    publisher: Gowling WLG
+    url: https://gowlingwlg.com/en/insights-resources/articles/2026/canada-launches-ai-for-all-national-artificial-intelligence-strategy
+    published: 2026-06-04
+    accessed: 2026-11-19
+    origin: inside
+    type: industry
+    language: en
+    note: Law firm briefing.
+  - id: gowling-c36-2026
+    title: Ottawa tables long-awaited federal privacy reform legislation
+    publisher: Gowling WLG
+    url: https://gowlingwlg.com/en/insights-resources/articles/2026/ottawa-tables-long-awaited-federal-privacy-reform-legislation
+    published: 2026-06-15
+    accessed: 2026-11-19
+    origin: inside
+    type: industry
+    language: en
+    note: Law firm briefing.
+  - id: dlapiper-c34-2026
+    title: An overview of Canada's Safe Social Media Act (Bill C-34)
+    publisher: DLA Piper
+    url: https://www.dlapiper.com/en-ca/insights/publications/2026/06/an-overview-of-canadas-safe-social-media-act
+    published: 2026-06-15
+    accessed: 2026-11-19
+    origin: inside
+    type: industry
+    language: en
+    note: Law firm briefing by lawyers in its Canadian practice.
+  - id: mila-roost-2026
+    title: ROOST and Mila Announce Partnership to Advance Open Source AI Safety, Starting with Youth Safety
+    publisher: Mila – Quebec Artificial Intelligence Institute
+    url: https://mila.quebec/en/news/roost-and-mila-announce-partnership-to-advance-open-source-ai-safety-starting-with-youth
+    published: 2026-06-02
+    accessed: 2026-11-19
+    origin: inside
+    type: academic
+    language: en
+  - id: mila-strategy-2026
+    title: "Canada's National AI Strategy: Mila Welcomes an Ambitious Vision Propelling Canada Toward Scientific and Technological Leadership"
+    publisher: Mila – Quebec Artificial Intelligence Institute
+    url: https://mila.quebec/en/news/canadas-national-ai-strategy-mila-welcomes-an-ambitious-vision-propelling-canada-toward
+    published: 2026-06-04
+    accessed: 2026-11-19
+    origin: inside
+    type: academic
+    language: en
+  - id: lawzero-release-2026
+    title: LawZero receives a commitment of up to $300M in joint funding from Canada and Germany
+    publisher: LawZero
+    url: https://technode.global/prnasia/lawzero-receives-a-commitment-of-up-to-300m-in-joint-funding-from-canada-and-germany/
+    published: 2026-09-16
+    accessed: 2026-11-19
+    origin: inside
+    type: civil_society
+    language: en
+    via: PR Newswire, republished by TNGlobal
+  - id: lawzero-safety-case-2026
+    title: "An AI that Predicts but has no Hidden Agenda: LawZero Lays out a Formal Safety Case for its \"Scientist AI\""
+    publisher: LawZero
+    url: https://lawzero.org/en/news/ai-predicts-has-no-hidden-agenda-lawzero-lays-out-formal-safety-case-its-scientist-ai
+    published: 2026-07-02
+    accessed: 2026-11-19
+    origin: inside
+    type: civil_society
+    language: en
+  - id: lightreading-cohere-2026
+    title: Cohere wraps initial close of new funding round to fuel sovereign AI efforts
+    publisher: Cohere
+    url: https://lightreading.com/ai-machine-learning/cohere-wraps-initial-close-of-new-funding-round-to-fuel-sovereign-ai-efforts
+    published: 2026-10-29
+    accessed: 2026-11-19
+    origin: inside
+    type: industry
+    language: en
+    via: PR Newswire, republished by Light Reading
+  - id: sri-research
+    title: Research
+    publisher: Schwartz Reisman Institute for Technology and Society, University of Toronto
+    url: https://srinstitute.utoronto.ca/research
+    accessed: 2026-11-19
+    origin: inside
+    type: academic
+    language: en
+  - id: vector-safety
+    title: AI trust and safety research
+    publisher: Vector Institute
+    url: https://vectorinstitute.ai/?p=21078
+    accessed: 2026-11-19
+    origin: inside
+    type: academic
+    language: en
+  - id: gsia-about
+    title: À propos
+    publisher: GSIA Canada (AIGS Canada)
+    url: https://gsia.ca/a-propos
+    accessed: 2026-11-19
+    origin: inside
+    type: civil_society
+    language: fr
+  # Sources from outside Canada, used for international commitments and comparisons
+  - id: aljazeera-c36-2026
+    title: Canada's Bill C-36 tackles AI privacy. Is it enough?
+    publisher: Al Jazeera
+    url: https://www.aljazeera.com/amp/economy/2026/7/10/canadas-bill-c-36-tackles-ai-privacy-is-it-enough
+    published: 2026-07-10
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+  - id: elysee-paris-2025
+    title: Statement on Inclusive and Sustainable Artificial Intelligence for People and the Planet
+    publisher: Élysée (Presidency of the French Republic)
+    url: https://www.elysee.fr/en/emmanuel-macron/2025/02/11/statement-on-inclusive-and-sustainable-artificial-intelligence-for-people-and-the-planet
+    published: 2025-02-11
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+  - id: elysee-paris-call-2026
+    title: Paris Call for AI Safety and Security
+    publisher: Élysée (Presidency of the French Republic)
+    url: https://www.elysee.fr/en/emmanuel-macron/2026/11/10/paris-call-for-ai-safety-and-security
+    published: 2026-11-10
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+  - id: theprint-new-delhi-2026
+    title: AI Summit ends with 88 nations adopting New Delhi Declaration, calls for cooperation, sovereignty
+    publisher: ThePrint
+    url: https://theprint.in/tech/ai-summit-ends-with-88-nations-adopting-new-delhi-declaration-calls-for-cooperation-sovereignty/2860446
+    published: 2026-02-21
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+  - id: gov-bletchley-2023
+    title: "The Bletchley Declaration by Countries Attending the AI Safety Summit, 1-2 November 2023"
+    publisher: Prime Minister's Office, 10 Downing Street
+    url: https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023
+    published: 2023-11-01
+    accessed: 2026-11-18
+    origin: outside
+    type: government
+    language: en
+  - id: gov-seoul-2024
+    title: "Seoul Declaration for safe, innovative and inclusive AI by participants attending the Leaders' Session: AI Seoul Summit, 21 May 2024"
+    publisher: Department for Science, Innovation and Technology (UK)
+    url: https://gov.uk/government/publications/seoul-declaration-for-safe-innovative-and-inclusive-ai-ai-seoul-summit-2024/seoul-declaration-for-safe-innovative-and-inclusive-ai-by-participants-attending-the-leaders-session-ai-seoul-summit-21-may-2024
+    published: 2024-05-21
+    accessed: 2026-11-18
+    origin: outside
+    type: government
+    language: en
+  - id: ec-ai-act-page
+    title: AI Act
+    publisher: European Commission
+    url: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+  - id: cooley-korea-2026
+    title: "South Korea's AI Basic Act: Overview and Key Takeaways"
+    publisher: Cooley
+    url: https://www.cooley.com/news/insight/2026/2026-01-27-south-koreas-ai-basic-act-overview-and-key-takeaways
+    published: 2026-01-27
+    accessed: 2026-11-18
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing.
+  - id: fpf-sb53-2025
+    title: "California's SB 53: The First Frontier AI Law, Explained"
+    publisher: Future of Privacy Forum
+    url: https://fpf.org/blog/californias-sb-53-the-first-frontier-ai-law-explained/
+    published: 2025-10-03
+    accessed: 2026-11-18
+    origin: outside
+    type: civil_society
+    language: en
+  - id: skadden-colorado-2026
+    title: Colorado Repeals and Replaces Its AI Act
+    publisher: Skadden, Arps, Slate, Meagher & Flom
+    url: https://www.skadden.com/insights/publications/2026/06/colorado-repeals-and-replaces-its-ai-act
+    published: 2026-06-09
+    accessed: 2026-11-18
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing.
