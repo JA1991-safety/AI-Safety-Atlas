@@ -17,7 +17,7 @@ const sections = p
       ['Public attitudes', 'attitudes', p.attitudes.meta],
       ['Frameworks and regulation', 'regulation', p.regulation.meta],
       ['Culture and industry', 'culture', p.culture.meta],
-      ['News', 'news', p.news.meta],
+      ...p.derived.newsSections.map((s: any) => [s.title, s.id, p.news.meta]),
     ]
   : [];
 const depthDots = { rich: 3, moderate: 2, limited: 1 } as Record<string, number>;

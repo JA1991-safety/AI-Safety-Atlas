@@ -425,6 +425,7 @@ news:
       headline: Government publishes AI sector study and business adoption survey
       date: 2026-10-29
       kind: development
+      stream: ai
       summary: >-
         The sector study estimates that AI companies added £18.6bn in gross value added and raised
         £6.3bn in investment. On the adoption survey's own measure, 32% of businesses were using AI,
@@ -555,6 +556,7 @@ news:
       headline: UK and US sign Technology Prosperity Deal
       date: 2025-09-18
       kind: foundational
+      stream: ai
       summary: >-
         The two governments signed a technology partnership during the US President's state visit,
         with a linked agreement on communications supply chain security and joint research on
@@ -612,6 +614,37 @@ news:
         in 2026.
       sources: [gov-bletchley-2023]
       topics: [international cooperation, summits, frontier AI]
+    - id: deepmind-partnership
+      headline: Google DeepMind and the government sign a research partnership
+      date: 2025-12-11
+      kind: foundational
+      stream: ai
+      summary: >-
+        Under a voluntary memorandum with no financial commitments, Google DeepMind said it would open
+        its first automated research lab in the UK, give UK scientists priority access to some of its
+        models, expand its work with the AI Security Institute, and seek to develop a version of
+        Gemini for teachers. The Prime Minister said it would help "harness developments in AI for
+        public good".
+      why_it_matters: >-
+        It links a leading UK-based AI lab more closely to government science, education and safety
+        research, on a voluntary basis.
+      sources: [gov-deepmind-2025]
+      topics: [companies, research, public-private partnership]
+    - id: action-plan-one-year
+      headline: Government reports on the first year of the AI Opportunities Action Plan
+      date: 2026-01-29
+      kind: foundational
+      stream: ai
+      summary: >-
+        The government said it had met 38 of the plan's 50 actions, and that five AI Growth Zones
+        across Great Britain were generating £28.2 billion in investment and more than 15,000 jobs.
+        The Technology Secretary said success depends on people having "the confidence this
+        technology is safe".
+      why_it_matters: >-
+        It shows the scale of public backing for AI infrastructure and adoption that the UK's
+        approach to AI safety sits alongside.
+      sources: [gov-one-year-on-2026]
+      topics: [strategy, compute, investment]
 
 principles:
   meta:
@@ -1938,4 +1971,22 @@ sources:
     accessed: 2026-11-18
     origin: inside
     type: academic
+    language: en
+  - id: gov-deepmind-2025
+    title: AI to accelerate national renewal and growth as Google DeepMind backs UK tech and science sectors
+    publisher: Department for Science, Innovation and Technology
+    url: https://www.gov.uk/government/news/ai-to-accelerate-national-renewal-and-growth-as-google-deepmind-backs-uk-tech-and-science-sectors
+    published: 2025-12-11
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: gov-one-year-on-2026
+    title: "AI Opportunities Action Plan: One Year On"
+    publisher: Department for Science, Innovation and Technology
+    url: https://www.gov.uk/government/publications/ai-opportunities-action-plan-one-year-on/ai-opportunities-action-plan-one-year-on
+    published: 2026-01-29
+    accessed: 2026-11-19
+    origin: inside
+    type: government
     language: en

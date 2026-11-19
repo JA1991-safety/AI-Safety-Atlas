@@ -316,6 +316,11 @@ body::before {
   color: var(--ink-2);
   white-space: nowrap;
 }
+.tag-ai {
+  color: var(--select-ink);
+  box-shadow: inset 0 0 0 1px var(--select-ink);
+  background: transparent;
+}
 .tag-inside {
   color: var(--tag-inside);
   box-shadow: inset 0 0 0 1px var(--tag-inside);
@@ -377,7 +382,7 @@ body::before {
 .section {
   display: grid;
   gap: 18px;
-  scroll-margin-top: 120px;
+  scroll-margin-top: var(--anchor-offset, 120px);
 }
 .section-head {
   display: grid;

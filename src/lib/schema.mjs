@@ -151,6 +151,9 @@ export const NewsItem = z
     headline: z.string().min(10),
     date: PartialDate,
     kind: z.enum(['development', 'foundational']),
+    // 'safety' is AI safety news; 'ai' is major AI news (model releases, companies, markets) given for context.
+    // When a profile has enough of both, the page shows them as two sections; otherwise as one "News" section.
+    stream: z.enum(['safety', 'ai']).default('safety'),
     summary: z.string().min(10),
     why_it_matters: z.string().min(10),
     sources: z.array(z.string()).min(1),

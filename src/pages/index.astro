@@ -118,7 +118,7 @@ for (const a of areas) {
   p.regulation.items.forEach((r: any, i: number) => add('Frameworks and regulation', `${r.title}. ${r.text}`, `reg-${i + 1}`));
   p.culture.summary.forEach((s: any) => add('Culture and industry', s.text, 'culture'));
   p.culture.own_words.forEach((q: any) => add('In their own words', `“${q.quote}” ${q.speaker}, ${q.role}`, 'own-words'));
-  p.news.items.forEach((n: any) => add('News', `${n.headline}. ${n.summary}`, `news-${n.id}`));
+  p.news.items.forEach((n: any) => add(p.derived.newsSectionOf[n.id].title, `${n.headline}. ${n.summary}`, `news-${n.id}`));
 }
 
 const payload = JSON.stringify({ areas: clientAreas, lenses, search }).replace(/</g, '\\u003c');

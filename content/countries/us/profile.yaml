@@ -631,6 +631,57 @@ news:
         2023.
       sources: [aljazeera-paris-2025]
       topics: [international cooperation, summits]
+    - id: gpt-6-astra
+      headline: OpenAI releases GPT-6 Astra and highlights its ability to use a computer
+      date: 2026-09-03
+      kind: development
+      stream: ai
+      summary: >-
+        OpenAI released the model first to a limited set of enterprise customers, with paid users to
+        follow, in a version that refuses advanced cybersecurity tasks. Fortune reported that it is
+        the first OpenAI model to meet the company's "critical" cybersecurity capability threshold,
+        that its release was delayed to add safeguards after the Hugging Face incident in July, and
+        that OpenAI submitted it to the US government for review before release. OpenAI's president
+        said computer use could be "the start of the 'AGI era'".
+      why_it_matters: >-
+        Its developer says it reached the highest cyber capability threshold in its own safety
+        framework, and it was released with company restrictions and voluntary government review
+        rather than legal requirements.
+      sources: [fortune-astra-2026]
+      topics: [frontier AI, model release, cybersecurity, testing]
+    - id: nvidia-ceo-resigns
+      headline: Jensen Huang steps down as Nvidia's chief executive
+      date: 2026-11-12
+      kind: development
+      stream: ai
+      summary: >-
+        Nvidia gave no reason for his departure. It followed reports about his private life and
+        about his contacts with a businesswoman whom US officials believe worked for Chinese
+        intelligence; nothing has been proven or charged. The board opened an independent
+        investigation and said it had no reason to believe national security was compromised.
+        Chief financial officer Colette Kress became interim chief executive.
+      why_it_matters: >-
+        Sales of Nvidia's AI chips to China are subject to US export controls, and the case has led
+        members of Congress to look at its national security implications. Huang agreed to testify
+        before Congress.
+      sources: [aljazeera-nvidia-2026, techcrunch-nvidia-2026]
+      topics: [companies, chips, export controls, China]
+    - id: anthropic-ipo
+      headline: Anthropic prices its shares for a stock market listing
+      date: 2026-11-18
+      kind: development
+      stream: ai
+      summary: >-
+        TechCrunch reported that Anthropic priced its shares at $83, above the range of $70 to $78
+        set a week earlier, valuing the company at about $1.5 trillion on a fully diluted basis, with
+        trading on Nasdaq due to start the next day. The Next Web reported that the prospectus warns
+        that AI could advance faster than the company's own safety measures.
+      why_it_matters: >-
+        A listing makes a frontier AI developer answerable to public shareholders and to securities
+        disclosure rules, which can bring new information about its risks and new pressure on its
+        priorities.
+      sources: [techcrunch-anthropic-ipo-2026, renaissance-anthropic-terms-2026, tnw-anthropic-terms-2026]
+      topics: [companies, markets, frontier AI]
 
 principles:
   meta:
@@ -1854,4 +1905,59 @@ sources:
     accessed: 2026-11-18
     origin: inside
     type: academic
+    language: en
+  - id: fortune-astra-2026
+    title: OpenAI launches GPT-6 Astra, its most powerful model yet, and touts its ability to use your computer
+    publisher: Fortune
+    url: https://fortune.com/2026/09/03/openai-debuts-gpt-6-astra-computer-use-greg-brockman-says-start-of-agi/
+    published: 2026-09-03
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: aljazeera-nvidia-2026
+    title: Why did Nvidia CEO Jensen Huang resign, and who is Colette Kress?
+    publisher: Al Jazeera
+    url: https://www.aljazeera.com/news/2026/11/12/why-did-nvidia-ceo-jensen-huang-resign-and-who-is-colette-kress
+    published: 2026-11-12
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    via: Reuters
+  - id: techcrunch-nvidia-2026
+    title: "The unfolding Jensen Huang scandal: a timeline"
+    publisher: TechCrunch
+    url: https://techcrunch.com/2026/11/13/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/
+    published: 2026-11-13
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: techcrunch-anthropic-ipo-2026
+    title: Anthropic reportedly prices IPO at $83 a share, above projected range
+    publisher: TechCrunch
+    url: https://techcrunch.com/2026/11/18/anthropic-reportedly-prices-ipo-at-83-a-share-above-projected-range/
+    published: 2026-11-18
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: renaissance-anthropic-terms-2026
+    title: Anthropic sets terms for $61 billion IPO, targeting a $1.2 trillion market cap
+    publisher: Renaissance Capital
+    url: https://www.renaissancecapital.com/IPO-Center/News/122657/anthropic-sets-terms-for-61-billion-ipo-targeting-a-1-2-trillion-market-cap
+    published: 2026-11-10
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: tnw-anthropic-terms-2026
+    title: Anthropic's IPO seeks up to $64.4B at a $1.4 trillion valuation
+    publisher: The Next Web
+    url: https://thenextweb.com/news/anthropic-ipo-terms-1-4-trillion-valuation
+    published: 2026-11-11
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
     language: en

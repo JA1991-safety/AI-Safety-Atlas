@@ -179,7 +179,7 @@ const improvementsFor = (key: string) => (p.areas_for_improvement?.items ?? []).
     padding: 18px 20px 20px;
     border: 1px solid var(--rule);
     border-radius: var(--radius);
-    scroll-margin-top: 120px;
+    scroll-margin-top: var(--anchor-offset, 120px);
   }
   .principle-head {
     display: flex;
