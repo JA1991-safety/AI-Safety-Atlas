@@ -1,0 +1,1153 @@
+# China: area profile
+# Status: DRAFT, researched by Claude on 19 November 2026, awaiting editor review.
+# Every statement cites one or more sources from the list at the bottom of this file.
+# Direct quotes were copied from the source pages on the access date.
+# Sources from the Government of the People's Republic of China, its agencies, state media, and
+# organisations and media based in mainland China count as "inside".
+# The principles section uses the six basic ethical requirements of the Ethical Norms for New
+# Generation Artificial Intelligence (2021) as China's own set, following the editor's decision of
+# 18 Nov 2026 to use each country's own principles.
+
+code: CN
+name: China
+status: draft
+last_reviewed: 2026-11-19
+editor_approved: false
+reviewers: []
+
+summary:
+  overview:
+    - text: >-
+        China has no single AI law. It regulates AI through targeted binding rules, such as those on
+        generative AI and, since July 2026, on AI companion services, and through an AI article added to
+        the Cybersecurity Law in force since January 2026.
+      sources: [china-briefing-2026, cac-anthropomorphic-2026, cac-cybersecurity-2026]
+    - text: >-
+        In November 2026 the national planning agency said China would speed up work on a comprehensive
+        AI law and on safety standards covering AI from development to deployment. No draft law had
+        been published when we checked.
+      sources: [caixin-law-2026, taipeitimes-ndrc-2026, china-briefing-2026]
+    - text: >-
+        A national AI Safety Governance Framework, updated in September 2026, adds risks from AI agents.
+        It is guidance, not law. A 2026 count found published safety test results for 3.6% of Chinese AI
+        model releases.
+      sources: [cac-framework-2026, caib-framework-2026, pebblous-census-2026]
+    - text: >-
+        International surveys find high public confidence in AI in China. In a 2026 Microsoft and Gallup
+        survey, 93% said AI will mostly help people in their country.
+      sources: [officechai-gallup-2026, politicstoday-edelman-2025]
+  regulation_line:
+    text: >-
+      Targeted binding rules for AI services, an AI article in the Cybersecurity Law, a nonbinding
+      national safety framework, and a comprehensive AI law under preparation.
+    sources: [china-briefing-2026, cac-cybersecurity-2026, cac-framework-2026, caixin-law-2026]
+
+facets:
+  regulatory_approach: sector_and_existing_law
+  safety_institute:
+    status: equivalent
+    name: China AI Safety and Development Association (CnAISDA)
+    sources: [digichina-cnaisda-2025, carnegie-cnaisda-2025]
+  frontier_developers:
+    status: "yes"
+    note: >-
+      DeepSeek, Moonshot and Alibaba are among the developers that new national safety standards would
+      cover. DeepSeek released a 552-billion-parameter model in September 2026.
+    sources: [taipeitimes-ndrc-2026, caixin-deepseek-2026]
+  national_polling: international_only
+  commitments:
+    - key: bletchley_declaration
+      status: signed
+      date: 2023-11-01
+      sources: [gov-bletchley-2023]
+    - key: seoul_declaration
+      status: not_signed
+      sources: [gov-seoul-2024]
+    - key: paris_statement
+      status: signed
+      date: 2025-02-11
+      sources: [elysee-paris-2025]
+    - key: new_delhi_declaration
+      status: endorsed
+      date: 2026-02-21
+      sources: [theprint-new-delhi-2026]
+
+attitudes:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: limited
+    review: draft
+    gaps: >-
+      We found no survey of public attitudes to AI run in China by a Chinese body. All figures come
+      from international surveys, reported through news outlets rather than the survey publishers.
+      Fieldwork dates and sample sizes are often not given. A researcher at the Oxford China Policy Lab
+      argues that most questions cannot tell enthusiasm from a sense that AI is inevitable. Survey
+      wording differs, so figures from different polls should not be compared directly.
+  headline_figures:
+    - value: "93%"
+      label: >-
+        say AI will mostly help people in their country, and the same share that it will make their own
+        daily lives mostly better
+      fieldwork: April to July 2026
+      sample: About 1,000 people in China, in a Microsoft and Gallup survey of 37 countries (reported by OfficeChai)
+      source: officechai-gallup-2026
+    - value: "87%"
+      label: >-
+        say they have confidence in AI
+      fieldwork: "2025"
+      sample: Respondents in China, in an Edelman Trust Barometer flash poll (reported by Politics Today)
+      source: politicstoday-edelman-2025
+  statements:
+    - text: >-
+        In the same Edelman poll, 54% of respondents in China welcomed greater use of AI in daily life,
+        and more than seven in ten expected AI to help with societal challenges.
+      sources: [politicstoday-edelman-2025]
+    - text: >-
+        In KPMG's 2025 global study of trust in AI, as cited by ChinaTalk, 73% of respondents in China
+        said they were willing to trust AI at work, and 88% said they intentionally use it.
+      sources: [chinatalk-optimism-2026]
+    - text: >-
+        In a University College London survey reported by the South China Morning Post, fewer than 10%
+        of respondents in China were worried that AI would make it harder to find a job, and 96% said
+        they used AI at work every week.
+      sources: [scmp-ucl-2026]
+
+regulation:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      Most rules are described from official announcements, an expert commentary on the Cybersecurity
+      Law published by the Cyberspace Administration of China, and law firm and consultancy briefings;
+      we did not read the full legal texts. The 2025 measures on labelling AI-generated content and the
+      generative AI measures are not covered separately in this draft. Several Caixin articles were
+      readable only up to their paywall.
+  items:
+    - kind: law
+      title: Cybersecurity Law (amended)
+      date: 2026-01-01
+      status: Amendment adopted 28 October 2025; in force since 1 January 2026
+      text: >-
+        A new Article 20 supports AI research and infrastructure, and calls for improving AI ethical
+        norms and strengthening risk monitoring, assessment and safety supervision. Fines for
+        particularly serious violations of the law rise to 10 million yuan.
+      sources: [cac-cybersecurity-2026, chinadaily-cybersecurity-2025, china-briefing-2026]
+    - kind: law
+      title: Interim Measures for the Administration of Anthropomorphic AI Interaction Services
+      date: 2026-07-15
+      status: Issued 10 April 2026; in force since 15 July 2026
+      text: >-
+        Cover AI services that simulate a personality and offer ongoing emotional interaction. Providers
+        must say that users are talking to AI, remind users after two hours of continuous use, must not
+        induce emotional dependence, and must intervene and contact a guardian if a user shows intent to
+        self-harm. Virtual partner services are barred for minors. Services need a safety assessment at
+        launch and when they reach set numbers of users.
+      sources: [cac-anthropomorphic-2026, lw-anthropomorphic-2026, china-briefing-2026]
+    - kind: law
+      title: Rules on algorithmic recommendation, deep synthesis and generative AI services
+      date: "2022"
+      status: In force
+      text: >-
+        Since 2022 China has issued targeted rules for recommendation algorithms, deep synthesis
+        (including deepfakes) and generative AI services.
+      sources: [china-briefing-2026]
+    - kind: guidance
+      title: Implementation Opinions on AI agents
+      date: 2026-05
+      status: Issued by the Cyberspace Administration of China, the National Development and Reform Commission and the Ministry of Industry and Information Technology
+      text: >-
+        Mainly development policy, with a safety chapter. They distinguish decisions reserved for users,
+        decisions users authorise, and autonomous decisions, and call for risk-based oversight of agents
+        in sensitive fields, including filing, testing and possible recall.
+      sources: [china-briefing-2026, concordia-2026]
+    - kind: guidance
+      title: AI Safety Governance Framework 3.0
+      date: 2026-09-14
+      status: Issued by the national cybersecurity standards committee (TC260) under the guidance of the Cyberspace Administration of China; not binding
+      text: >-
+        Updates the national framework of 2024 and 2025. It adds risk categories for AI agents and
+        embodied AI, describes frontier risks such as deception and shutdown resistance, and proposes
+        regulatory sandboxes. It informs the development of national standards.
+      sources: [cac-framework-2026, caib-framework-2026]
+    - kind: guidance
+      title: Ethical Norms for New Generation Artificial Intelligence
+      date: 2021-09-25
+      status: Issued by the National Governance Committee for New Generation AI, under the Ministry of Science and Technology
+      text: >-
+        Six basic ethical requirements and 18 specific requirements for the management, research,
+        supply and use of AI.
+      sources: [agora-ethics-norms, cjo-ethics-2021]
+    - kind: strategy
+      title: 15th Five-Year Plan (2026 to 2030)
+      date: 2026-03
+      status: Adopted March 2026
+      text: >-
+        Gives AI more prominence than the previous plan and calls for "full AI lifecycle risk
+        management", including "safety monitoring, risk early warning, and emergency response". The
+        specific risks it names are data abuse, deepfakes and privacy breaches.
+      sources: [concordia-fyp-2026]
+    - kind: bill
+      title: Comprehensive AI law
+      date: 2026-11-03
+      status: In preparation; no draft published when checked
+      text: >-
+        The Minister of Justice said in March 2026 that China would speed up research on AI legislation.
+        In November the National Development and Reform Commission said it would accelerate work on a
+        comprehensive AI law and on safety standards across the life of AI models.
+      sources: [chinadaily-he-rong-2026, caixin-law-2026, taipeitimes-ndrc-2026, china-briefing-2026]
+    - kind: institution
+      title: China AI Safety and Development Association (CnAISDA)
+      date: 2025-02-11
+      status: Launched February 2025; a network of research institutions
+      text: >-
+        Represents China in dialogue with AI safety institutes and research bodies abroad. Its members
+        include Tsinghua University, Peking University, the Shanghai AI Laboratory, the Beijing Academy
+        of Artificial Intelligence and the China Academy of Information and Communications Technology.
+      sources: [digichina-cnaisda-2025, carnegie-cnaisda-2025]
+    - kind: international
+      title: International agreements and action plans
+      date: 2026-07-17
+      status: See filters
+      text: >-
+        China signed the 2023 Bletchley Declaration and the Paris AI Action Summit statement in February
+        2025, and endorsed the New Delhi Declaration in February 2026. It was not among the signatories
+        of the Seoul Declaration in May 2024. In July 2026 it issued action plans on international AI
+        cooperation and on international AI ethics governance, and launched a 29-country AI cooperation
+        body at the World AI Conference.
+      sources: [gov-bletchley-2023, elysee-paris-2025, theprint-new-delhi-2026, gov-seoul-2024, ctils-ethics-plan-2026, shanghai-cooperation-plan-2026, sixthtone-waic-2026]
+
+culture:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      No local reviewer yet. Most sources are English-language; three official pages were read in
+      Chinese. Industry voices are under-represented: we found no direct quote from a Chinese AI
+      developer on safety.
+  summary:
+    - text: >-
+        Government policy pairs development and safety. The Minister of Justice has spoken of the need
+        to "ensure both development and security", and the 15th Five-Year Plan calls for risk
+        management across the life of AI systems.
+      sources: [chinadaily-he-rong-2026, concordia-fyp-2026]
+    - text: >-
+        Concordia AI describes a shift in regulation from controlling what AI says to controlling what
+        AI agents do, with new guidance on agents in 2026 and agent risks added to the national safety
+        framework.
+      sources: [concordia-2026, cac-framework-2026]
+    - text: >-
+        China presents itself as a supporter of multilateral AI governance. It hosted the World AI
+        Conference in Shanghai in July 2026, where Xi Jinping called for wider access to open-source AI.
+      sources: [sixthtone-waic-2026, shanghai-cooperation-plan-2026]
+    - text: >-
+        Rules on AI companions reflect concern about emotional dependence, especially among children and
+        older people.
+      sources: [cac-anthropomorphic-2026, ctils-companion-2026]
+    - text: >-
+        Chinese research on AI safety is growing; the number of papers a month rose from about 36 in
+        June 2025 to 57 in April 2026, with research on AI agents a growing share.
+      sources: [concordia-2026]
+  own_words:
+    - quote: "China will accelerate research on legislation in artificial intelligence (AI) and the low-altitude economy"
+      speaker: He Rong
+      role: Minister of Justice
+      date: 2026-03
+      source: chinadaily-he-rong-2026
+      voice: government
+    - quote: "AI safety is not a problem one company, industry or country can tackle alone"
+      speaker: Wang Ruomeng
+      role: Deputy director, Department of Innovation and High-Tech Development, National Development and Reform Commission
+      date: 2026-11-03
+      source: taipeitimes-ndrc-2026
+      voice: government
+    - quote: "the monitoring, assessment, and regulation of AI security risks will be strengthened."
+      speaker: Wang Xiang
+      role: Spokesperson, Legislative Affairs Commission of the National People's Congress Standing Committee, on the Cybersecurity Law amendment
+      date: 2025-10-24
+      source: chinadaily-cybersecurity-2025
+      voice: parliament
+    - quote: "为应对人工智能发展新趋势、回应安全治理新挑战"
+      speaker: National Cybersecurity Standardisation Technical Committee (TC260)
+      role: On issuing the AI Safety Governance Framework 3.0
+      date: 2026-09-14
+      source: cac-framework-2026
+      original_language: zh
+      translation: >-
+        To respond to new trends in AI development and new challenges in safety governance.
+      voice: public_body
+    - quote: "The threat landscape is evolving rapidly"
+      speaker: Brian Tse
+      role: Founder and chief executive, Concordia AI, at the World AI Conference
+      date: 2026-07
+      source: sixthtone-waic-2026
+      voice: safety_research
+    - quote: "The arrival of autonomous agents reoriented Chinese governance from controlling what AI says to controlling what it does."
+      speaker: Concordia AI
+      role: State of AI Safety in China (2026) report
+      date: 2026-07-14
+      source: concordia-2026
+      voice: safety_research
+    - quote: "We have suddenly found a way to create a new species that is many, many, times more powerful than we are."
+      speaker: Andrew Yao (Yao Qizhi)
+      role: Tsinghua University, speaking at the World AI Conference in 2024
+      date: 2024-07
+      source: carnegie-cnaisda-2025
+      voice: safety_research
+  outside_analysis:
+    - text: >-
+        Writing for ChinaTalk, Zilan Qian of the Oxford China Policy Lab argued that "most survey
+        questions were too binary in design" to show whether optimism about AI in China reflects
+        enthusiasm or a sense that adoption is unavoidable.
+      sources: [chinatalk-optimism-2026]
+    - text: >-
+        Researchers at the Carnegie Endowment for International Peace wrote in 2025 that CnAISDA
+        "does not currently appear to be structured" to carry out domestic functions such as
+        independently testing frontier AI models.
+      sources: [carnegie-cnaisda-2025]
+
+news:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+  items:
+    - id: ai-law-plan
+      headline: Planning agency says China will speed up work on a comprehensive AI law and safety standards
+      date: 2026-11-03
+      kind: development
+      summary: >-
+        Wang Ruomeng of the National Development and Reform Commission said China would accelerate
+        legislation on data, computing power and algorithms, and set safety standards covering AI from
+        development to deployment, with a transition period and guidance for companies. According to
+        Bloomberg, developers and operators would be expected to disclose safety risks, incidents and
+        vulnerabilities.
+      why_it_matters: >-
+        China has so far regulated AI through targeted rules; a comprehensive law would set a common
+        legal basis.
+      sources: [taipeitimes-ndrc-2026, caixin-law-2026, pymnts-ndrc-2026]
+      topics: [legislation, standards]
+    - id: companion-commentary
+      headline: Cyberspace research academy urges stronger protections in AI companion services
+      date: 2026-11-06
+      kind: development
+      summary: >-
+        Wang Jiang, president of the Chinese Academy of Cyberspace Studies, urged platforms to set
+        stronger protection thresholds for content, privacy and time limits, according to a report
+        published by Asia News Network. The rules on AI companions have applied since July.
+      why_it_matters: >-
+        It indicates how the rules on emotional AI services may be applied in practice.
+      sources: [ann-companion-2026, cac-anthropomorphic-2026]
+      topics: [AI companions, minors]
+    - id: safety-census
+      headline: Count finds published safety results for 3.6% of Chinese AI model releases
+      date: 2026-10-08
+      kind: development
+      summary: >-
+        A SemiAnalysis count of 857 model releases by nine Chinese developers, from 2021 to
+        September 2026, found 31 with a published safety result at any point and 9 with one at launch.
+        It counted only the developers' own model cards, release notes and technical reports.
+      why_it_matters: >-
+        Published test results let others check how models perform on safety; the national framework
+        does not require them.
+      sources: [pebblous-census-2026, caib-framework-2026]
+      topics: [transparency, evaluation, frontier AI]
+    - id: framework-3
+      headline: Updated national AI Safety Governance Framework adds risks from AI agents
+      date: 2026-09-14
+      kind: development
+      summary: >-
+        The third version of the framework, released at the opening of national cybersecurity week,
+        adds risk categories for AI agents and embodied AI and describes risks such as deception,
+        sandbagging and shutdown resistance. Emmie Hine of the China AI Bulletin notes that it does not
+        set out what must follow when tests find a risk.
+      why_it_matters: >-
+        The framework informs China's national AI standards, though it is not binding itself.
+      sources: [cac-framework-2026, caib-framework-2026]
+      topics: [safety framework, AI agents]
+    - id: companion-rules
+      headline: Rules on AI companion services take effect
+      date: 2026-07-15
+      kind: foundational
+      summary: >-
+        Issued in April by five agencies led by the Cyberspace Administration of China, the rules bar
+        virtual partner services for minors, require reminders after long use, and require providers to
+        intervene when users show intent to self-harm.
+      why_it_matters: >-
+        They set binding duties on providers of AI companions, including protections for minors.
+      sources: [cac-anthropomorphic-2026, lw-anthropomorphic-2026, ctils-companion-2026]
+      topics: [AI companions, minors]
+    - id: ethics-action-plan
+      headline: China issues an action plan on international AI ethics governance
+      date: 2026-07-17
+      kind: foundational
+      summary: >-
+        Released at the World AI Conference under the guidance of the Ministry of Industry and
+        Information Technology, the plan calls for "categorized and tiered risk prevention and control"
+        and capacity building for developing countries.
+      why_it_matters: >-
+        It sets out China's approach to AI ethics for international cooperation.
+      sources: [ctils-ethics-plan-2026]
+      topics: [international, ethics]
+    - id: five-year-plan
+      headline: 15th Five-Year Plan calls for risk management across the life of AI systems
+      date: 2026-03
+      kind: foundational
+      summary: >-
+        The plan for 2026 to 2030 makes "AI Plus" its main AI policy and calls for safety monitoring,
+        risk early warning and emergency response.
+      why_it_matters: >-
+        Five-year plans set national priorities for ministries and local governments.
+      sources: [concordia-fyp-2026, concordia-2026]
+      topics: [strategy]
+    - id: cybersecurity-law
+      headline: Amended Cybersecurity Law with an AI article takes effect
+      date: 2026-01-01
+      kind: foundational
+      summary: >-
+        The amendment, adopted in October 2025, adds an article on AI that calls for improved ethical
+        norms and stronger risk monitoring and safety supervision.
+      why_it_matters: >-
+        It places AI risk monitoring and safety supervision in national law.
+      sources: [cac-cybersecurity-2026, chinadaily-cybersecurity-2025]
+      topics: [legislation, cybersecurity]
+    - id: meituan
+      headline: Meituan releases a large AI model trained on Chinese-made chips
+      date: 2026-11-02
+      kind: development
+      stream: ai
+      summary: >-
+        The food delivery company's LongCat-2.5 is a multimodal model with 1.6 trillion parameters,
+        "designed to handle long-range agent tasks". Caixin reports it was trained entirely on homegrown
+        chips.
+      why_it_matters: >-
+        Models built for agent tasks fall under the new safety framework's category of agent risks.
+      sources: [caixin-meituan-2026, cac-framework-2026]
+      topics: [models, agents, chips]
+    - id: deepseek-flash
+      headline: DeepSeek releases a smaller, faster model
+      date: 2026-09-10
+      kind: development
+      stream: ai
+      summary: >-
+        DeepSeek-V4.1-Flash is a mixture-of-experts model with native visual understanding. DeepSeek says
+        a new architecture gives higher performance and faster, cheaper inference.
+      why_it_matters: >-
+        Concordia AI found that DeepSeek's V4 models were released without published safety test
+        results.
+      sources: [caixin-deepseek-2026, concordia-2026]
+      topics: [models, transparency]
+    - id: waic-2026
+      headline: Xi Jinping attends the World AI Conference in Shanghai for the first time
+      date: 2026-07-21
+      kind: foundational
+      stream: ai
+      summary: >-
+        More than 1,100 companies showed products and in-person visits passed 400,000. Xi Jinping attended
+        for the first time, and China launched an AI cooperation body with 29 countries.
+      why_it_matters: >-
+        The conference is China's main stage for AI industry and governance announcements.
+      sources: [sixthtone-waic-2026]
+      topics: [industry, international]
+    - id: cooperation-plan
+      headline: China issues an action plan on international AI cooperation
+      date: 2026-07-17
+      kind: foundational
+      stream: ai
+      summary: >-
+        The plan, issued by the National Development and Reform Commission and other departments, covers
+        data, computing power, open source, applications and talent, and calls for "stronger cooperation
+        on AI security and governance".
+      why_it_matters: >-
+        It sets out how China intends to support AI development in other countries, including through
+        open-source models.
+      sources: [cgtn-cooperation-plan-2026, shanghai-cooperation-plan-2026]
+      topics: [international, open source]
+
+principles:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      The requirements are quoted from an English translation published by the Emerging Technology
+      Observatory; translations differ between sources. Later frameworks, such as the AI Safety
+      Governance Framework, have their own principles, which are not used as the frame here.
+  framework:
+    name: the six basic ethical requirements of the Ethical Norms for New Generation AI
+    nav: Six ethical requirements
+    basis: own
+    about:
+      text: >-
+        The Ethical Norms for New Generation Artificial Intelligence were issued in September 2021 by the
+        National Governance Committee for New Generation AI, set up under the Ministry of Science and
+        Technology. They apply to people and organisations that manage, research, supply or use AI, and
+        refine China's 2019 AI governance principles.
+      sources: [agora-ethics-norms, cjo-ethics-2021]
+  intro:
+    - text: >-
+        China has no single AI law, but targeted rules on AI services and the amended Cybersecurity Law
+        give some requirements legal force. The ethical norms themselves carry no penalties.
+      sources: [china-briefing-2026, cac-cybersecurity-2026, agora-ethics-norms]
+    - text: >-
+        Below, each requirement is shown with what it asks, how far the law backs it, the bodies and
+        tools that carry it today, and evidence on how it works in practice.
+      sources: [agora-ethics-norms]
+  items:
+    - key: wellbeing
+      name: Enhancing the well-being of humankind
+      short: Well-being
+      asks:
+        text: >-
+          "Adhere to the people-oriented vision, abide by the common values of humankind".
+        sources: [agora-ethics-norms]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          The rules on AI companion services, in force since July 2026, set binding duties to protect
+          users' well-being.
+        sources: [cac-anthropomorphic-2026, lw-anthropomorphic-2026]
+      how_it_works:
+        - text: >-
+            "Providers must not design services to replace real social interactions", must not induce
+            emotional dependence, and must intervene if a user shows intent to self-harm.
+          sources: [lw-anthropomorphic-2026, china-briefing-2026]
+      regulators: [Cyberspace Administration of China]
+
+    - key: fairness
+      name: Promoting fairness and justice
+      short: Fairness
+      asks:
+        text: >-
+          "Adhere to shared benefits and inclusivity".
+        sources: [agora-ethics-norms]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          We found no AI-specific duty on fairness in our sources.
+        sources: [agora-ethics-norms]
+      how_it_works:
+        - text: >-
+            The 2026 action plan on international AI ethics governance calls for research on reducing
+            bias, and for protecting women, children, older people and people with disabilities.
+          sources: [ctils-ethics-plan-2026]
+      regulators: []
+      evidence:
+        - text: >-
+            Bias is among the risks most often tested by Chinese AI safety benchmarks, according to
+            Concordia AI.
+          sources: [concordia-evals]
+
+    - key: privacy
+      name: Protecting privacy and security
+      short: Privacy
+      asks:
+        text: >-
+          "Fully respect the rights of personal information, to know, and to consent, etc."
+        sources: [agora-ethics-norms]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          The rules on AI companion services set binding duties on users' data. The 15th Five-Year Plan
+          names privacy breaches and data abuse among AI risks.
+        sources: [china-briefing-2026, concordia-fyp-2026]
+      how_it_works:
+        - text: >-
+            Providers of AI companion services must encrypt interaction data, may not share it with third
+            parties without consent, and may not train on sensitive data without separate consent.
+          sources: [china-briefing-2026]
+      regulators: [Cyberspace Administration of China]
+
+    - key: control
+      name: Ensuring controllability and trustworthiness
+      short: Control
+      asks:
+        text: >-
+          "Ensure that humans have the full power for decision-making".
+        sources: [agora-ethics-norms]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          AI companion services must file their algorithms and pass safety assessments. The national
+          safety framework, which covers loss of control, is not binding.
+        sources: [china-briefing-2026, caib-framework-2026]
+      how_it_works:
+        - text: >-
+            The 2026 guidance on AI agents separates decisions reserved for users, decisions users
+            authorise, and autonomous decisions.
+          sources: [china-briefing-2026]
+        - text: >-
+            The AI Industry Alliance of China's safety benchmark added tests for deception and loss of
+            control, and its members made voluntary commitments on AI agents in 2026.
+          sources: [concordia-2026]
+      regulators: [Cyberspace Administration of China, Ministry of Industry and Information Technology]
+      evidence:
+        - text: >-
+            Over the year to June 2026, five of ten leading Chinese developers published safety test
+            results alongside a model release, and none did so consistently, according to Concordia AI.
+          sources: [concordia-2026]
+
+    - key: accountability
+      name: Strengthening accountability
+      short: Accountability
+      asks:
+        text: >-
+          "Adhere that human beings are the ultimate liable subjects."
+        sources: [agora-ethics-norms]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          The Cybersecurity Law and the rules on AI services carry fines and can lead to services being
+          suspended.
+        sources: [china-briefing-2026]
+      how_it_works:
+        - text: >-
+            The amended Cybersecurity Law raises fines for particularly serious violations. Under the
+            companion rules, regulators can suspend services and impose fines.
+          sources: [china-briefing-2026]
+      regulators: [Cyberspace Administration of China]
+
+    - key: literacy
+      name: Improving ethical literacy
+      short: Ethical literacy
+      asks:
+        text: >-
+          "Actively learn and popularize knowledge related to AI ethics".
+        sources: [agora-ethics-norms]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          The amended Cybersecurity Law calls for improving AI ethical norms, but we found no legal duty
+          on ethics education.
+        sources: [cac-cybersecurity-2026]
+      how_it_works:
+        - text: >-
+            A pilot of AI ethics reviews runs in ten provinces from June to November 2026.
+          sources: [concordia-2026]
+        - text: >-
+            The 2026 action plan on international AI ethics governance includes ethics education.
+          sources: [ctils-ethics-plan-2026]
+      regulators: [Ministry of Science and Technology]
+
+areas_for_improvement:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      Each area is one that a named source has identified. Most of these sources are based outside
+      China; Chinese researchers' own assessments are under-represented.
+  intro:
+    - text: >-
+        China has binding rules for several kinds of AI service, a national safety framework and a
+        network of safety research institutions. Researchers and the government itself point to areas
+        where these could be strengthened.
+      sources: [concordia-2026, caib-framework-2026, carnegie-cnaisda-2025, taipeitimes-ndrc-2026]
+  items:
+    - id: test-transparency
+      title: Publishing safety test results
+      kind: technical
+      principles: [control, accountability]
+      in_place:
+        text: >-
+          The national framework describes frontier risks, and an industry alliance runs safety
+          benchmarks and voluntary commitments. Publishing test results is not required.
+        sources: [caib-framework-2026, concordia-2026]
+      identified:
+        text: >-
+          A SemiAnalysis count found published safety results for a small share of Chinese model
+          releases. Concordia AI says "concrete requirements remain limited", and Emmie Hine notes that
+          the framework does not say what must follow when tests find a risk.
+        sources: [pebblous-census-2026, concordia-2026, caib-framework-2026]
+      elsewhere:
+        - text: >-
+            A state law requiring large frontier developers to publish safety frameworks and report
+            critical safety incidents.
+          used_in: [US]
+          sources: [fpf-sb53-2025]
+        - text: >-
+            Mandatory testing of frontier AI models before release, and independent evaluation.
+          proposed_by: A Call for Control of Frontier AI Models (September 2026), signed by 20 countries and the European Commission
+          sources: [nl-frontier-call-2026]
+
+    - id: safety-body
+      title: Domestic role of the safety and development association
+      kind: capacity
+      principles: [control]
+      in_place:
+        text: >-
+          CnAISDA represents China internationally, and member institutions such as the Shanghai AI
+          Laboratory and the China Academy of Information and Communications Technology build safety
+          benchmarks.
+        sources: [digichina-cnaisda-2025, concordia-evals]
+      identified:
+        text: >-
+          Carnegie Endowment researchers wrote that it has yet to translate international engagement into
+          domestic policy, particularly on evaluating Chinese frontier models. DigiChina noted that it is
+          unclear who leads the group.
+        sources: [carnegie-cnaisda-2025, digichina-cnaisda-2025]
+      elsewhere:
+        - text: >-
+            Accreditation of independent firms that test AI systems.
+          used_in: [SG]
+          sources: [ag-imda-2026]
+
+    - id: ai-law
+      title: A common legal basis for AI
+      kind: legal_power
+      principles: [accountability, control]
+      in_place:
+        text: >-
+          China regulates AI through targeted rules for particular services and an AI article in the
+          Cybersecurity Law. The national safety framework is guidance.
+        sources: [china-briefing-2026, cac-cybersecurity-2026, cac-framework-2026]
+      identified:
+        text: >-
+          The National Development and Reform Commission has said it will accelerate work on a
+          comprehensive AI law, and that developers should disclose safety risks, incidents and
+          vulnerabilities. Hine notes it is unclear whether the framework's recommendations will become
+          assessment requirements.
+        sources: [taipeitimes-ndrc-2026, caixin-law-2026, caib-framework-2026]
+      elsewhere:
+        - text: >-
+            A general AI law setting duties for high-impact AI and requiring AI-generated content to be
+            labelled.
+          used_in: [KR]
+          sources: [cooley-korea-2026]
+
+contacts:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: limited
+    review: draft
+    gaps: >-
+      A starting list. Website addresses for some institutions were taken from secondary sources and
+      the CnAISDA site was described in 2025 as at an early stage. Chinese-language sites of these
+      bodies are not listed.
+  items:
+    - name: Beijing Institute of AI Safety and Governance (Beijing-AISI)
+      type: research_institute
+      url: https://beijing.ai-safety-and-governance.institute/
+      based: Beijing
+      about:
+        text: >-
+          Led by Zeng Yi. It appears to carry out safety-related evaluations of Chinese AI models,
+          according to the Carnegie Endowment.
+        sources: [carnegie-cnaisda-2025, digichina-cnaisda-2025]
+    - name: China AI Safety and Development Association (CnAISDA)
+      type: network
+      url: https://ai-development-and-safety-network.cn/
+      about:
+        text: >-
+          Launched in February 2025, it describes its role as "representing China in dialogue and
+          collaboration with AI security research institutions around the world."
+        sources: [digichina-cnaisda-2025]
+    - name: Cyberspace Administration of China (CAC)
+      type: regulator
+      url: https://www.cac.gov.cn/
+      based: Beijing
+      about:
+        text: >-
+          Leads the rules on AI services, including those on AI companions, and guided the AI Safety
+          Governance Framework 3.0.
+        sources: [cac-anthropomorphic-2026, cac-framework-2026]
+    - name: Institute for AI International Governance, Tsinghua University (I-AIIG)
+      type: university
+      url: https://aiig.tsinghua.edu.cn/
+      based: Beijing
+      about:
+        text: >-
+          Led by Xue Lan. It has advised on domestic AI governance and organised international
+          conferences on frontier AI risk.
+        sources: [carnegie-cnaisda-2025]
+    - name: Shanghai AI Laboratory
+      type: research_institute
+      url: https://www.shlab.org.cn/
+      based: Shanghai
+      about:
+        text: >-
+          A member of CnAISDA that has built many of China's academic AI safety benchmarks.
+        sources: [digichina-cnaisda-2025, concordia-evals]
+
+sources:
+  # Government of the People's Republic of China, its agencies and state media
+  - id: cac-anthropomorphic-2026
+    title: 国家网信办等五部门联合公布《人工智能拟人化互动服务管理暂行办法》
+    publisher: Cyberspace Administration of China
+    url: https://www.cac.gov.cn/2026-04/10/c_1777558395023172.htm
+    published: 2026-04-10
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: zh
+    note: "Announcement that five departments have issued the Interim Measures for the Administration of Anthropomorphic AI Interaction Services."
+  - id: cac-framework-2026
+    title: 《人工智能安全治理框架3.0》发布
+    publisher: Cyberspace Administration of China
+    url: https://www.cac.gov.cn/2026-09/14/c_1791137092283345.htm
+    published: 2026-09-14
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: zh
+    note: Announcement of the AI Safety Governance Framework 3.0, issued by TC260.
+  - id: cac-cybersecurity-2026
+    title: 专家解读｜《网络安全法》修改，积极应对人工智能治理安全挑战
+    publisher: Cyberspace Administration of China
+    url: https://www.cac.gov.cn/2026-01/02/c_1769093523928606.htm
+    published: 2026-01-02
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: zh
+    note: Expert commentary on the amended Cybersecurity Law by Ding Xiaodong of Renmin University's law school, published by the CAC.
+  - id: chinadaily-he-rong-2026
+    title: "China to accelerate legislative research on AI, low-altitude economy: minister"
+    publisher: China Daily (Xinhua), National People's Congress site
+    url: https://subsites.chinadaily.com.cn/npc/2026-03/13/c_1168119.htm
+    published: 2026-03-13
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: chinadaily-cybersecurity-2025
+    title: China plans to revise Cybersecurity Law to address challenges imposed by AI
+    publisher: China Daily, National People's Congress site
+    url: https://subsites.chinadaily.com.cn/npc/2025-10/24/c_1135701.htm
+    published: 2025-10-24
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: shanghai-cooperation-plan-2026
+    title: China to step up global cooperation on AI
+    publisher: Shanghai International Service Portal (China Daily)
+    url: https://english.shanghai.gov.cn/en-Policies/20260721/7e1c25963c764c15a51a47b01faab5bb.html
+    published: 2026-07-21
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: cgtn-cooperation-plan-2026
+    title: China issues action plan on AI cooperation, development
+    publisher: CGTN (Xinhua)
+    url: https://news.cgtn.com/news/2026-07-17/China-issues-action-plan-on-AI-cooperation-development-1OQRqVn35oA/p.html
+    published: 2026-07-17
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: ctils-ethics-plan-2026
+    title: China releases action plan on international AI ethics governance
+    publisher: CTILS (Xinhua)
+    url: https://en.ctils.com/en/articles/6035
+    published: 2026-07-20
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: ctils-companion-2026
+    title: China regulates AI human-like interaction services to protect minors
+    publisher: CTILS (Xinhua)
+    url: https://en.ctils.com/en/articles/5860
+    published: 2026-04-13
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  # Chinese media and organisations
+  - id: caixin-law-2026
+    title: China to Accelerate Work on Comprehensive AI Legislation
+    publisher: Caixin Global
+    url: https://www.caixinglobal.com/2026-11-04/china-to-accelerate-work-on-comprehensive-ai-legislation-102500765.html
+    published: 2026-11-04
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Qin Jianhang. Readable only up to the paywall.
+  - id: caixin-meituan-2026
+    title: Meituan Unveils New AI Model Trained on Homegrown Chips
+    publisher: Caixin Global
+    url: https://www.caixinglobal.com/2026-11-03/meituan-unveils-new-ai-model-trained-on-homegrown-chips-102500305.html
+    published: 2026-11-03
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Yang Zirui. Readable only up to the paywall.
+  - id: caixin-deepseek-2026
+    title: China's DeepSeek Launches Smaller, Faster AI Model
+    publisher: Caixin Global
+    url: https://www.caixinglobal.com/2026-09-10/chinas-deepseek-launches-smaller-faster-ai-model-102483601.html
+    published: 2026-09-10
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Yang Zirui. Readable only up to the paywall.
+  - id: sixthtone-waic-2026
+    title: At World AI Forum, Four Signs China's AI Industry Is Growing Up
+    publisher: Sixth Tone
+    url: https://www.sixthtone.com/news/1018802
+    published: 2026-07-21
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Cai Yiwen.
+  - id: concordia-2026
+    title: State of AI Safety in China (2026) report + interactive companion website released
+    publisher: Concordia AI
+    url: https://aisafetychina.substack.com/p/state-of-ai-safety-in-china-2026
+    published: 2026-07-14
+    accessed: 2026-11-19
+    origin: inside
+    type: civil_society
+    language: en
+    note: By Gabriel Wagner and Erik Lindblad. Summary of the report, covering July 2025 to June 2026. Concordia AI is based in Beijing.
+  - id: concordia-fyp-2026
+    title: AI Safety in the 15th Five-Year Plan — Two Sessions Special Edition
+    publisher: Concordia AI
+    url: https://aisafetychina.substack.com/p/ai-safety-in-the-15th-five-year-plan
+    published: 2026-03-27
+    accessed: 2026-11-19
+    origin: inside
+    type: civil_society
+    language: en
+    note: By Gabriel Wagner. Quotes the plan in English translation.
+  - id: concordia-evals
+    title: China's AI Safety Evaluations Ecosystem
+    publisher: Concordia AI
+    url: https://aisafetychina.substack.com/p/chinas-ai-safety-evaluations-ecosystem
+    accessed: 2026-11-19
+    origin: inside
+    type: civil_society
+    language: en
+    note: Undated; covers evaluations up to about September 2024.
+  # Polls
+  - id: officechai-gallup-2026
+    title: "93% Of Chinese Believe AI Will Mostly Help The People In Their Country, Compared To Just 36% Of Americans"
+    publisher: OfficeChai
+    url: https://officechai.com/ai/93-of-chinese-believe-ai-will-mostly-help-the-people-in-their-country-compared-to-just-36-of-americans/
+    published: 2026-09-24
+    accessed: 2026-11-19
+    origin: outside
+    type: poll
+    language: en
+    note: Reports the 2026 Microsoft and Gallup AI Adoption Survey.
+  - id: politicstoday-edelman-2025
+    title: Trust in AI Far Higher in China Than in the West, Poll Shows
+    publisher: Politics Today
+    url: https://politicstoday.org/trust-in-ai-far-higher-in-china-than-in-the-west-poll-shows/
+    published: 2025-11-25
+    accessed: 2026-11-19
+    origin: outside
+    type: poll
+    language: en
+    note: Reports an Edelman Trust Barometer flash poll; fieldwork dates and sample size not given.
+  - id: scmp-ucl-2026
+    title: "Less than 10% of Chinese public worried about AI destroying jobs: survey"
+    publisher: South China Morning Post
+    url: https://www.scmp.com/economy/china-economy/article/3354861/less-10-chinese-public-worried-about-ai-destroying-jobs-survey
+    accessed: 2026-11-19
+    origin: outside
+    type: poll
+    language: en
+    note: Only the opening of the article could be read; it reports a University College London survey. Date not shown.
+  - id: chinatalk-optimism-2026
+    title: China's AI optimism isn't what it seems
+    publisher: ChinaTalk
+    url: https://www.chinatalk.media/p/chinas-ai-optimism-isnt-what-it-seems
+    published: 2026-05-22
+    accessed: 2026-11-19
+    origin: outside
+    type: academic
+    language: en
+    note: By Zilan Qian, Oxford China Policy Lab. First published in Asterisk Magazine.
+  # Outside China
+  - id: china-briefing-2026
+    title: "China's AI Regulation in 2026: New Laws and Rules for AI Services"
+    publisher: China Briefing (Dezan Shira & Associates)
+    url: https://www.china-briefing.com/news/china-ai-regulation-2026-new-laws-rules/
+    published: 2026-10-24
+    accessed: 2026-11-19
+    origin: outside
+    type: industry
+    language: en
+    note: By Giulia Interesse. Consultancy briefing.
+  - id: lw-anthropomorphic-2026
+    title: China Introduces Rules for AI Companion and Emotional Interaction Services
+    publisher: Latham & Watkins
+    url: https://www.lw.com/en/insights/2026/07/china-introduces-rules-for-ai-companion-and-emotional-interaction-services
+    published: 2026-07-08
+    accessed: 2026-11-19
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing.
+  - id: caib-framework-2026
+    title: "CAIB Special Issue 2: the AI Safety Governance Framework 3.0"
+    publisher: China AI Bulletin
+    url: https://chinaaibulletin.substack.com/p/caib-special-issue-2-the-ai-safety
+    published: 2026-09-17
+    accessed: 2026-11-19
+    origin: outside
+    type: academic
+    language: en
+    note: By Emmie Hine.
+  - id: agora-ethics-norms
+    title: Ethical Norms for the New Generation Artificial Intelligence
+    publisher: ETO AGORA (Center for Security and Emerging Technology, Georgetown University)
+    url: https://agora.eto.tech/instrument/1125
+    accessed: 2026-11-19
+    origin: outside
+    type: academic
+    language: en
+    note: English translation and summary of the 2021 norms.
+  - id: cjo-ethics-2021
+    title: China Issues Code of Ethics for New-Generation AI
+    publisher: China Justice Observer
+    url: https://chinajusticeobserver.com/a/china-issues-code-of-ethics-for-new-generation-ai
+    published: 2021-11-01
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+  - id: digichina-cnaisda-2025
+    title: What do we know about China's new AI safety institute?
+    publisher: DigiChina, Stanford Cyber Policy Center
+    url: https://digichina.stanford.edu/work/what-do-we-know-about-chinas-new-ai-safety-institute/
+    published: 2025-02-06
+    accessed: 2026-11-19
+    origin: outside
+    type: academic
+    language: en
+    note: By Caroline Meinhardt and Graham Webster.
+  - id: carnegie-cnaisda-2025
+    title: How Some of China's Top AI Thinkers Built Their Own AI Safety Institute
+    publisher: Carnegie Endowment for International Peace
+    url: https://carnegieendowment.org/research/2025/06/how-some-of-chinas-top-ai-thinkers-built-their-own-ai-safety-institute?lang=en
+    published: 2025-06-16
+    accessed: 2026-11-19
+    origin: outside
+    type: academic
+    language: en
+    note: By Scott Singer, Karson Elmgren and Oliver Guest.
+  - id: pebblous-census-2026
+    title: Did DeepSeek Skip Its Safety Tests, or Just Not Report Them?
+    publisher: Pebblous
+    url: https://blog.pebblous.ai/report/deepseek-china-ai-safety-disclosure-census/en/
+    published: 2026-10-12
+    accessed: 2026-11-19
+    origin: outside
+    type: industry
+    language: en
+    note: Company blog explaining a SemiAnalysis report of 8 October 2026, which we did not read directly.
+  - id: taipeitimes-ndrc-2026
+    title: China plans broad AI guardrails after global lapses
+    publisher: Taipei Times (Bloomberg)
+    url: https://www.taipeitimes.com/News/world/archives/2026/11/04/2003867143
+    published: 2026-11-04
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: Bloomberg report on the National Development and Reform Commission briefing of 3 November 2026.
+  - id: pymnts-ndrc-2026
+    title: China Prepares to Impose New Safety Standards for AI Firms
+    publisher: PYMNTS
+    url: https://www.pymnts.com/news/artificial-intelligence/2026/china-prepares-to-impose-new-safety-standards-for-ai-firms/
+    published: 2026-11-03
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+  - id: ann-companion-2026
+    title: China sets interim measures for AI companionship
+    publisher: Asia News Network
+    url: https://asianews.network/?p=313185
+    published: 2026-11-06
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+  # International
+  - id: gov-bletchley-2023
+    title: "The Bletchley Declaration by Countries Attending the AI Safety Summit, 1-2 November 2023"
+    publisher: Prime Minister's Office, 10 Downing Street
+    url: https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023
+    published: 2023-11-01
+    accessed: 2026-11-18
+    origin: outside
+    type: government
+    language: en
+  - id: gov-seoul-2024
+    title: "Seoul Declaration for safe, innovative and inclusive AI by participants attending the Leaders' Session: AI Seoul Summit, 21 May 2024"
+    publisher: Department for Science, Innovation and Technology (UK)
+    url: https://gov.uk/government/publications/seoul-declaration-for-safe-innovative-and-inclusive-ai-ai-seoul-summit-2024/seoul-declaration-for-safe-innovative-and-inclusive-ai-by-participants-attending-the-leaders-session-ai-seoul-summit-21-may-2024
+    published: 2024-05-21
+    accessed: 2026-11-18
+    origin: outside
+    type: government
+    language: en
+    note: China is not among the participants listed.
+  - id: elysee-paris-2025
+    title: Statement on Inclusive and Sustainable Artificial Intelligence for People and the Planet
+    publisher: Élysée (Presidency of the French Republic)
+    url: https://www.elysee.fr/en/emmanuel-macron/2025/02/11/statement-on-inclusive-and-sustainable-artificial-intelligence-for-people-and-the-planet
+    published: 2025-02-11
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+  - id: theprint-new-delhi-2026
+    title: AI Summit ends with 88 nations adopting New Delhi Declaration, calls for cooperation, sovereignty
+    publisher: ThePrint
+    url: https://theprint.in/tech/ai-summit-ends-with-88-nations-adopting-new-delhi-declaration-calls-for-cooperation-sovereignty/2860446
+    published: 2026-02-21
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+  - id: nl-frontier-call-2026
+    title: A Call for Control of Frontier AI Models
+    publisher: Government of the Netherlands
+    url: https://www.government.nl/documents/2026/09/22/a-call-for-control-of-frontier-ai-models
+    published: 2026-09-22
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+    note: Joint statement by leaders of 20 countries and the European Commission. China is not a signatory.
+  # Approaches elsewhere
+  - id: ag-imda-2026
+    title: IMDA introduces new AI testing and cybersecurity initiatives
+    publisher: Allen & Gledhill
+    url: https://www.allenandgledhill.com/sg/publication/articles/34742/imda-introduces-new-ai-testing-and-cybersecurity-initiatives
+    published: 2026-10-28
+    accessed: 2026-11-19
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing on Singapore.
+  - id: fpf-sb53-2025
+    title: "California's SB 53: The First Frontier AI Law, Explained"
+    publisher: Future of Privacy Forum
+    url: https://fpf.org/blog/californias-sb-53-the-first-frontier-ai-law-explained/
+    published: 2025-10-03
+    accessed: 2026-11-19
+    origin: outside
+    type: civil_society
+    language: en
+  - id: cooley-korea-2026
+    title: "South Korea's AI Basic Act: Overview and Key Takeaways"
+    publisher: Cooley
+    url: https://www.cooley.com/news/insight/2026/2026-01-27-south-koreas-ai-basic-act-overview-and-key-takeaways
+    published: 2026-01-27
+    accessed: 2026-11-19
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing on South Korea.
