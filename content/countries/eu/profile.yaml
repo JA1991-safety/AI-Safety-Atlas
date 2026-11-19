@@ -1,0 +1,1446 @@
+# European Union: area profile
+# Status: DRAFT, researched by Claude on 18 and 19 November 2026, awaiting editor review.
+# Every statement cites one or more sources from the list at the bottom of this file.
+# Direct quotes were copied from the source pages on the access date.
+# The EU is treated as one area during the pilot. Sources from EU institutions and from
+# organisations and media based in EU member states count as "inside".
+# The principles section uses the seven requirements of the Ethics Guidelines for Trustworthy AI,
+# published for the European Commission in 2019, as the EU's own set (editor's decision, 18 Nov 2026).
+
+code: EU
+name: European Union
+status: draft
+last_reviewed: 2026-11-19
+editor_approved: false
+reviewers: []
+
+summary:
+  overview:
+    - text: >-
+        The AI Act, in force since August 2024, is a general AI law that sets duties by level of
+        risk. Its rules for general-purpose AI models have been enforced by the Commission's AI
+        Office since August 2026, while a 2026 amendment moved most duties for high-risk uses to
+        December 2027 and August 2028.
+      sources: [ec-ai-act-page, actuia-omnibus-2026, helpnet-enforcement-2026]
+    - text: >-
+        The AI Office has sent its first requests for information to providers of the most advanced
+        models, on security, external evaluation and post-market monitoring.
+      sources: [ec-speech-2148]
+    - text: >-
+        Members of the European Parliament, civil society, consumer and labour groups and researchers
+        have identified areas for improvement, including staff to enforce the rules, national
+        authorities, the timing of safeguards for high-risk uses, and liability for harm.
+      sources: [tpp-enforcement-2026, captain-compliance-2026, edri-omnibus-2026, beuc-omnibus-2026, etuc-letter-2025]
+    - text: >-
+        In a 2026 Eurobarometer survey, 80% of Europeans favoured careful regulation of AI, and 87%
+        saw disinformation, AI-generated content and deepfakes as a threat to democratic processes.
+      sources: [htn-eurobarometer-2026, aoc-eurobarometer-2026]
+  regulation_line:
+    text: >-
+      A general AI law, the AI Act, with duties set by level of risk. Rules for general-purpose
+      models enforced since August 2026; most high-risk duties apply from December 2027.
+    sources: [ec-ai-act-page, actuia-omnibus-2026]
+
+facets:
+  regulatory_approach: binding_horizontal
+  safety_institute:
+    status: equivalent
+    name: European AI Office, which supervises general-purpose AI models and has an AI safety team
+    sources: [ec-ai-office, tpp-enforcement-2026]
+  frontier_developers:
+    status: "yes"
+    note: >-
+      Mistral AI, a European developer of general-purpose AI models, signed the EU's code of
+      practice in 2025 and raised €3 billion in 2026. Other signatories include developers based
+      outside the EU.
+    sources: [euronews-code-signatories-2025, euronews-mistral-2026]
+  national_polling: "yes"
+  commitments:
+    - key: bletchley_declaration
+      status: signed
+      date: 2023-11-01
+      sources: [gov-bletchley-2023]
+    - key: seoul_declaration
+      status: signed
+      date: 2024-05-21
+      sources: [gov-seoul-2024]
+    - key: coe_convention
+      status: signed
+      date: 2024-09-05
+      sources: [cleary-coe-2024]
+    - key: paris_statement
+      status: signed
+      date: 2025-02-11
+      sources: [agence-europe-paris-2025]
+    - key: new_delhi_declaration
+      status: endorsed
+      date: 2026-02-20
+      sources: [ec-new-delhi-2026]
+
+attitudes:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: rich
+    review: draft
+    gaps: >-
+      The 2026 Special Eurobarometer figures are reported here through a Commission report and news
+      coverage, not the full survey release. YouGov's release does not give fieldwork dates or
+      sample sizes. Views differ between member states, and only a few national figures are
+      included.
+  headline_figures:
+    - value: "80%"
+      label: favour careful regulation of AI; 15% favour developing it without restrictions
+      fieldwork: Feb to Mar 2026
+      sample: More than 26,000 people in the 27 member states (Special Eurobarometer)
+      source: htn-eurobarometer-2026
+    - value: "87%"
+      label: >-
+        say disinformation, foreign interference, AI-generated content and deepfakes are a threat
+        to democratic processes
+      fieldwork: Feb to Mar 2026
+      sample: Special Eurobarometer, all 27 member states
+      source: aoc-eurobarometer-2026
+  statements:
+    - text: >-
+        In the same survey, 40% used generative AI tools at least weekly, and 69% of users said their
+        use had increased. Privacy (39%) and accuracy (36%) were the barriers most often named.
+      sources: [htn-eurobarometer-2026]
+    - text: >-
+        74% said that supporting EU companies to develop European-owned AI tools should be a
+        priority.
+      sources: [htn-eurobarometer-2026]
+    - text: >-
+        The Commission's State of the Digital Decade 2026 report says 59% of Europeans use AI tools
+        in their personal lives, and more than one third use them at work.
+      sources: [eurlex-digital-decade-2026]
+    - text: >-
+        In YouGov surveys in seven member states, published in October 2025, majorities from 55% to
+        73% said it is more important for governments to put effective regulation in place even if it
+        slows AI development, while 11% to 20% said the opposite. Expectations of AI's effect on
+        society differed: in France 44% expected a negative effect and 31% a positive one, while in
+        Spain 50% expected a positive effect.
+      sources: [yougov-europe-2025]
+    - text: >-
+        In a 2026 phone survey of heads of small and mid-sized companies in all 27 member states, 42%
+        said they already use AI or algorithmic management, "mostly in a limited and experimental
+        way". Almost half (49%) did not trust AI or automated systems to make decisions about staff,
+        and costs were the barrier most often named (50%).
+      sources: [dgempl-flash-2026]
+
+regulation:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: rich
+    review: draft
+    gaps: >-
+      The text of the 2026 amending regulation has not been read in full; it is described from a
+      news analysis and a law firm briefing. Sources differ on the date of the political agreement
+      (6 or 7 May 2026), so none is given. Member states' own AI laws and national authorities are
+      not covered one by one.
+  items:
+    - kind: law
+      title: AI Act
+      date: 2024-08-01
+      status: In force; applicable since 2 August 2026, with exceptions
+      text: >-
+        Sets duties by four levels of risk: unacceptable, high, transparency and minimal. It
+        "prohibits nine practices", including social scoring and emotion recognition in workplaces
+        and education. The bans and AI literacy duties applied from February 2025, and the rules for
+        general-purpose AI models from August 2025.
+      sources: [ec-ai-act-page]
+    - kind: law
+      title: Amendment to the AI Act (digital omnibus on AI)
+      date: 2026-07-27
+      status: In force since 27 July 2026
+      text: >-
+        Regulation (EU) 2026/1744 moves duties for high-risk uses listed in Annex III to 2 December
+        2027, and for AI in products covered by Annex I to 2 August 2028. It adds bans on AI systems
+        that generate non-consensual intimate images or child sexual abuse material from 2 December
+        2026, softens the AI literacy duty, and leaves the maximum fines unchanged.
+      sources: [actuia-omnibus-2026, gibson-dunn-omnibus-2026]
+    - kind: institution
+      title: European AI Office
+      date: 2024
+      status: Operating
+      text: >-
+        Established within the European Commission "as the foundation for a single AI governance
+        system". It supervises general-purpose AI models, and AI systems built on them by the same
+        provider. An independent scientific panel advises it.
+      sources: [ec-ai-office, actuia-omnibus-2026, devdiscourse-virkkunen-2026]
+    - kind: enforcement
+      title: Enforcement of the rules for general-purpose AI models
+      date: 2026-08-02
+      status: Enforced since 2 August 2026
+      text: >-
+        The AI Office can request technical documentation, evaluate models, require corrective
+        measures and fine providers up to €15 million or 3% of worldwide turnover. Models placed on
+        the market before August 2025 have until 2 August 2027 to comply.
+      sources: [ec-ai-act-page, actuia-omnibus-2026]
+    - kind: guidance
+      title: General-purpose AI code of practice
+      date: 2025-07
+      status: Voluntary
+      text: >-
+        A code that providers of general-purpose AI models can sign to show how they meet the AI
+        Act's duties, including a chapter on safety and security.
+      sources: [euronews-code-signatories-2025]
+    - kind: guidance
+      title: Code of practice on marking and labelling AI-generated content
+      date: 2026-06-10
+      status: Final; voluntary
+      text: >-
+        Sets out how providers and deployers can meet the AI Act's transparency duties for
+        AI-generated content and deepfakes.
+      sources: [jonesday-labelling-2026]
+    - kind: international
+      title: International agreements
+      date: 2026-02-20
+      status: See filters
+      text: >-
+        The EU took part in the 2023 Bletchley Declaration and the 2024 Seoul Declaration, signed the
+        Council of Europe AI convention in September 2024, joined the Paris AI Action Summit statement
+        in February 2025, and endorsed the New Delhi Declaration in February 2026.
+      sources: [gov-bletchley-2023, gov-seoul-2024, cleary-coe-2024, agence-europe-paris-2025, ec-new-delhi-2026]
+
+culture:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      No local reviewer yet. Voices from national governments, from Central and Eastern Europe and
+      from AI researchers are under-represented, and most sources are in English.
+  summary:
+    - text: >-
+        Competitiveness and technological sovereignty are central to EU debate on AI. The Irish
+        Council presidency's October 2026 summit took the theme "Harnessing AI to Revolutionise
+        Europe's Competitiveness", and 82% of Europeans in a 2026 Eurobarometer survey wanted to
+        reduce dependence on digital technology from outside the EU.
+      sources: [irish-presidency-guide, aoc-eurobarometer-2026]
+    - text: >-
+        Industry has pushed to simplify the rules. In July 2025 the heads of 46 European companies,
+        including ASML, Mistral AI, Airbus and Siemens Energy, asked for a two-year "clock stop" on
+        the AI Act, citing "unclear, overlapping, and increasingly complex EU regulations".
+      sources: [techzine-ceos-2025]
+    - text: >-
+        The 2026 changes to the AI Act divide opinion. Supporters in Parliament described them as
+        reducing red tape while adding new bans. Digital rights and consumer organisations say they
+        weaken transparency and delay safeguards.
+      sources: [sofiaglobe-ep-vote-2026, edri-omnibus-2026, beuc-omnibus-2026]
+    - text: >-
+        Workers' organisations want specific rules. The European Trade Union Confederation, which
+        represents 45 million workers, calls for "a dedicated Directive on Algorithmic Management and
+        AI at work".
+      sources: [etuc-letter-2025]
+    - text: >-
+        MEPs differ on how to govern advanced AI internationally, with proposals ranging from talks
+        with China to an arms-control treaty and inspections modelled on the International Atomic
+        Energy Agency.
+      sources: [tpp-ep-debate-2026]
+    - text: >-
+        Adoption varies widely between member states. 20.0% of EU enterprises with 10 or more
+        employees used AI in 2025, up from 13.5% in 2024, ranging from 42.0% in Denmark to 5.2% in
+        Romania.
+      sources: [eurostat-ai-2025]
+    - text: >-
+        AI safety organisations take part in EU debates. SaferAI, CeSIA and The Future Society were
+        among the civil society signatories of the Paris Call for AI Safety and Security in November
+        2026.
+      sources: [elysee-paris-call-2026]
+  own_words:
+    - quote: "Over the summer, we have seen AI agents escaping their environment; inserting malicious code; using social deception on humans."
+      speaker: Henna Virkkunen
+      role: Executive Vice-President for Tech Sovereignty, Security and Democracy, European Commission
+      date: 2026-10-14
+      source: ec-speech-2150
+      voice: government
+    - quote: "we are pressing the pause button on the AI Act and we are reducing red tape."
+      speaker: Arba Kokalari
+      role: Member of the European Parliament, co-rapporteur on the AI Act amendments
+      date: 2026-06-16
+      source: sofiaglobe-ep-vote-2026
+      voice: parliament
+    - quote: "We have to start talking to people that we don't agree with, and that means talking to China"
+      speaker: Michael McNamara
+      role: Member of the European Parliament
+      date: 2026-10-22
+      source: tpp-ep-debate-2026
+      voice: parliament
+    - quote: "the amount of compute that we own is going to grow around 100% in the next five years."
+      speaker: Arthur Mensch
+      role: Chief Executive, Mistral AI
+      date: 2026-09-08
+      source: euronews-mistral-2026
+      voice: industry
+    - quote: "MEPs move to ban sexually explicit deepfakes addresses serious harms faced by consumers."
+      speaker: Agustín Reyna
+      role: Director General, BEUC, the European Consumer Organisation
+      date: 2026-03-26
+      source: beuc-omnibus-2026
+      voice: civil_society
+    - quote: "The European Parliament should reject the AI Omnibus deal."
+      speaker: EDRi, Access Now, ECNL and Amnesty International
+      role: Digital and human rights organisations, in a joint statement
+      date: 2026-06-11
+      source: edri-omnibus-2026
+      voice: civil_society
+    - quote: "These decisions must rest with public authorities."
+      speaker: Charbel-Raphaël Ségerie
+      role: Executive Director, CeSIA (French Center for AI Safety)
+      date: 2026-11-10
+      source: tnw-paris-call-2026
+      voice: safety_research
+  outside_analysis: []
+
+news:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: rich
+    review: draft
+  items:
+    - id: paris-call
+      headline: Thirteen EU member states sign the Paris Call for AI Safety and Security
+      date: 2026-11-09
+      kind: development
+      summary: >-
+        Governments including France, Germany, Ireland, the Netherlands and Spain, along with ten AI
+        companies and civil society groups, committed to "establishing a common framework for the
+        evaluation and risk management of frontier models". The EU itself is not among the listed
+        signatories, and Google and Meta did not sign.
+      why_it_matters: >-
+        It sets out commitments on frontier AI safety that a group of member states made together,
+        alongside the EU-wide rules of the AI Act.
+      sources: [elysee-paris-call-2026, tnw-paris-call-2026]
+      topics: [international cooperation, frontier AI, commitments]
+    - id: national-authorities
+      headline: Most member states miss the deadline to set up AI Act authorities
+      date: 2026-11-08
+      kind: development
+      summary: >-
+        Politico reported that 16 of the 27 member states had not completed the designation of the
+        national authorities that enforce the AI Act, and that six had no market surveillance
+        authority. MEP Sergey Lagodinsky asked the Commission to open formal proceedings, saying:
+        "Stop blaming the EU for missing the race if you miss your own deadlines".
+      why_it_matters: >-
+        National authorities share responsibility for enforcing the AI Act, so gaps affect how evenly
+        it is applied across the EU.
+      sources: [captain-compliance-2026, ec-ai-act-page]
+      topics: [enforcement, member states]
+    - id: ep-debate
+      headline: European Parliament debates how to govern AI at home and abroad
+      date: 2026-10-22
+      kind: development
+      summary: >-
+        In a plenary debate in Strasbourg, MEPs rejected self-regulation by AI companies and called
+        for international action. Several criticised the withdrawal of the proposed AI Liability
+        Directive.
+      why_it_matters: >-
+        It shows the range of views in Parliament on risks from advanced AI as enforcement of the AI
+        Act begins.
+      sources: [tpp-ep-debate-2026, cdt-europe-bulletin-2026]
+      topics: [parliament, international cooperation, liability]
+    - id: dublin-summit
+      headline: Irish presidency hosts an AI summit on Europe's competitiveness
+      date: 2026-10-14
+      kind: development
+      summary: >-
+        In a speech in Dublin that day, Executive Vice-President Virkkunen said the Commission had
+        "already taken our first enforcement actions under the AI Act". CDT Europe noted that no civil
+        society organisations were in the summit programme and that "enforcement of EU laws was
+        totally absent from the text".
+      why_it_matters: >-
+        It shows how the EU presents AI as a matter of competitiveness, and the debate over where
+        safety and enforcement fit in that agenda.
+      sources: [irish-presidency-guide, ec-speech-2150, cdt-europe-bulletin-2026]
+      topics: [summits, competitiveness, enforcement]
+    - id: requests-for-information
+      headline: Commission sends its first requests for information to frontier developers
+      date: 2026-10-09
+      kind: development
+      summary: >-
+        Executive Vice-President Virkkunen told the AI Scientific Panel that the AI Office had sent
+        requests to providers of the most advanced models. Reuters reported that requests went to more
+        than 30 AI companies in late August; the Commission did not name them.
+      why_it_matters: >-
+        They are the first use of the AI Act's powers over the most capable models, which the
+        Commission has been able to enforce since August 2026.
+      sources: [ec-speech-2148, devdiscourse-virkkunen-2026]
+      topics: [enforcement, frontier AI, testing]
+    - id: gpai-enforcement
+      headline: Enforcement of the AI Act's rules for general-purpose AI begins
+      date: 2026-08-02
+      kind: foundational
+      summary: >-
+        The Commission's AI Office and national authorities began enforcing the AI Act. From 2
+        December 2026 it also bans AI systems that generate non-consensual sexually explicit content
+        or child sexual abuse material.
+      why_it_matters: >-
+        It moved the EU's rules for the most capable models from obligations on paper to supervision
+        backed by penalties.
+      sources: [helpnet-enforcement-2026]
+      topics: [enforcement, general-purpose AI]
+    - id: ep-vote
+      headline: European Parliament approves AI Act amendments, including a ban on nudification apps
+      date: 2026-06-16
+      kind: foundational
+      summary: >-
+        MEPs approved the changes by 423 votes to 57, with 174 abstentions. Co-rapporteur Michael
+        McNamara said Parliament had "secured an outright ban on AI nudification apps".
+      why_it_matters: >-
+        It completed Parliament's part in changing the AI Act's timetable before the rules for
+        high-risk uses were due to apply.
+      sources: [sofiaglobe-ep-vote-2026]
+      topics: [parliament, legislation, deepfakes]
+    - id: grok-dsa
+      headline: Commission investigates X over sexual deepfakes made with Grok
+      date: 2026-01-26
+      kind: foundational
+      summary: >-
+        The Commission opened a Digital Services Act investigation into X over "manipulated sexually
+        explicit images" made with its Grok chatbot. Executive Vice-President Virkkunen called
+        non-consensual sexual deepfakes of women and children "a violent, unacceptable form of
+        degradation".
+      why_it_matters: >-
+        It shows the EU using platform law, as well as the AI Act, against harms from generative AI.
+      sources: [pbs-grok-2026]
+      topics: [platforms, deepfakes, enforcement]
+    - id: gpai-code
+      headline: Developers sign the general-purpose AI code of practice
+      date: 2025-08-01
+      kind: foundational
+      summary: >-
+        Some 26 companies, including Amazon, Google, Microsoft, IBM, OpenAI, Mistral AI and Aleph
+        Alpha, were among the first to sign. xAI signed only the safety and security chapter, and Meta
+        did not sign, saying the code restricts innovation.
+      why_it_matters: >-
+        The code is one way for developers of the most capable models to show that they meet the AI
+        Act's duties, including on safety and security.
+      sources: [euronews-code-signatories-2025]
+      topics: [general-purpose AI, frontier AI, codes of practice]
+    - id: liability-directive-withdrawn
+      headline: Commission confirms withdrawal of the AI Liability Directive
+      date: 2025-07-31
+      kind: foundational
+      summary: >-
+        The Commission said that "having considered their views, the Commission has confirmed the
+        withdrawal" of the proposal. MEP Tiemo Wölken said he would take the Commission to court.
+      why_it_matters: >-
+        It means there are no EU-wide liability rules specific to AI, a gap that MEPs and unions
+        continue to raise.
+      sources: [euronews-aild-2025, cdt-europe-bulletin-2026, etuc-letter-2025]
+      topics: [liability, redress]
+    - id: mistral-funding
+      headline: Mistral AI raises €3 billion
+      date: 2026-09-08
+      kind: development
+      stream: ai
+      summary: >-
+        The round, led by Samsung Electronics with the EU-backed Scaleup Europe Fund among the
+        investors, valued Mistral at more than €21 billion. The company says it is the largest equity
+        fundraising by a European technology firm, and that most of the money will go on data centres
+        and computing capacity.
+      why_it_matters: >-
+        It expands the computing capacity of a European developer of general-purpose AI models that
+        has signed the EU's code of practice and the Paris Call.
+      sources: [euronews-mistral-2026, euronews-code-signatories-2025, elysee-paris-call-2026]
+      topics: [companies, investment, compute]
+    - id: gigafactories-call
+      headline: EU opens a call for up to seven AI gigafactories
+      date: 2026-07-30
+      kind: foundational
+      stream: ai
+      summary: >-
+        The Commission said the gigafactories would be supported by up to €10 billion in EU and
+        national funding and were expected to unlock at least €20 billion in private investment. The
+        call closed on 12 November 2026, with awards expected by early 2027.
+      why_it_matters: >-
+        Public investment in computing power affects which organisations in Europe can train and
+        test large AI models.
+      sources: [ec-gigafactories-2026, brusselstimes-gigafactories-2026]
+      topics: [compute, investment, infrastructure]
+    - id: ai-continent
+      headline: Commission launches the AI Continent Action Plan
+      date: 2025-04-09
+      kind: foundational
+      stream: ai
+      summary: >-
+        The plan aims to mobilise €200 billion for AI, including €20 billion to finance up to five AI
+        gigafactories, alongside a network of AI factories. A planned Cloud and AI Development Act
+        aims to "at least triple the EU's data centre capacity within the next five to seven years".
+      why_it_matters: >-
+        It set the EU's main plan for building AI capacity, which sits alongside the AI Act's rules.
+      sources: [ec-ai-continent]
+      topics: [strategy, investment, compute]
+
+principles:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      How the General Data Protection Regulation, the Digital Services Act and non-discrimination
+      law apply to AI is covered only briefly. Member states' own guidance and enforcement are not
+      yet covered.
+  framework:
+    name: the seven requirements for trustworthy AI
+    nav: Seven requirements
+    basis: own
+    about:
+      text: >-
+        The High-Level Expert Group on AI, set up by the European Commission in June 2018, published
+        Ethics Guidelines for Trustworthy AI in April 2019. They name seven requirements, which the
+        group says are "all of equal importance".
+      sources: [ec-hleg-guidelines, futurium-hleg]
+  intro:
+    - text: >-
+        The EU regulates AI mainly through the AI Act, a general law with duties set by level of
+        risk, enforced by the Commission's AI Office and national authorities.
+      sources: [ec-ai-act-page]
+    - text: >-
+        Below, each requirement is shown with how the guidelines describe it, how far the law backs
+        it, the laws and bodies that carry it today, and figures on how it works in practice.
+      sources: [futurium-hleg]
+  items:
+    - key: human-oversight
+      name: Human agency and oversight
+      short: Human oversight
+      asks:
+        text: >-
+          "AI systems should support human autonomy and decision-making", and people should be able
+          to oversee them.
+        sources: [futurium-hleg]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          The AI Act requires "appropriate human oversight measures" for high-risk systems, but most
+          of those duties apply only from December 2027. Some practices have been banned since
+          February 2025.
+        sources: [ec-ai-act-page, actuia-omnibus-2026]
+      how_it_works:
+        - text: >-
+            High-risk uses include CV-sorting software for recruitment, credit scoring and the
+            scoring of exams. Providers will have to build in human oversight from 2 December 2027,
+            or 2 August 2028 for AI in products such as machinery.
+          sources: [ec-ai-act-page, actuia-omnibus-2026, edri-omnibus-2026]
+      regulators: [European AI Office, National market surveillance authorities]
+      evidence:
+        - text: >-
+            In the 2026 survey of heads of small and mid-sized companies, 90% said people take the
+            decisions where AI or algorithmic management is used, and 2% said decisions were fully
+            automated.
+          sources: [dgempl-flash-2026]
+
+    - key: robustness-safety
+      name: Technical robustness and safety
+      short: Robustness
+      asks:
+        text: >-
+          AI systems should be secure, resilient and accurate, and should "reliably behave as
+          intended".
+        sources: [futurium-hleg]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          Providers of general-purpose AI models with systemic risk must address risks of large-scale
+          harm, and the Commission has enforced these rules since August 2026. Robustness duties for
+          high-risk systems apply from December 2027.
+        sources: [helpnet-enforcement-2026, ec-ai-act-page]
+      how_it_works:
+        - text: >-
+            Providers of models with systemic risk "must address risks of large-scale harm, including
+            chemical, biological, radiological and nuclear incidents, loss of control, cyber offence,
+            harmful manipulation and threats to fundamental rights."
+          sources: [helpnet-enforcement-2026]
+        - text: >-
+            A scientific panel of 60 experts advises the AI Office, which has asked providers of the
+            most advanced models about security, external evaluation and post-market monitoring.
+          sources: [devdiscourse-virkkunen-2026, ec-speech-2148]
+      regulators: [European AI Office]
+      evidence:
+        - text: >-
+            Executive Vice-President Virkkunen said in October 2026 that more than 20 loss-of-control
+            incidents had been documented that year, across several developers and evaluation
+            organisations.
+          sources: [ec-speech-2148]
+
+    - key: privacy-data
+      name: Privacy and data governance
+      short: Privacy
+      asks:
+        text: >-
+          "AI systems must guarantee privacy and data protection throughout a system's entire
+          lifecycle", and the quality and integrity of data should be ensured.
+        sources: [futurium-hleg]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          The AI Act bans AI systems that generate non-consensual sexual images from December 2026.
+          The 2026 amendment also lets providers process special categories of personal data to
+          detect bias. How data protection law applies to AI is not covered in this draft.
+        sources: [actuia-omnibus-2026, gibson-dunn-omnibus-2026]
+      how_it_works:
+        - text: >-
+            More than 110 MEPs asked the Commission to enforce the new ban on non-consensual intimate
+            images.
+          sources: [cdt-europe-bulletin-2026]
+      regulators: [European AI Office, National market surveillance authorities]
+
+    - key: transparency
+      name: Transparency
+      short: Transparency
+      asks:
+        text: >-
+          Data, systems and decisions should be "documented to the best possible standard to allow
+          for traceability", and people should know when they are dealing with an AI system.
+        sources: [futurium-hleg]
+      footing: binding
+      footing_note:
+        text: >-
+          The AI Act's transparency duties have applied since August 2026. Generative AI systems
+          already on the market before then have until December 2026 to mark their output.
+        sources: [actuia-omnibus-2026]
+      how_it_works:
+        - text: >-
+            A voluntary code of practice, finalised in June 2026, sets out how to meet the marking
+            and labelling duties, including "at least two layers of machine-readable marking where
+            necessary", and labelling of deepfakes by deployers. Around 190 organisations had signed
+            it by the end of July.
+          sources: [jonesday-labelling-2026, actuia-omnibus-2026]
+        - text: >-
+            Digital rights groups say the 2026 amendment reduces the information that providers of
+            high-risk systems must upload to the public EU database.
+          sources: [edri-omnibus-2026]
+      regulators: [European AI Office, National market surveillance authorities]
+
+    - key: fairness
+      name: Diversity, non-discrimination and fairness
+      short: Fairness
+      asks:
+        text: >-
+          "Identifiable and discriminatory bias should be removed in the collection phase where
+          possible", and AI systems should be accessible to all.
+        sources: [futurium-hleg]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          The AI Act bans social scoring and emotion recognition in workplaces and education. Its
+          duties for high-risk uses such as recruitment, credit scoring and exam scoring apply from
+          December 2027.
+        sources: [ec-ai-act-page, actuia-omnibus-2026]
+      how_it_works:
+        - text: >-
+            The 2026 amendment extends permission to process special categories of personal data
+            for bias detection to "all AI systems and general-purpose AI models".
+          sources: [gibson-dunn-omnibus-2026]
+      regulators: [National market surveillance authorities, European AI Office]
+
+    - key: wellbeing
+      name: Societal and environmental well-being
+      short: Well-being
+      asks:
+        text: >-
+          AI's effects on society, democracy and the environment should be considered. The
+          guidelines say it "must be ensured that this occurs in the most environmentally friendly
+          way possible".
+        sources: [futurium-hleg]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          Some harms to society are covered: the AI Act's bans, and the Digital Services Act, which
+          the Commission is using to investigate sexual deepfakes made with an AI chatbot on X. We
+          found no binding rule in our sources on AI's environmental footprint.
+        sources: [ec-ai-act-page, pbs-grok-2026]
+      how_it_works:
+        - text: >-
+            The European Ombudsman dismissed a complaint about the energy reporting provisions of the
+            general-purpose AI code of practice.
+          sources: [cdt-europe-bulletin-2026]
+      regulators: [European Commission (Digital Services Act), European AI Office]
+
+    - key: accountability
+      name: Accountability
+      short: Accountability
+      asks:
+        text: >-
+          Mechanisms should be in place to ensure "responsibility and accountability for AI systems
+          and their outcomes", including auditability and redress.
+        sources: [futurium-hleg]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          The AI Act sets fines of up to €35 million or 7% of worldwide turnover for the most serious
+          breaches. There are no AI-specific civil liability rules since the Commission withdrew its
+          proposed AI Liability Directive.
+        sources: [actuia-omnibus-2026, euronews-aild-2025, tpp-ep-debate-2026]
+      how_it_works:
+        - text: >-
+            Member states must transpose the revised Product Liability Directive by December 2026.
+            The Commission consulted until 9 November 2026 on how its AI Act enforcement proceedings
+            will work.
+          sources: [cdt-europe-bulletin-2026]
+      regulators: [European AI Office, National market surveillance authorities]
+
+areas_for_improvement:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      Each area is one that a named source has identified. The figures on national authorities come
+      from a compliance vendor's summary of Politico reporting. Enforcement under the AI Act began in
+      August 2026, so little evidence on its effect exists yet.
+  intro:
+    - text: >-
+        The EU has a general AI law, now enforced for general-purpose models. Members of the European
+        Parliament, civil society, consumer and labour groups and researchers have identified areas
+        where it could be strengthened, in enforcement capacity, timing, coverage and redress.
+      sources: [tpp-enforcement-2026, edri-omnibus-2026, beuc-omnibus-2026, etuc-letter-2025, tpp-ep-debate-2026]
+  items:
+    - id: enforcement-staff
+      title: Staff to enforce the rules for general-purpose AI
+      kind: capacity
+      principles: [robustness-safety, accountability]
+      in_place:
+        text: >-
+          Since August 2026 the AI Office has been able to investigate providers of general-purpose AI
+          models, order corrective measures and fine them. It has 145 staff across six teams,
+          including an AI safety team.
+        sources: [tpp-enforcement-2026]
+      identified:
+        text: >-
+          Chloé Touzet of SaferAI said the office has "limited resources (only about 35 people work on
+          enforcement)". More posts are proposed, subject to the 2027 EU budget.
+        sources: [tpp-enforcement-2026]
+      elsewhere:
+        - text: >-
+            A state AI institute with more than 100 researchers that has tested 30 frontier models.
+          used_in: [GB]
+          sources: [gov-one-year-on-2026]
+        - text: >-
+            A government testing centre that tests frontier models under voluntary agreements with
+            developers.
+          used_in: [US]
+          sources: [nist-caisi-2026]
+
+    - id: national-authorities
+      title: National authorities to supervise high-risk AI
+      kind: capacity
+      principles: [accountability, human-oversight]
+      in_place:
+        text: >-
+          From 2 August 2026 the AI Office and the authorities of member states are "responsible for
+          implementing, supervising and enforcing the AI Act".
+        sources: [ec-ai-act-page]
+      identified:
+        text: >-
+          Politico reported in November 2026 that most member states had missed the deadline to set up
+          their national authorities, and an MEP asked the Commission to open formal proceedings.
+        sources: [captain-compliance-2026]
+      elsewhere:
+        - text: >-
+            Existing sector regulators applying shared cross-sector principles, with a government
+            commitment to legislate if needed.
+          used_in: [GB]
+          sources: [gov-regulation-response-2024]
+
+    - id: high-risk-timing
+      title: Timing of safeguards for high-risk AI
+      kind: coverage
+      principles: [human-oversight, fairness, transparency]
+      in_place:
+        text: >-
+          The 2026 amendment kept the transparency duties on their original date of August 2026 and
+          added bans on AI-generated non-consensual intimate images and child sexual abuse material.
+        sources: [gibson-dunn-omnibus-2026, actuia-omnibus-2026]
+      identified:
+        text: >-
+          EDRi, Access Now, ECNL and Amnesty International said the deal "still weakens public
+          transparency", and BEUC said it "delays key safeguards". MEP Michael McNamara said "The
+          issue is the absence of harmonised standards".
+        sources: [edri-omnibus-2026, beuc-omnibus-2026, euperspectives-mcnamara-2026]
+      elsewhere:
+        - text: >-
+            A general AI law with duties for high-impact AI systems.
+          used_in: [KR]
+          sources: [cooley-korea-2026]
+        - text: >-
+            A state law on automated decisions that relies on notices before and after use and a
+            right to ask for human review.
+          used_in: [US]
+          sources: [skadden-colorado-2026]
+
+    - id: liability
+      title: Compensation for harm caused by AI
+      kind: redress
+      principles: [accountability]
+      in_place:
+        text: >-
+          The revised Product Liability Directive is due to be transposed by member states by
+          December 2026.
+        sources: [cdt-europe-bulletin-2026]
+      identified:
+        text: >-
+          The European Trade Union Confederation "strongly condemns" the withdrawal of the AI
+          Liability Directive, and MEP Brando Benifei said the AI Act has no general rules on civil
+          liability.
+        sources: [etuc-letter-2025, tpp-ep-debate-2026]
+      elsewhere:
+        - text: >-
+            A state attorney general using general consumer law to sue a frontier developer over
+            safety testing.
+          used_in: [US]
+          sources: [kpbs-ca-openai-2026]
+
+    - id: development-controls
+      title: Controls during development and testing
+      kind: technical
+      principles: [robustness-safety, human-oversight]
+      in_place:
+        text: >-
+          The AI Office has sent requests for information to providers of the most advanced models
+          "on three critical topics: security, external evaluation and post-market monitoring".
+        sources: [ec-speech-2148]
+      identified:
+        text: >-
+          Executive Vice-President Virkkunen said the AI Office would "issue a request for information
+          about the recent incidents". CeSIA said the Paris Call for AI Safety and Security "sets no
+          common risk thresholds".
+        sources: [ec-speech-2148, tnw-paris-call-2026]
+      elsewhere:
+        - text: >-
+            Fail-safe mechanisms to shut down model operations, including during training and
+            internal use.
+          proposed_by: Paris Call for AI Safety and Security (18 governments, November 2026)
+          sources: [elysee-paris-call-2026]
+        - text: >-
+            A duty for covered developers to keep the ability to restrict or shut down their systems.
+          proposed_by: AI Kill Switch Act (US bill)
+          sources: [nextgov-bills-2026]
+        - text: >-
+            A state law requiring frontier developers to report critical safety incidents.
+          used_in: [US]
+          sources: [fpf-sb53-2025]
+
+contacts:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      A starting list, described from each organisation's own pages. National AI safety bodies in
+      member states, SaferAI and university groups outside ELLIS are not yet listed.
+  items:
+    - name: AlgorithmWatch
+      type: civil_society
+      url: https://algorithmwatch.org/en/
+      based: Berlin and Zurich
+      about:
+        text: >-
+          Describes itself as "a non-governmental, non-profit organization based in Berlin and
+          Zurich".
+        sources: [algorithmwatch-home]
+      links:
+        - label: Contact
+          url: https://algorithmwatch.org/en/contact/
+        - label: Newsletter
+          url: https://algorithmwatch.org/en/newsletter-2/
+    - name: CDT Europe
+      type: civil_society
+      url: https://cdt.org/cdt-europe/
+      based: Brussels
+      about:
+        text: >-
+          Describes itself as "a non-profit organisation advocating for the promotion and protection
+          of democracy and human rights in European tech law and policy".
+        sources: [cdt-europe-about]
+      links:
+        - label: Contact
+          url: https://cdt.org/contact/
+        - label: Subscribe
+          url: https://cdt.org/subscribe/
+    - name: CeSIA (French Center for AI Safety)
+      type: civil_society
+      url: https://cesia.org/en/
+      about:
+        text: >-
+          A French non-profit whose mission is "to prevent and mitigate major AI risks by informing
+          policymakers, raising public awareness, and conducting policy research".
+        sources: [cesia-about]
+      links:
+        - label: Newsletter
+          url: https://cesiafr.substack.com/
+        - label: Careers
+          url: https://cesia.org/en/careers/
+    - name: ELLIS
+      type: network
+      url: https://ellis.eu/
+      about:
+        text: >-
+          Describes itself as "a pan-European AI network of excellence built upon machine learning as
+          the driver for modern AI".
+        sources: [ellis-about]
+      links:
+        - label: Contact
+          url: https://ellis.eu/about/contact
+        - label: Newsletter
+          url: https://ellis.eu/newsletter
+    - name: European AI Office
+      type: regulator
+      url: https://digital-strategy.ec.europa.eu/en/policies/ai-office
+      about:
+        text: >-
+          Part of the European Commission. It "supports the development and adoption of trustworthy
+          Artificial Intelligence (AI) solutions, while protecting people against risks".
+        sources: [ec-ai-office]
+      links:
+        - label: AI Act Service Desk
+          url: https://ai-act-service-desk.ec.europa.eu/en
+        - label: AI Pact
+          url: https://digital-strategy.ec.europa.eu/en/policies/ai-pact
+        - label: Contact the Commission
+          url: https://commission.europa.eu/about/contact_en
+    - name: European Digital Rights (EDRi)
+      type: network
+      url: https://edri.org/
+      about:
+        text: >-
+          Describes itself as "an association of civil and human rights organisations from across
+          Europe".
+        sources: [edri-about]
+      links:
+        - label: Contact
+          url: https://edri.org/contact/
+        - label: EDRi-gram newsletter
+          url: https://edri.org/take-action/edri-gram/
+    - name: The Future Society
+      type: civil_society
+      url: https://thefuturesociety.org/
+      based: United States and Europe
+      about:
+        text: >-
+          Describes itself as "an independent nonprofit organization with a mission to align AI
+          through better governance".
+        sources: [tfs-about]
+      links:
+        - label: Contact
+          url: https://thefuturesociety.org/contact/
+        - label: Work with us
+          url: https://thefuturesociety.org/work-with-us/
+
+sources:
+  # European Union institutions
+  - id: ec-ai-act-page
+    title: AI Act
+    publisher: European Commission
+    url: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+    note: Page last updated 19 October 2026.
+  - id: ec-ai-office
+    title: European AI Office
+    publisher: European Commission
+    url: https://digital-strategy.ec.europa.eu/en/policies/ai-office
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: ec-ai-continent
+    title: AI Continent
+    publisher: European Commission
+    url: https://commission.europa.eu/topics/competitiveness/ai%2Dcontinent_en
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: ec-hleg-guidelines
+    title: Ethics guidelines for trustworthy AI
+    publisher: European Commission
+    url: https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai
+    published: 2019-04-08
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: futurium-hleg
+    title: Requirements of Trustworthy AI
+    publisher: High-Level Expert Group on AI, European AI Alliance (European Commission)
+    url: https://ec.europa.eu/futurium/en/ai-alliance-consultation/guidelines/1.html
+    published: 2019-04-08
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+    note: Chapter of the Ethics Guidelines for Trustworthy AI setting out the seven requirements, on the archived European AI Alliance site.
+  - id: ec-speech-2148
+    title: Speech by Executive Vice-President Virkkunen to the AI Scientific Panel (SPEECH/26/2148)
+    publisher: European Commission
+    url: https://ec.europa.eu/commission/presscorner/api/files/document/print/en/speech_26_2148/SPEECH_26_2148_EN.pdf
+    published: 2026-10-09
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: ec-speech-2150
+    title: Speech by Executive Vice-President Virkkunen in Dublin (SPEECH/26/2150)
+    publisher: European Commission
+    url: https://ec.europa.eu/commission/presscorner/api/files/document/print/en/speech_26_2150/SPEECH_26_2150_EN.pdf
+    published: 2026-10-14
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: ec-gigafactories-2026
+    title: EU launches AI Gigafactories call to boost Europe's computing capacity and unlock more than €30 billion in investment
+    publisher: European Commission
+    url: https://ec.europa.eu/commission/presscorner/api/files/document/print/en/ip_26_1708/IP_26_1708_EN.pdf
+    published: 2026-07-30
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: ec-new-delhi-2026
+    title: European Union endorses leaders' declaration at AI summit in India
+    publisher: European Commission
+    url: https://digital-strategy.ec.europa.eu/en/news/european-union-endorses-leaders-declaration-ai-summit-india
+    published: 2026-02-20
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: eurostat-ai-2025
+    title: Use of artificial intelligence in enterprises, 2025 (Eurostat news)
+    publisher: Eurostat
+    url: https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20251211-2
+    published: 2025-12-11
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: eurlex-digital-decade-2026
+    title: State of the Digital Decade 2026, COM(2026) 288
+    publisher: European Commission (EUR-Lex)
+    url: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A52026DC0288
+    published: 2026-06-17
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: dgempl-flash-2026
+    title: Growing use of AI in European companies (Flash Eurobarometer on AI and algorithmic management)
+    publisher: European Commission, Directorate-General for Employment, Social Affairs and Inclusion
+    url: https://employment-social-affairs.ec.europa.eu/news/growing-use-ai-european-companies-2026-10-14_en
+    published: 2026-10-14
+    accessed: 2026-11-19
+    origin: inside
+    type: poll
+    language: en
+  - id: irish-presidency-guide
+    title: "International AI Summit 2026: media guide"
+    publisher: Irish Presidency of the Council of the European Union
+    url: https://irish-presidency.consilium.europa.eu/media/pk0dvu2p/media-guide-ai-summit.pdf
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  # Member state governments
+  - id: elysee-paris-call-2026
+    title: Paris Call for AI Safety and Security
+    publisher: Élysée (Presidency of the French Republic)
+    url: https://www.elysee.fr/en/emmanuel-macron/2026/11/10/paris-call-for-ai-safety-and-security
+    published: 2026-11-10
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: aoc-eurobarometer-2026
+    title: "Special Eurobarometer: Digital Decade 2026"
+    publisher: Consorci AOC (Catalonia)
+    url: https://www.aoc.cat/en/blog/2026/eurobarometre-especial-decada-digital-2026/
+    published: 2026-09-17
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  # Journalism and analysis
+  - id: actuia-omnibus-2026
+    title: "AI Act: obligations in force and delays under Omnibus Regulation 2026/1744"
+    publisher: ActuIA
+    url: https://www.actuia.com/en/news/ai-act-obligations-in-force-and-delays-under-omnibus-2026-1744/
+    published: 2026-10-06
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: helpnet-enforcement-2026
+    title: EU AI Act enforcement begins for AI models
+    publisher: Help Net Security
+    url: https://www.helpnetsecurity.com/2026/08/04/eu-ai-act-enforcement-ai-models/
+    published: 2026-08-04
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: techzine-ceos-2025
+    title: 46 European CEOs want two-year pause for EU AI Act
+    publisher: Techzine
+    url: https://www.techzine.eu/news/privacy-compliance/132758/46-european-ceos-want-two-year-pause-for-eu-ai-act
+    published: 2025-07-04
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: sofiaglobe-ep-vote-2026
+    title: European Parliament approves AI Act amendments, nudifier ban
+    publisher: The Sofia Globe
+    url: https://sofiaglobe.com/2026/06/16/european-parliament-approves-ai-act-amendments-nudifier-ban/
+    published: 2026-06-16
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: euperspectives-mcnamara-2026
+    title: There is a difference between simplification and deregulation
+    publisher: EU Perspectives
+    url: https://euperspectives.eu/2026/04/there-is-a-difference-between-simplification-and-deregulation/
+    published: 2026-04-09
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: euronews-aild-2025
+    title: EU Commission confirms ditching of AI liability and patents proposals
+    publisher: Euronews
+    url: https://www.euronews.com/2025/07/31/eu-commission-confirms-ditching-of-ai-liability-and-patents-proposals
+    published: 2025-07-31
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: euronews-code-signatories-2025
+    title: Some 26 tech companies sign up to EU Commission's AI code
+    publisher: Euronews
+    url: https://www.euronews.com/2025/08/01/some-26-tech-companies-sign-up-to-eu-commissions-ai-code
+    published: 2025-08-01
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: euronews-mistral-2026
+    title: Mistral AI raises record €3 billion in Samsung-led funding round
+    publisher: Euronews
+    url: https://www.euronews.com/2026/09/08/mistral-ai-raises-record-3-billion-in-samsung-led-funding-round
+    published: 2026-09-08
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: brusselstimes-gigafactories-2026
+    title: EU unveils €10b plan to build 'AI Gigafactories', seeks private investment boost
+    publisher: The Brussels Times
+    url: https://www.brusselstimes.com/2252376/eu-unveils-e10b-plan-to-build-ai-gigafactories-seeks-private-investment-boost
+    published: 2026-07-30
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: tnw-paris-call-2026
+    title: AI firms sign Macron's Paris Call, but safety group says it lacks teeth
+    publisher: The Next Web
+    url: https://thenextweb.com/news/paris-call-ai-safety-openai-anthropic-cesia
+    published: 2026-11-10
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: agence-europe-paris-2025
+    title: AI summit in Paris leads to an international framework in progress, with EU but without Washington or London
+    publisher: Agence Europe
+    url: https://agenceurope.eu/en/bulletin/article/13577/13/ai-summit-in-paris-leads-to-an-international-framework-in-progress-with-eu-but-without-washington-or-london
+    published: 2025-02-11
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: tpp-ep-debate-2026
+    title: European Parliament divided on how to govern AI at home and abroad
+    publisher: Tech Policy Press
+    url: https://www.techpolicy.press/european-parliament-divided-on-how-to-govern-ai-at-home-and-abroad/
+    published: 2026-10-22
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+  - id: tpp-enforcement-2026
+    title: Brussels gains new AI Act enforcement powers as autonomous AI tests regulators
+    publisher: Tech Policy Press
+    url: https://www.techpolicy.press/-brussels-gains-new-ai-act-enforcement-powers-as-autonomous-ai-tests-regulators/
+    published: 2026-07-30
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+  - id: pbs-grok-2026
+    title: EU investigates Musk's AI chatbot Grok over sexual deepfakes
+    publisher: PBS NewsHour
+    url: https://www.pbs.org/newshour/world/eu-investigates-musks-ai-chatbot-grok-over-sexual-deepfakes
+    published: 2026-01-26
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    via: Associated Press
+  - id: devdiscourse-virkkunen-2026
+    title: EU tech chief says bloc well equipped to fend off rogue AI risk
+    publisher: Devdiscourse
+    url: https://www.devdiscourse.com/article/international/3989925-eu-tech-chief-says-bloc-well-equipped-to-fend-off-rogue-ai-risk
+    published: 2026-10-09
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    via: Reuters
+  - id: htn-eurobarometer-2026
+    title: European survey reveals 40 percent using generative AI tools at least weekly
+    publisher: HTN (Health Tech Newspaper)
+    url: https://htn.co.uk/2026/06/24/european-survey-reveals-40-percent-using-generative-ai-tools-at-least-weekly/
+    published: 2026-06-24
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: Reports Special Eurobarometer 572, Digital Decade 2026.
+  - id: yougov-europe-2025
+    title: "European Political Monthly: where do Europeans stand on artificial intelligence?"
+    publisher: YouGov
+    url: https://yougov.com/en-gb/articles/53210-european-political-monthly-where-do-europeans-stand-on-artificial-intelligence
+    published: 2025-10-20
+    accessed: 2026-11-19
+    origin: outside
+    type: poll
+    language: en
+  # Law firms and vendors
+  - id: gibson-dunn-omnibus-2026
+    title: "EU AI Act Omnibus agreement: postponed high-risk deadlines and other key changes"
+    publisher: Gibson Dunn
+    url: https://www.gibsondunn.com/eu-ai-act-omnibus-agreement-postponed-high-risk-deadlines-and-other-key-changes/
+    published: 2026-05-27
+    accessed: 2026-11-19
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing.
+  - id: jonesday-labelling-2026
+    title: European Commission publishes final Code of Practice on marking and labelling AI-generated content
+    publisher: Jones Day
+    url: https://www.jonesday.com/en/insights/2026/06/european-commission-publishes-final-code-of-practice-on-marking-and-labelling-aigenerated-content
+    published: 2026-06
+    accessed: 2026-11-19
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing.
+  - id: captain-compliance-2026
+    title: EU AI Act national authorities missed deadline
+    publisher: Captain Compliance
+    url: https://captaincompliance.com/education/eu-ai-act-national-authorities-missed-deadline-infringement/
+    published: 2026-11-10
+    accessed: 2026-11-19
+    origin: outside
+    type: industry
+    language: en
+    via: Politico (8 November 2026)
+    note: Compliance vendor's summary of Politico reporting.
+  # Civil society, consumers and workers
+  - id: edri-omnibus-2026
+    title: "AI Omnibus deal: EU lawmakers should reject a rollback of AI safeguards"
+    publisher: European Digital Rights (EDRi), with Access Now, ECNL and Amnesty International
+    url: https://edri.org/our-work/ai-omnibus-deal-eu-lawmakers-should-reject-a-rollback-of-ai-safeguards/
+    published: 2026-06-11
+    accessed: 2026-11-19
+    origin: inside
+    type: civil_society
+    language: en
+  - id: beuc-omnibus-2026
+    title: Press release on the European Parliament's vote on the AI omnibus (BEUC-PR-2026-008)
+    publisher: BEUC, the European Consumer Organisation
+    url: https://www.beuc.eu/sites/default/files/publications/BEUC-PR-2026-008_PR_AI_omnibus_plenary_vote.pdf
+    published: 2026-03-26
+    accessed: 2026-11-19
+    origin: inside
+    type: civil_society
+    language: en
+  - id: etuc-letter-2025
+    title: Letter to MEPs on AI at work
+    publisher: European Trade Union Confederation (ETUC)
+    url: https://etuc.org/fr/node/25846
+    published: 2025-10-13
+    accessed: 2026-11-19
+    origin: inside
+    type: civil_society
+    language: en
+  - id: cdt-europe-bulletin-2026
+    title: "CDT Europe's AI Bulletin: October 2026"
+    publisher: Center for Democracy & Technology Europe
+    url: https://cdt.org/insights/cdt-europes-ai-bulletin-october-2026/
+    published: 2026-10-27
+    accessed: 2026-11-19
+    origin: inside
+    type: civil_society
+    language: en
+  # Sources from outside the EU, used for international commitments and comparisons
+  - id: gov-bletchley-2023
+    title: "The Bletchley Declaration by Countries Attending the AI Safety Summit, 1-2 November 2023"
+    publisher: Prime Minister's Office, 10 Downing Street
+    url: https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023
+    published: 2023-11-01
+    accessed: 2026-11-18
+    origin: outside
+    type: government
+    language: en
+  - id: gov-seoul-2024
+    title: "Seoul Declaration for safe, innovative and inclusive AI by participants attending the Leaders' Session: AI Seoul Summit, 21 May 2024"
+    publisher: Department for Science, Innovation and Technology (UK)
+    url: https://gov.uk/government/publications/seoul-declaration-for-safe-innovative-and-inclusive-ai-ai-seoul-summit-2024/seoul-declaration-for-safe-innovative-and-inclusive-ai-by-participants-attending-the-leaders-session-ai-seoul-summit-21-may-2024
+    published: 2024-05-21
+    accessed: 2026-11-18
+    origin: outside
+    type: government
+    language: en
+  - id: cleary-coe-2024
+    title: The EU, UK and US sign international treaty addressing risks of AI
+    publisher: Cleary Gottlieb
+    url: https://www.clearygottlieb.com/news-and-insights/publication-listing/the-eu-uk-and-us-sign-international-treaty-addressing-risks-of-ai
+    published: 2024-09-19
+    accessed: 2026-11-18
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing.
+  - id: gov-one-year-on-2026
+    title: "AI Opportunities Action Plan: One Year On"
+    publisher: Department for Science, Innovation and Technology (UK)
+    url: https://www.gov.uk/government/publications/ai-opportunities-action-plan-one-year-on/ai-opportunities-action-plan-one-year-on
+    published: 2026-01-29
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+  - id: gov-regulation-response-2024
+    title: "A pro-innovation approach to AI regulation: government response"
+    publisher: Department for Science, Innovation and Technology (UK)
+    url: https://www.gov.uk/government/consultations/ai-regulation-a-pro-innovation-approach-policy-proposals/outcome/a-pro-innovation-approach-to-ai-regulation-government-response
+    published: 2024-02-06
+    accessed: 2026-11-18
+    origin: outside
+    type: government
+    language: en
+  - id: nist-caisi-2026
+    title: CAISI Signs Agreements Regarding Frontier AI National Security Testing With Google DeepMind, Microsoft and xAI
+    publisher: National Institute of Standards and Technology (US)
+    url: https://content.govdelivery.com/accounts/USNIST/bulletins/415cadf
+    published: 2026-05-05
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+    note: NIST's email bulletin of the announcement; the address on nist.gov no longer loads.
+  - id: nextgov-bills-2026
+    title: Congress returns to slew of cyber deadlines and unfinished AI safety bills
+    publisher: Nextgov/FCW
+    url: https://www.nextgov.com/cybersecurity/2026/11/congress-returns-slew-cyber-deadlines-and-unfinished-ai-safety-bills/417123/
+    published: 2026-11-09
+    accessed: 2026-11-18
+    origin: outside
+    type: journalism
+    language: en
+  - id: fpf-sb53-2025
+    title: "California's SB 53: The First Frontier AI Law, Explained"
+    publisher: Future of Privacy Forum
+    url: https://fpf.org/blog/californias-sb-53-the-first-frontier-ai-law-explained/
+    published: 2025-10-03
+    accessed: 2026-11-18
+    origin: outside
+    type: civil_society
+    language: en
+  - id: kpbs-ca-openai-2026
+    title: California sues OpenAI over hacking risks
+    publisher: NPR
+    url: https://www.kpbs.org/news/science-technology/2026/11/16/california-sues-openai-over-hacking-risks
+    published: 2026-11-16
+    accessed: 2026-11-18
+    origin: outside
+    type: journalism
+    language: en
+    via: Republished by KPBS
+  - id: skadden-colorado-2026
+    title: Colorado Repeals and Replaces Its AI Act
+    publisher: Skadden, Arps, Slate, Meagher & Flom
+    url: https://www.skadden.com/insights/publications/2026/06/colorado-repeals-and-replaces-its-ai-act
+    published: 2026-06-09
+    accessed: 2026-11-18
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing.
+  - id: cooley-korea-2026
+    title: "South Korea's AI Basic Act: Overview and Key Takeaways"
+    publisher: Cooley
+    url: https://www.cooley.com/news/insight/2026/2026-01-27-south-koreas-ai-basic-act-overview-and-key-takeaways
+    published: 2026-01-27
+    accessed: 2026-11-18
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing.
+  # Contacts: organisations' own pages
+  - id: algorithmwatch-home
+    title: AlgorithmWatch
+    publisher: AlgorithmWatch
+    url: https://algorithmwatch.org/en/
+    accessed: 2026-11-19
+    origin: inside
+    type: civil_society
+    language: en
+  - id: cdt-europe-about
+    title: CDT Europe
+    publisher: Center for Democracy & Technology Europe
+    url: https://cdt.org/cdt-europe/
+    accessed: 2026-11-19
+    origin: inside
+    type: civil_society
+    language: en
+  - id: cesia-about
+    title: About us
+    publisher: CeSIA (Centre pour la Sécurité de l'IA)
+    url: https://cesia.org/en/qui-sommes-nous
+    accessed: 2026-11-19
+    origin: inside
+    type: civil_society
+    language: en
+  - id: ellis-about
+    title: About ELLIS
+    publisher: European Laboratory for Learning and Intelligent Systems (ELLIS)
+    url: https://ellis.eu/about
+    accessed: 2026-11-19
+    origin: inside
+    type: academic
+    language: en
+  - id: edri-about
+    title: "AI Omnibus: reject the proposals to undermine transparency in the AI Act"
+    publisher: European Digital Rights (EDRi)
+    url: https://edri.org/our-work/ai-omnibus-reject-the-proposals-to-undermine-transparency-in-the-ai-act/
+    accessed: 2026-11-19
+    origin: inside
+    type: civil_society
+    language: en
+    note: The organisation's description of itself appears on this page.
+  - id: tfs-about
+    title: Research and insights
+    publisher: The Future Society
+    url: https://thefuturesociety.org/research-and-insights/
+    accessed: 2026-11-19
+    origin: outside
+    type: civil_society
+    language: en
