@@ -287,7 +287,7 @@ export const Profile = z
         meta: SectionMeta,
         framework: PrincipleFramework,
         intro: z.array(Statement).default([]),
-        items: z.array(Principle).min(3).max(10),
+        items: z.array(Principle).min(3).max(12), // up to twelve, so a full national set such as the UAE Charter fits
       })
       .strict()
       .optional(),
