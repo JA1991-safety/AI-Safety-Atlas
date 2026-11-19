@@ -1,0 +1,1012 @@
+# United Arab Emirates: area profile
+# Status: DRAFT, researched by Claude on 19 November 2026, awaiting editor review.
+# Every statement cites one or more sources from the list at the bottom of this file.
+# Direct quotes were copied from the source pages on the access date.
+# Sources from the federal and emirate governments, their agencies, and organisations and media based
+# in the UAE count as "inside".
+# The principles section uses the UAE Charter for the Development and Use of Artificial Intelligence
+# (July 2024), the country's own published set, in line with the decision of 18 Nov 2026. The Charter
+# has twelve principles, all shown.
+
+code: AE
+name: United Arab Emirates
+status: draft
+last_reviewed: 2026-11-19
+editor_approved: false
+reviewers: []
+
+summary:
+  overview:
+    - text: >-
+        The UAE has no standalone federal AI law. In June 2026 it announced a Federal Authority for
+        Artificial Intelligence and Data, reporting to the Cabinet; lawyers say it is not yet clear whether
+        it will have rule-making or enforcement powers.
+      sources: [tamimi-authority-2026, morganlewis-authority-2026]
+    - text: >-
+        AI is guided by the UAE Charter for the Development and Use of AI (2024), which sets out twelve
+        principles including safety, human oversight and transparency, and by the national AI strategy for
+        2031. Data protection law and free-zone rules on automated decisions apply to AI using personal data.
+      sources: [charter-pdf, twobirds-tracker]
+    - text: >-
+        The government is moving public services to AI agents. The minister responsible for AI says agents
+        will not make decisions affecting people's livelihoods, and every agent's actions will be logged.
+      sources: [kt-olama-agents-2026, dubai-mediaoffice-2026]
+    - text: >-
+        Use of AI is very high and so is trust in current rules. In a KPMG study, 97% of UAE residents said
+        they used AI and 68% said current regulations were sufficient to ensure safe AI use.
+      sources: [kpmg-trust-2025]
+  regulation_line:
+    text: >-
+      No standalone AI law: a non-binding national AI charter, data protection law, and a new federal
+      authority for AI and data whose powers are still being defined.
+    sources: [tamimi-authority-2026, charter-pdf]
+
+facets:
+  regulatory_approach: voluntary_guidance
+  safety_institute:
+    status: "no"
+    sources: [twobirds-tracker, kt-albannai-2026]
+  frontier_developers:
+    status: "no"
+    note: >-
+      We found no developer of frontier AI models based in the UAE in our sources. The Technology
+      Innovation Institute develops the open-source Falcon models, and MBZUAI's Institute of Foundation
+      Models builds the K2 and JAIS models, which it describes as "frontier-class".
+    sources: [tii-falcon-2025, mbzuai-ifm-2025]
+  national_polling: international_only
+  commitments:
+    - key: bletchley_declaration
+      status: signed
+      date: 2023-11-01
+      sources: [gov-bletchley-2023]
+    - key: seoul_declaration
+      status: not_signed
+      sources: [gov-seoul-2024]
+    - key: paris_statement
+      status: not_signed
+      sources: [elysee-paris-2025]
+
+attitudes:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: limited
+    review: draft
+    gaps: >-
+      We found no survey of attitudes to AI run by a UAE public body. The KPMG figures are from a press
+      release about the University of Melbourne and KPMG study, without fieldwork dates or sample size.
+      The BCG figures are reported by The National. A worker survey reporting that 67% fear AI could
+      replace jobs does not name its sponsor, so it is not used. Survey wording differs, so figures from
+      different polls should not be compared directly.
+  headline_figures:
+    - value: "68%"
+      label: >-
+        say current regulations are sufficient to ensure safe AI use (global average 43%)
+      fieldwork: Not stated
+      sample: UAE respondents to the University of Melbourne and KPMG study of trust in AI, reported by KPMG Lower Gulf
+      source: kpmg-trust-2025
+    - value: "53%"
+      label: >-
+        say AI's benefits outweigh its risks (global 36%)
+      fieldwork: Not stated
+      sample: UAE respondents to Boston Consulting Group's survey of citizens on digital government, reported by The National
+      source: thenational-bcg-2026
+  statements:
+    - text: >-
+        In the KPMG study, 84% said they would be more willing to trust AI systems if assured they were
+        used in a trustworthy way. 73% said they felt cautious about online content because AI might have
+        been used, and 36% were unsure they could identify AI misinformation.
+      sources: [kpmg-trust-2025]
+    - text: >-
+        86% agreed that news and social media companies must make sure people can detect AI-generated
+        content.
+      sources: [kpmg-trust-2025]
+
+regulation:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      We did not find the legal instrument that set up the Federal Authority for Artificial Intelligence
+      and Data, or a start date; it is described from two law firm briefings. Emirate-level rules other
+      than those of the DIFC and ADGM free zones are not covered.
+  items:
+    - kind: institution
+      title: Federal Authority for Artificial Intelligence and Data
+      date: 2026-06-14
+      status: Announced on 14 June 2026; powers and start date not yet published
+      text: >-
+        Brings together the UAE AI Office, the digital government sector of the telecommunications
+        regulator (TDRA) and the UAE Data Office, reporting to the Cabinet. Its role includes policy,
+        proposing legislation, setting standards and checking compliance across federal bodies. Al Tamimi
+        notes it is unclear "whether it will have rulemaking, supervisory or enforcement powers".
+      sources: [morganlewis-authority-2026, tamimi-authority-2026]
+    - kind: guidance
+      title: UAE Charter for the Development and Use of Artificial Intelligence
+      date: 2024-07
+      status: Published by the government; described as "a guiding framework"
+      text: >-
+        Sets out twelve principles, including safety, addressing algorithmic bias, data privacy,
+        transparency, human oversight, and governance and accountability. Its stated aim is to "protect
+        the rights of the UAE community in the development or use of AI solutions and technologies."
+      sources: [charter-pdf, uae-charter-page]
+    - kind: law
+      title: Personal Data Protection Law (Federal Decree-Law No. 45 of 2021)
+      date: 2022-01-02
+      status: In force; its executive regulations have not been issued
+      text: >-
+        Applies to AI that processes personal data and defines automated processing, but does not address
+        AI specifically. Morgan Lewis notes that "no supervisory authority has been unambiguously designated
+        for private sector oversight". The Cybercrime Law, Penal Code and Civil Transactions Law also apply
+        to uses of AI.
+      sources: [twobirds-tracker, tamimi-authority-2026, morganlewis-authority-2026]
+    - kind: law
+      title: Free-zone data protection rules (DIFC and ADGM)
+      date: "2021"
+      status: In force in the two financial free zones
+      text: >-
+        Regulation 10 of DIFC Data Protection Law No. 5 of 2020 and Section 20 of the ADGM Data Protection
+        Regulations 2021 give rights relating to automated decision-making and profiling.
+      sources: [twobirds-tracker]
+    - kind: strategy
+      title: UAE National Strategy for Artificial Intelligence 2031
+      date: "2017"
+      status: In place
+      text: >-
+        Launched in 2017 with a 2031 horizon. Supporting guidance includes non-binding AI ethics guidelines,
+        AI procurement guidelines and a guide on deepfakes.
+      sources: [twobirds-tracker]
+    - kind: international
+      title: International agreements
+      date: 2026-11-10
+      status: See filters
+      text: >-
+        The UAE signed the 2023 Bletchley Declaration. It was not among the participants in the Seoul
+        Declaration in May 2024 and did not sign the Paris AI Action Summit statement in February 2025. In
+        November 2026 it joined the Children First Declaration, which includes the aim that AI should be
+        tested before it reaches children.
+      sources: [gov-bletchley-2023, gov-seoul-2024, elysee-paris-2025, thenational-children-2026]
+
+culture:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      No local reviewer yet. All sources are in English; debate in Arabic is not covered. Many sources are
+      government statements or state-linked media.
+  summary:
+    - text: >-
+        Officials present AI as central to the economy and to government, and warn against letting
+        regulation overshadow its benefits. They say people should be trained to use AI rather than be
+        replaced by it.
+      sources: [kt-olama-regulation-2026, dubai-mediaoffice-2026]
+    - text: >-
+        Officials also talk about limits and checks. The minister responsible for AI has said agents will
+        not make decisions on livelihoods, and a senior adviser has called for independent safety reviews
+        of AI models rather than leaving developers to declare them safe.
+      sources: [kt-olama-agents-2026, kt-albannai-2026]
+    - text: >-
+        Large agreements with AI companies and data centre investments have prompted calls for human
+        supervision and the ability to challenge automated decisions as AI is rolled out.
+      sources: [thenational-editorial-2026, channelpost-dcw-2026]
+    - text: >-
+        Trust in AI and in current rules is higher than the global average in the surveys reported.
+      sources: [kpmg-trust-2025, thenational-bcg-2026]
+  own_words:
+    - quote: "We don't think that human life or human livelihood is something that has a dollar figure value to it."
+      speaker: Omar Sultan Al Olama
+      role: Minister of State for Artificial Intelligence, Digital Economy and Remote Work Applications
+      date: 2026-10-14
+      source: kt-olama-agents-2026
+      voice: government
+    - quote: "Don't stop innovating. Take calculated risks. Don't just take risks,"
+      speaker: Omar Sultan Al Olama
+      role: Minister of State for Artificial Intelligence, Digital Economy and Remote Work Applications
+      date: 2026-09-21
+      source: kt-olama-regulation-2026
+      voice: government
+    - quote: "Will it cover all corner cases? No. It's better than nothing,"
+      speaker: Faisal Al Bannai
+      role: Secretary General, Advanced Technology Research Council, on independent reviews of AI safety
+      date: 2026-10-06
+      source: kt-albannai-2026
+      voice: government
+    - quote: "Data centers are now critical national infrastructure"
+      speaker: Mohamed Al Kuwaiti
+      role: Head of Cyber Security for the UAE Government
+      date: 2026-11-17
+      source: channelpost-dcw-2026
+      voice: government
+    - quote: "From the outset, Abu Dhabi has focused on advancing AI research that is safe, transparent and sovereign by design,"
+      speaker: Ray O Johnson
+      role: Chief executive, Technology Innovation Institute
+      source: cw-abudhabi
+      voice: safety_research
+    - quote: "Meaningful human supervision should remain embedded throughout the rollout of these systems"
+      speaker: The National
+      role: Editorial, on Abu Dhabi's agreements with OpenAI
+      date: 2026-11-03
+      source: thenational-editorial-2026
+      voice: civil_society
+    - quote: "there is also strong public support for appropriate AI regulation."
+      speaker: Matin Jouzdani
+      role: Partner, Data, Analytics and AI, KPMG Lower Gulf
+      date: 2025-10-09
+      source: kpmg-trust-2025
+      voice: industry
+  outside_analysis:
+    - text: >-
+        Lawyers at Bird & Bird note that "The UAE does not have a specific, standalone legislation
+        exclusively regulating artificial intelligence (AI)", and that the AI ethics guidelines are
+        non-binding.
+      sources: [twobirds-tracker]
+
+news:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+  items:
+    - id: children-first
+      headline: UAE joins the Children First Declaration
+      date: 2026-11-10
+      kind: development
+      summary: >-
+        The UAE was among dozens of countries to join the declaration, promoted by France ahead of the
+        Paris Peace Forum's Child Summit. Emmanuel Macron said its aim is that "no AI should be placed in
+        the hands of children without first being tested, evaluated and therefore authorised".
+      why_it_matters: >-
+        It is the UAE's most recent international commitment touching on AI safety.
+      sources: [thenational-children-2026]
+      topics: [children, international]
+    - id: agent-control
+      headline: Minister says AI agents will not decide on livelihoods in government
+      date: 2026-10-14
+      kind: development
+      summary: >-
+        Omar Sultan Al Olama said the government aims for AI agents to deliver half of federal services
+        within two years, but that about 30% of services are excluded, and that every agent must connect to
+        an "agent control tower" where its actions are logged and audited.
+      why_it_matters: >-
+        It sets out how the government plans to oversee AI agents in public services.
+      sources: [kt-olama-agents-2026]
+      topics: [AI agents, government, human oversight]
+    - id: independent-checks
+      headline: Senior adviser calls for independent AI safety reviews
+      date: 2026-10-06
+      kind: development
+      summary: >-
+        Faisal Al Bannai said developers should not be solely responsible for declaring their models safe,
+        and called for independent reviews and common benchmarks. He said the Technology Innovation
+        Institute is building safeguards for AI agents.
+      why_it_matters: >-
+        It is one of the clearest statements by a UAE official in favour of independent testing of AI.
+      sources: [kt-albannai-2026]
+      topics: [testing, AI agents]
+    - id: federal-authority
+      headline: UAE announces a Federal Authority for AI and Data
+      date: 2026-06-14
+      kind: foundational
+      summary: >-
+        The new authority brings together the AI Office, the UAE Data Office and the digital government
+        sector of TDRA, reporting to the Cabinet.
+      why_it_matters: >-
+        It could become the main body for AI rules in the UAE, depending on the powers it is given.
+      sources: [morganlewis-authority-2026, tamimi-authority-2026]
+      topics: [regulator, governance]
+    - id: charter
+      headline: UAE publishes its Charter for the Development and Use of AI
+      date: 2024-07
+      kind: foundational
+      summary: >-
+        The Charter sets out twelve principles, from safety and human oversight to compliance with
+        international treaties and local laws.
+      why_it_matters: >-
+        It is the government's main statement of principles for AI.
+      sources: [charter-pdf]
+      topics: [principles]
+    - id: ai-for-development
+      headline: Demand exceeds $1 billion for UAE financing of AI projects in Africa
+      date: 2026-11-19
+      kind: development
+      stream: ai
+      summary: >-
+        The Abu Dhabi Exports Office said demand from UAE exporters under its AI for Development Initiative
+        in Africa already exceeds the amount earmarked, with financing lent directly to African governments.
+      why_it_matters: >-
+        UAE-built AI systems are being deployed in other countries' public services.
+      sources: [gulfnews-adex-2026]
+      topics: [international, investment]
+    - id: city-ai-agent
+      headline: Dubai approves a "City AI Agent" initiative for government
+      date: 2026-11-18
+      kind: development
+      stream: ai
+      summary: >-
+        At Dubai Future Week, Hamdan bin Mohammed approved an initiative to use agentic AI across Dubai's
+        government, and launched AI agents for human resources, finance and procurement in government
+        bodies.
+      why_it_matters: >-
+        Wide use of AI agents in government raises questions about oversight and accountability.
+      sources: [dubai-mediaoffice-2026]
+      topics: [AI agents, government]
+    - id: data-centres
+      headline: Data centre conference stresses security of AI infrastructure
+      date: 2026-11-17
+      kind: development
+      stream: ai
+      summary: >-
+        At Data Center World Middle East in Abu Dhabi, the head of cyber security for the UAE Government
+        described data centres as critical national infrastructure.
+      why_it_matters: >-
+        The security of computing infrastructure affects the safety of the AI systems that run on it.
+      sources: [channelpost-dcw-2026]
+      topics: [data centres, cybersecurity]
+    - id: openai-abu-dhabi
+      headline: Abu Dhabi signs agreements with OpenAI
+      date: 2026-11-03
+      kind: development
+      stream: ai
+      summary: >-
+        Abu Dhabi signed agreements with OpenAI covering sectors including energy and government. ADNOC
+        signed with OpenAI and G42, and a "Machine-Readable Government" project aims to translate policies
+        into a form AI systems can check against.
+      why_it_matters: >-
+        Using AI to apply government rules raises questions about human supervision and how decisions can
+        be challenged, as The National's editorial notes.
+      sources: [thenational-editorial-2026]
+      topics: [government, companies]
+    - id: bcg-survey
+      headline: Survey finds UAE citizens among the most positive about digital government
+      date: 2026-10-06
+      kind: development
+      stream: ai
+      summary: >-
+        In BCG's survey of citizens on digital government, UAE respondents were more likely than the
+        global average to say AI's benefits outweigh its risks.
+      why_it_matters: >-
+        Public acceptance shapes how quickly AI is introduced into government services.
+      sources: [thenational-bcg-2026]
+      topics: [public attitudes, government]
+    - id: mbzuai-ifm
+      headline: MBZUAI launches an Institute of Foundation Models
+      date: 2025-05-23
+      kind: foundational
+      stream: ai
+      summary: >-
+        The university's institute, with labs in Abu Dhabi, Paris and Silicon Valley, builds the K2 and
+        JAIS language models and the PAN world model.
+      why_it_matters: >-
+        It is one of the main sources of AI models developed in the UAE.
+      sources: [mbzuai-ifm-2025]
+      topics: [models, research]
+
+principles:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: limited
+    review: draft
+    gaps: >-
+      The Charter's principle descriptions are paraphrased, with short quotes. We found no published
+      evidence on how well the Charter is followed.
+  framework:
+    name: the UAE Charter for the Development and Use of Artificial Intelligence
+    nav: UAE AI Charter
+    basis: own
+    about:
+      text: >-
+        The Charter, published in July 2024, describes itself as "a guiding framework" that aims to achieve
+        the goals of the UAE's AI strategy. All twelve of its principles are shown below, in the Charter's
+        order.
+      sources: [charter-pdf, uae-charter-page]
+  intro:
+    - text: >-
+        The UAE has no standalone AI law. Data protection law and free-zone rules back some principles where
+        AI uses personal data; the others rest on the Charter, guidelines and government policy.
+      sources: [tamimi-authority-2026, twobirds-tracker]
+    - text: >-
+        Below, each principle is shown with what it asks, how far the law backs it, the bodies and tools that
+        carry it today, and evidence on how it works in practice.
+      sources: [charter-pdf]
+  items:
+    - key: ties
+      name: Strengthening Human-Machine Ties
+      short: Human-AI ties
+      asks:
+        text: >-
+          The relationship between people and AI should be harmonious and beneficial, with all AI developments
+          putting human well-being and progress first.
+        sources: [charter-pdf]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          Set out in the Charter; we found no law that gives it effect.
+        sources: [charter-pdf, tamimi-authority-2026]
+      how_it_works:
+        - text: >-
+            Dubai has approved an initiative to use AI agents across its government, and has launched agents
+            for human resources, finance and procurement in government bodies.
+          sources: [dubai-mediaoffice-2026]
+      regulators: [Federal Authority for Artificial Intelligence and Data]
+
+    - key: safety
+      name: Safety
+      short: Safety
+      asks:
+        text: >-
+          AI systems should meet the highest safety standards. "The country encourages modifying or removing
+          systems that pose risks."
+        sources: [charter-pdf]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          We found no binding duty on the safety of AI systems; there is no standalone AI law.
+        sources: [tamimi-authority-2026]
+      how_it_works:
+        - text: >-
+            The Technology Innovation Institute is building safeguards for AI agents, and a senior adviser has
+            called for independent reviews and common benchmarks for AI safety.
+          sources: [kt-albannai-2026]
+        - text: >-
+            Through the Children First Declaration, the UAE has backed the aim that AI is tested before it
+            reaches children.
+          sources: [thenational-children-2026]
+      regulators: [Federal Authority for Artificial Intelligence and Data]
+
+    - key: bias
+      name: Algorithmic Bias
+      short: Algorithmic bias
+      asks:
+        text: >-
+          Bias in AI should be addressed so that AI provides a fair, equitable and inclusive environment,
+          without exclusion or discrimination.
+        sources: [charter-pdf]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          Fairness is set out in non-binding AI ethics guidelines. We found no AI-specific duty on bias in force.
+        sources: [twobirds-tracker]
+      how_it_works:
+        - text: >-
+            The UAE's AI ethics guidelines include fairness among their principles.
+          sources: [twobirds-tracker]
+      regulators: [Federal Authority for Artificial Intelligence and Data]
+
+    - key: privacy
+      name: Data Privacy
+      short: Data privacy
+      asks:
+        text: >-
+          The privacy of members of the community should be a top priority, while data supports AI
+          innovation.
+        sources: [charter-pdf]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          The Personal Data Protection Law applies to AI that processes personal data, but its executive
+          regulations have not been issued and no regulator has been clearly named for the private sector.
+        sources: [tamimi-authority-2026, morganlewis-authority-2026]
+      how_it_works:
+        - text: >-
+            The DIFC and ADGM free zones have their own data protection laws, including rights relating to
+            automated decision-making.
+          sources: [twobirds-tracker]
+      regulators: [DIFC and ADGM free zones]
+
+    - key: transparency
+      name: Transparency
+      short: Transparency
+      asks:
+        text: >-
+          It should be clear how AI systems operate and make decisions, to build trust and accountability.
+        sources: [charter-pdf]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          Transparency is set out in non-binding guidelines. We found no binding duty to disclose the use of
+          AI.
+        sources: [twobirds-tracker]
+      how_it_works:
+        - text: >-
+            The government has published a guide on deepfakes alongside its AI ethics guidelines.
+          sources: [twobirds-tracker]
+      regulators: [Federal Authority for Artificial Intelligence and Data]
+      evidence:
+        - text: >-
+            In the KPMG study, most UAE respondents said media and social media companies must make sure
+            people can detect AI-generated content.
+          sources: [kpmg-trust-2025]
+
+    - key: oversight
+      name: Human Oversight
+      short: Human oversight
+      asks:
+        text: >-
+          Human judgement and oversight of AI are irreplaceable, so that errors or biases can be corrected.
+        sources: [charter-pdf]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          The DIFC and ADGM data protection rules give rights relating to automated decisions in those free
+          zones. Elsewhere, oversight rests on government policy.
+        sources: [twobirds-tracker]
+      how_it_works:
+        - text: >-
+            The minister responsible for AI says government AI agents will not make decisions on livelihoods,
+            and every agent's actions will be logged in an "agent control tower" and audited.
+          sources: [kt-olama-agents-2026]
+      regulators: [DIFC and ADGM free zones]
+
+    - key: accountability
+      name: Governance and Accountability
+      short: Accountability
+      asks:
+        text: >-
+          A responsible, proactive approach to governance and accountability, so that AI is used ethically
+          and transparently.
+        sources: [charter-pdf]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          The new federal authority will set standards for federal bodies; whether it will have powers over
+          companies is not yet clear.
+        sources: [tamimi-authority-2026, morganlewis-authority-2026]
+      how_it_works:
+        - text: >-
+            The Federal Authority for Artificial Intelligence and Data, announced in June 2026, reports to the
+            Cabinet and checks compliance across federal bodies.
+          sources: [morganlewis-authority-2026]
+      regulators: [Federal Authority for Artificial Intelligence and Data]
+
+    - key: excellence
+      name: Technological Excellence
+      short: Excellence
+      asks:
+        text: >-
+          AI should reflect the UAE's aim of digital, technological and scientific excellence, driving
+          innovation and competitiveness and improving quality of life.
+        sources: [charter-pdf]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          A policy aim of the Charter and the national AI strategy, not a legal duty.
+        sources: [charter-pdf, twobirds-tracker]
+      how_it_works:
+        - text: >-
+            AI models are developed in the UAE by the Technology Innovation Institute (Falcon) and by MBZUAI's
+            Institute of Foundation Models (K2 and JAIS).
+          sources: [tii-falcon-2025, mbzuai-ifm-2025]
+      regulators: []
+
+    - key: rights
+      name: Human Commitment
+      short: Human commitment
+      asks:
+        text: >-
+          Human values and fundamental rights should be at the heart of AI, serving the public good.
+        sources: [charter-pdf]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          Set out in the Charter, which describes itself as "a guiding framework".
+        sources: [charter-pdf]
+      how_it_works:
+        - text: >-
+            The minister responsible for AI has said AI will not replace human service in some areas, such as
+            airports.
+          sources: [kt-olama-regulation-2026]
+      regulators: [Federal Authority for Artificial Intelligence and Data]
+
+    - key: coexistence
+      name: Peaceful Coexistence with AI
+      short: Coexistence
+      asks:
+        text: >-
+          AI should advance well-being "without compromising human security or fundamental rights."
+        sources: [charter-pdf]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          Set out in the Charter, which is not law.
+        sources: [charter-pdf]
+      how_it_works:
+        - text: >-
+            The head of cyber security for the UAE Government describes data centres as critical national
+            infrastructure.
+          sources: [channelpost-dcw-2026]
+      regulators: [UAE Cyber Security Council]
+
+    - key: inclusion
+      name: Promoting AI Awareness for an Inclusive Future
+      short: Inclusion
+      asks:
+        text: >-
+          All parts of society should have fair access to the benefits of AI.
+        sources: [charter-pdf]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          Set out in the Charter and the national AI strategy, which are not law.
+        sources: [charter-pdf, twobirds-tracker]
+      how_it_works:
+        - text: >-
+            The minister responsible for AI says the aim is to educate people to become "wielders of the
+            technology".
+          sources: [kt-olama-regulation-2026]
+      regulators: [Federal Authority for Artificial Intelligence and Data]
+      evidence:
+        - text: >-
+            In the KPMG study, almost all UAE residents surveyed said they used AI.
+          sources: [kpmg-trust-2025]
+
+    - key: law
+      name: Commitment to Treaties and Applicable Laws
+      short: Treaties and laws
+      asks:
+        text: >-
+          AI should be developed and used "complying with international treaties and local laws in the
+          development and use of AI."
+        sources: [charter-pdf]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          Existing laws, including the Cybercrime Law, the Penal Code and the Civil Transactions Law, apply to
+          uses of AI, but none is specific to AI.
+        sources: [tamimi-authority-2026]
+      how_it_works:
+        - text: >-
+            The UAE has signed the Bletchley Declaration and the Children First Declaration.
+          sources: [gov-bletchley-2023, thenational-children-2026]
+      regulators: [Federal Authority for Artificial Intelligence and Data]
+
+areas_for_improvement:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      Each area is one that a named source has identified. The new authority's powers had not been
+      published when checked.
+  intro:
+    - text: >-
+        The UAE has a national AI charter, data protection law and a new federal authority for AI and data.
+        Lawyers, officials and commentators point to areas where these could be strengthened.
+      sources: [charter-pdf, tamimi-authority-2026, kt-albannai-2026, thenational-editorial-2026]
+  items:
+    - id: authority-powers
+      title: Clear legal powers for AI oversight
+      kind: legal_power
+      principles: [safety, accountability]
+      in_place:
+        text: >-
+          A Federal Authority for Artificial Intelligence and Data was announced in June 2026. There is no
+          standalone federal AI law.
+        sources: [morganlewis-authority-2026, tamimi-authority-2026]
+      identified:
+        text: >-
+          Al Tamimi notes that it is unclear whether the authority will have rule-making, supervisory or
+          enforcement powers.
+        sources: [tamimi-authority-2026]
+      elsewhere:
+        - text: >-
+            A general AI law that sorts AI systems by risk, with duties for high-risk systems and for
+            general-purpose AI models.
+          used_in: [EU]
+          sources: [ec-ai-act-page]
+
+    - id: data-protection-oversight
+      title: Oversight of personal data used in AI
+      kind: capacity
+      principles: [privacy, oversight]
+      in_place:
+        text: >-
+          The Personal Data Protection Law has been in force since January 2022, and the DIFC and ADGM free
+          zones have their own regimes.
+        sources: [tamimi-authority-2026, twobirds-tracker]
+      identified:
+        text: >-
+          The law's executive regulations have not been issued, and Morgan Lewis notes that no authority has
+          been clearly designated to oversee the private sector.
+        sources: [tamimi-authority-2026, morganlewis-authority-2026]
+      elsewhere: []
+
+    - id: independent-testing
+      title: Independent testing of AI models
+      kind: technical
+      principles: [safety]
+      in_place:
+        text: >-
+          The UAE has no AI safety institute. The Technology Innovation Institute is building safeguards for
+          AI agents.
+        sources: [twobirds-tracker, kt-albannai-2026]
+      identified:
+        text: >-
+          Faisal Al Bannai has said developers should not be solely responsible for declaring their models
+          safe, and called for independent reviews, common benchmarks and evolving standards.
+        sources: [kt-albannai-2026]
+      elsewhere:
+        - text: >-
+            An AI safety and standards centre of excellence with a proposed AI research and testing lab,
+            launched in October 2026.
+          used_in: [Eswatini]
+          sources: [standard-eswatini-2026]
+
+    - id: challenge-decisions
+      title: Challenging decisions made with AI
+      kind: redress
+      principles: [oversight, accountability]
+      in_place:
+        text: >-
+          Government AI agents are to be logged and audited, and are not to make decisions on livelihoods.
+          Rights on automated decisions exist in the DIFC and ADGM free zones.
+        sources: [kt-olama-agents-2026, twobirds-tracker]
+      identified:
+        text: >-
+          The National's editorial board has called for meaningful human supervision and the ability to
+          challenge automated decisions as AI is rolled out in government.
+        sources: [thenational-editorial-2026]
+      elsewhere: []
+
+contacts:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: limited
+    review: draft
+    gaps: >-
+      A starting list. We found no independent civil society organisation working on AI safety in the UAE
+      in our sources. The Technology Innovation Institute is not listed because it develops AI models.
+  items:
+    - name: UAE Artificial Intelligence Office
+      type: government
+      url: https://ai.gov.ae/
+      about:
+        text: >-
+          Publishes the UAE Charter for the Development and Use of AI. It is being brought into the new
+          Federal Authority for Artificial Intelligence and Data.
+        sources: [charter-pdf, tamimi-authority-2026]
+    - name: Digital Dubai
+      type: government
+      url: https://www.digitaldubai.ae/
+      based: Dubai
+      about:
+        text: >-
+          The Dubai government body leading digital and AI initiatives across Dubai's government.
+        sources: [dubai-mediaoffice-2026]
+    - name: Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)
+      type: university
+      url: https://mbzuai.ac.ae/
+      based: Abu Dhabi
+      about:
+        text: >-
+          A university dedicated to AI, whose Institute of Foundation Models has labs in Abu Dhabi, Paris and
+          Silicon Valley.
+        sources: [mbzuai-ifm-2025]
+
+sources:
+  # UAE government and agencies
+  - id: charter-pdf
+    title: The UAE Charter for the Development & Use of Artificial Intelligence
+    publisher: UAE Artificial Intelligence Office (ai.gov.ae)
+    url: https://ai.gov.ae/wp-content/uploads/2024/07/UAEAI-Methaq-EN2-3.pdf
+    published: 2024-07
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+  - id: uae-charter-page
+    title: The UAE Charter for the Development and Use of Artificial Intelligence
+    publisher: The Official Platform of the UAE Government (u.ae)
+    url: https://u.ae/en/about-the-uae/strategies-initiatives-and-awards/policies/Ai/The-UAE-Charter-for-the-Development-and-Use-of-Artificial-Intelligence
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+    note: Page updated 3 July 2026.
+  - id: dubai-mediaoffice-2026
+    title: Hamdan bin Mohammed attends Dubai Future Week 2026, approves 'City AI Agent' initiative
+    publisher: Government of Dubai Media Office
+    url: https://mediaoffice.ae/en/news/2026/novemebr/18-11/hamdan-bin-mohammed-approves-smart-city-agent-initiative-attends-ai-challenge
+    published: 2026-11-18
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+    note: Date taken from the page address.
+  - id: tii-falcon-2025
+    title: "Inside Falcon: The UAE's open source model challenging AI giants"
+    publisher: Technology Innovation Institute (from Capacity ME)
+    url: https://www.tii.ae/node/3996
+    published: 2025-01-09
+    accessed: 2026-11-19
+    origin: inside
+    type: industry
+    language: en
+  - id: mbzuai-ifm-2025
+    title: MBZUAI Launches Institute of Foundation Models and Establishes Silicon Valley AI Lab
+    publisher: Mohamed bin Zayed University of Artificial Intelligence
+    url: https://mbzuai.ac.ae/news/mbzuai-launches-institute-of-foundation-models-and-establishes-silicon-valley-ai-lab/
+    published: 2025-05-23
+    accessed: 2026-11-19
+    origin: inside
+    type: academic
+    language: en
+  # UAE media and organisations
+  - id: tamimi-authority-2026
+    title: "UAE Establishes New Federal Authority for AI and Data: A Significant Step in the Evolution of Digital Regulation"
+    publisher: Al Tamimi & Company
+    url: https://www.tamimi.com/law_update_articles/uae-establishes-new-federal-authority-for-ai-and-data-a-significant-step-in-the-evolution-of-digital-regulation/
+    published: 2026-09-01
+    accessed: 2026-11-19
+    origin: inside
+    type: industry
+    language: en
+    note: By David Yates and Courtney Mitchell. Marked as edited on 1 September 2026.
+  - id: kt-olama-agents-2026
+    title: "'No $ sign on human life': AI not allowed to make decisions on livelihood in UAE"
+    publisher: Khaleej Times
+    url: https://www.khaleejtimes.com/uae/ai-minister-agents-jobs-livelihood-technology-control
+    published: 2026-10-14
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Waheed Abbas.
+  - id: kt-olama-regulation-2026
+    title: "Excessive focus on AI regulation can overshadow its practical benefits: UAE minister"
+    publisher: Khaleej Times
+    url: https://www.khaleejtimes.com/uae/uae-minister-ai-technonolgy-omar-sultan-al-olama
+    published: 2026-09-21
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Arwa Almazrouei.
+  - id: kt-albannai-2026
+    title: UAE official calls for independent AI safety checks amid rapid advances
+    publisher: Khaleej Times
+    url: https://www.khaleejtimes.com/uae/uae-official-independent-ai-safety-checks-global-advancement
+    published: 2026-10-06
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Ahmed Waqqas Alawlaqi.
+  - id: thenational-children-2026
+    title: UAE joins French AI safety declaration to protect children
+    publisher: The National
+    url: https://www.thenationalnews.com/news/europe/2026/11/10/uae-among-dozens-of-countries-to-sign-ai-safety-declaration-to-protect-children/
+    published: 2026-11-10
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  - id: thenational-editorial-2026
+    title: Why Abu Dhabi's AI deals have global implications
+    publisher: The National
+    url: https://www.thenationalnews.com/opinion/editorial/2026/11/03/openai-abu-dhabi-technology-governance/
+    published: 2026-11-03
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: Editorial.
+  - id: gulfnews-adex-2026
+    title: Demand tops $1 billion for UAE's AI for Development initiative in Africa, ADEX Says
+    publisher: Gulf News
+    url: https://gulfnews.com/uae/abu-dhabi/demand-tops-1-billion-for-uaes-ai-for-development-initiative-in-africa-adex-says-1.500753039
+    published: 2026-11-19
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+    note: By Hamna Iqbal. Date is the last-updated date shown.
+  - id: channelpost-dcw-2026
+    title: UAE's AI Build-Out Depends on a United Approach to Power, Security and Architecture
+    publisher: Channel Post MEA
+    url: https://channelpostmea.com/2026/11/17/uaes-ai-build-out-depends-on-a-united-approach-to-power-security-and-architecture/
+    published: 2026-11-17
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: en
+  # Polls
+  - id: kpmg-trust-2025
+    title: 97% of UAE residents now use AI, underscoring the country's role as an AI ecosystem benchmark
+    publisher: KPMG Lower Gulf
+    url: https://kpmg.com/ae/en/media/press-releases/2025/10/97-percent-of-uae-residents-now-use-ai.html
+    published: 2025-10-09
+    accessed: 2026-11-19
+    origin: inside
+    type: poll
+    language: en
+    note: Press release on the University of Melbourne and KPMG study of trust in AI.
+  - id: thenational-bcg-2026
+    title: UAE citizens 'most satisfied' globally with digital government services
+    publisher: The National
+    url: https://www.thenationalnews.com/future/technology/2026/10/06/uae-citizens-most-satisfied-globally-with-digital-government-services/
+    published: 2026-10-06
+    accessed: 2026-11-19
+    origin: inside
+    type: poll
+    language: en
+    note: By Alvin R Cabral. Reports Boston Consulting Group's survey.
+  # Outside the UAE
+  - id: morganlewis-authority-2026
+    title: UAE Establishes Federal Authority for Artificial Intelligence and Data
+    publisher: Morgan, Lewis & Bockius
+    url: https://www.morganlewis.com/pubs/2026/06/uae-establishes-federal-authority-for-artificial-intelligence-and-data
+    published: 2026-06-15
+    accessed: 2026-11-19
+    origin: outside
+    type: industry
+    language: en
+    note: By Ksenia Andreeva.
+  - id: twobirds-tracker
+    title: "AI Regulatory Horizon Tracker: UAE"
+    publisher: Bird & Bird
+    url: https://www.twobirds.com/en/capabilities/artificial-intelligence/ai-legal-services/ai-regulatory-horizon-tracker/uae
+    accessed: 2026-11-19
+    origin: outside
+    type: industry
+    language: en
+    note: No date shown; it does not mention the June 2026 authority, so it probably predates it.
+  - id: cw-abudhabi
+    title: "Falcon and beyond: Abu Dhabi's blueprint for national AI governance"
+    publisher: Computer Weekly
+    url: https://www.computerweekly.com/news/366636706/Falcon-and-beyond-Abu-Dhabis-blueprint-for-national-AI-governance
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: No date shown.
+  # International
+  - id: gov-bletchley-2023
+    title: "The Bletchley Declaration by Countries Attending the AI Safety Summit, 1-2 November 2023"
+    publisher: Prime Minister's Office, 10 Downing Street
+    url: https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023
+    published: 2023-11-01
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+  - id: gov-seoul-2024
+    title: "Seoul Declaration for safe, innovative and inclusive AI by participants attending the Leaders' Session: AI Seoul Summit, 21 May 2024"
+    publisher: Department for Science, Innovation and Technology (UK)
+    url: https://gov.uk/government/publications/seoul-declaration-for-safe-innovative-and-inclusive-ai-ai-seoul-summit-2024/seoul-declaration-for-safe-innovative-and-inclusive-ai-by-participants-attending-the-leaders-session-ai-seoul-summit-21-may-2024
+    published: 2024-05-21
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+    note: The UAE is not among the participants listed.
+  - id: elysee-paris-2025
+    title: Statement on Inclusive and Sustainable Artificial Intelligence for People and the Planet
+    publisher: Élysée (Presidency of the French Republic)
+    url: https://www.elysee.fr/en/emmanuel-macron/2025/02/11/statement-on-inclusive-and-sustainable-artificial-intelligence-for-people-and-the-planet
+    published: 2025-02-11
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+    note: The UAE is not among the signatories listed.
+  # Approaches elsewhere
+  - id: ec-ai-act-page
+    title: AI Act
+    publisher: European Commission
+    url: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+    note: Page last updated 19 October 2026.
+  - id: standard-eswatini-2026
+    title: Africa seeks control of AI safety as Eswatini launches standards centre
+    publisher: The Standard (Kenya)
+    url: https://www.standardmedia.co.ke/sports/sci-tech/2001561221/africa-seeks-control-of-ai-safety-as-eswatini-launches-standards-centre
+    published: 2026-10-30
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: By Juliet Omelo.
