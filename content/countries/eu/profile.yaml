@@ -964,14 +964,15 @@ sources:
     type: government
     language: en
   - id: futurium-hleg
-    title: Ethics Guidelines for Trustworthy AI (text of the guidelines)
+    title: Requirements of Trustworthy AI
     publisher: High-Level Expert Group on AI, European AI Alliance (European Commission)
-    url: https://ec.europa.eu/futurium/en/ai-alliance-consultation/guidelines/1
+    url: https://ec.europa.eu/futurium/en/ai-alliance-consultation/guidelines/1.html
     published: 2019-04-08
     accessed: 2026-11-19
     origin: inside
     type: government
     language: en
+    note: Chapter of the Ethics Guidelines for Trustworthy AI setting out the seven requirements, on the archived European AI Alliance site.
   - id: ec-speech-2148
     title: Speech by Executive Vice-President Virkkunen to the AI Scientific Panel (SPEECH/26/2148)
     publisher: European Commission
@@ -1338,12 +1339,13 @@ sources:
   - id: nist-caisi-2026
     title: CAISI Signs Agreements Regarding Frontier AI National Security Testing With Google DeepMind, Microsoft and xAI
     publisher: National Institute of Standards and Technology (US)
-    url: https://www.nist.gov/node/1911491
+    url: https://content.govdelivery.com/accounts/USNIST/bulletins/415cadf
     published: 2026-05-05
-    accessed: 2026-11-18
+    accessed: 2026-11-19
     origin: outside
     type: government
     language: en
+    note: NIST's email bulletin of the announcement; the address on nist.gov no longer loads.
   - id: nextgov-bills-2026
     title: Congress returns to slew of cyber deadlines and unfinished AI safety bills
     publisher: Nextgov/FCW
