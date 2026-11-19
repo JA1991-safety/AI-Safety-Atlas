@@ -4,11 +4,9 @@
 # Direct quotes were copied from the source pages on the access date.
 # Sources from the Government of Nigeria, its agencies, and organisations and media based in Nigeria
 # count as "inside".
-# The principles section uses the OECD AI Principles for now. NITDA says the National AI Strategy
-# (September 2025) is built on five guiding principles, but we found no published definition of them,
-# and the principles in the August 2024 draft could not be read in full (see the gaps note in the
-# principles section). The editor may prefer to switch to the strategy's own principles once they have
-# been checked, in line with the decision of 18 Nov 2026 to use each country's own principles.
+# The principles section uses the ten guiding principles of the National AI Strategy (September 2025),
+# the country's own published set, in line with the decision of 18 Nov 2026. The principles pages were
+# read through a summary only, so descriptions are paraphrased and should be checked against pp. 28-29.
 
 code: NG
 name: Nigeria
@@ -435,22 +433,20 @@ principles:
     evidence_depth: limited
     review: draft
     gaps: >-
-      NITDA says the National AI Strategy is built on five guiding principles (responsibility, ethics,
-      inclusivity, sustainability and collaboration), but we found no published definition of them. The
-      August 2024 draft lists a longer set, in a section we could not read in full. So the OECD AI
-      Principles are used for now. How consumer, employment and financial regulation apply to AI is not
-      covered.
+      The principle descriptions are paraphrased from the strategy. We could not read its principles
+      pages (28 to 29) word for word, so they should be checked against the document. How consumer,
+      employment and financial regulation apply to AI is not covered.
   framework:
-    name: the OECD AI Principles
-    nav: OECD AI Principles
-    basis: oecd
+    name: the ten guiding principles of the National AI Strategy
+    nav: Ten guiding principles
+    basis: own
     about:
       text: >-
-        NITDA describes Nigeria's National AI Strategy as "built upon five guiding principles:
-        responsibility, ethics, inclusivity, sustainability, and collaboration." We found no published
-        definition of them, so the OECD AI Principles, adopted in 2019 and updated in May 2024, are used for
-        now. The OECD's AI policy observatory maps Nigeria's strategy against them.
-      sources: [nitda-gitex-2025, oecd-nais, oecd-recommendation]
+        Nigeria's National Artificial Intelligence Strategy, published in September 2025 by the Federal
+        Ministry of Communications, Innovation and Digital Economy for 2025 to 2029, sets out ten guiding
+        principles. NITDA sums them up as "responsibility, ethics, inclusivity, sustainability, and
+        collaboration." The strategy is policy, not law.
+      sources: [ng-nais-2025, nitda-gitex-2025, oecd-nais]
   intro:
     - text: >-
         Nigeria has no AI-specific law. Data protection law backs some principles where AI uses personal
@@ -458,67 +454,140 @@ principles:
         passed.
       sources: [aa-madueke-2026, thisday-salisu-2026, oecd-nais]
     - text: >-
+        The strategy also plans a fuller set of national AI principles, to be published under its
+        governance pillar.
+      sources: [ng-nais-2025]
+    - text: >-
         Below, each principle is shown with what it asks, how far Nigerian law backs it, the bodies and
         tools that carry it today, and evidence on how it works in practice.
-      sources: [oecd-recommendation]
+      sources: [ng-nais-2025]
   items:
-    - key: wellbeing
-      name: Inclusive growth, sustainable development and well-being
-      short: Well-being
+    - key: ethics
+      name: Responsible and Ethical Conduct
+      short: Ethics
       asks:
         text: >-
-          "Stakeholders should proactively engage in responsible stewardship of trustworthy AI in pursuit
-          of beneficial outcomes for people and the planet", such as inclusion and reducing inequalities.
-        sources: [oecd-recommendation]
+          AI should be developed and used responsibly, with attention to its effects on society, and with
+          fairness, accountability and respect for human rights throughout its life.
+        sources: [ng-nais-2025]
       footing: guidance_only
       footing_note:
         text: >-
           Set out in the national strategy, which is not law.
-        sources: [oecd-nais]
+        sources: [ng-nais-2025, oecd-nais]
+      how_it_works:
+        - text: >-
+            The strategy plans a dedicated AI Ethics Expert Group.
+          sources: [oecd-nais, dpa-report-2026]
+      regulators: [Federal Ministry of Communications, Innovation and Digital Economy, NITDA]
+
+    - key: inclusion
+      name: Inclusivity and Shared Prosperity
+      short: Inclusion
+      asks:
+        text: >-
+          AI should be accessible to everyone, whatever their background, gender or circumstances, with its
+          benefits shared fairly, including with marginalised groups.
+        sources: [ng-nais-2025]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          A policy aim of the strategy; we found no law that gives it effect.
+        sources: [ng-nais-2025]
       how_it_works:
         - text: >-
             The government's N-ATLAS model covers Yoruba, Hausa, Igbo and Nigerian English, and a national
             challenge funds tools built on it.
           sources: [ncair-naic]
+      regulators: [NITDA]
+
+    - key: innovation
+      name: Innovation and Adaptation
+      short: Innovation
+      asks:
+        text: >-
+          Creativity and experimentation in AI should be encouraged, and AI systems improved over time using
+          feedback and lessons learned.
+        sources: [ng-nais-2025]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          A policy aim of the strategy, not a legal duty.
+        sources: [ng-nais-2025]
+      how_it_works:
         - text: >-
             The government plans a National AI Centre of Excellence at the University of Jos for research
             and skills.
           sources: [itedge-jos-2026]
-      regulators: [Federal Ministry of Communications, Innovation and Digital Economy, NITDA]
+      regulators: [Federal Ministry of Communications, Innovation and Digital Economy]
 
-    - key: rights
-      name: Respect for the rule of law, human rights and democratic values, including fairness and privacy
-      short: Rights & fairness
+    - key: sustainability
+      name: Sustainability
+      short: Sustainability
       asks:
         text: >-
-          "AI actors should respect the rule of law, human rights, democratic and human-centred values"
-          throughout the life of an AI system, including non-discrimination, privacy and fairness.
-        sources: [oecd-recommendation]
-      footing: partly_binding
+          AI should be part of lasting development efforts that address society's challenges, support
+          environmental protection and serve long-term goals.
+        sources: [ng-nais-2025]
+      footing: guidance_only
       footing_note:
         text: >-
-          The Data Protection Act applies to AI that processes personal data. We found no AI-specific duty on
-          fairness or non-discrimination in force.
-        sources: [aa-madueke-2026, dpa-report-2026]
+          Set out in the strategy; we found no AI-specific rule on it.
+        sources: [ng-nais-2025]
       how_it_works:
         - text: >-
-            The NDPC says major data controllers must show how their AI models collect, process and protect
-            personal information, and that compliance audits will test the use of AI.
-          sources: [itweb-ndpc-2026]
-      regulators: [Nigeria Data Protection Commission (NDPC)]
-      evidence:
-        - text: >-
-            The NDPC's 2024 annual report, as quoted in African Arguments, described some data controllers as
-            "quite notorious in credit scoring" for disregarding the requirement for a human in decisions.
-          sources: [aa-madueke-2026]
+            One of the strategy's five pillars is the adoption of AI across key sectors of the economy.
+          sources: [oecd-nais]
+      regulators: [Federal Ministry of Communications, Innovation and Digital Economy]
 
-    - key: transparency
-      name: Transparency and explainability
-      short: Transparency
+    - key: collaboration
+      name: Collaboration
+      short: Collaboration
       asks:
         text: >-
-          "AI Actors should commit to transparency and responsible disclosure regarding AI systems."
-        sources: [oecd-recommendation]
+          Government, industry, universities, civil society and international organisations should work
+          together on AI.
+        sources: [ng-nais-2025]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          Set out in the strategy, which is not law.
+        sources: [ng-nais-2025]
+      how_it_works:
+        - text: >-
+            The NDPC joined other data protection authorities in a joint statement on AI-generated images of
+            real people made without their consent.
+          sources: [ndpc-joint-2026]
+      regulators: [NITDA, Nigeria Data Protection Commission (NDPC)]
+
+    - key: leadership
+      name: Global Leadership
+      short: Global leadership
+      asks:
+        text: >-
+          Nigeria should aim to lead internationally in AI innovation and governance and help set high
+          standards.
+        sources: [ng-nais-2025]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          A policy aim of the strategy, not a legal duty.
+        sources: [ng-nais-2025]
+      how_it_works:
+        - text: >-
+            Nigeria signed the Bletchley Declaration in 2023 and the Paris statement on inclusive and
+            sustainable AI in 2025.
+          sources: [gov-bletchley-2023, elysee-paris-2025]
+      regulators: [Federal Ministry of Communications, Innovation and Digital Economy]
+
+    - key: accountability
+      name: Transparency and Accountability
+      short: Accountability
+      asks:
+        text: >-
+          It should be open how AI systems work, what they are for and what their limits or biases are, and
+          those responsible for them should be held to account.
+        sources: [ng-nais-2025]
       footing: guidance_only
       footing_note:
         text: >-
@@ -537,14 +606,36 @@ principles:
             people cannot tell that an algorithm was used.
           sources: [aa-madueke-2026]
 
-    - key: safety
-      name: Robustness, security and safety
-      short: Safety
+    - key: human
+      name: Human-Centric
+      short: Human-centric
       asks:
         text: >-
-          "AI systems should be robust, secure and safe throughout their entire lifecycle", and it should
-          be possible to override, repair or decommission them safely if they risk causing undue harm.
-        sources: [oecd-recommendation]
+          The well-being and values of people should come first, so that AI strengthens human abilities,
+          autonomy and dignity.
+        sources: [ng-nais-2025]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          Under the Data Protection Act, people have a right not to be subject to solely automated decisions
+          with significant effects, with safeguards including human intervention. Beyond personal data, it
+          rests on the strategy.
+        sources: [aa-madueke-2026]
+      how_it_works:
+        - text: >-
+            The NDPC's head has said human oversight should remain central when AI is used, and that the
+            Data Protection Act will be reviewed to address AI.
+          sources: [nairametrics-ndpa-2026]
+      regulators: [Nigeria Data Protection Commission (NDPC)]
+
+    - key: risk
+      name: Risk Management and Resilience
+      short: Risk management
+      asks:
+        text: >-
+          The risks of AI should be identified, assessed and reduced, and AI systems built to adapt and
+          withstand problems.
+        sources: [ng-nais-2025]
       footing: guidance_only
       footing_note:
         text: >-
@@ -562,27 +653,31 @@ principles:
           sources: [nitda-icsc-2026]
       regulators: [NITDA, Central Bank of Nigeria]
 
-    - key: accountability
-      name: Accountability
-      short: Accountability
+    - key: data
+      name: Data Protection
+      short: Data protection
       asks:
         text: >-
-          "AI actors should be accountable for the proper functioning of AI systems and for the respect of
-          the above principles", including by making datasets, processes and decisions traceable.
-        sources: [oecd-recommendation]
+          Data for AI should be managed well, with privacy, consent and data minimisation, in line with the
+          Nigeria Data Protection Act.
+        sources: [ng-nais-2025]
       footing: partly_binding
       footing_note:
         text: >-
-          Under the Data Protection Act, people have a right not to be subject to solely automated decisions
-          with significant effects, with safeguards including human intervention. Wider duties, such as
-          annual impact assessments, are in the bill.
-        sources: [aa-madueke-2026, bd-bill-2026]
+          The Data Protection Act applies to AI that processes personal data. We found no AI-specific duty on
+          fairness or non-discrimination in force.
+        sources: [aa-madueke-2026, dpa-report-2026]
       how_it_works:
         - text: >-
-            The NDPC's head has said human oversight should remain central when AI is used, and that the
-            Data Protection Act will be reviewed to address AI.
-          sources: [nairametrics-ndpa-2026]
+            The NDPC says major data controllers must show how their AI models collect, process and protect
+            personal information, and that compliance audits will test the use of AI.
+          sources: [itweb-ndpc-2026]
       regulators: [Nigeria Data Protection Commission (NDPC)]
+      evidence:
+        - text: >-
+            The NDPC's 2024 annual report, as quoted in African Arguments, described some data controllers as
+            "quite notorious in credit scoring" for disregarding the requirement for a human in decisions.
+          sources: [aa-madueke-2026]
 
 areas_for_improvement:
   meta:
@@ -601,7 +696,7 @@ areas_for_improvement:
     - id: legal-basis
       title: A legal framework for AI
       kind: legal_power
-      principles: [safety, accountability]
+      principles: [risk, accountability]
       in_place:
         text: >-
           Data protection law applies to AI that uses personal data. The digital economy bill, which would
@@ -623,7 +718,7 @@ areas_for_improvement:
     - id: data-law-ai
       title: Updating data protection law for AI
       kind: coverage
-      principles: [rights, transparency]
+      principles: [data, human]
       in_place:
         text: >-
           The Data Protection Act gives a right not to be subject to solely automated decisions. The NDPC
@@ -640,7 +735,7 @@ areas_for_improvement:
     - id: independent-oversight
       title: Independent oversight and audit of AI
       kind: capacity
-      principles: [accountability, transparency]
+      principles: [accountability, risk]
       in_place:
         text: >-
           The strategy proposes an independent AI governance body and an AI ethics expert group; Digital
@@ -656,7 +751,7 @@ areas_for_improvement:
     - id: risk-and-testing
       title: Capacity to assess and test AI risks
       kind: capacity
-      principles: [safety]
+      principles: [risk]
       in_place:
         text: >-
           Nigeria has no AI safety institute. The strategy proposes a national AI risk management framework,
@@ -990,6 +1085,16 @@ sources:
     language: en
     note: By Maria Buza and Sherif Taha, in collaboration with AI Safety Nigeria. Partly read.
   # International
+  - id: ng-nais-2025
+    title: National Artificial Intelligence Strategy
+    publisher: Federal Ministry of Communications, Innovation and Digital Economy
+    url: https://api.oecd.ai/storage//policy-initiatives/Apr2026/117ojp2dncmo9xki2m-Nigeria%20National-Artificial-Intelligence-Strategy-19092025.pdf
+    published: 2025-09-19
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+    note: Final strategy dated September 2025, covering 2025 to 2029; copy linked from the OECD's AI policy observatory. Guiding principles in section 1.2.2.
   - id: oecd-nais
     title: National Artificial Intelligence Strategy (NAIS)
     publisher: OECD.AI
@@ -999,16 +1104,6 @@ sources:
     type: government
     language: en
     note: Record in the OECD's AI policy observatory, updated 28 April 2026, which tags the strategy against the OECD AI Principles.
-  - id: oecd-recommendation
-    title: Recommendation of the Council on Artificial Intelligence
-    publisher: OECD
-    url: https://legalinstruments.oecd.org/public/doc/648/648.en.pdf
-    published: 2024-05-03
-    accessed: 2026-11-19
-    origin: international
-    type: government
-    language: en
-    note: OECD/LEGAL/0449. Adopted on 22 May 2019 and revised on 3 May 2024.
   - id: gov-bletchley-2023
     title: "The Bletchley Declaration by Countries Attending the AI Safety Summit, 1-2 November 2023"
     publisher: Prime Minister's Office, 10 Downing Street
