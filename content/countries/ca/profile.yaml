@@ -909,8 +909,8 @@ contacts:
       url: https://vectorinstitute.ai/
       about:
         text: >-
-          Says its researchers "are addressing both near term and existential risk in privacy and
-          security".
+          Publishes AI trust and safety principles, which say that "maintaining safe and trustworthy AI
+          systems requires the continual assessment and management of their risks."
         sources: [vector-safety]
 
 sources:
@@ -1230,9 +1230,10 @@ sources:
     type: academic
     language: en
   - id: vector-safety
-    title: AI trust and safety research
+    title: The Vector Institute's AI Trust and Safety Principles
     publisher: Vector Institute
-    url: https://vectorinstitute.ai/?p=21078
+    url: https://vectorinstitute.ai/ai-trust-and-safety-principles/
+    published: 2023-06-14
     accessed: 2026-11-19
     origin: inside
     type: academic
