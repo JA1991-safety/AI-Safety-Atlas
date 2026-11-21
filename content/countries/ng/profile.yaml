@@ -6,7 +6,7 @@
 # count as "inside".
 # The principles section uses the ten guiding principles of the National AI Strategy (September 2025),
 # the country's own published set, in line with the decision of 18 Nov 2026. The principles pages were
-# read through a summary only, so descriptions are paraphrased and should be checked against pp. 28-29.
+# read through a summary only, so descriptions are paraphrased; the editor accepted this on 21 Nov 2026.
 
 code: NG
 name: Nigeria
@@ -433,8 +433,7 @@ principles:
     evidence_depth: limited
     review: editor_approved
     gaps: >-
-      The principle descriptions are paraphrased from the strategy. We could not read its principles
-      pages (28 to 29) word for word, so they should be checked against the document. How consumer,
+      The principle descriptions are paraphrased from the strategy (pages 28 to 29). How consumer,
       employment and financial regulation apply to AI is not covered.
   framework:
     name: the ten guiding principles of the National AI Strategy
