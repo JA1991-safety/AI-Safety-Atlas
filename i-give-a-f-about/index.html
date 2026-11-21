@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Pick the AI risks you care about and find the organisations fighting them, and where they're hiring.">
+<title>I Give a F*** About</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: protest placard. One column for picking (big headline + tap cards), then per-risk sections with a
+   sticky illustrated scene beside (desktop) or above (phone) the organisations, then a share card, My list and a
+   suggestion form. */
+:root{
+  /* Hazard: black and highlighter yellow. Caution tape for the risk, sunlight for the fix. */
+  --paper:#F1F1EE; --card:#FFFFFF; --ink:#111111; --muted:#5D5D58; --line:#D6D6D0;
+  --accent:#111111; --accent-ink:#FFE14D; --link:#111111; --linkline:#E8C600; --hl:#FFE14D; --hl-ink:#111111; --soft:#ECEBE4;
+  --display:"Big Shoulders Display","Impact","Arial Narrow",sans-serif;
+  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#121212; --card:#1C1C1B; --ink:#F1F1EE; --muted:#A5A59E; --line:#2F2F2C;
+  --accent:#FFE14D; --accent-ink:#111111; --link:#FFE14D; --linkline:#FFE14D; --hl:#FFE14D; --hl-ink:#111111; --soft:#2A2A26; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --paper:#121212; --card:#1C1C1B; --ink:#F1F1EE; --muted:#A5A59E; --line:#2F2F2C;
+  --accent:#FFE14D; --accent-ink:#111111; --link:#FFE14D; --linkline:#FFE14D; --hl:#FFE14D; --hl-ink:#111111; --soft:#2A2A26; color-scheme:dark }
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 120px}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:var(--link);text-decoration-color:var(--linkline);text-decoration-thickness:2px;text-underline-offset:3px}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.wrap{max-width:1060px;margin:0 auto}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- Top bar ---------- */
+.topbar{display:flex;justify-content:space-between;gap:10px 16px;flex-wrap:wrap;align-items:center;padding-top:24px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.pill{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:600}
+.pill b{background:var(--hl);color:var(--hl-ink);border-radius:999px;padding:0 7px;margin-left:4px}
+
+/* ---------- Pick ---------- */
+.pick{display:flex;flex-direction:column;gap:28px;padding-block:28px 24px}
+.placard{font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.92;letter-spacing:.005em;
+  font-size:clamp(46px,9vw,112px);display:flex;flex-direction:column;gap:6px}
+.placard .star{background:var(--hl);color:var(--hl-ink);padding:0 .06em;margin-left:.04em}
+.slots{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;min-height:1em}
+.slot{font-size:.62em;line-height:1.05;text-transform:none;font-weight:700}
+.slot.blank{color:var(--muted);border-bottom:.08em solid currentColor;min-width:3.4em;display:inline-block}
+.slot.filled{border:0;padding:0 .12em;text-align:left;color:var(--hl-ink);
+  background-color:transparent;background-image:linear-gradient(transparent 8%,var(--hl) 8%,var(--hl) 92%,transparent 92%);
+  background-repeat:no-repeat;background-size:100% 100%;animation:mark .45s ease-out both}
+.slot.filled:hover{text-decoration:line-through;text-decoration-thickness:.06em}
+.slot.joiner{color:var(--muted);font-size:.42em}
+@keyframes mark{from{background-size:0% 100%}to{background-size:100% 100%}}
+.hint{font-size:17px;color:var(--muted);max-width:60ch}
+.hint b{color:var(--ink);font-weight:600}
+
+.groups{display:flex;flex-direction:column;gap:26px}
+.group{display:flex;flex-direction:column;gap:10px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.topic{position:relative;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:4px;
+  padding:14px 14px 12px;display:flex;flex-direction:column;gap:6px;min-height:96px;transition:transform .15s,border-color .15s,background .15s}
+.topic .punch{font-family:var(--display);font-weight:700;font-size:23px;line-height:1.02;text-transform:uppercase;letter-spacing:.01em;padding-right:16px}
+.topic .formal{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:auto}
+.topic:hover{transform:translateY(-2px) rotate(-.4deg);border-color:var(--ink)}
+.topic.on{background:var(--hl);border-color:var(--hl-ink);color:var(--hl-ink);transform:rotate(-1deg)}
+.topic.on .formal{color:var(--hl-ink)}
+.topic.on::after{content:"✓";position:absolute;top:8px;right:10px;font-weight:700}
+.topic.full:not(.on){opacity:.4}
+
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:20;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px));
+  padding-top:14px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  background:linear-gradient(to top,var(--paper) 60%,transparent);display:flex;justify-content:center;pointer-events:none}
+.go{pointer-events:auto;border:2px solid var(--ink);background:var(--accent);color:var(--accent-ink);font-family:var(--display);font-weight:900;
+  text-transform:uppercase;font-size:24px;letter-spacing:.02em;padding:12px 26px;border-radius:4px;box-shadow:4px 4px 0 var(--ink);transition:transform .15s,opacity .2s}
+.go:hover{transform:translate(-1px,-1px)}
+.go:disabled{opacity:0;transform:translateY(20px);pointer-events:none}
+
+/* ---------- Results ---------- */
+.results{display:flex;flex-direction:column;gap:64px;padding-top:24px}
+.res-head{display:flex;flex-direction:column;gap:14px;border-top:3px solid var(--ink);padding-top:22px}
+.res-head h2,.sec-h{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(34px,6vw,64px);line-height:.95}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:6px 13px;font-size:14px;font-weight:500}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+.risk{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:32px;align-items:start}
+.stage{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);display:flex;flex-direction:column;gap:10px}
+.scene{--p:0;position:relative;border-radius:4px;overflow:hidden;border:2px solid var(--ink);aspect-ratio:4/3;max-width:100%;background:#1d1b2a}
+.scene svg{display:block;width:100%;height:100%;filter:saturate(calc(.3 + .7*var(--p))) brightness(calc(.8 + .2*var(--p)));transition:filter .4s}
+.scene .dread{opacity:calc(1 - var(--p));transition:opacity .4s}
+.scene .hope{opacity:var(--p);transition:opacity .4s}
+.scene .half{opacity:calc(1 - .75*var(--p));transition:opacity .4s}
+.scene .rise{transform:translateY(calc((1 - var(--p)) * 60px));transition:transform .5s}
+.scene .meter{position:absolute;left:10px;right:10px;bottom:10px;height:6px;border-radius:3px;background:rgba(255,255,255,.18)}
+.scene .meter i{display:block;height:100%;width:calc(var(--p)*100%);background:#FFE14D;border-radius:3px;transition:width .4s}
+.scene .stamp{position:absolute;top:10px;left:10px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:#fff;background:rgba(0,0,0,.5);padding:4px 8px;border-radius:2px}
+.story{display:flex;flex-direction:column;gap:4px}
+.story .phase{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.story.won .phase{color:var(--ink);background:var(--hl);color:var(--hl-ink);align-self:flex-start;padding:1px 6px}
+.storyline{font-size:17px;line-height:1.45}
+.storyline em{font-style:normal;font-weight:600}
+.status{font-family:var(--mono);font-size:12px;color:var(--muted)}
+
+.risk-copy{display:flex;flex-direction:column;gap:16px;min-width:0}
+.risk-copy h3{font-family:var(--display);font-weight:900;font-size:clamp(30px,4.6vw,46px);text-transform:uppercase;line-height:.95}
+.risk-copy .formal{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.narrow-only{display:none}
+.orgs{display:flex;flex-direction:column;gap:14px;padding-bottom:28vh}
+.org{background:var(--card);border:1.5px solid var(--line);border-radius:4px;padding:18px;display:flex;flex-direction:column;gap:10px;transition:opacity .3s}
+.org.dim{opacity:.35}
+.org-top{display:flex;justify-content:space-between;gap:4px 12px;align-items:baseline;flex-wrap:wrap}
+.org h4{margin:0;font-size:19px;font-weight:700;line-height:1.2}
+.org .where{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.org p{font-size:15.5px;max-width:58ch}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:var(--mono);font-size:11px;padding:3px 7px;border-radius:2px;background:var(--soft);color:var(--ink)}
+.org-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.jobs{font-weight:700;text-decoration:none;border-bottom:2px solid var(--linkline);padding-bottom:1px;color:var(--link)}
+.save{border:1.5px solid var(--line);background:none;border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:600}
+.save[aria-pressed="true"]{background:var(--hl);color:var(--hl-ink);border-color:var(--hl-ink)}
+.aside{font-size:14.5px;color:var(--muted)}
+
+/* ---------- Share, list, suggest ---------- */
+.band{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px;align-items:start;border-top:3px solid var(--ink);padding-top:28px}
+.sharecard{background:var(--accent);color:var(--accent-ink);border:2px solid var(--ink);border-radius:4px;padding:28px;box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;gap:16px;transform:rotate(-.6deg)}
+.sharecard .big{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(30px,4.4vw,44px);line-height:.98}
+.sharecard mark{background:var(--hl);color:var(--hl-ink);padding:0 .12em}
+.sharecard .who{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:22px;letter-spacing:.02em}
+.sharecard ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.sharecard .foot{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+.side{display:flex;flex-direction:column;gap:14px;min-width:0}
+.side h2{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(30px,4.6vw,48px);line-height:.95}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{border:2px solid var(--ink);background:var(--card);border-radius:4px;padding:10px 16px;font-weight:700;text-decoration:none;color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.copied{font-family:var(--mono);font-size:12px;color:var(--muted);min-height:1.2em}
+.note{font-size:13.5px;color:var(--muted);max-width:60ch}
+.mylist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.mylist li{display:flex;justify-content:space-between;gap:10px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:8px;flex-wrap:wrap}
+.mylist .for{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.empty{border:1.5px dashed var(--line);border-radius:4px;padding:16px;color:var(--muted)}
+form.suggest{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:4px;min-width:0}
+.field.full{grid-column:1/-1}
+.field label{font-size:13px;font-weight:600}
+.field input,.field select,.field textarea{border:1.5px solid var(--line);background:var(--card);border-radius:4px;padding:9px 10px;min-width:0;width:100%}
+.field textarea{min-height:84px;resize:vertical}
+.sent{grid-column:1/-1;font-size:14.5px;background:var(--soft);border-radius:4px;padding:12px}
+
+@media (max-width:760px){
+  .risk{grid-template-columns:1fr;gap:16px}
+  .stage{top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);padding-block:8px}
+  .scene{aspect-ratio:16/9}
+  .stage{gap:6px}
+  .storyline{font-size:14px;line-height:1.4}
+  .status{font-size:11px}
+  .band{grid-template-columns:1fr}
+  .orgs{padding-bottom:18vh}
+  form.suggest{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="topbar">
+    <span class="eyebrow">AI safety career finder</span>
+    <div class="tools">
+      <button class="pill" id="listpill">My list <b id="listcount">0</b></button>
+    </div>
+  </div>
+
+  <section class="pick" aria-labelledby="h">
+    <h1 class="placard" id="h">
+      <span>I give a f<span class="star">***</span> about</span>
+      <span class="slots" id="slots" aria-live="polite"></span>
+    </h1>
+    <p class="hint">Pick up to <b>three</b> things that keep you up at night. We'll show you who's already fighting them, and where they're hiring.</p>
+    <div class="groups" id="groups"></div>
+  </section>
+
+  <div id="results" hidden></div>
+
+  <div class="results" style="padding-top:64px">
+    <section class="band" id="mylist-sec" aria-labelledby="mylist-h">
+      <div class="side">
+        <span class="eyebrow">Your shortlist</span>
+        <h2 id="mylist-h">My list</h2>
+        <p>Tap <b>+ My list</b> on any organisation to keep it here. It's saved in this browser, so it's still here next time you visit on this device. No account needed.</p>
+        <div class="btns"><button class="btn" id="copylist">Copy my list</button></div>
+        <p class="copied" id="listcopied" aria-live="polite"></p>
+      </div>
+      <div id="mylist"></div>
+    </section>
+
+    <section class="band" id="suggest" aria-labelledby="suggest-h">
+      <div class="side">
+        <span class="eyebrow">Help us map the field</span>
+        <h2 id="suggest-h">Know someone we missed?</h2>
+        <p>Tell us about an organisation fighting one of these risks and we'll check it out and add it.</p>
+      </div>
+      <form class="suggest" id="suggestform">
+        <div class="field"><label for="s-name">Organisation</label><input id="s-name" name="organisation" required placeholder="e.g. Apollo Research"></div>
+        <div class="field"><label for="s-url">Website</label><input id="s-url" name="website" type="url" required placeholder="https://"></div>
+        <div class="field full"><label for="s-risk">Which risk do they work on?</label><select id="s-risk" name="risk"></select></div>
+        <div class="field full"><label for="s-why">What do they do about it?</label><textarea id="s-why" name="why" placeholder="One or two lines is plenty"></textarea></div>
+        <div class="field full"><label for="s-email">Your email, if you'd like a reply (optional)</label><input id="s-email" name="email" type="email"></div>
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <div class="btns"><button class="btn primary" type="submit" id="s-send">Send suggestion</button></div>
+        <p class="sent" id="sent" hidden></p>
+      </form>
+    </section>
+  </div>
+</div>
+
+<div class="dock"><button class="go" id="go" disabled>Show me who's fighting it →</button></div>
+
+<script src="data.js"></script>
+<script src="scenes.js"></script>
+<script>
+/* Suggestions are emailed to igiveafabout@gmail.com through FormSubmit (formsubmit.co), which needs no account.
+   The first submission sends a one-off activation email to that inbox; click the link in it to switch the form on.
+   null = send nothing (shows a thank-you only). */
+const SUGGEST_ENDPOINT = "https://formsubmit.co/ajax/igiveafabout@gmail.com";
+
+const LOOKUP={}; GROUPS.forEach(g=>g.items.forEach(([id,punch,formal])=>LOOKUP[id]={punch,formal}));
+const picks=[]; let filter="all";
+const $=s=>document.querySelector(s);
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let saved=store.get("igaf-list",[]); /* [{key,risk,n,u}] */
+
+
+/* ---------- Picking ---------- */
+function renderSlots(){
+  const el=$("#slots"); el.innerHTML="";
+  if(!picks.length) el.innerHTML=`<span class="slot blank">&nbsp;</span>`;
+  picks.forEach((id,i)=>{
+    if(i>0){const j=document.createElement("span");j.className="slot joiner";j.textContent=i===picks.length-1?"and":"·";el.appendChild(j)}
+    const b=document.createElement("button");b.className="slot filled";b.textContent=LOOKUP[id].punch.toLowerCase().replace(/\bai(s?)\b/g,"AI$1");
+    b.title="Remove";b.setAttribute("aria-label",`Remove ${LOOKUP[id].punch}`);b.onclick=()=>toggle(id);el.appendChild(b);
+  });
+  if(picks.length && picks.length<3){el.insertAdjacentHTML("beforeend",`<span class="slot joiner">+</span><span class="slot blank">&nbsp;</span>`)}
+  $("#go").disabled=!picks.length;
+  document.querySelectorAll(".topic").forEach(c=>{const on=picks.includes(c.dataset.id);c.classList.toggle("on",on);c.setAttribute("aria-pressed",on);c.classList.toggle("full",picks.length>=3)});
+}
+function toggle(id){
+  const i=picks.indexOf(id);
+  if(i>-1)picks.splice(i,1); else if(picks.length<3)picks.push(id);
+  renderSlots();
+  if(!$("#results").hidden){ if(picks.length) renderResults(false); else {$("#results").hidden=true;$(".dock").hidden=false} }
+}
+$("#groups").innerHTML=GROUPS.map(g=>`<div class="group"><span class="eyebrow">${g.name}</span><div class="cards">${
+  g.items.map(([id,punch,formal])=>`<button class="topic" data-id="${id}" aria-pressed="false"><span class="punch">${punch}</span><span class="formal">${formal}</span></button>`).join("")
+}</div></div>`).join("");
+document.querySelectorAll(".topic").forEach(b=>b.onclick=()=>toggle(b.dataset.id));
+
+/* ---------- Results ---------- */
+function orgCard(id,o,k){const key=id+":"+k,on=saved.some(s=>s.key===key);return `
+  <article class="org" data-tags="${o.t.join(' ')}">
+    <div class="org-top"><h4>${o.n}</h4><span class="where">${o.w}</span></div>
+    <p>${o.d}</p>
+    <div class="tags">${o.t.map(t=>`<span class="tag">${TAGNAMES[t]}</span>`).join("")}</div>
+    <div class="org-foot"><a class="jobs" href="${o.u}" target="_blank" rel="noopener">${o.l} ↗</a>
+      <button class="save" data-key="${key}" aria-pressed="${on}">${on?'On my list':'+ My list'}</button></div>
+  </article>`}
+function story(R,id,where){return `<div class="story ${where}" data-story="${id}"><span class="phase">If nobody fixes this</span><p class="storyline">${R.dread}</p></div>`}
+function renderResults(scroll=true){
+  const r=$("#results"); r.hidden=false; $(".dock").hidden=true;
+  const tagsUsed=new Set();picks.forEach(id=>RISKS[id].orgs.forEach(o=>o.t.forEach(t=>tagsUsed.add(t))));
+  r.innerHTML=`<div class="results">
+    <div class="res-head">
+      <span class="eyebrow">${picks.reduce((n,id)=>n+RISKS[id].orgs.length,0)} organisations fighting what you care about</span>
+      <h2>Here's who's already on it</h2>
+      <div class="filters" role="group" aria-label="Filter by the kind of work you do">
+        <span class="eyebrow">I'm best at</span>
+        <button class="chip" data-f="all" aria-pressed="${filter==='all'}">Anything</button>
+        ${Object.entries(TAGNAMES).filter(([k])=>tagsUsed.has(k)).map(([k,v])=>`<button class="chip" data-f="${k}" aria-pressed="${filter===k}">${v}</button>`).join("")}
+      </div>
+    </div>
+    ${picks.map(id=>{const R=RISKS[id],L=LOOKUP[id];return `
+    <section class="risk" data-risk="${id}" aria-label="${L.punch}">
+      <div class="stage">
+        <div class="scene" style="--p:0">${SCENES[id]()}<span class="stamp">${R.stamp}</span><span class="meter"><i></i></span></div>
+        ${story(R,id,"wide-only")}
+        <p class="status">Scroll on to meet the people stopping it.</p>
+      </div>
+      <div class="risk-copy">
+        <span class="formal">${L.formal}</span>
+        <h3>${L.punch}</h3>
+        <div class="orgs">${R.orgs.map((o,k)=>orgCard(id,o,k)).join("")}
+          ${R.deeper?`<p class="aside">Want to go deeper first? <a href="${R.deeper[1]}" target="_blank" rel="noopener">${R.deeper[0]} ↗</a></p>`:""}
+          <p class="aside">Know an organisation we missed? <a href="#suggest" data-suggest="${id}">Suggest one</a></p>
+        </div>
+      </div>
+    </section>`}).join("")}
+    <section class="band" aria-label="Your card">
+      <div class="sharecard" id="card"></div>
+      <div class="side">
+        <span class="eyebrow">Your card</span>
+        <h2>Now go make a dent</h2>
+        <p>Share it, send it to a friend who needs a push, or keep it as your shortlist.</p>
+        <div class="btns">
+          <button class="btn primary" id="copy">Copy my card</button>
+          <button class="btn" id="again">Pick again</button>
+          <a class="btn" href="https://jobs.80000hours.org/" target="_blank" rel="noopener">AI safety jobs across the board ↗</a>
+        </div>
+        <p class="copied" id="copied" aria-live="polite"></p>
+        <p class="note">Organisation descriptions are short summaries, so check each organisation's own site before you apply.</p>
+      </div>
+    </section>
+  </div>`;
+  r.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{filter=c.dataset.f;r.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed",x===c));applyFilter()});
+  r.querySelectorAll(".save").forEach(b=>b.onclick=()=>toggleSave(b));
+  r.querySelectorAll("[data-suggest]").forEach(a=>a.onclick=()=>{$("#s-risk").value=a.dataset.suggest});
+  $("#copy").onclick=copyCard; $("#again").onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+  applyFilter(); renderCard(); onScroll();
+  if(scroll) r.scrollIntoView({behavior:"smooth"});
+}
+function applyFilter(){document.querySelectorAll(".org").forEach(o=>o.classList.toggle("dim",filter!=="all"&&!o.dataset.tags.split(" ").includes(filter)))}
+function orgsFor(id){const mine=saved.filter(s=>s.risk===id);return mine.length?mine:RISKS[id].orgs}
+function joinNames(a){return a.length>1?a.slice(0,-1).join(", ")+" and "+a.at(-1):a[0]}
+function renderCard(){
+  const c=$("#card");if(!c)return;
+  c.innerHTML=`<span class="foot">I give a f*** about</span>
+    <div class="big">${joinNames(picks.map(id=>`<mark>${LOOKUP[id].punch.toLowerCase().replace(/\bai(s?)\b/g,"AI$1")}</mark>`))}.</div>
+    <span class="who">Here's who's fighting it</span>
+    <ul>${picks.map(id=>`<li><b>Fighting ${LOOKUP[id].punch.toLowerCase().replace(/\bai(s?)\b/g,"AI$1")}:</b> ${orgsFor(id).map(o=>o.n).join(", ")}</li>`).join("")}</ul>
+    <span class="foot">Find yours · I give a f*** about</span>`;
+}
+async function copyText(txt,out){
+  try{await navigator.clipboard.writeText(txt);out.textContent="Copied. Paste it anywhere."}
+  catch(e){out.textContent="Couldn't copy here. Select the text instead."}
+}
+function copyCard(){
+  copyText("I give a f*** about "+joinNames(picks.map(id=>LOOKUP[id].punch.toLowerCase().replace(/\bai(s?)\b/g,"AI$1")))+".\n\nHere's who's fighting it:\n"+
+    picks.map(id=>"• Fighting "+LOOKUP[id].punch.toLowerCase().replace(/\bai(s?)\b/g,"AI$1")+": "+orgsFor(id).map(o=>o.n+" ("+o.u+")").join(", ")).join("\n"), $("#copied"));
+}
+
+/* ---------- My list ---------- */
+function toggleSave(b){
+  const key=b.dataset.key,[id,k]=key.split(":"),o=RISKS[id].orgs[+k];
+  const i=saved.findIndex(s=>s.key===key);
+  if(i>-1)saved.splice(i,1); else saved.push({key,risk:id,n:o.n,u:o.u,l:o.l});
+  store.set("igaf-list",saved);
+  document.querySelectorAll(`.save[data-key="${key}"]`).forEach(x=>{const on=i===-1;x.setAttribute("aria-pressed",on);x.textContent=on?'On my list':'+ My list'});
+  renderList(); renderCard();
+}
+function renderList(){
+  $("#listcount").textContent=saved.length;
+  $("#mylist").innerHTML=saved.length?`<ul class="mylist">${saved.map(s=>`<li><span><a href="${s.u}" target="_blank" rel="noopener">${s.n} ↗</a><br><span class="for">for ${LOOKUP[s.risk].punch.toLowerCase().replace(/\bai(s?)\b/g,"AI$1")}</span></span><button class="save" aria-pressed="true" data-remove="${s.key}">Remove</button></li>`).join("")}</ul>`
+    :`<p class="empty">Nothing here yet. Organisations you save will show up here with their jobs links.</p>`;
+  $("#mylist").querySelectorAll("[data-remove]").forEach(b=>b.onclick=()=>{saved=saved.filter(s=>s.key!==b.dataset.remove);store.set("igaf-list",saved);
+    document.querySelectorAll(`.save[data-key="${b.dataset.remove}"]`).forEach(x=>{x.setAttribute("aria-pressed",false);x.textContent='+ My list'});renderList();renderCard()});
+}
+$("#copylist").onclick=()=>copyText(saved.length?"My AI safety shortlist:\n"+saved.map(s=>"• "+s.n+" ("+LOOKUP[s.risk].punch.toLowerCase().replace(/\bai(s?)\b/g,"AI$1")+"): "+s.u).join("\n"):"",$("#listcopied"));
+$("#listpill").onclick=()=>$("#mylist-sec").scrollIntoView({behavior:"smooth"});
+renderList();
+
+/* ---------- Suggest an organisation ---------- */
+$("#s-risk").innerHTML=GROUPS.map(g=>`<optgroup label="${g.name}">${g.items.map(([id,p])=>`<option value="${id}">${p}</option>`).join("")}</optgroup>`).join("")+`<option value="other">Something else</option>`;
+$("#suggestform").addEventListener("submit",async e=>{
+  e.preventDefault(); const out=$("#sent"); out.hidden=false;
+  const data=Object.fromEntries(new FormData(e.target));
+  if(data._honey)return; /* bots fill the hidden field */
+  const riskName=data.risk==="other"?"Something else":LOOKUP[data.risk].punch;
+  const payload={_subject:`New organisation suggestion: ${data.organisation}`,_template:"table",_captcha:"false",
+    Organisation:data.organisation,Website:data.website,Risk:riskName,"What they do":data.why||"(not given)","Suggested by":data.email||"(no email given)"};
+  if(data.email)payload._replyto=data.email;
+  if(!SUGGEST_ENDPOINT){out.textContent=`Thanks! This is a mockup, so nothing was sent. On the live site, "${data.organisation}" would go straight to our inbox to check and add.`;return}
+  const btn=$("#s-send");btn.disabled=true;out.textContent="Sending…";
+  try{const r=await fetch(SUGGEST_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(payload)});
+    if(!r.ok)throw 0; out.textContent=`Thanks! We'll take a look at ${data.organisation}.`; e.target.reset()}
+  catch(err){out.textContent="That didn't send. Check your connection and try again."}
+  btn.disabled=false;
+});
+
+/* ---------- Scroll: clear each scene as its organisations pass the middle of the screen ---------- */
+function onScroll(){
+  const vh=window.innerHeight;
+  document.querySelectorAll(".risk").forEach(sec=>{
+    const id=sec.dataset.risk,R=RISKS[id];
+    const orgs=[...sec.querySelectorAll(".org")]; if(!orgs.length)return;
+    let seen=0; orgs.forEach(o=>{if(o.getBoundingClientRect().top<vh*.62)seen++});
+    const done=seen===orgs.length;
+    sec.querySelector(".scene").style.setProperty("--p",(seen/orgs.length).toFixed(3));
+    sec.querySelectorAll(".story").forEach(s=>{
+      if(s.classList.contains("won")===done)return;
+      s.classList.toggle("won",done);
+      s.querySelector(".phase").textContent=done?"The future they're fighting for":"If nobody fixes this";
+      s.querySelector(".storyline").innerHTML=done?R.hope:R.dread;
+    });
+    sec.querySelector(".status").textContent = seen===0?"Scroll on to meet the people stopping it."
+      : !done ? `${seen} of ${orgs.length} organisations in. It's lifting.`
+      : `That's who's on it. You could be too.`;
+  });
+}
+window.addEventListener("scroll",onScroll,{passive:true});window.addEventListener("resize",onScroll);
+$("#go").onclick=()=>renderResults(true);
+renderSlots();
+</script>
+</body>
+</html>
