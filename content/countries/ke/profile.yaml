@@ -4,10 +4,9 @@
 # Direct quotes were copied from the source pages on the access date.
 # Sources from the Government of Kenya, its agencies, and organisations and media based in Kenya
 # count as "inside".
-# The principles section uses the OECD AI Principles for now. Kenya's National AI Strategy 2025-2030
-# has a section of guiding principles, but we could not read it (searched again 19 Nov 2026; see the
-# gaps note in the principles section). The editor may prefer to switch to the strategy's own principles once they
-# have been checked, in line with the decision of 18 Nov 2026 to use each country's own principles.
+# The principles section uses the eight guiding principles of the National AI Strategy 2025-2030
+# (section 4.3, p. 63), the country's own published set, in line with the decision of 18 Nov 2026. The
+# strategy was read in full from a copy supplied by the project team on 21 Nov 2026.
 
 code: KE
 name: Kenya
@@ -451,28 +450,25 @@ news:
 
 principles:
   meta:
-    checked: 2026-11-19
+    checked: 2026-11-21
     evidence_depth: limited
     review: draft
     gaps: >-
-      Kenya's National AI Strategy 2025-2030 has a section of guiding principles. We searched again on
-      19 November 2026: the copy of the strategy we could read stops before that section, the
-      government's own copy could not be read automatically, and no source we found gives the full list
-      with definitions. So the OECD AI Principles are used for now. The ODPC's guidance note is a draft,
-      and later sections of it were not read in full. How consumer and employment law apply to AI is not
-      covered.
+      The ODPC's guidance note is a draft, and later sections of it were not read in full. The draft
+      Statement of Principles is described from KICTANet's report of the workshop. How consumer and
+      employment law apply to AI is not covered.
   framework:
-    name: the OECD AI Principles
-    nav: OECD AI Principles
-    basis: oecd
+    name: the guiding principles of the National AI Strategy 2025-2030
+    nav: Eight guiding principles
+    basis: own
     about:
       text: >-
-        Kenya's National AI Strategy 2025-2030 includes guiding principles. A review by the Global Center
-        on AI Governance names some of them, including inclusivity, co-creation, transparency and
-        accountability, local-first and environmental sustainability, but we could not read the full list
-        or its definitions. Until they are checked, the OECD AI Principles, adopted in 2019 and updated in
-        May 2024, are used. The OECD's AI policy observatory maps Kenya's strategy against them.
-      sources: [ke-strategy-2025, globalcenter-strategies-2025, oecd-kenya-strategy, oecd-recommendation]
+        Kenya's National AI Strategy 2025-2030, published by the Ministry of Information, Communications
+        and the Digital Economy in March 2025, sets out eight principles that "will guide the
+        implementation of the national AI strategy". A separate draft AI Statement of Principles, with
+        eight core principles of its own, was reviewed at a workshop hosted by the ICT ministry and
+        KICTANet in January 2025; we found no report that it has been adopted.
+      sources: [ke-strategy-2025, kictanet-sop-2025]
   intro:
     - text: >-
         Kenya has no AI-specific law. Data protection law backs some principles where AI uses personal
@@ -481,21 +477,23 @@ principles:
     - text: >-
         Below, each principle is shown with what it asks, how far Kenyan law backs it, the bodies and tools
         that carry it today, and evidence on how it works in practice.
-      sources: [oecd-recommendation]
+      sources: [ke-strategy-2025]
   items:
-    - key: wellbeing
-      name: Inclusive growth, sustainable development and well-being
-      short: Well-being
+    - key: inclusion
+      name: Inclusivity and non-discrimination
+      short: Inclusion
       asks:
         text: >-
-          "Stakeholders should proactively engage in responsible stewardship of trustworthy AI in pursuit
-          of beneficial outcomes for people and the planet", such as inclusion and reducing inequalities.
-        sources: [oecd-recommendation]
+          AI should be developed and used with inclusivity, equity and non-discrimination, "ensuring fair
+          and equal access to AI benefits for all Kenyans, regardless of their background or
+          circumstances."
+        sources: [ke-strategy-2025]
       footing: guidance_only
       footing_note:
         text: >-
-          Set out in the national strategy, which is not law.
-        sources: [ke-strategy-2025, maiei-strategy-2025]
+          Set out in the national strategy, which is not law. We found no AI-specific duty on fairness or
+          non-discrimination.
+        sources: [ke-strategy-2025, techweez-bill-2026]
       how_it_works:
         - text: >-
             "Ethics, Equity, and Inclusion" is one of the four enablers of the national AI strategy.
@@ -506,71 +504,78 @@ principles:
           sources: [capitalfm-thigo-2026]
       regulators: [Ministry of Information, Communications and the Digital Economy]
 
-    - key: rights
-      name: Respect for the rule of law, human rights and democratic values, including fairness and privacy
-      short: Rights & fairness
+    - key: participation
+      name: Participation and co-creation
+      short: Co-creation
       asks:
         text: >-
-          "AI actors should respect the rule of law, human rights, democratic and human-centred values"
-          throughout the life of an AI system, including non-discrimination, privacy and fairness.
-        sources: [oecd-recommendation]
-      footing: partly_binding
+          Those carrying out the strategy should "encourage multi-stakeholder engagement and involve diverse
+          perspectives from government, industry, academia, and citizens."
+        sources: [ke-strategy-2025]
+      footing: guidance_only
       footing_note:
         text: >-
-          The Data Protection Act applies to AI that processes personal data. We found no AI-specific duty
-          on fairness or non-discrimination.
-        sources: [odpc-guidance-2026, techweez-bill-2026]
+          A commitment in the strategy, not a legal duty specific to AI.
+        sources: [ke-strategy-2025]
       how_it_works:
         - text: >-
-            The ODPC's draft guidance asks for data protection impact assessments before high-risk AI is
-            deployed, for example in credit scoring and recruitment screening.
-          sources: [odpc-guidance-2026, ppc-odpc-2026]
-      regulators: [Office of the Data Protection Commissioner (ODPC)]
-      evidence:
+            The draft AI and emerging technologies policy was published for public comment in 2026.
+          sources: [itedge-policy-2026]
         - text: >-
-            In its first six years the ODPC received more than 13,000 complaints, issued 459 determinations
-            and 206 enforcement and penalty notices, according to TechTrendsKE.
-          sources: [techtrends-odpc-2026]
+            The draft AI Statement of Principles was reviewed with stakeholders at a two-day workshop in
+            Nairobi in January 2025.
+          sources: [kictanet-sop-2025]
+      regulators: [Ministry of Information, Communications and the Digital Economy]
 
-    - key: transparency
-      name: Transparency and explainability
-      short: Transparency
+    - key: accountability
+      name: Transparency and accountability
+      short: Accountability
       asks:
         text: >-
-          "AI Actors should commit to transparency and responsible disclosure regarding AI systems."
-        sources: [oecd-recommendation]
+          The strategy is to be carried out with "transparency, equity, explainability, and accountability
+          in AI systems, promoting public trust and enabling oversight, auditing, and redress mechanisms."
+        sources: [ke-strategy-2025]
       footing: partly_binding
       footing_note:
         text: >-
-          The ODPC's draft guidance says organisations deploying AI "shall ensure" their privacy notices
-          disclose its use, where personal data is involved. Outside data protection we found no duty.
+          Under the Data Protection Act, people have a right to meaningful human review of decisions made
+          solely by automated processing, and the ODPC's draft guidance says organisations deploying AI
+          "shall ensure" their privacy notices disclose its use. Outside data protection we found no duty.
         sources: [odpc-guidance-2026]
       how_it_works:
         - text: >-
             Privacy notices are to say that AI is used, what data goes in, and what the outputs are and
             mean for the person.
           sources: [odpc-guidance-2026]
+        - text: >-
+            The draft AI policy proposes shared liability, insurance and redress across developers,
+            deployers, operators, vendors and users.
+          sources: [itedge-policy-2026]
       regulators: [Office of the Data Protection Commissioner (ODPC)]
       evidence:
         - text: >-
             In the Media Council of Kenya survey, most respondents could not identify AI-generated content.
           sources: [mck-2026]
 
-    - key: safety
-      name: Robustness, security and safety
-      short: Safety
+    - key: ethics
+      name: Ethical and responsible AI
+      short: Responsible AI
       asks:
         text: >-
-          "AI systems should be robust, secure and safe throughout their entire lifecycle", and it should
-          be possible to override, repair or decommission them safely if they risk causing undue harm.
-        sources: [oecd-recommendation]
-      footing: guidance_only
+          "Privacy protection, fairness, safety, security, and respect for human autonomy and
+          decision-making will be important values in the implementation of the strategy."
+        sources: [ke-strategy-2025]
+      footing: partly_binding
       footing_note:
         text: >-
-          We found no binding duty on the safety of AI systems in our sources. The national strategy and
-          the draft AI policy propose safety measures.
-        sources: [techweez-bill-2026, cipit-strategy-2025, itedge-policy-2026]
+          The Data Protection Act applies to AI that processes personal data. We found no binding duty on
+          the safety of AI systems; the strategy and the draft AI policy propose safety measures.
+        sources: [odpc-guidance-2026, techweez-bill-2026, itedge-policy-2026]
       how_it_works:
+        - text: >-
+            The ODPC's draft guidance asks for data protection impact assessments before high-risk AI is
+            deployed, for example in credit scoring and recruitment screening.
+          sources: [odpc-guidance-2026, ppc-odpc-2026]
         - text: >-
             By signing the Paris Call for AI safety and security, Kenya joined commitments that include
             fail-safe mechanisms to shut down AI models.
@@ -578,32 +583,93 @@ principles:
         - text: >-
             The draft AI policy proposes incident reporting, human oversight and protections for children.
           sources: [itedge-policy-2026]
-      regulators: [Ministry of Information, Communications and the Digital Economy]
+      regulators: [Office of the Data Protection Commissioner (ODPC), Ministry of Information, Communications and the Digital Economy]
+      evidence:
+        - text: >-
+            In its first six years the ODPC received more than 13,000 complaints, issued 459 determinations
+            and 206 enforcement and penalty notices, according to TechTrendsKE.
+          sources: [techtrends-odpc-2026]
 
-    - key: accountability
-      name: Accountability
-      short: Accountability
+    - key: culture
+      name: Cultural preservation and contextualization
+      short: Cultural context
       asks:
         text: >-
-          "AI actors should be accountable for the proper functioning of AI systems and for the respect of
-          the above principles", including by making datasets, processes and decisions traceable.
-        sources: [oecd-recommendation]
-      footing: partly_binding
+          AI systems should be "enriched with Kenyan cultural values", preserve and promote the nation's
+          cultural heritage, and be relevant to local needs.
+        sources: [ke-strategy-2025]
+      footing: guidance_only
       footing_note:
         text: >-
-          Under the Data Protection Act, people have a right to meaningful human review of decisions made
-          solely by automated processing. Wider rules on liability for AI are proposed in the draft policy.
-        sources: [odpc-guidance-2026, itedge-policy-2026]
+          A policy aim of the strategy; we found no law that gives it effect.
+        sources: [ke-strategy-2025]
       how_it_works:
         - text: >-
-            The ODPC's draft guidance counts impact assessments before deploying high-risk AI as part of an
-            organisation's accountability.
-          sources: [odpc-guidance-2026]
+            A former ICT Permanent Secretary said a national AI model that aims to digitise indigenous
+            languages was due to be completed in November 2026.
+          sources: [af-sovereign-2026]
+      regulators: [Ministry of Information, Communications and the Digital Economy]
+
+    - key: environment
+      name: Environmental sustainability
+      short: Environment
+      asks:
+        text: >-
+          "The development and deployment of AI systems will promote environmental sustainability and
+          energy efficiency."
+        sources: [ke-strategy-2025]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          Set out in the strategy, which is not law.
+        sources: [ke-strategy-2025]
+      how_it_works:
         - text: >-
-            The draft AI policy proposes shared liability, insurance and redress across developers,
-            deployers, operators, vendors and users.
-          sources: [itedge-policy-2026]
-      regulators: [Office of the Data Protection Commissioner (ODPC)]
+            The strategy plans for green energy to power AI infrastructure. A planned large data centre has
+            raised questions about whether the national grid can supply it.
+          sources: [ke-strategy-2025, citizen-datacentre-2026]
+      regulators: [Ministry of Information, Communications and the Digital Economy]
+
+    - key: economy
+      name: Economic benefit and self-sufficiency
+      short: Economic benefit
+      asks:
+        text: >-
+          AI should drive economic growth and new opportunities and foster self-sufficiency, "positioning
+          Kenya as a net exporter of AI technologies and services."
+        sources: [ke-strategy-2025]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          A policy aim of the strategy, not a legal duty.
+        sources: [ke-strategy-2025]
+      how_it_works:
+        - text: >-
+            Kenyan companies have opened a GPU-powered AI computing facility in Nairobi for local
+            developers.
+          sources: [citizen-gpu-2025]
+      regulators: [Ministry of Information, Communications and the Digital Economy]
+
+    - key: local
+      name: Local first approach
+      short: Local first
+      asks:
+        text: >-
+          AI development and deployment "will prioritise local talent, resources, and solutions while
+          fostering local, regional, and international collaborations and partnerships."
+        sources: [ke-strategy-2025]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          Set out in the strategy. The draft AI policy would go further, with a pillar on sovereignty and
+          data localisation, but it does not itself create legal obligations.
+        sources: [ke-strategy-2025, itedge-policy-2026]
+      how_it_works:
+        - text: >-
+            Kenyan companies have launched a sovereign cloud service so that organisations can keep
+            sensitive data in Kenya.
+          sources: [standard-sovereign-cloud-2026]
+      regulators: [Ministry of Information, Communications and the Digital Economy]
 
 areas_for_improvement:
   meta:
@@ -623,7 +689,7 @@ areas_for_improvement:
     - id: legal-basis
       title: A legal framework for AI
       kind: legal_power
-      principles: [safety, accountability]
+      principles: [ethics, accountability]
       in_place:
         text: >-
           Data protection law applies to AI that uses personal data. A draft AI policy includes a roadmap
@@ -645,7 +711,7 @@ areas_for_improvement:
     - id: proportionate-oversight
       title: Proportionate rules and independent oversight
       kind: capacity
-      principles: [accountability, rights]
+      principles: [accountability, ethics]
       in_place:
         text: >-
           The draft AI policy proposes a risk-based approach, and a Cabinet committee coordinates AI policy.
@@ -661,7 +727,7 @@ areas_for_improvement:
     - id: cross-border
       title: Enforcement against AI providers abroad
       kind: coverage
-      principles: [rights, accountability]
+      principles: [ethics, accountability]
       in_place:
         text: >-
           The ODPC's draft guidance tightens scrutiny of AI tools from providers abroad, and the draft AI
@@ -678,7 +744,7 @@ areas_for_improvement:
     - id: safety-capacity
       title: Capacity to test AI for safety
       kind: capacity
-      principles: [safety]
+      principles: [ethics]
       in_place:
         text: >-
           Kenya has no AI safety institute. CIPIT's summary of the national strategy says it would develop
@@ -699,7 +765,7 @@ areas_for_improvement:
     - id: incident-reporting
       title: Reporting of AI incidents
       kind: legal_power
-      principles: [safety, accountability]
+      principles: [ethics, accountability]
       in_place:
         text: >-
           We found no duty to report AI incidents in our sources. The draft AI policy proposes incident
@@ -772,7 +838,7 @@ sources:
     origin: inside
     type: government
     language: en
-    note: Copy of the strategy hosted by the Global Partnership for Sustainable Development Data. Only the first 23 pages could be read in full; the guiding principles (section 4.3) were not read.
+    note: Copy of the strategy hosted by the Global Partnership for Sustainable Development Data. Read in full on 21 November 2026 from a copy supplied by the project team; the guiding principles are in section 4.3, p. 63.
   - id: odpc-guidance-2026
     title: Guidance Note on Artificial Intelligence
     publisher: Office of the Data Protection Commissioner
@@ -843,16 +909,6 @@ sources:
     type: academic
     language: en
     note: By Anthony Mburu.
-  - id: globalcenter-strategies-2025
-    title: "African Countries Are Racing to Create AI Strategies - But Are They Putting the Cart Before the Horse?"
-    publisher: Global Center on AI Governance
-    url: https://www.globalcenter.ai/insights/african-countries-are-racing-to-create-ai-strategies-but-are-they-putting-the-cart-before-the-horse
-    published: 2025-04-03
-    accessed: 2026-11-19
-    origin: outside
-    type: academic
-    language: en
-    note: By Selamawit Engida Abdella and Ayantola Alayande.
   - id: cipit-strategy-2025
     title: Kenya's Efforts in AI and Implementation Plan of the Kenyan National AI Strategy
     publisher: CIPIT, Strathmore University
@@ -1022,6 +1078,15 @@ sources:
     type: civil_society
     language: en
     note: By Jackline Akello and Pria Chetty.
+  - id: kictanet-sop-2025
+    title: Shaping the Future of AI in Kenya
+    publisher: KICTANet
+    url: https://kictanet.or.ke/?p=50948
+    accessed: 2026-11-21
+    origin: inside
+    type: civil_society
+    language: en
+    note: By Neema Mujesia. Report of the workshop on the draft Kenya AI Statement of Principles, 28-29 January 2025, hosted by the Ministry of ICT and the Digital Economy with KICTANet.
   - id: maiei-strategy-2025
     title: "AI Policy Corner: The Kenya National AI Strategy"
     publisher: Montreal AI Ethics Institute
@@ -1042,16 +1107,6 @@ sources:
     type: government
     language: en
     note: Record in the OECD's AI policy observatory, updated 28 April 2026, which tags the strategy against the OECD AI Principles.
-  - id: oecd-recommendation
-    title: Recommendation of the Council on Artificial Intelligence
-    publisher: OECD
-    url: https://legalinstruments.oecd.org/public/doc/648/648.en.pdf
-    published: 2024-05-03
-    accessed: 2026-11-19
-    origin: international
-    type: government
-    language: en
-    note: OECD/LEGAL/0449. Adopted on 22 May 2019 and revised on 3 May 2024.
   - id: gov-bletchley-2023
     title: "The Bletchley Declaration by Countries Attending the AI Safety Summit, 1-2 November 2023"
     publisher: Prime Minister's Office, 10 Downing Street
