@@ -123,7 +123,7 @@ regulation:
     - kind: bill
       title: National Digital Economy and E-Governance Bill
       date: 2025-07-08
-      status: Passed second reading in the Senate in July 2025; at third reading in July 2026, as reported by ThisDay
+      status: Not yet law. Passed second reading in the Senate in July 2025; at third reading in July 2026, as reported by ThisDay
       text: >-
         A wide-ranging bill on the digital economy that includes a framework for "the development,
         implementation, and responsible use of Artificial Intelligence systems", in the words of its Senate
@@ -771,7 +771,7 @@ areas_for_improvement:
 
 contacts:
   meta:
-    checked: 2026-11-19
+    checked: 2026-11-21
     evidence_depth: limited
     review: draft
     gaps: >-
@@ -813,6 +813,16 @@ contacts:
           A digital rights organisation whose work on AI covers research, capacity building and policy
           input, including to NITDA.
         sources: [paradigm-ai]
+    - name: AI Safety Nigeria
+      type: civil_society
+      url: https://aisafetynigeria.com/
+      based: Abuja
+      about:
+        text: >-
+          An organisation working on AI safety research, education and training, and policy and governance
+          in Nigeria and across Africa. It co-wrote Digital Policy Alert's 2026 report on Nigeria's approach
+          to AI governance.
+        sources: [aisn-about, dpa-report-2026]
 
 sources:
   # Government of Nigeria and its agencies
@@ -885,7 +895,7 @@ sources:
     origin: inside
     type: journalism
     language: en
-    note: By Emma Okonji. The latest dated report of the bill's status we found.
+    note: By Emma Okonji. The latest dated report of the bill's status we found. The headline anticipates the Act; the article reports the bill at third reading, not passed.
   - id: sun-second-2025
     title: Senate moves to legalise AI, E-Governance as National Digital Economy Bill passes second reading
     publisher: The Sun Nigeria
@@ -1004,6 +1014,15 @@ sources:
     type: journalism
     language: en
     note: By Chike Onwuegbuchi. Reports the Ayre Think Tank's Commonwealth Youth AI Readiness Index, a desk-based study.
+  - id: aisn-about
+    title: About AI Safety Nigeria
+    publisher: AI Safety Nigeria
+    url: https://aisafetynigeria.com/about/
+    accessed: 2026-11-21
+    origin: inside
+    type: civil_society
+    language: en
+    note: Based in Garki, Abuja. Describes its work as AI safety research, education and training, and policy and governance.
   - id: paradigm-ai
     title: AI Work at Paradigm Initiative
     publisher: Paradigm Initiative
