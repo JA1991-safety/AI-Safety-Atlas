@@ -1,5 +1,5 @@
 # European Union: area profile
-# Status: DRAFT, researched by Claude on 18 and 19 November 2026, awaiting editor review.
+# Status: APPROVED by the editor on 21 November 2026 (researched by Claude on 18 and 19 November 2026).
 # Every statement cites one or more sources from the list at the bottom of this file.
 # Direct quotes were copied from the source pages on the access date.
 # The EU is treated as one area during the pilot. Sources from EU institutions and from
@@ -10,8 +10,8 @@
 code: EU
 name: European Union
 status: draft
-last_reviewed: 2026-11-19
-editor_approved: false
+last_reviewed: 2026-11-21
+editor_approved: true
 reviewers: []
 
 summary:
@@ -81,7 +81,7 @@ attitudes:
   meta:
     checked: 2026-11-19
     evidence_depth: rich
-    review: draft
+    review: editor_approved
     gaps: >-
       The 2026 Special Eurobarometer figures are reported here through a Commission report and news
       coverage, not the full survey release. YouGov's release does not give fieldwork dates or
@@ -131,7 +131,7 @@ regulation:
   meta:
     checked: 2026-11-19
     evidence_depth: rich
-    review: draft
+    review: editor_approved
     gaps: >-
       The text of the 2026 amending regulation has not been read in full; it is described from a
       news analysis and a law firm briefing. Sources differ on the date of the political agreement
@@ -206,7 +206,7 @@ culture:
   meta:
     checked: 2026-11-19
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       No local reviewer yet. Voices from national governments, from Central and Eastern Europe and
       from AI researchers are under-represented, and most sources are in English.
@@ -296,7 +296,7 @@ news:
   meta:
     checked: 2026-11-19
     evidence_depth: rich
-    review: draft
+    review: editor_approved
   items:
     - id: paris-call
       headline: Thirteen EU member states sign the Paris Call for AI Safety and Security
@@ -476,7 +476,7 @@ principles:
   meta:
     checked: 2026-11-19
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       How the General Data Protection Regulation, the Digital Services Act and non-discrimination
       law apply to AI is covered only briefly. Member states' own guidance and enforcement are not
@@ -684,7 +684,7 @@ areas_for_improvement:
   meta:
     checked: 2026-11-19
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       Each area is one that a named source has identified. The figures on national authorities come
       from a compliance vendor's summary of Politico reporting. Enforcement under the AI Act began in
@@ -825,7 +825,7 @@ contacts:
   meta:
     checked: 2026-11-19
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       A starting list, described from each organisation's own pages. National AI safety bodies in
       member states, SaferAI and university groups outside ELLIS are not yet listed.
