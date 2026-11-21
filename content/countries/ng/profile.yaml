@@ -1,5 +1,5 @@
 # Nigeria: area profile
-# Status: DRAFT, researched by Claude on 19 November 2026, awaiting editor review.
+# Status: APPROVED by the editor on 21 November 2026 (researched by Claude on 19 November 2026).
 # Every statement cites one or more sources from the list at the bottom of this file.
 # Direct quotes were copied from the source pages on the access date.
 # Sources from the Government of Nigeria, its agencies, and organisations and media based in Nigeria
@@ -11,8 +11,8 @@
 code: NG
 name: Nigeria
 status: draft
-last_reviewed: 2026-11-19
-editor_approved: false
+last_reviewed: 2026-11-21
+editor_approved: true
 reviewers: []
 
 summary:
@@ -73,7 +73,7 @@ attitudes:
   meta:
     checked: 2026-11-19
     evidence_depth: limited
-    review: draft
+    review: editor_approved
     gaps: >-
       We found no survey of attitudes to AI run by a Nigerian public body. The Pew figures are from the
       published topline, which does not give Nigeria's fieldwork dates or sample size. The BCG and HP
@@ -113,7 +113,7 @@ regulation:
   meta:
     checked: 2026-11-19
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       We did not read the text of the National Digital Economy and E-Governance Bill; its AI provisions are
       described from news reports, which differ in detail, and the latest dated report of its status is
@@ -185,7 +185,7 @@ culture:
   meta:
     checked: 2026-11-19
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       No local reviewer yet. All sources are in English; debate in Hausa, Yoruba, Igbo and other languages
       is not covered. Coverage of AI in national politics was left out, as it needs a second reviewer.
@@ -268,7 +268,7 @@ news:
   meta:
     checked: 2026-11-19
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
   items:
     - id: cbn-ai-agents
       headline: Central Bank officials warn banks about the risks of AI agents
@@ -431,7 +431,7 @@ principles:
   meta:
     checked: 2026-11-19
     evidence_depth: limited
-    review: draft
+    review: editor_approved
     gaps: >-
       The principle descriptions are paraphrased from the strategy. We could not read its principles
       pages (28 to 29) word for word, so they should be checked against the document. How consumer,
@@ -683,7 +683,7 @@ areas_for_improvement:
   meta:
     checked: 2026-11-19
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       Each area is one that a named source has identified. The status of the digital economy bill after
       July 2026 is not confirmed.
@@ -773,7 +773,7 @@ contacts:
   meta:
     checked: 2026-11-21
     evidence_depth: limited
-    review: draft
+    review: editor_approved
     gaps: >-
       A starting list. Universities and civil society organisations working on AI safety outside Abuja and
       Lagos are under-represented.
