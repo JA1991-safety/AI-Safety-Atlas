@@ -1,5 +1,5 @@
 # United Kingdom: country profile
-# Status: DRAFT, researched by Claude on 18 November 2026, awaiting editor review.
+# Status: APPROVED by the editor on 21 November 2026 (researched by Claude on 18 November 2026).
 # Revised the same day to add how the five principles work, areas for improvement and AI safety
 # contacts, and to use each statistic once outside the summary.
 # Every statement cites one or more sources from the list at the bottom of this file.
@@ -8,8 +8,8 @@
 code: GB
 name: United Kingdom
 status: draft
-last_reviewed: 2026-11-18
-editor_approved: false
+last_reviewed: 2026-11-21
+editor_approved: true
 reviewers: []
 
 summary:
@@ -75,7 +75,7 @@ attitudes:
   meta:
     checked: 2026-11-18
     evidence_depth: rich
-    review: draft
+    review: editor_approved
     gaps: >-
       The government's own tracker survey (Wave 4, December 2024) reports findings in words rather
       than figures on its summary page. We have not yet checked for a later wave.
@@ -136,7 +136,7 @@ regulation:
   meta:
     checked: 2026-11-18
     evidence_depth: rich
-    review: draft
+    review: editor_approved
     gaps: >-
       The outcome of the Artificial Superintelligence Bill's second reading, scheduled for 13
       November 2026, is not yet confirmed from a parliamentary source. How individual regulators
@@ -296,7 +296,7 @@ culture:
   meta:
     checked: 2026-11-18
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       No local reviewer yet. Voices from devolved nations (Scotland, Wales, Northern Ireland) and
       from AI researchers outside government are not yet represented. Industry figures come from
@@ -406,7 +406,7 @@ news:
   meta:
     checked: 2026-11-18
     evidence_depth: rich
-    review: draft
+    review: editor_approved
   items:
     - id: facial-recognition-bill
       headline: Government announces law on police use of facial recognition
@@ -650,7 +650,7 @@ principles:
   meta:
     checked: 2026-11-18
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       We have not yet read each regulator's own strategic approach in full. Figures on enforcement
       under each principle are not published in one place, so the "In practice" figures come from
@@ -871,7 +871,7 @@ areas_for_improvement:
   meta:
     checked: 2026-11-18
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       Each area is one that a named source has identified, or, for labelling, where surveys show
       public support for a change. Several findings date from 2023 and
@@ -1117,7 +1117,7 @@ contacts:
   meta:
     checked: 2026-11-18
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       A starting list, described from each organisation's own pages. Organisations in Scotland, Wales
       and Northern Ireland are not yet included. Regulators are listed through their joint forum.
