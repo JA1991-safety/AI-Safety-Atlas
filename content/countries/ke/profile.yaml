@@ -11,15 +11,16 @@
 code: KE
 name: Kenya
 status: draft
-last_reviewed: 2026-11-19
+last_reviewed: 2026-11-21
 editor_approved: false
 reviewers: []
 
 summary:
   overview:
     - text: >-
-        Kenya has no AI-specific law. A Senate bill proposing an AI regulator and penalties was rejected
-        by the Senate's ICT committee in October 2026, as reported by Techweez. A draft national policy on
+        Kenya has no AI-specific law. A Senate bill proposing an AI regulator and penalties has stalled:
+        in October 2026 the Senate's ICT committee advised against proceeding with it, as reported by
+        Techweez. A draft national policy on
         AI and emerging technologies went out for public comment in July 2026.
       sources: [techweez-bill-2026, itedge-policy-2026]
     - text: >-
@@ -39,8 +40,8 @@ summary:
       sources: [pew-topline-2026, techtrends-bcg-2026]
   regulation_line:
     text: >-
-      No AI-specific law: data protection law and draft regulatory guidance apply, a Senate AI bill was
-      rejected in committee, and a draft national AI policy is under preparation.
+      No AI-specific law: data protection law and draft regulatory guidance apply, a Senate AI bill has
+      stalled in committee, and a draft national AI policy is under preparation.
     sources: [odpc-guidance-2026, techweez-bill-2026, itedge-policy-2026]
 
 facets:
@@ -71,12 +72,13 @@ facets:
 
 attitudes:
   meta:
-    checked: 2026-11-19
+    checked: 2026-11-21
     evidence_depth: moderate
     review: draft
     gaps: >-
-      The Pew figures are from the published topline, which does not give Kenya's fieldwork dates or
-      sample size. The BCG figures are reported through TechTrendsKE and the Media Council of Kenya
+      The Pew figures are from the published topline. Pew's report says the 36-country survey ran from
+      8 February to 13 May 2026, by telephone, face to face or online; Kenya's own fieldwork dates and
+      sample size are on Pew's methodology page, which we could not read. The BCG figures are reported through TechTrendsKE and the Media Council of Kenya
       figures through Radio Generation, without question wording. The GeoPoll figure is from a 2024 blog
       summary of its report. Survey wording differs, so figures from different polls should not be
       compared directly.
@@ -116,19 +118,19 @@ attitudes:
 
 regulation:
   meta:
-    checked: 2026-11-19
+    checked: 2026-11-21
     evidence_depth: moderate
     review: draft
     gaps: >-
-      We read the first part of the national AI strategy and of the ODPC's guidance note; later sections
-      are described from secondary sources. The AI bill is described from news reports and law firm
-      briefings, which differ on when it was introduced. Its rejection in committee is reported by one
-      source. We did not read the draft AI policy itself.
+      We read the national AI strategy in full, and the ODPC's guidance note to section 11; its sections
+      on generative AI and enforcement and its annexes were read in summary only. The AI bill's dates are
+      from the Senate's bill digest. The committee's October decision is reported by one source, and we
+      did not find the committee's report. We did not read the draft AI policy itself.
   items:
     - kind: bill
       title: Artificial Intelligence Bill, 2026 (Senate)
-      date: 2026-03
-      status: Sponsored by Senator Karen Nyamu; rejected by the Senate's ICT committee in October 2026, as reported by Techweez
+      date: 2026-02-19
+      status: Sponsored by Senator Karen Nyamu; published on 19 February 2026 and read a first time on 2 April 2026. Stalled since the Senate's ICT committee advised against proceeding in October 2026, as reported by Techweez
       text: >-
         Would have created an Office of the AI Commissioner to register and audit AI systems, handle
         complaints and enforce the law, alongside an AI Authority for standards and sandboxes and an
@@ -136,7 +138,7 @@ regulation:
         to minimal. Providers of high-risk systems would carry out risk and human rights impact
         assessments, and the Commissioner would keep a public register of them. Penalties would include
         fines of up to Ksh 5 million and prison terms of up to two years.
-      sources: [citizen-bill-2026, bowmans-bill-2026, techweez-bill-2026]
+      sources: [ke-bill-digest-2026, citizen-bill-2026, bowmans-bill-2026, techweez-bill-2026]
     - kind: law
       title: Data Protection Act, 2019
       date: "2019"
@@ -149,13 +151,15 @@ regulation:
     - kind: guidance
       title: ODPC Guidance Note on Artificial Intelligence
       date: 2026-07
-      status: Published in draft in July 2026; no start date given
+      status: Published in July 2026 and reported as a draft; no start date given
       text: >-
         Says organisations deploying AI must disclose its use in their privacy notices, and should carry
         out data protection impact assessments before deploying high-risk AI. An annex lists eight uses
         that need an assessment, including credit scoring, health diagnostics, recruitment screening and
-        content recommendation. The note describes itself as "a minimum standard". The draft also
-        tightens scrutiny of AI tools from providers abroad.
+        content recommendation. High-risk systems also need meaningful human review of automated
+        decisions and regular algorithmic audit. Personal data scraped from public sources may not be
+        used to train AI without a lawful basis, and may not be sent to AI processors abroad without a
+        lawful transfer basis. The note describes itself as "a minimum standard".
       sources: [odpc-guidance-2026, ppc-odpc-2026, bd-offshore-2026]
     - kind: strategy
       title: Draft Kenya Artificial Intelligence and Emerging Technologies Policy, 2026
@@ -214,7 +218,8 @@ culture:
       sources: [capitalfm-thigo-2026]
     - text: >-
         Lawyers, researchers and senators have debated how to regulate AI. Lawyers questioned whether the
-        Senate bill was proportionate, a Senate committee rejected it, and a Strathmore University study
+        Senate bill was proportionate, a Senate committee advised against proceeding with it, and a
+        Strathmore University study
         found gaps in it that it called bridgeable.
       sources: [bowmans-bill-2026, techweez-bill-2026, strathmore-bill-2026]
     - text: >-
@@ -279,7 +284,7 @@ culture:
 
 news:
   meta:
-    checked: 2026-11-19
+    checked: 2026-11-21
     evidence_depth: moderate
     review: draft
   items:
@@ -308,17 +313,18 @@ news:
         data, and is finalising guidance on AI.
       sources: [techtrends-odpc-2026, odpc-guidance-2026]
       topics: [data protection, regulator]
-    - id: bill-rejected
-      headline: Senate committee rejects the Artificial Intelligence Bill
+    - id: bill-stalled
+      headline: Artificial Intelligence Bill stalls in Senate committee
       date: 2026-10-16
       kind: development
       summary: >-
         Techweez reported that the Senate's Standing Committee on Information, Communication and
-        Technology rejected the bill, finding its penalties too harsh and its rules too heavy for a young
-        sector. The report gives no date for the committee's decision.
+        Technology advised against proceeding with the bill, finding its penalties too harsh and its rules
+        too heavy for a young sector, and that the bill has stalled. The report gives no date for the
+        committee's decision.
       why_it_matters: >-
-        Kenya remains without an AI-specific law; Techweez writes that rejecting the bill "was a decision
-        on its approach, not on whether AI regulation is needed."
+        Kenya remains without an AI-specific law; Techweez writes that the decision "was a decision on its
+        approach, not on whether AI regulation is needed."
       sources: [techweez-bill-2026]
       topics: [regulation, AI bill]
     - id: pew-survey
@@ -332,6 +338,50 @@ news:
         It is one of few surveys of attitudes to AI in Kenya with comparable figures for other countries.
       sources: [pew-topline-2026]
       topics: [public attitudes, jobs]
+    - id: anthropic-declaration
+      headline: Kenya and Anthropic sign a joint declaration on AI cooperation
+      date: 2026-09-22
+      kind: development
+      summary: >-
+        Foreign Affairs Principal Secretary Korir Sing'Oei and Anthropic signed a joint declaration in New
+        York, on the margins of the UN General Assembly. Kenyan media report that it sets a framework for
+        cooperation on AI skills, research, public-sector uses, and AI safety and evaluation, with
+        education and health as priorities. Capital FM reports that it does not set out specific projects,
+        and that any use of data in future programmes will be governed by Kenyan law.
+      why_it_matters: >-
+        It is an agreement between the government and an AI developer that includes AI safety and
+        evaluation. Citizen Digital calls it "historic"; Capital FM describes it as an umbrella framework
+        under which ministries can develop their own programmes.
+      sources: [citizen-anthropic-2026, capitalfm-anthropic-2026, standard-anthropic-2026]
+      topics: [international, partnerships]
+    - id: claude-misuse-report
+      headline: AI developer reports a Kenyan operation using its chatbot for political posts
+      date: 2026-09-11
+      kind: development
+      summary: >-
+        Kenyan media reported that Anthropic's September 2026 threat report described a Kenya-based
+        operator using its Claude chatbot to write social media posts praising Energy Cabinet Secretary
+        Opiyo Wandayi and criticising the opposition. Anthropic said it found "no evidence of government
+        involvement". Mr Wandayi called the report unverified and said it did not establish that he or
+        his ministry authorised the activity.
+      why_it_matters: >-
+        It is a reported case of a general-purpose AI tool used in domestic political messaging in Kenya.
+        The OECD's AI Incidents Monitor records it as an incident affecting the general public.
+      sources: [kenyans-wandayi-2026, standard-claude-2026, oecd-incident-2026]
+      topics: [misuse, information integrity]
+    - id: thigo-talks
+      headline: Special Envoy on Technology holds talks with AI developers in Silicon Valley
+      date: 2026-07-24
+      kind: foundational
+      summary: >-
+        Citizen Digital reported that Philip Thigo, Kenya's Special Envoy on Technology, discussed with
+        Anthropic executives, including its chief executive, how frontier AI could be deployed responsibly
+        in Kenya. Health, education and public-sector skills were among the priority areas named.
+      why_it_matters: >-
+        Thigo said Kenya had "an opportunity to help shape a different model for working with frontier AI
+        companies"; the talks preceded the September joint declaration.
+      sources: [citizen-thigo-2026]
+      topics: [international, frontier AI]
     - id: odpc-guidance
       headline: Data protection regulator publishes draft guidance on AI
       date: 2026-07
@@ -366,14 +416,15 @@ news:
       topics: [governance]
     - id: ai-bill
       headline: Senate bill proposes an AI Commissioner and penalties
-      date: 2026-03-17
+      date: 2026-02-19
       kind: foundational
       summary: >-
-        The Artificial Intelligence Bill, 2026, sponsored by Senator Karen Nyamu, proposed a regulator, risk
-        classes and penalties for non-compliance.
+        The Artificial Intelligence Bill, 2026, sponsored by Senator Karen Nyamu, was published on 19
+        February 2026 and read a first time in the Senate on 2 April. It proposed a regulator, risk classes
+        and penalties for non-compliance.
       why_it_matters: >-
         It was Kenya's first attempt at an AI-specific law.
-      sources: [citizen-bill-2026, bowmans-bill-2026]
+      sources: [ke-bill-digest-2026, dpa-bill-2026, citizen-bill-2026, bowmans-bill-2026]
       topics: [regulation, AI bill]
     - id: strategy
       headline: Kenya publishes its AI strategy for 2025 to 2030
@@ -454,7 +505,7 @@ principles:
     evidence_depth: limited
     review: draft
     gaps: >-
-      The ODPC's guidance note is a draft, and later sections of it were not read in full. The draft
+      The ODPC's guidance note is reported as a draft; its last sections were read in summary only. The draft
       Statement of Principles is described from KICTANet's report of the workshop. How consumer and
       employment law apply to AI is not covered.
   framework:
@@ -551,6 +602,10 @@ principles:
             The draft AI policy proposes shared liability, insurance and redress across developers,
             deployers, operators, vendors and users.
           sources: [itedge-policy-2026]
+        - text: >-
+            The ODPC's draft guidance asks organisations running AI to monitor it in operation, audit it
+            periodically, keep an AI incident register and have an AI governance committee or equivalent.
+          sources: [odpc-guidance-2026]
       regulators: [Office of the Data Protection Commissioner (ODPC)]
       evidence:
         - text: >-
@@ -673,12 +728,12 @@ principles:
 
 areas_for_improvement:
   meta:
-    checked: 2026-11-19
+    checked: 2026-11-21
     evidence_depth: moderate
     review: draft
     gaps: >-
-      Each area is one that a named source has identified. The rejection of the AI bill is reported by one
-      source.
+      Each area is one that a named source has identified. The committee's October decision on the AI
+      bill is reported by one source.
   intro:
     - text: >-
         Kenya has data protection law, draft guidance on AI, a national strategy and a draft AI policy. The
@@ -693,7 +748,7 @@ areas_for_improvement:
       in_place:
         text: >-
           Data protection law applies to AI that uses personal data. A draft AI policy includes a roadmap
-          for legislation; a Senate AI bill was rejected in committee.
+          for legislation; a Senate AI bill has stalled in committee.
         sources: [odpc-guidance-2026, itedge-policy-2026, techweez-bill-2026]
       identified:
         text: >-
@@ -730,9 +785,10 @@ areas_for_improvement:
       principles: [ethics, accountability]
       in_place:
         text: >-
-          The ODPC's draft guidance tightens scrutiny of AI tools from providers abroad, and the draft AI
-          policy would apply to foreign providers whose systems affect Kenya.
-        sources: [bd-offshore-2026, itedge-policy-2026]
+          The ODPC's draft guidance says personal data may not be sent to AI processors abroad without a
+          lawful transfer basis, and the draft AI policy would apply to foreign providers whose systems
+          affect Kenya.
+        sources: [odpc-guidance-2026, bd-offshore-2026, itedge-policy-2026]
       identified:
         text: >-
           TechTrendsKE reports that enforcement against organisations abroad depends on foreign cooperation,
@@ -848,7 +904,7 @@ sources:
     origin: inside
     type: regulator
     language: en
-    note: Read in full to page 19. Reported as a draft for consultation.
+    note: Read on 21 November 2026 to section 11 (p. 30); sections 12 and 13 and the annexes in summary only. The note does not call itself a draft and gives no start date; PPC Land reports it as a draft.
   # Kenyan media and organisations
   - id: techweez-bill-2026
     title: Senate Committee Rejects AI Bill, Sending It Back to the Drawing Board
@@ -859,7 +915,76 @@ sources:
     origin: inside
     type: journalism
     language: en
-    note: By Kevin Ngugi. The only source we found for the committee's rejection of the bill.
+    note: By Kevin Ngugi. The only source we found for the committee's October decision. The headline says the committee rejected the bill; the article says the bill has stalled at committee level. The page title reads "Kenya's First AI Bill Stalls Over Fears of Overregulation".
+  - id: ke-bill-digest-2026
+    title: "Bill Digest: The Artificial Intelligence Bill, 2026 (Senate Bills No. 4 of 2026)"
+    publisher: Parliament of Kenya, the Senate
+    url: https://www.parliament.go.ke/sites/default/files/2026-04/Bill%20Digest%20-%20The%20Artificial%20Intelligence%20Bill%2C%20No.4%20of%202026.pdf
+    published: 2026-04
+    accessed: 2026-11-21
+    origin: inside
+    type: parliament
+    language: en
+    note: Gives the publication date (19 February 2026) and first reading (2 April 2026). The digest says it has no official legal status.
+  - id: citizen-anthropic-2026
+    title: Kenya, Anthropic strike historic AI deal at UNGA
+    publisher: Citizen Digital
+    url: https://citizen.digital/article/kenya-anthropic-strike-historic-ai-deal-at-unga-n390739
+    published: 2026-09-23
+    accessed: 2026-11-21
+    origin: inside
+    type: journalism
+    language: en
+    note: By Willy Lusige. Gives the signing date as 22 September 2026.
+  - id: capitalfm-anthropic-2026
+    title: Kenya, Anthropic sign framework for responsible AI cooperation
+    publisher: Capital FM
+    url: https://capitalfm.africa/kenya-anthropic-sign-framework-for-responsible-ai-ooperation/
+    published: 2026-09-24
+    accessed: 2026-11-21
+    origin: inside
+    type: journalism
+    language: en
+    note: No author shown.
+  - id: standard-anthropic-2026
+    title: Kenya signs AI deal with Claude to boost public-sector skills
+    publisher: The Standard
+    url: https://www.standardmedia.co.ke/sci-tech/article/2001558501/kenya-signs-ai-deal-with-claude
+    published: 2026-09-23
+    accessed: 2026-11-21
+    origin: inside
+    type: journalism
+    language: en
+    note: By Esther Nyambura.
+  - id: citizen-thigo-2026
+    title: Kenya courts global AI firms in push to accelerate digital transformation
+    publisher: Citizen Digital
+    url: https://citizen.digital/article/kenya-courts-global-ai-firms-in-push-to-accelerate-digital-transformation-n387086
+    published: 2026-07-24
+    accessed: 2026-11-21
+    origin: inside
+    type: journalism
+    language: en
+    note: By Willy Lusige. Does not give the date of the meeting.
+  - id: kenyans-wandayi-2026
+    title: CS Wandayi Responds to Anthropic Report on AI-Generated Campaign Praising Him
+    publisher: Kenyans.co.ke
+    url: https://www.kenyans.co.ke/news/126982-cs-wandayi-responds-anthropic-report-ai-generated-campaign-praising-him
+    published: 2026-09-11
+    accessed: 2026-11-21
+    origin: inside
+    type: journalism
+    language: en
+    note: By Frankline Oduor. Reports both the findings and the Cabinet Secretary's response.
+  - id: standard-claude-2026
+    title: How Claude AI was misused to amplify praise for CS Wandayi
+    publisher: The Standard
+    url: https://www.standardmedia.co.ke/national/article/2001557560/how-claude-ai-was-misused-to-amplify-praise-for-cs-wandayi
+    accessed: 2026-11-21
+    origin: inside
+    type: journalism
+    language: en
+    note: By Fred Kagonye. No date on the page; the OECD incident entry lists it under 11 September 2026.
   - id: citizen-bill-2026
     title: Senate Bill seeks establishment of AI Commissioner office with Ksh.5M fine for offenders
     publisher: Citizen Digital
@@ -1068,6 +1193,26 @@ sources:
     type: poll
     language: en
   # Outside Kenya
+  - id: dpa-bill-2026
+    title: Artificial Intelligence Bill, including AI authority governance was introduced to Senate
+    publisher: Digital Policy Alert
+    url: https://digitalpolicyalert.org/event/38949-artificial-intelligence-bill-including-ai-authority-governance-was-introduced-to-senate
+    published: 2026-02-19
+    accessed: 2026-11-21
+    origin: outside
+    type: civil_society
+    language: en
+    note: Records 19 February 2026 as the date the bill was introduced to the Senate.
+  - id: oecd-incident-2026
+    title: AI-Generated Political Propaganda Campaign Uncovered in Kenya
+    publisher: OECD.AI AI Incidents and Hazards Monitor
+    url: https://oecd.ai/en/incidents/2026-09-11-0d06
+    published: 2026-09-11
+    accessed: 2026-11-21
+    origin: international
+    type: international_body
+    language: en
+    note: Automated incident entry compiled from news reports; lists harm types as public interest and reputational.
   - id: ria-strategy-2025
     title: Decoding Kenya's National AI Strategy through a Just AI lens
     publisher: Research ICT Africa
