@@ -50,7 +50,16 @@ function quoteFragments(quote) {
     .filter((f) => f.length >= 12);
 }
 
+// Network failures (no HTTP status) are retried once after a pause, since some university and
+// government servers drop connections from CI runners intermittently.
 async function fetchPage(url) {
+  const first = await fetchOnce(url);
+  if (first.status !== 0) return first;
+  await new Promise((r) => setTimeout(r, 3000));
+  return fetchOnce(url);
+}
+
+async function fetchOnce(url) {
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
   try {
@@ -63,7 +72,8 @@ async function fetchPage(url) {
     const body = type.includes('text') || type.includes('html') || type.includes('json') ? await res.text() : '';
     return { status: res.status, type, body, finalUrl: res.url };
   } catch (e) {
-    return { status: 0, type: '', body: '', error: e.name === 'AbortError' ? 'timeout' : e.message };
+    const cause = e.cause?.code ?? e.cause?.message;
+    return { status: 0, type: '', body: '', error: e.name === 'AbortError' ? 'timeout' : cause ? `${e.message} (${cause})` : e.message };
   } finally {
     clearTimeout(timer);
   }
@@ -106,6 +116,18 @@ for (const area of areas) {
     else warnings++;
     console.log(`  ${level === 'error' ? '✗' : '!'} link ${msg}`);
     lines.push(`- ${level === 'error' ? '**Link error**' : 'Link warning'}: \`${s.id}\` returned ${r.status || r.error}: ${s.url}`);
+  }
+
+  // Contact links are what readers act on, so check them too (as warnings, never errors).
+  const contactLinks = (p.contacts?.items ?? []).flatMap((c) => [
+    { label: c.name, url: c.url },
+    ...c.links.map((l) => ({ label: `${c.name} (${l.label})`, url: l.url })),
+  ]);
+  for (const { label, url, r } of await pool(contactLinks, async (l) => ({ ...l, r: await fetchPage(l.url) }))) {
+    if (r.status > 0 && r.status < 400) continue;
+    warnings++;
+    console.log(`  ! contact link ${label}: ${r.status || r.error} ${url}`);
+    lines.push(`- Contact link warning: ${label} returned ${r.status || r.error}: ${url}`);
   }
 
   for (const q of p.culture.own_words) {
