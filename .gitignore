@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.astro/
+public/data/countries-50m.json
+validation-report.md
+source-check-report.md
+preview/
+.DS_Store

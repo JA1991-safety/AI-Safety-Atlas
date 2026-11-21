@@ -1,0 +1,868 @@
+# United Kingdom: country profile
+# Status: DRAFT, researched by Claude on 18 November 2026, awaiting editor review.
+# Every statement cites one or more sources from the list at the bottom of this file.
+# Direct quotes were copied from the source pages on the access date.
+
+code: GB
+name: United Kingdom
+status: draft
+last_reviewed: 2026-11-18
+editor_approved: false
+reviewers: []
+
+summary:
+  overview:
+    - text: >-
+        The UK has no general AI law. Existing regulators apply five cross-sector principles on a
+        non-statutory basis, and the government has said it will legislate when it is confident that
+        doing so is right.
+      sources: [gov-regulation-response-2024, lewis-silkin-2026-09]
+    - text: >-
+        Its state body for advanced AI risk, the AI Security Institute, focuses on serious risks with
+        security implications, such as chemical and biological weapons, cyber-attacks and crime. It
+        received a further £120m in October 2026.
+      sources: [gov-aisi-rename-2025, gov-ai-package-2026]
+    - text: >-
+        A change of Prime Minister in July 2026 moved AI strategy and the AI Security Institute into
+        the Cabinet Office and created the first AI minister to attend Cabinet.
+      sources: [npr-burnham-2026, ggf-rewire-2026]
+    - text: >-
+        Surveys show broad public support for regulation. In a national survey published in 2025, 72% of UK
+        adults said laws and regulation would make them more comfortable with AI.
+      sources: [ada-turing-press-2025]
+  regulation_line:
+    text: >-
+      No general AI law. Regulators apply non-statutory principles, with specific measures on data,
+      copyright and police biometrics.
+    sources: [gov-regulation-response-2024, leg-data-act-2025, ada-frt-2026]
+
+facets:
+  regulatory_approach: sector_and_existing_law
+  safety_institute:
+    status: "yes"
+    name: AI Security Institute (AISI)
+    sources: [aisi-home, gov-aisi-rename-2025]
+  frontier_developers:
+    status: "yes"
+    note: >-
+      Google DeepMind lists London among its offices. OpenAI and Anthropic support the government's
+      AI Biosecurity Lab with model credits.
+    sources: [deepmind-careers, gov-ai-package-2026]
+  national_polling: "yes"
+  commitments:
+    - key: bletchley_declaration
+      status: signed
+      date: 2023-11-01
+      sources: [gov-bletchley-2023]
+    - key: coe_convention
+      status: signed
+      date: 2024-09-05
+      sources: [gov-coe-convention-2024]
+    - key: paris_statement
+      status: not_signed
+      date: 2025-02-11
+      sources: [lbc-paris-2025]
+    - key: new_delhi_declaration
+      status: endorsed
+      date: 2026-02-21
+      sources: [pti-new-delhi-2026]
+
+attitudes:
+  meta:
+    checked: 2026-11-18
+    evidence_depth: rich
+    review: draft
+    gaps: >-
+      The government's own tracker survey (Wave 4, December 2024) reports findings in words rather
+      than figures on its summary page. We have not yet checked for a later wave.
+  headline_figures:
+    - value: "72%"
+      label: say laws and regulation would make them more comfortable with AI (up from 62% in 2022/23)
+      question: Which of the following would make you more comfortable with AI being used?
+      fieldwork: 25 Oct to 24 Nov 2024
+      sample: 3,513 UK adults, random-probability panel
+      source: ada-turing-press-2025
+    - value: "59%"
+      label: have an unfavourable opinion of AI companies; 16% are favourable
+      fieldwork: 17 to 22 Sep 2026
+      sample: 4,065 GB adults, online
+      source: yougov-ai-companies-2026
+  statements:
+    - text: >-
+        In the 2025 Ada Lovelace Institute and Alan Turing Institute survey, 88% said it is important
+        that the government or regulators have the power to stop an AI product that poses serious
+        harm, and 83% were concerned about public bodies sharing their data with private companies
+        to train AI.
+      sources: [ada-turing-press-2025]
+    - text: >-
+        The same survey found that half of respondents (50%) did not feel their views were
+        represented in current decisions about AI.
+      sources: [ada-turing-press-2025]
+    - text: >-
+        In a March 2026 YouGov survey for the Information Commissioner's Office (2,157 UK adults),
+        76% said they were concerned about computers making decisions about people, and 93% said it
+        is important that AI-generated content is clearly labelled.
+      sources: [ico-omnibus-2026]
+    - text: >-
+        Views on AI companies vary with use. In September 2026, 41% of daily AI users were favourable
+        towards AI companies (34% unfavourable), while 76% of people who had never used AI were
+        unfavourable.
+      sources: [yougov-ai-companies-2026]
+    - text: >-
+        In an August 2026 YouGov survey, 56% said the company that built and deployed an AI system
+        bears most responsibility when it causes harm, and 64% supported making companies legally
+        liable for damage caused by their AI systems. The article does not give the sample size.
+      sources: [yougov-ai-blame-2026]
+    - text: >-
+        Political outlook shapes concerns. In British Social Attitudes analysis, 63% of people with
+        left-wing views were concerned that facial recognition in policing could lead to false
+        accusations, compared with 45% of people with right-wing views.
+      sources: [natcen-bsa-2025]
+    - text: >-
+        The government's tracker survey found that public associations with AI "remain dominated by
+        negative concepts", while use of AI chatbots for personal and work matters is growing.
+      sources: [dsit-tracker-wave4]
+
+regulation:
+  meta:
+    checked: 2026-11-18
+    evidence_depth: rich
+    review: draft
+    gaps: >-
+      The outcome of the Artificial Superintelligence Bill's second reading, scheduled for 13
+      November 2026, is not yet confirmed from a parliamentary source. The Online Safety Act 2023
+      and the role of individual regulators (ICO, CMA, Ofcom, FCA) are not yet covered.
+  items:
+    - kind: strategy
+      title: Principles-based approach through existing regulators
+      date: 2024-02-06
+      status: In place
+      text: >-
+        The government asked existing regulators to apply five principles within their own areas:
+        safety, security and robustness; transparency and explainability; fairness; accountability
+        and governance; and contestability and redress. The principles are non-statutory. The
+        government also set out a case for "further targeted binding requirements" on the small
+        number of developers of highly capable general-purpose AI, and said it would legislate when
+        confident it was right to do so.
+      sources: [gov-regulation-response-2024]
+    - kind: institution
+      title: AI Security Institute
+      date: 2025-02-14
+      status: Operating
+      text: >-
+        Originally the AI Safety Institute, renamed the AI Security Institute in February 2025. It focuses on the most serious risks, such as chemical
+        and biological weapons, cyber-attacks, fraud and child sexual abuse, and said it would not
+        focus on bias or freedom of speech. A criminal misuse team works jointly with the Home
+        Office. Its stated mission is to give governments a scientific understanding of the risks
+        posed by advanced AI.
+      sources: [gov-aisi-rename-2025, aisi-home]
+    - kind: strategy
+      title: AI Opportunities Action Plan
+      date: 2025-01-13
+      status: Published
+      text: >-
+        An independent plan led by Matt Clifford, adopted by the government, with 50
+        recommendations to grow the UK AI sector and increase AI adoption across the economy.
+      sources: [gov-ai-opportunities-2025, gov-starmer-speech-2025]
+    - kind: law
+      title: Data (Use and Access) Act 2025
+      date: 2025-06-19
+      status: In force
+      text: >-
+        Contains provisions on copyright works and AI systems, under which the government reported to
+        Parliament on copyright and AI.
+      sources: [leg-data-act-2025, gov-copyright-report-2026]
+    - kind: guidance
+      title: Copyright and AI report
+      date: 2026-03-18
+      status: Published
+      text: >-
+        The government said a broad copyright exception for AI training with an opt-out for rights
+        holders "is no longer the government's preferred way forward", and that it would gather
+        further evidence before changing copyright law.
+      sources: [gov-copyright-report-2026]
+    - kind: bill
+      title: King's Speech 2026
+      date: 2026-05
+      status: Legislative programme announced
+      text: >-
+        The government's programme contained no dedicated AI bill. AI appears in a proposed
+        Regulating for Growth Bill, which would let businesses test products, including AI, in
+        regulatory sandboxes.
+      sources: [scl-kings-speech-2026]
+    - kind: machinery
+      title: AI moves to the centre of government
+      date: 2026-07-20
+      status: In place
+      text: >-
+        The new Prime Minister, Andy Burnham, closed the Department for Science, Innovation and
+        Technology. AI strategy, public sector AI adoption and the AI Security Institute moved to the
+        Cabinet Office, and an AI Taskforce was set up in a new Office for the Prime Minister and the
+        Cabinet. Kanishka Narayan became AI minister, attending Cabinet.
+      sources: [ggf-rewire-2026, akin-ai-minister-2026]
+    - kind: bill
+      title: Artificial Superintelligence Bill
+      date: 2026-09-08
+      status: "Private Member's Bill; second reading was scheduled for 13 November 2026, outcome not yet confirmed"
+      text: >-
+        Introduced by Labour MP Alex Sobel, the bill would prohibit developing artificial
+        superintelligence in the UK. A government spokesperson said the government did not consider
+        the measures proposed "to be the right approach".
+      sources: [tnw-sobel-letter-2026, lewis-silkin-2026-09]
+    - kind: strategy
+      title: AI security and growth package
+      date: 2026-10-24
+      status: Announced with the Autumn Budget
+      text: >-
+        Measures include a £165m National AI Biosecurity Initiative with a £100m AI Biosecurity Lab
+        (supported by up to £200m of model credits from OpenAI and Anthropic), an extra £120m for the
+        AI Security Institute, a £60m National Cyber Shield, £60m for the Sovereign AI Fund and £10m a
+        year to study how AI changes jobs.
+      sources: [gov-ai-package-2026]
+    - kind: bill
+      title: Police use of facial recognition
+      date: 2026-11-04
+      status: Bill and codes of practice announced
+      text: >-
+        The Home Office announced a Bill and codes of practice governing police use of facial
+        recognition. The Ada Lovelace Institute welcomed it and called for the code of practice on
+        private use to be mandatory.
+      sources: [ada-frt-2026]
+    - kind: international
+      title: International agreements
+      date: 2026-02-21
+      status: See filters
+      text: >-
+        The UK hosted the 2023 AI Safety Summit and its Bletchley Declaration, signed the Council of
+        Europe AI convention in September 2024, did not sign the Paris AI Action Summit statement in
+        February 2025, and endorsed the New Delhi Declaration on AI Impact in February 2026.
+      sources: [gov-bletchley-2023, gov-coe-convention-2024, lbc-paris-2025, pti-new-delhi-2026]
+
+culture:
+  meta:
+    checked: 2026-11-18
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      No local reviewer yet. Voices from devolved nations (Scotland, Wales, Northern Ireland) and
+      from AI researchers outside government are not yet represented.
+  summary:
+    - text: >-
+        Government pairs growth with safety and security. In 2025 the Prime Minister said the
+        government would be "pro-growth and pro-innovation" on regulation while making sure the
+        technology is safe. In 2026 the Chancellor described the AI package as a "distinctively
+        British approach", combining security spending with support for UK firms.
+      sources: [gov-starmer-speech-2025, silicon-biosecurity-2026, gov-ai-package-2026]
+    - text: >-
+        The state's safety work is framed around national security. The AI Security Institute was
+        renamed to centre on security risks, and since July 2026 it sits in the Cabinet Office.
+      sources: [gov-aisi-rename-2025, aisi-about, ggf-rewire-2026]
+    - text: >-
+        Whether to legislate is an open debate. MPs and peers from several parties have called for a
+        ban on superintelligence and an international agreement. The government has said that bill
+        is not the right approach, and the Ada Lovelace Institute has welcomed targeted law in a
+        specific area, police facial recognition.
+      sources: [politicshome-sobel-2026, tnw-sobel-letter-2026, ada-frt-2026]
+    - text: >-
+        Copyright is a live dispute between AI developers and creative industries. Publishers
+        campaign for payment for content used to train AI, and the government has stepped back from
+        its earlier preferred opt-out model.
+      sources: [nma-make-it-fair, gov-copyright-report-2026]
+    - text: >-
+        Work and sovereignty recur. Trade unions call for legal protections for workers affected by AI
+        decisions, the government funds research on AI and jobs, and both government and the tech
+        trade body talk about sovereign capability.
+      sources: [tuc-ai-bill, gov-ai-package-2026, techuk-home]
+    - text: >-
+        The industry trade body techUK and the Startup Coalition criticised the closure of the
+        science and technology department as "the wrong change at the wrong time".
+      sources: [techmag-dsit-2026]
+  own_words:
+    - quote: "When it comes to regulation – we will be pro-growth and pro-innovation."
+      speaker: Keir Starmer
+      role: Prime Minister (2024 to 2026)
+      date: 2025-01-13
+      source: gov-starmer-speech-2025
+      voice: government
+    - quote: "I am setting out a distinctively British approach to AI."
+      speaker: John Healey
+      role: Chancellor of the Exchequer
+      date: 2026-10
+      source: silicon-biosecurity-2026
+      voice: government
+    - quote: "AI is likely the most significant technology in human history,"
+      speaker: Kanishka Narayan
+      role: AI Minister
+      source: techmag-dsit-2026
+      voice: government
+    - quote: "To keep the public safe, governments need to understand advanced AI."
+      speaker: AI Security Institute
+      role: Research organisation within government
+      source: aisi-about
+      voice: public_body
+    - quote: "Mitigating the threat from superintelligence must be treated as a national security priority"
+      speaker: Alex Sobel
+      role: Labour and Co-operative MP for Leeds Central and Headingley
+      date: 2026-07-28
+      source: politicshome-sobel-2026
+      voice: parliament
+    - quote: "The government has committed to the kind of governance regime that we and many others have called for"
+      speaker: Michael Birtwistle
+      role: Associate Director, Ada Lovelace Institute
+      date: 2026-11-04
+      source: ada-frt-2026
+      voice: civil_society
+    - quote: "Urgent action is needed to ensure that people are protected from the risks and harms of AI-powered decision making"
+      speaker: Trades Union Congress (TUC)
+      role: Federation of trade unions
+      source: tuc-ai-bill
+      voice: labour
+    - quote: "Tech giants should not profit from stolen content, or use it for free"
+      speaker: News Media Association, Make It Fair campaign
+      role: Trade body for UK news publishers
+      source: nma-make-it-fair
+      voice: creative_sector
+  outside_analysis:
+    - text: >-
+        A New York Times report described the AI Security Institute as having "no regulatory power",
+        and reported that it had found major safety gaps in every leading AI model it tested.
+      sources: [nyt-aisi-2026]
+    - text: >-
+        A US law firm's tracker described the creation of a Cabinet-level AI minister as "a sign of
+        the UK government's increased focus on AI".
+      sources: [akin-ai-minister-2026]
+
+news:
+  meta:
+    checked: 2026-11-18
+    evidence_depth: rich
+    review: draft
+  items:
+    - id: facial-recognition-bill
+      headline: Government announces law on police use of facial recognition
+      date: 2026-11-04
+      kind: development
+      summary: >-
+        The Home Office announced a Bill and codes of practice on police use of facial recognition.
+        The Ada Lovelace Institute welcomed the plan and asked for the code on private-sector use to
+        be mandatory.
+      why_it_matters: >-
+        It would set statutory rules for one specific use of AI while the UK has no general AI law.
+        Public concern about this use differs across political groups.
+      sources: [ada-frt-2026, natcen-bsa-2025]
+      topics: [biometrics, policing, legislation]
+    - id: ai-security-package
+      headline: £100m AI Biosecurity Lab and extra £120m for the AI Security Institute
+      date: 2026-10-24
+      kind: development
+      summary: >-
+        Ahead of the Autumn Budget, the Chancellor set out an AI package including a National AI
+        Biosecurity Initiative, an AI Biosecurity Lab backed by up to £200m in model credits from
+        OpenAI and Anthropic, more funding for the AI Security Institute, a National Cyber Shield
+        using agentic AI, and £10m a year to study AI's effect on jobs.
+      why_it_matters: >-
+        It directs new public money at specific AI risks, biological and cyber, and involves
+        frontier developers directly in biosecurity work.
+      sources: [gov-ai-package-2026, itv-biosecurity-2026, lbc-let-rip-2026]
+      topics: [biosecurity, cybersecurity, funding, public-private partnership]
+    - id: yougov-ai-companies
+      headline: Poll finds 59% of Britons view AI companies unfavourably
+      date: 2026-10-01
+      kind: development
+      summary: >-
+        A YouGov survey of 4,065 adults found 59% had an unfavourable opinion of AI companies, a
+        similar level to fast fashion firms, though below tobacco and gambling companies.
+      why_it_matters: >-
+        Low trust in developers shapes the political space for regulation and for public-private
+        partnerships on AI safety.
+      sources: [yougov-ai-companies-2026]
+      topics: [public attitudes, trust]
+    - id: superintelligence-ban-letter
+      headline: Over 70 MPs and peers ask the Prime Minister to back a superintelligence ban
+      date: 2026-09-11
+      kind: development
+      summary: >-
+        A cross-party group of parliamentarians wrote to the Prime Minister supporting Alex Sobel's
+        Artificial Superintelligence Bill and asking the UK to seek an international agreement
+        during its G20 presidency. The government said it did not consider the bill's measures the
+        right approach.
+      why_it_matters: >-
+        It puts a proposed prohibition on superintelligent AI, and loss-of-control risk, on the
+        parliamentary agenda.
+      sources: [tnw-sobel-letter-2026, politicshome-sobel-2026]
+      topics: [superintelligence, legislation, parliament]
+    - id: yougov-ai-liability
+      headline: Most Britons say AI developers should be legally liable for harm
+      date: 2026-08-20
+      kind: development
+      summary: >-
+        In a YouGov survey, 64% supported making companies legally liable for damage caused by their
+        AI systems, and 61% supported stricter government regulation of AI testing.
+      why_it_matters: >-
+        Public views on liability and testing bear directly on how pre-deployment evaluation might be
+        governed.
+      sources: [yougov-ai-blame-2026]
+      topics: [public attitudes, liability, testing]
+    - id: new-prime-minister
+      headline: Andy Burnham becomes Prime Minister and brings AI into the Cabinet Office
+      date: 2026-07-20
+      kind: foundational
+      summary: >-
+        Keir Starmer resigned and Andy Burnham became Labour Prime Minister. On his first day he
+        closed the Department for Science, Innovation and Technology, moved AI strategy and the AI
+        Security Institute into the Cabinet Office and appointed Kanishka Narayan as AI minister
+        attending Cabinet.
+      why_it_matters: >-
+        Who leads AI policy, and from which department, shapes the UK's priorities and its role in
+        international AI safety cooperation.
+      sources: [npr-burnham-2026, ggf-rewire-2026, akin-ai-minister-2026, techmag-dsit-2026]
+      topics: [political change, machinery of government]
+    - id: kings-speech-2026
+      headline: King's Speech includes no dedicated AI bill
+      date: 2026-05
+      kind: foundational
+      summary: >-
+        The 2026 legislative programme did not include a dedicated AI bill. AI features in a
+        Regulating for Growth Bill focused on regulatory sandboxes.
+      why_it_matters: >-
+        Binding rules for developers of the most capable models, discussed since 2024, are not
+        currently scheduled.
+      sources: [scl-kings-speech-2026, gov-regulation-response-2024]
+      topics: [legislation]
+    - id: copyright-report
+      headline: Government steps back from AI training opt-out
+      date: 2026-03-18
+      kind: foundational
+      summary: >-
+        A report under the Data (Use and Access) Act 2025 said a broad copyright exception with an
+        opt-out is no longer the government's preferred way forward.
+      why_it_matters: >-
+        Rules on training data affect where models are trained, what data they learn from, and
+        relations between AI developers and the creative sector.
+      sources: [gov-copyright-report-2026]
+      topics: [copyright, training data]
+    - id: new-delhi-declaration
+      headline: UK endorses the New Delhi Declaration on AI Impact
+      date: 2026-02-21
+      kind: foundational
+      summary: >-
+        The UK was among 88 countries and international organisations, including the US, China and
+        France, to endorse the declaration at India's AI Impact Summit.
+      why_it_matters: >-
+        It shows the UK's participation in the summit series it started at Bletchley Park in 2023.
+      sources: [pti-new-delhi-2026]
+      topics: [international cooperation, summits]
+    - id: tech-prosperity-deal
+      headline: UK and US sign Technology Prosperity Deal
+      date: 2025-09-18
+      kind: foundational
+      summary: >-
+        The two governments signed a technology partnership during the US President's state visit,
+        with a linked agreement on communications supply chain security and joint research on
+        technologies including AI-enabled 6G.
+      why_it_matters: >-
+        A technology partnership with the US bears on the UK's choices on AI governance, compute and
+        international positions.
+      sources: [ntia-tpd-2025]
+      topics: [international cooperation, United States]
+    - id: aisi-renamed
+      headline: AI Safety Institute renamed AI Security Institute
+      date: 2025-02-14
+      kind: foundational
+      summary: >-
+        The institute narrowed its focus to serious risks with security implications and said it
+        would not focus on bias or freedom of speech.
+      why_it_matters: >-
+        It defined the scope of the UK's main public AI safety body around security risks rather than
+        bias or speech.
+      sources: [gov-aisi-rename-2025]
+      topics: [institutions, national security]
+    - id: paris-statement
+      headline: UK does not sign the Paris AI Action Summit statement
+      date: 2025-02-11
+      kind: foundational
+      summary: >-
+        Downing Street said the declaration did not reflect the UK's policy positions on opportunity
+        and security, and lacked practical clarity on global governance.
+      why_it_matters: >-
+        It showed the UK declining to join a multilateral AI statement, citing its positions on
+        opportunity, security and global governance.
+      sources: [lbc-paris-2025]
+      topics: [international cooperation, summits]
+    - id: opportunities-plan
+      headline: Government adopts the AI Opportunities Action Plan
+      date: 2025-01-13
+      kind: foundational
+      summary: >-
+        The Prime Minister launched a 50-recommendation plan to grow the AI sector and AI use, saying
+        the government would be pro-growth on regulation and would make sure the technology is safe.
+      why_it_matters: >-
+        It set out the government's AI priorities, with adoption and economic growth first,
+        alongside its approach to regulation.
+      sources: [gov-ai-opportunities-2025, gov-starmer-speech-2025]
+      topics: [strategy, growth]
+    - id: bletchley-summit
+      headline: UK hosts the first AI Safety Summit at Bletchley Park
+      date: 2023-11-01
+      kind: foundational
+      summary: >-
+        Countries attending signed the Bletchley Declaration, which warned of risks from "intentional
+        misuse or unintended issues of control" of frontier AI.
+      why_it_matters: >-
+        It began the international AI summit series, which continued in Paris in 2025 and New Delhi
+        in 2026.
+      sources: [gov-bletchley-2023]
+      topics: [international cooperation, summits, frontier AI]
+
+sources:
+  # Government and legislation
+  - id: gov-regulation-response-2024
+    title: "A pro-innovation approach to AI regulation: government response"
+    publisher: Department for Science, Innovation and Technology
+    url: https://www.gov.uk/government/consultations/ai-regulation-a-pro-innovation-approach-policy-proposals/outcome/a-pro-innovation-approach-to-ai-regulation-government-response
+    published: 2024-02-06
+    accessed: 2026-11-18
+    origin: inside
+    type: government
+    language: en
+  - id: gov-aisi-rename-2025
+    title: Tackling AI security risks to unleash growth and deliver Plan for Change
+    publisher: Department for Science, Innovation and Technology
+    url: https://www.gov.uk/government/news/tackling-ai-security-risks-to-unleash-growth-and-deliver-plan-for-change
+    published: 2025-02-14
+    accessed: 2026-11-18
+    origin: inside
+    type: government
+    language: en
+  - id: aisi-home
+    title: The AI Security Institute (AISI)
+    publisher: AI Security Institute
+    url: https://www.aisi.gov.uk/
+    accessed: 2026-11-18
+    origin: inside
+    type: government
+    language: en
+  - id: aisi-about
+    title: About the AI Security Institute
+    publisher: AI Security Institute
+    url: https://www.aisi.gov.uk/about
+    accessed: 2026-11-18
+    origin: inside
+    type: government
+    language: en
+  - id: gov-ai-opportunities-2025
+    title: AI Opportunities Action Plan
+    publisher: Department for Science, Innovation and Technology
+    url: https://www.gov.uk/government/publications/ai-opportunities-action-plan
+    published: 2025-01-13
+    accessed: 2026-11-18
+    origin: inside
+    type: government
+    language: en
+  - id: gov-starmer-speech-2025
+    title: "PM speech on AI Opportunities Action Plan: 13 January 2025"
+    publisher: Prime Minister's Office, 10 Downing Street
+    url: https://www.gov.uk/government/speeches/pm-speech-on-ai-opportunities-action-plan-13-january-2025
+    published: 2025-01-13
+    accessed: 2026-11-18
+    origin: inside
+    type: government
+    language: en
+  - id: leg-data-act-2025
+    title: Data (Use and Access) Act 2025
+    publisher: legislation.gov.uk (The National Archives)
+    url: https://www.legislation.gov.uk/ukpga/2025/18/introduction
+    published: 2025-06-19
+    accessed: 2026-11-18
+    origin: inside
+    type: legislation
+    language: en
+  - id: gov-copyright-report-2026
+    title: Report on Copyright and Artificial Intelligence
+    publisher: Department for Science, Innovation and Technology; DCMS; Intellectual Property Office
+    url: https://www.gov.uk/government/publications/report-and-impact-assessment-on-copyright-and-artificial-intelligence/report-on-copyright-and-artificial-intelligence
+    published: 2026-03-18
+    accessed: 2026-11-18
+    origin: inside
+    type: government
+    language: en
+  - id: gov-ai-package-2026
+    title: Chancellor unveils Britain's ambitious plan for AI
+    publisher: HM Treasury
+    url: https://www.gov.uk/government/news/chancellor-unveils-britains-ambitious-plan-for-ai
+    published: 2026-10-24
+    accessed: 2026-11-18
+    origin: inside
+    type: government
+    language: en
+  - id: gov-bletchley-2023
+    title: "The Bletchley Declaration by Countries Attending the AI Safety Summit, 1-2 November 2023"
+    publisher: Prime Minister's Office, 10 Downing Street
+    url: https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023
+    published: 2023-11-01
+    accessed: 2026-11-18
+    origin: inside
+    type: government
+    language: en
+  - id: gov-coe-convention-2024
+    title: UK signs first international treaty addressing risks of artificial intelligence
+    publisher: Ministry of Justice
+    url: https://www.gov.uk/government/news/uk-signs-first-international-treaty-addressing-risks-of-artificial-intelligence
+    published: 2024-09-05
+    accessed: 2026-11-18
+    origin: inside
+    type: government
+    language: en
+
+  # Public attitudes
+  - id: ada-turing-press-2025
+    title: 7 in 10 say laws and regulations would increase their comfort with AI amid rising public concerns, national survey finds
+    publisher: Ada Lovelace Institute and The Alan Turing Institute
+    url: https://www.adalovelaceinstitute.org/press-release/ada-turing-survey-2025/
+    published: 2025-03-25
+    accessed: 2026-11-18
+    origin: inside
+    type: poll
+    language: en
+    note: Methodology at https://attitudestoai.uk/about-the-survey/methodology
+  - id: yougov-ai-companies-2026
+    title: How do attitudes towards AI companies compare to other industries?
+    publisher: YouGov
+    url: https://yougov.com/en-gb/articles/55639-how-do-attitudes-towards-ai-companies-compare-to-other-industries
+    published: 2026-10-01
+    accessed: 2026-11-18
+    origin: inside
+    type: poll
+    language: en
+  - id: yougov-ai-blame-2026
+    title: Who's most to blame when AI goes rogue?
+    publisher: YouGov
+    url: https://yougov.com/en-gb/articles/55406-whos-most-to-blame-when-ai-goes-rogue
+    published: 2026-08-20
+    accessed: 2026-11-18
+    origin: inside
+    type: poll
+    language: en
+  - id: ico-omnibus-2026
+    title: AI Omnibus March 2026 Findings
+    publisher: Information Commissioner's Office (fieldwork by YouGov)
+    url: https://ico.org.uk/media2/zeunavqg/ai-omnibus-summary-of-findings-2026.pdf
+    published: 2026
+    accessed: 2026-11-18
+    origin: inside
+    type: poll
+    language: en
+    note: Online survey of 2,157 UK adults, 26 to 27 March 2026.
+  - id: dsit-tracker-wave4
+    title: "Public attitudes to data and AI: Tracker survey (Wave 4)"
+    publisher: Department for Science, Innovation and Technology
+    url: https://www.gov.uk/government/publications/public-attitudes-to-data-and-ai-tracker-survey-wave-4
+    published: 2024-12-16
+    accessed: 2026-11-18
+    origin: inside
+    type: poll
+    language: en
+  - id: natcen-bsa-2025
+    title: Political attitudes shape public perceptions of artificial intelligence
+    publisher: National Centre for Social Research (NatCen)
+    url: https://natcen.ac.uk/news/political-attitudes-shape-public-perceptions-artificial-intelligence
+    published: 2025-07-08
+    accessed: 2026-11-18
+    origin: inside
+    type: poll
+    language: en
+
+  # Civil society, labour, industry and parliament
+  - id: ada-frt-2026
+    title: Ada Lovelace Institute response to Home Office announcement on police facial recognition legislation
+    publisher: Ada Lovelace Institute
+    url: https://www.adalovelaceinstitute.org/press-release/home-office-announcement-on-police-facial-recognition-legislation/
+    published: 2026-11-04
+    accessed: 2026-11-18
+    origin: inside
+    type: civil_society
+    language: en
+  - id: tuc-ai-bill
+    title: Artificial Intelligence (Regulation and Employment Rights) Bill
+    publisher: Trades Union Congress
+    url: https://www.tuc.org.uk/research-analysis/reports/artificial-intelligence-regulation-and-employment-rights-bill
+    accessed: 2026-11-18
+    origin: inside
+    type: civil_society
+    language: en
+    note: Undated page. Draft bill written for the TUC by Robin Allen KC and Dee Masters.
+  - id: nma-make-it-fair
+    title: Make It Fair
+    publisher: News Media Association
+    url: https://www.newsmediauk.org/make-it-fair/
+    accessed: 2026-11-18
+    origin: inside
+    type: industry
+    language: en
+    note: Undated campaign page.
+  - id: techuk-home
+    title: techUK
+    publisher: techUK
+    url: https://www.techuk.org/
+    accessed: 2026-11-18
+    origin: inside
+    type: industry
+    language: en
+    note: Homepage, including the "Confident Sovereignty" framework.
+  - id: politicshome-sobel-2026
+    title: Britain should lead a global ban on superintelligent AI
+    publisher: PoliticsHome (The House)
+    url: https://www.politicshome.com/opinion/article/government-block-development-superintelligent-ai
+    published: 2026-07-28
+    accessed: 2026-11-18
+    origin: inside
+    type: parliament
+    language: en
+    note: Opinion article by Alex Sobel MP.
+  - id: scl-kings-speech-2026
+    title: "King's Speech 2026: Key developments in digital and tech"
+    publisher: Society for Computers and Law
+    url: https://www.scl.org/kings-speech-2026-key-developments-in-digital-and-tech/
+    published: 2026-05-15
+    accessed: 2026-11-18
+    origin: inside
+    type: civil_society
+    language: en
+  - id: lewis-silkin-2026-09
+    title: AI judgment day on the horizon, while UK lawmakers play catch up
+    publisher: Lewis Silkin
+    url: https://www.lewissilkin.com/insights/2026/09/14/ai-judgment-day-on-the-horizon-while-uk-lawmakers-play-catch-up
+    published: 2026-09-14
+    accessed: 2026-11-18
+    origin: inside
+    type: industry
+    language: en
+    note: Law firm briefing.
+
+  # Journalism
+  - id: npr-burnham-2026
+    title: Andy Burnham becomes U.K. prime minister
+    publisher: OPB
+    url: https://www.opb.org/article/2026/07/20/andy-burnham-succeeds-keir-starmer-as-the-u-k-s-7th-prime-minister-in-10-years/
+    published: 2026-07-20
+    accessed: 2026-11-18
+    origin: outside
+    type: journalism
+    language: en
+    via: NPR
+  - id: ggf-rewire-2026
+    title: New UK prime minister unveils plan to 'rewire government' on first day in post
+    publisher: Global Government Forum
+    url: https://www.globalgovernmentforum.com/new-uk-prime-minister-unveils-plan-to-rewire-government-on-first-day-in-post/
+    published: 2026-07-21
+    accessed: 2026-11-18
+    origin: inside
+    type: journalism
+    language: en
+  - id: techmag-dsit-2026
+    title: Burnham Scraps DSIT But Names First UK AI Minister
+    publisher: Technology Magazine
+    url: https://technologymagazine.com/news/burnham-set-to-scrap-dsit-but-names-first-uk-ai-minister
+    accessed: 2026-11-18
+    origin: inside
+    type: journalism
+    language: en
+    note: Undated article, published after 20 July 2026.
+  - id: silicon-biosecurity-2026
+    title: UK Government Plans AI Biosecurity Lab
+    publisher: Silicon UK
+    url: https://www.silicon.co.uk/cybersecurity/uk-biosecurity-ai-632027
+    published: 2026-10-27
+    accessed: 2026-11-18
+    origin: inside
+    type: journalism
+    language: en
+  - id: itv-biosecurity-2026
+    title: UK to set up AI 'biosecurity lab' to detect risks of future pandemics
+    publisher: ITV News
+    url: https://www.itv.com/news/2026-10-23/uk-to-set-up-ai-biosecurity-lab-to-detect-risks-of-future-pandemics
+    published: 2026-10-24
+    accessed: 2026-11-18
+    origin: inside
+    type: journalism
+    language: en
+  - id: lbc-let-rip-2026
+    title: Tech tycoons must not be allowed to 'let rip' with AI, minister warns
+    publisher: LBC
+    url: https://www.lbc.co.uk/article/545f29cda4514ff48df34ac4d8ce035e-5HjdkNx_2/
+    published: 2026-10-24
+    accessed: 2026-11-18
+    origin: inside
+    type: journalism
+    language: en
+    via: PA Media
+  - id: lbc-paris-2025
+    title: UK did not sign AI communique over 'opportunity and security' concerns – No 10
+    publisher: LBC
+    url: https://www.lbc.co.uk/tech/e3757ba3d254459ea2223efef0bb0910
+    published: 2025-02-11
+    accessed: 2026-11-18
+    origin: inside
+    type: journalism
+    language: en
+    via: PA Media
+  - id: tnw-sobel-letter-2026
+    title: More than 70 UK lawmakers ask Burnham to back a superintelligence ban
+    publisher: The Next Web
+    url: https://thenextweb.com/news/uk-superintelligence-ban-letter-burnham-sobel-bill
+    published: 2026-09-15
+    accessed: 2026-11-18
+    origin: outside
+    type: journalism
+    language: en
+    note: Other reports give different signatory counts; this figure is TNW's.
+  - id: pti-new-delhi-2026
+    title: New Delhi Declaration on AI Impact adopted; US, UK, China among nations to endorse vision for collaborative AI
+    publisher: ThePrint
+    url: https://theprint.in/economy/new-delhi-declaration-on-ai-impact-adopted-us-uk-china-among-nations-to-endorse-vision-for-collaborative-ai/2860413/
+    published: 2026-02-21
+    accessed: 2026-11-18
+    origin: outside
+    type: journalism
+    language: en
+    via: Press Trust of India
+  - id: nyt-aisi-2026
+    title: Inside the British lab hunting for dangers lurking in AI
+    publisher: The Star (Malaysia)
+    url: https://www.thestar.com.my/tech/tech-news/2026/05/26/inside-the-british-lab-hunting-for-dangers-lurking-in-ai
+    published: 2026-06-06
+    accessed: 2026-11-18
+    origin: outside
+    type: journalism
+    language: en
+    via: The New York Times (originally published 24 May 2026)
+
+  # Outside government and industry
+  - id: akin-ai-minister-2026
+    title: First Cabinet-Level UK AI Minister
+    publisher: Akin Gump Strauss Hauer & Feld
+    url: https://www.akingump.com/en/insights/ai-law-and-regulation-tracker/first-cabinet-level-uk-ai-minister
+    published: 2026-07-20
+    accessed: 2026-11-18
+    origin: outside
+    type: industry
+    language: en
+    note: US law firm's AI regulation tracker.
+  - id: ntia-tpd-2025
+    title: NTIA Announces Memorandum of Understanding Between the United States and the United Kingdom Regarding the Implementation of the Technology Prosperity Deal
+    publisher: National Telecommunications and Information Administration (US)
+    url: https://www.ntia.gov/press-release/2025/ntia-announces-memorandum-understanding-between-united-states-and-united-kingdom-regarding
+    published: 2025-09-18
+    accessed: 2026-11-18
+    origin: outside
+    type: government
+    language: en
+  - id: deepmind-careers
+    title: Careers at Google DeepMind
+    publisher: Google DeepMind
+    url: https://deepmind.google/careers/
+    accessed: 2026-11-18
+    origin: outside
+    type: industry
+    language: en
+    note: Lists London among the company's office locations.

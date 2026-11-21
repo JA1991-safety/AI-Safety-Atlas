@@ -1,0 +1,53 @@
+name: Suggest a source
+description: A poll, law, statement, article or local voice that a country page should draw on.
+title: '[Source] '
+labels: [source-suggestion]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Sources from inside a country, in its own languages, are especially welcome for the culture and industry sections.
+  - type: input
+    id: area
+    attributes:
+      label: Country or area
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Link
+      placeholder: https://
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Language of the source
+      placeholder: e.g. Japanese
+  - type: dropdown
+    id: type
+    attributes:
+      label: Kind of source
+      options:
+        - Government or regulator
+        - Law, bill or parliamentary record
+        - Opinion poll or survey
+        - Academic research
+        - Company or industry body
+        - Journalism
+        - Civil society, union or community group
+        - A local voice (interview, speech, blog)
+        - International body
+  - type: textarea
+    id: why
+    attributes:
+      label: What does it show?
+      description: One or two sentences on what the source says and which section it belongs in.
+    validations:
+      required: true
+  - type: textarea
+    id: interests
+    attributes:
+      label: Interests to declare
+      description: For example "I wrote this report" or "None".

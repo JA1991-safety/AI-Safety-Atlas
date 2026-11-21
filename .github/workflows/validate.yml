@@ -1,0 +1,49 @@
+name: Validate and build
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    # Weekly source check, Mondays 06:00 UTC
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Editorial checks (sources, dates, culture mix, flagged words)
+        run: node scripts/validate.mjs --markdown
+      - name: Build the site
+        run: npm run build
+      - name: Validation report
+        if: always()
+        run: test -f validation-report.md && cat validation-report.md >> "$GITHUB_STEP_SUMMARY" || true
+
+  sources:
+    # Link and quote check. Advisory on pull requests (many official sites block automated
+    # requests), and strict on the weekly schedule so broken links are noticed.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Check links and quotes
+        continue-on-error: ${{ github.event_name != 'schedule' }}
+        run: node scripts/check-sources.mjs --markdown ${{ github.event_name == 'schedule' && '--strict' || '' }}
+      - name: Source check report
+        if: always()
+        run: test -f source-check-report.md && cat source-check-report.md >> "$GITHUB_STEP_SUMMARY" || true

@@ -1,0 +1,28 @@
+# Topics where any draft needs the editor's approval AND a second reviewer,
+# and must stay with sourced factual statements, with sources from more than one side.
+# Matching is case-insensitive on whole phrases.
+topics:
+  - name: Taiwan
+    terms: [taiwan, taiwan strait, cross-strait]
+  - name: Israel and Palestine
+    terms: [israel, palestine, palestinian, gaza, west bank]
+  - name: Russia and Ukraine
+    terms: [russia, ukraine, crimea, donbas]
+  - name: Xinjiang and Tibet
+    terms: [xinjiang, uyghur, tibet]
+  - name: Kashmir
+    terms: [kashmir]
+  - name: Hong Kong
+    terms: [hong kong]
+  - name: Military and autonomous weapons
+    terms: [autonomous weapons, lethal autonomous, military ai, defence ai, defense ai]
+  - name: Elections and political parties
+    terms: [election, electoral, prime minister, president-elect, party leader, coalition government]
+  - name: Surveillance and policing
+    terms: [facial recognition, surveillance, predictive policing]
+  - name: Export controls and sanctions
+    terms: [export control, sanctions, entity list, chip ban]
+  # Conflict of interest: Claude, which drafts content, is made by Anthropic.
+  # Any mention of Anthropic or its models goes to the editor and a second reviewer.
+  - name: Anthropic (conflict of interest, Claude drafts this content)
+    terms: [anthropic, claude]

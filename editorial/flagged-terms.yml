@@ -1,0 +1,36 @@
+# Words that often carry a judgement about a country rather than describe it.
+# The validator flags them for the editor. They are not banned outright:
+# a flagged word can stay if it is inside a direct quote or is the precise term.
+# Add terms in other languages as translations come online.
+en:
+  - authoritarian
+  - regime
+  - lagging
+  - lags behind
+  - behind the curve
+  - backward
+  - aggressive
+  - aggressively
+  - ambitious
+  - bold
+  - draconian
+  - crackdown
+  - lax
+  - light-touch
+  - heavy-handed
+  - world-leading
+  - world leader
+  - cutting-edge
+  - groundbreaking
+  - landmark
+  - finally
+  - only just
+  - failed to
+  - refused to
+  - admitted
+  - claims
+  - so-called
+  - propaganda
+  - rogue
+  - hawkish
+  - naive
