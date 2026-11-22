@@ -72,14 +72,14 @@ facets:
 
 attitudes:
   meta:
-    checked: 2026-11-21
+    checked: 2026-11-22
     evidence_depth: moderate
     review: draft
     gaps: >-
-      The Pew figures are from the published topline. Pew's report says the 36-country survey ran from
-      8 February to 13 May 2026, by telephone, face to face or online; Kenya's own fieldwork dates and
-      sample size are on Pew's methodology page, which we could not read. The BCG figures are reported through TechTrendsKE and the Media Council of Kenya
-      figures through Radio Generation, without question wording. The GeoPoll figure is from a 2024 blog
+      The Pew figures are from the published topline; Kenya's survey details are from Pew's methodology
+      page (margin of error 4.8 points; Mandera County excluded). The BCG figures are reported through
+      TechTrendsKE and the Media Council of Kenya figures through Radio Generation, without question
+      wording. The GeoPoll figure is from a 2024 blog
       summary of its report. Survey wording differs, so figures from different polls should not be
       compared directly.
   headline_figures:
@@ -87,8 +87,8 @@ attitudes:
       label: >-
         say the increased use of AI in daily life makes them more concerned than excited; 13% more
         excited, and 48% equally concerned and excited
-      fieldwork: Spring 2026
-      sample: Adults in Kenya, in the Pew Research Center's Spring 2026 Global Attitudes Survey
+      fieldwork: 7 March to 15 April 2026
+      sample: 1,020 adults aged 18 and over, interviewed face to face in English, Somali or Swahili (Pew Research Center, Global Attitudes Survey, fieldwork by Gallup)
       source: pew-topline-2026
     - value: "63%"
       label: >-
@@ -101,7 +101,7 @@ attitudes:
         In the Pew survey, 35% of Kenyans thought AI would lead to fewer jobs in Kenya over the next 20
         years, 14% to more jobs, and 42% were not sure. 50% said they had heard or read nothing at all
         about AI.
-      sources: [pew-topline-2026]
+      sources: [pew-topline-2026, pew-kenya-methods-2026]
     - text: >-
         In a Boston Consulting Group survey of citizens in 44 countries, 57% of Kenyan respondents said
         AI's benefits outweigh its risks. On the use of AI in government, 50% named job losses as a
@@ -1192,6 +1192,15 @@ sources:
     origin: outside
     type: poll
     language: en
+  - id: pew-kenya-methods-2026
+    title: "International methodology: Kenya, all years"
+    publisher: Pew Research Center
+    url: https://www.pewresearch.org/methods/feature/international-methodology/all-survey/kenya/all-year/
+    accessed: 2026-11-22
+    origin: outside
+    type: poll
+    language: en
+    note: Kenya 2026 row read from a screenshot supplied by the project team, as the page could not be fetched automatically. Multistage area probability sample, 102 sampling units; design effect 2.50; weighted by gender, age, education, region and urbanicity.
   # Outside Kenya
   - id: dpa-bill-2026
     title: Artificial Intelligence Bill, including AI authority governance was introduced to Senate
