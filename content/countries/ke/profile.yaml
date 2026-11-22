@@ -506,7 +506,7 @@ principles:
     review: draft
     gaps: >-
       The ODPC's guidance note is reported as a draft; its last sections were read in summary only. The draft
-      Statement of Principles is described from KICTANet's report of the workshop. How consumer and
+      Statement of Principles was read from the copy KICTANet posted in January 2025, marked "Draft". How consumer and
       employment law apply to AI is not covered.
   framework:
     name: the guiding principles of the National AI Strategy 2025-2030
@@ -519,7 +519,7 @@ principles:
         implementation of the national AI strategy". A separate draft AI Statement of Principles, with
         eight core principles of its own, was reviewed at a workshop hosted by the ICT ministry and
         KICTANet in January 2025; we found no report that it has been adopted.
-      sources: [ke-strategy-2025, kictanet-sop-2025]
+      sources: [ke-strategy-2025, kictanet-sop-doc-2025, kictanet-sop-2025]
   intro:
     - text: >-
         Kenya has no AI-specific law. Data protection law backs some principles where AI uses personal
@@ -575,7 +575,7 @@ principles:
         - text: >-
             The draft AI Statement of Principles was reviewed with stakeholders at a two-day workshop in
             Nairobi in January 2025.
-          sources: [kictanet-sop-2025]
+          sources: [kictanet-sop-2025, kictanet-sop-doc-2025]
       regulators: [Ministry of Information, Communications and the Digital Economy]
 
     - key: accountability
@@ -1232,6 +1232,16 @@ sources:
     type: civil_society
     language: en
     note: By Jackline Akello and Pria Chetty.
+  - id: kictanet-sop-doc-2025
+    title: "Kenya's AI Principles: A Framework for Safe, Secure, and Inclusive AI Development"
+    publisher: KICTANet
+    url: https://www.kictanet.or.ke/mdocs-posts/kenyas-ai-principles-a-framework-for-safe-secure-and-inclusive-ai-development/
+    published: 2025-01-29
+    accessed: 2026-11-22
+    origin: inside
+    type: civil_society
+    language: en
+    note: Posted by David Indeje. Hosts the document "AI Statement of Principles for Kenya - Draft.pdf" for download.
   - id: kictanet-sop-2025
     title: Shaping the Future of AI in Kenya
     publisher: KICTANet
