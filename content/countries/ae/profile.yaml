@@ -11,7 +11,7 @@
 code: AE
 name: United Arab Emirates
 status: draft
-last_reviewed: 2026-11-19
+last_reviewed: 2026-11-22
 editor_approved: false
 reviewers: []
 
@@ -103,24 +103,41 @@ attitudes:
 
 regulation:
   meta:
-    checked: 2026-11-19
+    checked: 2026-11-22
     evidence_depth: moderate
     review: draft
     gaps: >-
-      We did not find the legal instrument that set up the Federal Authority for Artificial Intelligence
-      and Data, or a start date; it is described from two law firm briefings. Emirate-level rules other
-      than those of the DIFC and ADGM free zones are not covered.
+      The official announcement of the Federal Authority for Artificial Intelligence and Data names no
+      decree, start date or enforcement powers, and the UAE AI portal (ai.gov.ae) did not describe the
+      authority when checked; its possible powers are described from two law firm briefings. The
+      announcement calls it the "Artificial Intelligence and Data Authority"; media and lawyers add
+      "Federal". The San Francisco Declaration is described from press reports; we did not read its text.
+      Emirate-level rules other than those of the DIFC and ADGM free zones are not covered.
   items:
     - kind: institution
       title: Federal Authority for Artificial Intelligence and Data
       date: 2026-06-14
-      status: Announced on 14 June 2026; powers and start date not yet published
+      status: Approved on 14 June 2026; no decree, start date or enforcement powers published
       text: >-
-        Brings together the UAE AI Office, the digital government sector of the telecommunications
-        regulator (TDRA) and the UAE Data Office, reporting to the Cabinet. Its role includes policy,
-        proposing legislation, setting standards and checking compliance across federal bodies. Al Tamimi
-        notes it is unclear "whether it will have rulemaking, supervisory or enforcement powers".
-      sources: [morganlewis-authority-2026, tamimi-authority-2026]
+        Described in the government's announcement as "the single national body responsible for data,
+        artificial intelligence and digital government in the UAE", reporting directly to the Cabinet and
+        chaired by Omar Sultan Al Olama, Minister of State for Artificial Intelligence. It brings together
+        the UAE AI Office, the digital government sector of the telecommunications regulator (TDRA) and the
+        UAE Data Office. Its role includes leading the national AI strategy, setting standards for data,
+        AI and digital government, checking compliance across federal bodies and supporting cybersecurity.
+        Al Tamimi notes it is unclear "whether it will have rulemaking, supervisory or enforcement powers".
+      sources: [mediaoffice-authority-2026, morganlewis-authority-2026, tamimi-authority-2026]
+    - kind: international
+      title: San Francisco Declaration
+      date: 2026-11-15
+      status: Signed in November 2026 by the United States and nine partners, including the UAE
+      text: >-
+        Sets out a common understanding of the sensitive technologies and critical infrastructure behind
+        advanced AI supply chains, and declares that safeguarding them is "a shared endeavour". The
+        National reports concern over their theft, illicit transfer or acquisition by hostile actors.
+        Bloomberg Law reports that it sets up working groups on AI cooperation and security. The press
+        reports do not say whether it is binding.
+      sources: [thenational-sf-2026, bgov-sf-2026]
     - kind: guidance
       title: UAE Charter for the Development and Use of Artificial Intelligence
       date: 2024-07
@@ -244,10 +261,24 @@ culture:
 
 news:
   meta:
-    checked: 2026-11-19
+    checked: 2026-11-22
     evidence_depth: moderate
     review: draft
   items:
+    - id: san-francisco-declaration
+      headline: UAE signs a declaration on safeguarding sensitive AI technology
+      date: 2026-11-16
+      kind: development
+      summary: >-
+        The UAE was among nine partners that signed the San Francisco Declaration with the United States,
+        setting out which technologies and infrastructure behind advanced AI should be protected, and
+        setting up working groups on AI cooperation and security. Omran Sharaf, the UAE's assistant
+        foreign minister for advanced science and technology, attended the signing.
+      why_it_matters: >-
+        It is the UAE's most recent international commitment on AI security, focused on protecting the
+        supply chains behind advanced AI rather than on how AI systems are tested.
+      sources: [thenational-sf-2026, bgov-sf-2026]
+      topics: [international, security, supply chains]
     - id: children-first
       headline: UAE joins the Children First Declaration
       date: 2026-11-10
@@ -257,7 +288,7 @@ news:
         Paris Peace Forum's Child Summit. Emmanuel Macron said its aim is that "no AI should be placed in
         the hands of children without first being tested, evaluated and therefore authorised".
       why_it_matters: >-
-        It is the UAE's most recent international commitment touching on AI safety.
+        It is an international commitment by the UAE touching on AI safety.
       sources: [thenational-children-2026]
       topics: [children, international]
     - id: agent-control
@@ -289,11 +320,11 @@ news:
       date: 2026-06-14
       kind: foundational
       summary: >-
-        The new authority brings together the AI Office, the UAE Data Office and the digital government
-        sector of TDRA, reporting to the Cabinet.
+        The new authority, chaired by Omar Sultan Al Olama, brings together the AI Office, the UAE Data
+        Office and the digital government sector of TDRA, reporting to the Cabinet.
       why_it_matters: >-
         It could become the main body for AI rules in the UAE, depending on the powers it is given.
-      sources: [morganlewis-authority-2026, tamimi-authority-2026]
+      sources: [mediaoffice-authority-2026, morganlewis-authority-2026, tamimi-authority-2026]
       topics: [regulator, governance]
     - id: charter
       headline: UAE publishes its Charter for the Development and Use of AI
@@ -750,7 +781,7 @@ areas_for_improvement:
 
 contacts:
   meta:
-    checked: 2026-11-19
+    checked: 2026-11-22
     evidence_depth: limited
     review: draft
     gaps: >-
@@ -762,9 +793,10 @@ contacts:
       url: https://ai.gov.ae/
       about:
         text: >-
-          Publishes the UAE Charter for the Development and Use of AI. It is being brought into the new
-          Federal Authority for Artificial Intelligence and Data.
-        sources: [charter-pdf, tamimi-authority-2026]
+          Runs the UAE's AI portal and publishes the UAE Charter for the Development and Use of AI. It is
+          being brought into the new Federal Authority for Artificial Intelligence and Data, which reports
+          to the Cabinet.
+        sources: [charter-pdf, mediaoffice-authority-2026]
     - name: Digital Dubai
       type: government
       url: https://www.digitaldubai.ae/
@@ -803,6 +835,26 @@ sources:
     type: government
     language: en
     note: Page updated 3 July 2026.
+  - id: mediaoffice-authority-2026
+    title: Mohammed bin Rashid approves establishing Artificial Intelligence and Data Authority
+    publisher: Government of Dubai Media Office
+    url: https://mediaoffice.ae/en/news/2026/june/14-06/mohammed-bin-rashid-approves-establishing-artificial-intelligence-and-data-authority
+    published: 2026-06-14
+    accessed: 2026-11-22
+    origin: inside
+    type: government
+    language: en
+    note: The official announcement. Names no decree or law and no start date.
+  - id: thenational-sf-2026
+    title: UAE among nine US allies pledging to safeguard sensitive AI technology
+    publisher: The National
+    url: https://www.thenationalnews.com/future/technology/2026/11/16/uae-san-francisco-declaration-pax-silica/
+    published: 2026-11-16
+    accessed: 2026-11-22
+    origin: inside
+    type: journalism
+    language: en
+    note: By Cody Combs. Says the signing was in San Francisco "on Sunday", so 15 November 2026 is inferred from the publication date. Quotes the US State Department's release.
   - id: dubai-mediaoffice-2026
     title: Hamdan bin Mohammed attends Dubai Future Week 2026, approves 'City AI Agent' initiative
     publisher: Government of Dubai Media Office
@@ -1010,3 +1062,13 @@ sources:
     type: journalism
     language: en
     note: By Juliet Omelo.
+  - id: bgov-sf-2026
+    title: US, Nine Nations Sign San Francisco AI Declaration
+    publisher: Bloomberg Law
+    url: https://news.bgov.com/artificial-intelligence/us-nine-nations-sign-san-francisco-ai-declaration
+    published: 2026-11-16
+    accessed: 2026-11-22
+    origin: outside
+    type: journalism
+    language: en
+    note: By Audrey Wan. A short summary.
