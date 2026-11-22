@@ -6,7 +6,8 @@
 # in the UAE count as "inside".
 # The principles section uses the UAE Charter for the Development and Use of Artificial Intelligence
 # (July 2024), the country's own published set, in line with the decision of 18 Nov 2026. The Charter
-# has twelve principles, all shown.
+# has twelve principles, all shown. The Charter was read in full on 22 Nov 2026 from a copy supplied
+# by the project team (the July 2024 PDF also hosted on ai.gov.ae).
 
 code: AE
 name: United Arab Emirates
@@ -415,21 +416,24 @@ news:
 
 principles:
   meta:
-    checked: 2026-11-19
+    checked: 2026-11-22
     evidence_depth: limited
     review: draft
     gaps: >-
-      The Charter's principle descriptions are paraphrased, with short quotes. We found no published
-      evidence on how well the Charter is followed.
+      The Charter was read in full; each principle's description is short, and is quoted or closely
+      paraphrased. The UAE government portal (u.ae) lists the third principle as "Algorithmic Bias"; the
+      Charter itself calls it "Fairness". We found no published evidence on how well the Charter is
+      followed.
   framework:
     name: the UAE Charter for the Development and Use of Artificial Intelligence
     nav: UAE AI Charter
     basis: own
     about:
       text: >-
-        The Charter, published in July 2024, describes itself as "a guiding framework" that aims to achieve
-        the goals of the UAE's AI strategy. All twelve of its principles are shown below, in the Charter's
-        order.
+        The Charter, published in July 2024 by the Minister of State for AI's office, describes itself as
+        "a guiding framework to protect the rights of the UAE community in the development or use of AI
+        solutions and technologies", aligned with the national AI strategy's aim of making the UAE a
+        leading nation in AI by 2031. All twelve of its principles are shown below, in the Charter's order.
       sources: [charter-pdf, uae-charter-page]
   intro:
     - text: >-
@@ -446,8 +450,8 @@ principles:
       short: Human-AI ties
       asks:
         text: >-
-          The relationship between people and AI should be harmonious and beneficial, with all AI developments
-          putting human well-being and progress first.
+          The UAE aims to enhance "the harmonious and beneficial relationship between AI and humans,
+          ensuring that all AI developments prioritize human well-being and progress."
         sources: [charter-pdf]
       footing: guidance_only
       footing_note:
@@ -466,8 +470,8 @@ principles:
       short: Safety
       asks:
         text: >-
-          AI systems should meet the highest safety standards. "The country encourages modifying or removing
-          systems that pose risks."
+          AI systems should "comply with the highest safety standards." "The country encourages modifying
+          or removing systems that pose risks."
         sources: [charter-pdf]
       footing: guidance_only
       footing_note:
@@ -486,12 +490,13 @@ principles:
       regulators: [Federal Authority for Artificial Intelligence and Data]
 
     - key: bias
-      name: Algorithmic Bias
-      short: Algorithmic bias
+      name: Fairness
+      short: Fairness
       asks:
         text: >-
-          Bias in AI should be addressed so that AI provides a fair, equitable and inclusive environment,
-          without exclusion or discrimination.
+          AI should address "the challenges posed by AI algorithms regarding algorithmic bias",
+          contributing to a fair and equitable environment and improving quality of life "without exclusion
+          or discrimination."
         sources: [charter-pdf]
       footing: guidance_only
       footing_note:
@@ -509,8 +514,8 @@ principles:
       short: Data privacy
       asks:
         text: >-
-          The privacy of members of the community should be a top priority, while data supports AI
-          innovation.
+          While data is essential for AI development, "the privacy of community members remains a top
+          priority."
         sources: [charter-pdf]
       footing: partly_binding
       footing_note:
@@ -530,7 +535,8 @@ principles:
       short: Transparency
       asks:
         text: >-
-          It should be clear how AI systems operate and make decisions, to build trust and accountability.
+          The UAE seeks "to create a clear understanding of AI and how systems operate and make
+          decisions", to build trust, responsibility and accountability.
         sources: [charter-pdf]
       footing: guidance_only
       footing_note:
@@ -554,7 +560,8 @@ principles:
       short: Human oversight
       asks:
         text: >-
-          Human judgement and oversight of AI are irreplaceable, so that errors or biases can be corrected.
+          The Charter "emphasizes the irreplaceable value of human judgment and human oversight over
+          AI", so that any errors or biases can be corrected.
         sources: [charter-pdf]
       footing: partly_binding
       footing_note:
@@ -574,8 +581,8 @@ principles:
       short: Accountability
       asks:
         text: >-
-          A responsible, proactive approach to governance and accountability, so that AI is used ethically
-          and transparently.
+          A "responsible and proactive stance" on governance and accountability in AI, "to ensure the
+          technology is used ethically and transparently."
         sources: [charter-pdf]
       footing: guidance_only
       footing_note:
@@ -595,8 +602,8 @@ principles:
       short: Excellence
       asks:
         text: >-
-          AI should reflect the UAE's aim of digital, technological and scientific excellence, driving
-          innovation and competitiveness and improving quality of life.
+          "AI should be a beacon of innovation, reflecting the UAE's vision of digital, technological, and
+          scientific excellence", driving innovation and competitiveness and improving quality of life.
         sources: [charter-pdf]
       footing: guidance_only
       footing_note:
@@ -615,7 +622,8 @@ principles:
       short: Human commitment
       asks:
         text: >-
-          Human values and fundamental rights should be at the heart of AI, serving the public good.
+          AI development should serve the public good, "enhancing human well-being and protecting
+          fundamental rights" and placing human values at the heart of innovation.
         sources: [charter-pdf]
       footing: guidance_only
       footing_note:
@@ -634,7 +642,8 @@ principles:
       short: Coexistence
       asks:
         text: >-
-          AI should advance well-being "without compromising human security or fundamental rights."
+          AI should enhance the well-being and progress of communities "without compromising human
+          security or fundamental rights."
         sources: [charter-pdf]
       footing: guidance_only
       footing_note:
@@ -653,7 +662,8 @@ principles:
       short: Inclusion
       asks:
         text: >-
-          All parts of society should have fair access to the benefits of AI.
+          An inclusive future "that ensures everyone can benefit from AI advancements, guaranteeing
+          equitable access to this technology and its advantages for all segments of society."
         sources: [charter-pdf]
       footing: guidance_only
       footing_note:
@@ -676,7 +686,7 @@ principles:
       short: Treaties and laws
       asks:
         text: >-
-          AI should be developed and used "complying with international treaties and local laws in the
+          The UAE "emphasizes the importance of complying with international treaties and local laws in the
           development and use of AI."
         sources: [charter-pdf]
       footing: partly_binding
@@ -822,10 +832,11 @@ sources:
     publisher: UAE Artificial Intelligence Office (ai.gov.ae)
     url: https://ai.gov.ae/wp-content/uploads/2024/07/UAEAI-Methaq-EN2-3.pdf
     published: 2024-07
-    accessed: 2026-11-19
+    accessed: 2026-11-22
     origin: inside
     type: government
     language: en
+    note: Read in full on 22 November 2026 from a copy supplied by the project team; the principles are on pages 3 to 5.
   - id: uae-charter-page
     title: The UAE Charter for the Development and Use of Artificial Intelligence
     publisher: The Official Platform of the UAE Government (u.ae)
