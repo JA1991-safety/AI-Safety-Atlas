@@ -1,5 +1,5 @@
 # United Arab Emirates: area profile
-# Status: DRAFT, researched by Claude on 19 November 2026, awaiting editor review.
+# Status: APPROVED by the editor on 22 November 2026 (researched by Claude on 19 November 2026).
 # Every statement cites one or more sources from the list at the bottom of this file.
 # Direct quotes were copied from the source pages on the access date.
 # Sources from the federal and emirate governments, their agencies, and organisations and media based
@@ -13,7 +13,7 @@ code: AE
 name: United Arab Emirates
 status: draft
 last_reviewed: 2026-11-22
-editor_approved: false
+editor_approved: true
 reviewers: []
 
 summary:
@@ -71,7 +71,7 @@ attitudes:
   meta:
     checked: 2026-11-19
     evidence_depth: limited
-    review: draft
+    review: editor_approved
     gaps: >-
       We found no survey of attitudes to AI run by a UAE public body. The KPMG figures are from a press
       release about the University of Melbourne and KPMG study, without fieldwork dates or sample size.
@@ -106,13 +106,13 @@ regulation:
   meta:
     checked: 2026-11-22
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       The official announcement of the Federal Authority for Artificial Intelligence and Data names no
       decree, start date or enforcement powers, and the UAE AI portal (ai.gov.ae) did not describe the
       authority when checked; its possible powers are described from two law firm briefings. The
       announcement calls it the "Artificial Intelligence and Data Authority"; media and lawyers add
-      "Federal". The San Francisco Declaration is described from press reports; we did not read its text.
+      "Federal". The San Francisco Declaration was read in full from the copy published by the Australian government.
       Emirate-level rules other than those of the DIFC and ADGM free zones are not covered.
   items:
     - kind: institution
@@ -131,14 +131,15 @@ regulation:
     - kind: international
       title: San Francisco Declaration
       date: 2026-11-15
-      status: Signed in November 2026 by the United States and nine partners, including the UAE
+      status: Signed at the Pax Silica Summit in San Francisco on 15 November 2026 by ten governments, including the UAE
       text: >-
-        Sets out a common understanding of the sensitive technologies and critical infrastructure behind
-        advanced AI supply chains, and declares that safeguarding them is "a shared endeavour". The
-        National reports concern over their theft, illicit transfer or acquisition by hostile actors.
-        Bloomberg Law reports that it sets up working groups on AI cooperation and security. The press
-        reports do not say whether it is binding.
-      sources: [thenational-sf-2026, bgov-sf-2026]
+        A declaration of "common understanding", not a treaty. It defines the sensitive technologies and
+        critical infrastructure behind "super intelligence (SI)" supply chains (a footnote says that for
+        some participants this means AI) that participants consider essential to economic security,
+        including technologies "whose unauthorized transfer or misuse could pose significant risks" to
+        their economic and national security. It affirms that safeguarding them "is a shared endeavour",
+        and the participants resolve to set up working groups to carry this into practice.
+      sources: [au-sf-declaration-2026, thenational-sf-2026, bgov-sf-2026]
     - kind: guidance
       title: UAE Charter for the Development and Use of Artificial Intelligence
       date: 2024-07
@@ -189,7 +190,7 @@ culture:
   meta:
     checked: 2026-11-19
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       No local reviewer yet. All sources are in English; debate in Arabic is not covered. Many sources are
       government statements or state-linked media.
@@ -264,7 +265,7 @@ news:
   meta:
     checked: 2026-11-22
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
   items:
     - id: san-francisco-declaration
       headline: UAE signs a declaration on safeguarding sensitive AI technology
@@ -278,7 +279,7 @@ news:
       why_it_matters: >-
         It is the UAE's most recent international commitment on AI security, focused on protecting the
         supply chains behind advanced AI rather than on how AI systems are tested.
-      sources: [thenational-sf-2026, bgov-sf-2026]
+      sources: [au-sf-declaration-2026, thenational-sf-2026, bgov-sf-2026]
       topics: [international, security, supply chains]
     - id: children-first
       headline: UAE joins the Children First Declaration
@@ -418,7 +419,7 @@ principles:
   meta:
     checked: 2026-11-22
     evidence_depth: limited
-    review: draft
+    review: editor_approved
     gaps: >-
       The Charter was read in full; each principle's description is short, and is quoted or closely
       paraphrased. The UAE government portal (u.ae) lists the third principle as "Algorithmic Bias"; the
@@ -705,7 +706,7 @@ areas_for_improvement:
   meta:
     checked: 2026-11-19
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       Each area is one that a named source has identified. The new authority's powers had not been
       published when checked.
@@ -793,7 +794,7 @@ contacts:
   meta:
     checked: 2026-11-22
     evidence_depth: limited
-    review: draft
+    review: editor_approved
     gaps: >-
       A starting list. We found no independent civil society organisation working on AI safety in the UAE
       in our sources. The Technology Innovation Institute is not listed because it develops AI models.
@@ -1073,6 +1074,16 @@ sources:
     type: journalism
     language: en
     note: By Juliet Omelo.
+  - id: au-sf-declaration-2026
+    title: The San Francisco Declaration on the Secure Foundations of Enduring Prosperity, signed by countries attending the Pax Silica Summit, 15 November 2026
+    publisher: Australian Government (industry.gov.au)
+    url: https://www.industry.gov.au/publications/san-francisco-declaration-secure-foundations-enduring-prosperity-signed-countries-attending-pax-silica-summit-15-november-2026
+    published: 2026-11-17
+    accessed: 2026-11-22
+    origin: outside
+    type: government
+    language: en
+    note: Full text of the declaration and the list of the ten signatories, published by a signatory government.
   - id: bgov-sf-2026
     title: US, Nine Nations Sign San Francisco AI Declaration
     publisher: Bloomberg Law
