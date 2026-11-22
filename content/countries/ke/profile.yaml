@@ -1,5 +1,6 @@
 # Kenya: area profile
-# Status: DRAFT, researched by Claude on 19 November 2026, awaiting editor review.
+# Status: APPROVED by the editor on 22 November 2026 (researched by Claude on 19 November 2026).
+# The Anthropic news items need a second reviewer (sensitive topic: conflict of interest).
 # Every statement cites one or more sources from the list at the bottom of this file.
 # Direct quotes were copied from the source pages on the access date.
 # Sources from the Government of Kenya, its agencies, and organisations and media based in Kenya
@@ -11,8 +12,8 @@
 code: KE
 name: Kenya
 status: draft
-last_reviewed: 2026-11-21
-editor_approved: false
+last_reviewed: 2026-11-22
+editor_approved: true
 reviewers: []
 
 summary:
@@ -74,7 +75,7 @@ attitudes:
   meta:
     checked: 2026-11-22
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       The Pew figures are from the published topline; Kenya's survey details are from Pew's methodology
       page (margin of error 4.8 points; Mandera County excluded). The BCG figures are reported through
@@ -120,7 +121,7 @@ regulation:
   meta:
     checked: 2026-11-21
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       We read the national AI strategy in full, and the ODPC's guidance note to section 11; its sections
       on generative AI and enforcement and its annexes were read in summary only. The AI bill's dates are
@@ -205,7 +206,7 @@ culture:
   meta:
     checked: 2026-11-19
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       No local reviewer yet. All sources are in English; debate in Kiswahili and other languages is not
       covered. Two articles about an agreement between Kenya and an AI developer were left out because of
@@ -286,7 +287,7 @@ news:
   meta:
     checked: 2026-11-21
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
   items:
     - id: paris-call
       headline: Kenya signs the Paris Call for AI safety and security
@@ -503,7 +504,7 @@ principles:
   meta:
     checked: 2026-11-21
     evidence_depth: limited
-    review: draft
+    review: editor_approved
     gaps: >-
       The ODPC's guidance note is reported as a draft; its last sections were read in summary only. The draft
       Statement of Principles was read from the copy KICTANet posted in January 2025, marked "Draft". How consumer and
@@ -730,7 +731,7 @@ areas_for_improvement:
   meta:
     checked: 2026-11-21
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       Each area is one that a named source has identified. The committee's October decision on the AI
       bill is reported by one source.
@@ -843,7 +844,7 @@ contacts:
   meta:
     checked: 2026-11-19
     evidence_depth: limited
-    review: draft
+    review: editor_approved
     gaps: >-
       A starting list. University groups outside Nairobi and civil society organisations working on AI
       safety are under-represented.
