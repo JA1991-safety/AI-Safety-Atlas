@@ -1,0 +1,1348 @@
+<title>Beyond Survival</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,650&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: research dossier. Sticky contents rail on wide screens, single reading column (~68ch) otherwise. */
+:root{
+  --bg:#f6f7f5; --surface:#ffffff; --ink:#1c2422; --muted:#56625e; --rule:#d9dfdc;
+  --accent:#2f6b5a; --accent-soft:#e3eee9; --mark:#8a5a12;
+  --f-display:"Literata",Georgia,"Times New Roman",serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121816; --surface:#19211e; --ink:#e3e9e6; --muted:#9aa8a3; --rule:#2c3733;
+  --accent:#7cc4ab; --accent-soft:#1f3029; --mark:#e0b062; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121816; --surface:#19211e; --ink:#e3e9e6; --muted:#9aa8a3; --rule:#2c3733;
+  --accent:#7cc4ab; --accent-soft:#1f3029; --mark:#e0b062; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.62;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1120px;margin:0 auto;padding-block:40px 80px}
+header.mast{max-width:760px;margin:0 0 36px auto;margin-left:calc(240px + 48px)}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:var(--f-display);font-weight:650;font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin:.3em 0 .35em;text-wrap:balance}
+.dek{font-size:1.125rem;color:var(--muted);max-width:62ch;margin:0}
+.meta{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-top:14px}
+.grid{display:grid;grid-template-columns:240px minmax(0,760px);gap:48px}
+.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);align-self:start;font-size:13.5px;border-top:2px solid var(--ink);padding-top:10px}
+.toc-h{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc ul ul{padding-left:12px;margin:2px 0 6px}
+.toc li{margin:4px 0;line-height:1.35}
+.toc a{color:var(--ink);text-decoration:none}
+.toc a:hover,.toc a:focus-visible{color:var(--accent);text-decoration:underline}
+.doc{min-width:0}
+.doc>*{max-width:68ch}
+.doc>.tw{max-width:none}
+h2{font-family:var(--f-display);font-weight:650;font-size:1.75rem;line-height:1.2;margin:2.4em 0 .6em;padding-top:.6em;border-top:1px solid var(--rule);text-wrap:balance}
+h2:first-child{margin-top:0;border-top:0;padding-top:0}
+h3{font-family:var(--f-display);font-weight:500;font-size:1.25rem;margin:1.8em 0 .5em;text-wrap:balance}
+p,li{margin:.6em 0}
+ul,ol{padding-left:1.3em}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+strong{font-weight:600}
+em{font-style:italic}
+hr{border:0;margin:0}
+.tw{overflow-x:auto;margin:1.2em 0;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.5}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--rule)}
+th{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--accent-soft)}
+tr:last-child td{border-bottom:0}
+td:first-child{min-width:150px}
+.doc>p:last-child{color:var(--muted);font-size:14px;border-top:1px solid var(--rule);padding-top:14px;margin-top:3em}
+@media (max-width:900px){
+  .grid{grid-template-columns:minmax(0,1fr);gap:24px}
+  header.mast{margin:0 0 24px}
+  .toc{position:static;border-bottom:1px solid var(--rule);padding-bottom:12px}
+  .toc ul ul{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+</style>
+<div class="wrap">
+<header class="mast">
+  <div class="eyebrow">Research review · four literatures</div>
+  <h1>Beyond Survival: what &ldquo;good for humanity&rdquo; means for alignment</h1>
+  <p class="dek">AI safety, philosophy of the good, the psychology of sustainable happiness, and frameworks for breaking down a human life, each tested against the hypothesis that wealth and health alone are not enough.</p>
+  <div class="meta">Prepared for Dani · 28 November 2026 · updated with a section on weights · ~110 sources</div>
+</header>
+<div class="grid">
+<nav class="toc"><p class="toc-h">Contents</p><ul>
+<li><a href="#how-to-read-this" id="toc-how-to-read-this">How to read
+this</a></li>
+<li><a href="#bottom-line" id="toc-bottom-line">Bottom line</a></li>
+<li><a href="#1-ai-safety-literature" id="toc-1-ai-safety-literature">1.
+AI safety literature</a></li>
+<li><a href="#2-philosophy-what-good-for-humanity-means"
+id="toc-2-philosophy-what-good-for-humanity-means">2. Philosophy: what
+"good for humanity" means</a></li>
+<li><a href="#3-psychology-what-creates-sustainable-happiness"
+id="toc-3-psychology-what-creates-sustainable-happiness">3. Psychology:
+what creates sustainable happiness</a></li>
+<li><a href="#4-frameworks-for-breaking-down-human-experience"
+id="toc-4-frameworks-for-breaking-down-human-experience">4. Frameworks
+for breaking down human experience</a></li>
+<li><a href="#5-where-the-real-disagreement-lies-weights"
+id="toc-5-where-the-real-disagreement-lies-weights">5. Where the real
+disagreement lies: weights</a></li>
+<li><a href="#6-overall-assessment-and-suggested-article-structure"
+id="toc-6-overall-assessment-and-suggested-article-structure">6. Overall
+assessment and suggested article structure</a></li>
+</ul></nav><main class="doc"><h2 id="how-to-read-this">How to read
+this</h2>
+<p>Your hypothesis is a chain of three steps, refined through
+discussion. The evidence treats each step differently, so this review
+scores them separately:</p>
+<ul>
+<li><strong>H1. Known dimensions are not factored in.</strong> We
+broadly know the dimensions of a good human life, but they are not
+factored into how we think about progressing AI. Progress is judged
+instead by what is easy to measure and what markets and governments are
+rewarded for: capability benchmarks, productivity, revenue and GDP.
+Those are not sufficient. This focus starts as a symptom of the problem
+and then becomes a driver of it, because what gets measured becomes the
+target and crowds out everything else. Part of the gap is also a missing
+measurement science: some dimensions, such as meaning, agency and
+belonging, have no mature measures yet.</li>
+<li><strong>H2. No consensus within the dimensions.</strong> Even on the
+known dimensions, there is no consensus on what good looks like, because
+people and political traditions weigh them very differently (for
+example, capitalism versus socialism).</li>
+<li><strong>H3. Drift and degradation.</strong> Unless the dimensions
+are factored in, <em>and</em> we have a legitimate way of handling
+disagreement over them, we are likely to drift into gradual
+disempowerment and a degraded human experience. Drift of this kind
+already happens without AI (deaths of despair, the social media debate).
+What AI adds is speed, scale, and the removal of the human participation
+that keeps institutions answerable to people.</li>
+</ul>
+<p><strong>The testable prediction.</strong> As AI spreads, the measured
+dimensions (output, income, some health outcomes) will improve while the
+unmeasured ones (relationships, agency, competence, meaning, belonging)
+stagnate or decline, and the gap between them will widen.</p>
+<p><strong>Scope note.</strong> This is a structured narrative review of
+the main strands in each field, built from roughly 100 sources. It is
+not a PRISMA-style systematic review. Every source below is real. Papers
+link to arXiv, DOIs or the journal; books link to the publisher where
+possible. Where a finding is contested, the review says so.</p>
+<h2 id="bottom-line">Bottom line</h2>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Claim</th>
+<th>Verdict</th>
+<th>Strongest support</th>
+<th>Main challenge</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>H1</strong> Known dimensions are not factored in</td>
+<td><strong>Strongly supported</strong></td>
+<td>Convergent dimensions across philosophy, psychology and national
+frameworks; adaptation research; the Global Flourishing Study; the gap
+in AI safety work (sections 1 to 4)</td>
+<td>Some dimensions (meaning, agency, belonging) lack mature measures,
+so part of the gap is measurement science, not neglect</td>
+</tr>
+<tr class="even">
+<td><strong>H2</strong> No consensus within the dimensions</td>
+<td><strong>Strongly supported</strong></td>
+<td>Moral foundations and world values research; stated-preference
+wellbeing studies; Arrow's theorem; value pluralism (section 5)</td>
+<td>Some argue full weights are not needed: floors on every dimension
+plus a dashboard can avoid forcing one ranking</td>
+</tr>
+<tr class="odd">
+<td><strong>H3</strong> Drift and degradation</td>
+<td><strong>Supported as a serious risk</strong></td>
+<td>Kulveit et al. (2025), Christiano (2019), Critch &amp; Russell
+(2023); existing drift without AI (Case &amp; Deaton)</td>
+<td>Critics may say drift predates AI, and that a single imposed vision
+is itself a risk. Both are answered by the refined wording: AI adds
+speed, scale and less need for human participation, and the remedy is a
+process for disagreement, not one vision</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>The core argument the evidence supports.</strong></p>
+<ol type="1">
+<li><strong>AI progress ignores the known dimensions (H1).</strong>
+Philosophy, psychology and national wellbeing statistics converge on a
+fairly stable set of dimensions of a good life. AI progress is tracked
+through capability and economic output, and most of the other dimensions
+are not tracked at all. Sections 1 to 4 cover this.</li>
+<li><strong>Even on the known dimensions, there is no consensus on what
+good looks like (H2).</strong> People and political traditions weigh the
+dimensions very differently, and those weights are what they fight over.
+Section 5 covers this.</li>
+<li><strong>The two compound into drift (H3).</strong> AI optimisation
+always needs <em>some</em> weighting. When none is agreed and only some
+dimensions are measured, the weighting is set by default by whatever is
+easiest to measure and sell. The absence of agreed weights does not
+produce neutrality. It produces a growth-and-consumption weighting that
+nobody chose. AI then applies it faster and at greater scale than any
+earlier technology, while needing less human participation to keep
+running.</li>
+</ol>
+<p><strong>What would stop the drift.</strong> Full consensus is not
+required, and seeking it is open to the charge of paternalism. What is
+required is (a) measuring the neglected dimensions, and (b) a legitimate
+process for handling disagreement: minimum thresholds on every
+dimension, separate scores rather than one combined index, and
+deliberation over the weights above the minimums.</p>
+<hr />
+<h2 id="1-ai-safety-literature">1. AI safety literature</h2>
+<h3 id="11-how-the-field-frames-a-good-outcome">1.1 How the field frames
+a "good outcome"</h3>
+<p>The literature falls into seven strands. Only the last three deal
+directly with your question.</p>
+<p><strong>A. Catastrophe and extinction avoidance.</strong> The
+dominant frame. Key texts: Bostrom, <em><a
+href="https://global.oup.com/academic/product/superintelligence-9780199678112">Superintelligence</a></em>
+(2014); Ord, <em><a href="https://theprecipice.com/">The
+Precipice</a></em> (2020); Hendrycks et al., "<a
+href="https://arxiv.org/abs/2306.12001">An Overview of Catastrophic AI
+Risks</a>" (2023); Bengio et al., "<a
+href="https://www.science.org/doi/10.1126/science.adn0117">Managing
+extreme AI risks amid rapid progress</a>" (<em>Science</em>, 2024); the
+<em><a href="https://arxiv.org/abs/2602.21012">International AI Safety
+Report 2026</a></em>.</p>
+<p>A useful point for your article: Bostrom's own definition of
+existential risk already covers your case. In "<a
+href="https://existential-risk.com/concept.pdf">Existential Risk
+Prevention as Global Priority</a>" (2013) he defines it as a risk that
+threatens extinction <em>or</em> "the permanent and drastic destruction
+of its potential for desirable future development". In practice the
+field has concentrated on the extinction half. You can argue you are
+reclaiming a neglected half of the field's own founding definition.</p>
+<p><strong>B. Technical intent alignment.</strong> Making systems do
+what operators intend: RLHF, Constitutional AI, scalable oversight.
+Representative: Ngo, Chan &amp; Mindermann, "<a
+href="https://arxiv.org/abs/2209.00626">The Alignment Problem from a
+Deep Learning Perspective</a>" (2022); Ji et al., "<a
+href="https://arxiv.org/abs/2310.19852">AI Alignment: A Comprehensive
+Survey</a>" (2023); Casper et al., "<a
+href="https://arxiv.org/abs/2307.15217">Open Problems and Fundamental
+Limitations of RLHF</a>" (2023). This strand mostly leaves "aligned to
+whom, and towards what?" open.</p>
+<p><strong>C. Value specification: "aligned to what?"</strong> The
+closest strand to your question, mostly philosophical.</p>
+<ul>
+<li>Gabriel, "<a href="https://arxiv.org/abs/2001.09768">Artificial
+Intelligence, Values, and Alignment</a>" (<em>Minds and Machines</em>,
+2020). The key reference. Distinguishes aligning to instructions,
+expressed intentions, revealed preferences, informed preferences,
+<strong>interests or wellbeing</strong>, and values. Argues that because
+people disagree, the goal should be principles that people with
+different views could reasonably endorse.</li>
+<li>Yudkowsky, "<a
+href="https://intelligence.org/files/CEV.pdf">Coherent Extrapolated
+Volition</a>" (2004). Aim at what humanity would want "if we knew more,
+thought faster, were more the people we wished we were".</li>
+<li>Russell, <em><a
+href="https://people.eecs.berkeley.edu/~russell/hc.html">Human
+Compatible</a></em> (2019). Machines should be uncertain about, and
+defer to, human preferences.</li>
+<li>Zhi-Xuan, Carroll, Franklin &amp; Ashton, "<a
+href="https://arxiv.org/abs/2408.16984">Beyond Preferences in AI
+Alignment</a>" (<em>Philosophical Studies</em>, 2024). Argues
+preferences are a poor proxy for wellbeing and value, and that alignment
+should target normative standards appropriate to a system's social
+role.</li>
+<li>Klingefjord, Lowe &amp; Edelman, "<a
+href="https://arxiv.org/abs/2404.10636">What are human values, and how
+do we align AI to them?</a>" (2024). Builds a "moral graph" of values
+from participants and shows people converge more than expected on what
+wise responses look like.</li>
+<li>Meaning Alignment Institute and co-authors, "<a
+href="https://arxiv.org/abs/2512.03399">Full-Stack Alignment:
+Co-Aligning AI and Institutions with Thick Models of Value</a>" (2025).
+Argues alignment must cover institutions, not just models, and that
+"thin" preference models miss what people actually care about. Very
+close to your thesis.</li>
+</ul>
+<p><strong>D. Pluralistic and democratic alignment.</strong> How to
+aggregate diverse values.</p>
+<ul>
+<li>Sorensen et al., "<a href="https://arxiv.org/abs/2402.05070">A
+Roadmap to Pluralistic Alignment</a>" (ICML, 2024).</li>
+<li>Conitzer et al., "<a href="https://arxiv.org/abs/2404.10271">Social
+Choice Should Guide AI Alignment</a>" (ICML, 2024).</li>
+<li>Anthropic &amp; CIP, "<a
+href="https://www.anthropic.com/research/collective-constitutional-ai-aligning-a-language-model-with-public-input">Collective
+Constitutional AI</a>" (2023; <a
+href="https://arxiv.org/abs/2406.07814">paper</a>). About 1,000 US
+adults drafted principles for a model.</li>
+<li>OpenAI, "<a
+href="https://openai.com/index/democratic-inputs-to-ai/">Democratic
+Inputs to AI</a>" (2023).</li>
+<li>Kirk et al., "<a href="https://arxiv.org/abs/2404.16019">The PRISM
+Alignment Dataset</a>" (2024). Preferences from 1,500 people in 75
+countries.</li>
+<li>Tessler et al., "<a
+href="https://www.science.org/doi/10.1126/science.adq2852">AI can help
+humans find common ground in democratic deliberation</a>"
+(<em>Science</em>, 2024), the "Habermas machine".</li>
+</ul>
+<p>These solve the <em>procedure</em> problem (how to combine views),
+not the <em>content</em> problem (what a good life contains).</p>
+<p><strong>E. Structural risk and gradual disempowerment.</strong> Your
+hypothesis sits here.</p>
+<ul>
+<li>Christiano, "<a
+href="https://www.alignmentforum.org/posts/HBxe6wdjxK239zajf/what-failure-looks-like">What
+failure looks like</a>" (2019). Part I, "going out with a whimper",
+describes AI systems optimising easy-to-measure proxies (profit,
+reported crime, GDP) until human influence over the future erodes. This
+is almost exactly your H3 mechanism, and is the best early citation for
+it.</li>
+<li>Critch &amp; Krueger, "<a href="https://arxiv.org/abs/2006.04948">AI
+Research Considerations for Human Existential Safety (ARCHES)</a>"
+(2020).</li>
+<li>Critch &amp; Russell, "<a
+href="https://arxiv.org/abs/2306.06924">TASRA: A Taxonomy and Analysis
+of Societal-Scale Risks from AI</a>" (2023). Includes risks with no
+single bad actor, arising from many locally reasonable decisions.</li>
+<li>Kulveit, Douglas, Ammann, Turan, Krueger &amp; Duvenaud, "<a
+href="https://arxiv.org/abs/2501.16946">Gradual Disempowerment: Systemic
+Existential Risks from Incremental AI Development</a>" (2025; <a
+href="https://proceedings.mlr.press/v267/kulveit25a.html">ICML 2025
+position paper</a>). The central text. Argues that economic, cultural
+and state systems stay aligned with human interests partly because they
+<em>need</em> human labour and participation. As AI replaces that
+participation, the feedback that keeps institutions serving people
+weakens, even without any misaligned AI.</li>
+<li>Drago &amp; Laine, "<a
+href="https://intelligence-curse.ai/intelligence-curse.pdf">The
+Intelligence Curse</a>" (2025). Applies the "resource curse" to AI:
+states and firms that no longer need people may stop investing in
+them.</li>
+<li>Acemoglu &amp; Johnson, <em>Power and Progress</em> (2023);
+Acemoglu, "<a href="https://www.nber.org/papers/w29247">Harms of AI</a>"
+(NBER, 2021).</li>
+</ul>
+<p><strong>F. Individual-level wellbeing and socio-affective
+harms.</strong> Growing fast since 2024 and becoming empirical.</p>
+<ul>
+<li>Weidinger et al., "<a
+href="https://arxiv.org/abs/2112.04359">Ethical and social risks of harm
+from Language Models</a>" (2021); Weidinger et al., "<a
+href="https://arxiv.org/abs/2310.11986">Sociotechnical Safety Evaluation
+of Generative AI Systems</a>" (2023).</li>
+<li>Gabriel et al., "<a href="https://arxiv.org/abs/2404.16244">The
+Ethics of Advanced AI Assistants</a>" (Google DeepMind, 2024). A
+200-page treatment covering wellbeing, autonomy, manipulation and
+anthropomorphism. Explicitly discusses aligning assistants to user
+<em>wellbeing</em>, not just requests.</li>
+<li>Kirk, Gabriel, Summerfield, Vidgen &amp; Hale, "<a
+href="https://arxiv.org/abs/2502.02528">Why human–AI relationships need
+socioaffective alignment</a>" (2025).</li>
+<li>Phang et al. (OpenAI &amp; MIT Media Lab), "<a
+href="https://arxiv.org/abs/2504.03888">Investigating Affective Use and
+Emotional Well-being on ChatGPT</a>" (2025). Heavy use correlated with
+more loneliness and emotional dependence for a subset of users.</li>
+<li>Anthropic, "<a href="https://arxiv.org/abs/2601.19062">Who's in
+Charge? Disempowerment Patterns in Real-World LLM Usage</a>" (2026; <a
+href="https://www.anthropic.com/research/disempowerment-patterns">summary</a>).
+Empirical analysis of real conversations for patterns where users cede
+judgement or agency.</li>
+<li>Sharma et al., "<a href="https://arxiv.org/abs/2310.13548">Towards
+Understanding Sycophancy in Language Models</a>" (2023).</li>
+<li>Kosmyna et al., "<a href="https://arxiv.org/abs/2506.08872">Your
+Brain on ChatGPT</a>" (2025). Small EEG study suggesting "cognitive
+debt" from essay-writing with LLMs. Not yet peer reviewed; cite with
+care.</li>
+</ul>
+<p><strong>G. Positive visions of flourishing.</strong> Small but
+growing.</p>
+<ul>
+<li>Amodei, "<a
+href="https://www.darioamodei.com/essay/machines-of-loving-grace">Machines
+of Loving Grace</a>" (2024). Covers biology, neuroscience, economic
+development, governance, and "work and meaning". Notably, the meaning
+section is the most tentative.</li>
+<li>Bostrom, <em><a
+href="https://nickbostrom.com/deep-utopia/2024-03-18">Deep Utopia: Life
+and Meaning in a Solved World</a></em> (2024). Asks what gives life
+purpose when AI can do everything better.</li>
+<li>MacAskill et al., "<a
+href="https://www.forethought.org/research/better-futures">Better
+Futures</a>" (Forethought, 2025). Argues that making the future
+<em>good</em>, not just making sure it exists, deserves comparable
+attention, and that a "mostly great" future is a narrow target.</li>
+<li>"<a href="https://arxiv.org/abs/2507.07787">Measuring AI Alignment
+with Human Flourishing</a>" (2025). The Flourishing AI benchmark scores
+models across seven dimensions drawn from the Harvard flourishing
+framework.</li>
+<li>Schiff et al., "<a href="https://arxiv.org/abs/2005.06620">IEEE
+7010: A New Standard for Assessing the Well-being Implications of
+AI</a>" (2020); <a
+href="https://standards.ieee.org/ieee/7010/7718/">IEEE 7010-2020
+standard</a>.</li>
+<li>Stray, "<a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7610010">Aligning AI
+Optimization to Community Well-Being</a>" (2020). Proposes using
+wellbeing metrics such as the OECD framework as AI optimisation targets.
+One of very few papers that connect AI alignment to the
+wellbeing-measurement literature.</li>
+</ul>
+<h3 id="12-what-is-well-covered-and-what-is-not">1.2 What is well
+covered and what is not</h3>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Coverage</th>
+<th>Themes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Well covered</strong></td>
+<td>Catastrophic misuse (bio, cyber); loss of control and deceptive
+alignment; technical intent alignment; preference aggregation and social
+choice; bias, fairness and toxicity; labour displacement framed as
+income and employment; concentration of power; sycophancy and
+manipulation inside a single conversation</td>
+</tr>
+<tr class="even">
+<td><strong>Emerging, mostly conceptual</strong></td>
+<td>Gradual disempowerment (strong theory, few metrics); emotional
+dependence on AI (early empirical work); epistemic autonomy and
+cognitive offloading; wellbeing-aware assistant design</td>
+</tr>
+<tr class="odd">
+<td><strong>Thin or missing</strong></td>
+<td>See the list below</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Gaps your article can fill:</strong></p>
+<ol type="1">
+<li><strong>No substantive account of the good life.</strong> Alignment
+targets defer to "preferences", "values" or "helpful, honest, harmless".
+Almost no technical work specifies what dimensions of human life an
+aligned system should protect or improve.</li>
+<li><strong>No societal-level metrics.</strong> Benchmarks measure model
+behaviour per conversation. There is almost nothing that tracks whether
+AI deployment is improving or eroding relationships, purpose, civic
+participation or skills at population level. IEEE 7010 exists but is
+rarely used.</li>
+<li><strong>Weak links to wellbeing science.</strong> The safety
+literature rarely cites self-determination theory, adaptation research,
+the Easterlin paradox or the OECD/Stiglitz-Sen-Fitoussi measurement
+work. Stray (2020), IEEE 7010 and the Flourishing AI benchmark are the
+exceptions.</li>
+<li><strong>Meaning, contribution and status treated as philosophy, not
+engineering.</strong> Bostrom, Amodei and Danaher raise them; nobody
+operationalises them.</li>
+<li><strong>Aggregation of individually good interactions into
+collectively bad outcomes.</strong> Kulveit et al. name it, but there is
+little work on how to detect it.</li>
+<li><strong>Cross-cultural content.</strong> Collective Constitutional
+AI used about 1,000 US adults. PRISM is broader but is about chatbot
+preferences, not visions of the good life.</li>
+<li><strong>Relational and community goods.</strong> Trust, belonging,
+local institutions and shared culture are almost absent from AI safety
+evaluations.</li>
+</ol>
+<p><strong>Verdict for your hypothesis.</strong> The AI safety
+literature <strong>supports H3</strong> (Kulveit, Christiano and Critch
+give you the mechanism) and <strong>confirms a real gap</strong> behind
+H1 and H2: almost no one has connected alignment targets to an
+empirically grounded, multi-dimensional account of wellbeing. That gap
+is your article's contribution.</p>
+<hr />
+<h2 id="2-philosophy-what-good-for-humanity-means">2. Philosophy: what
+"good for humanity" means</h2>
+<h3 id="21-the-three-classic-theories-of-wellbeing">2.1 The three
+classic theories of wellbeing</h3>
+<p>Parfit's taxonomy in <em><a
+href="https://global.oup.com/academic/product/reasons-and-persons-9780198249085">Reasons
+and Persons</a></em> (1984, Appendix I) is still the standard map. For
+an accessible overview see Crisp, "<a
+href="https://plato.stanford.edu/entries/well-being/">Well-Being</a>"
+(<em>Stanford Encyclopedia of Philosophy</em>).</p>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Theory</th>
+<th>Says a life goes well when...</th>
+<th>Relevance to AI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Hedonism</strong></td>
+<td>It contains more pleasure and less suffering</td>
+<td>Most at risk of "wireheading". An AI could maximise pleasant
+experience while hollowing out everything else</td>
+</tr>
+<tr class="even">
+<td><strong>Desire or preference satisfaction</strong></td>
+<td>People get what they want (or would want if informed)</td>
+<td>The implicit theory behind RLHF and most alignment. Vulnerable to
+adaptive preferences and manipulation, since AI can shape what people
+want</td>
+</tr>
+<tr class="odd">
+<td><strong>Objective list</strong></td>
+<td>It contains certain goods whether or not the person wants them</td>
+<td>Closest to your thesis. Lists vary, but typically include
+achievement, friendship, knowledge, autonomy, pleasure, virtue and
+self-respect. See Fletcher, "<a
+href="https://doi.org/10.1017/S0953820812000453">A Fresh Look at the
+Objective List Theory of Well-Being</a>" (<em>Utilitas</em>, 2013)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Nozick's experience machine</strong> (<em>Anarchy, State, and
+Utopia</em>, 1974) is the classic argument that we care about more than
+experience: most people would not plug into a machine that guaranteed
+pleasant experiences, because they want to actually <em>do</em> things
+and actually <em>be</em> certain kinds of people. This thought
+experiment is very well suited to AI: it is exactly the choice a
+powerful AI could offer.</p>
+<h3 id="22-flourishing-traditions">2.2 Flourishing traditions</h3>
+<ul>
+<li><strong>Aristotle.</strong> <em>Nicomachean Ethics</em> treats
+<em>eudaimonia</em> as activity that exercises our distinctively human
+capacities well, over a whole life. External goods, including wealth and
+health, are needed but not sufficient. Aristotle explicitly says wealth
+is "merely useful and for the sake of something else". See Kraut, "<a
+href="https://plato.stanford.edu/entries/aristotle-ethics/">Aristotle's
+Ethics</a>" (SEP).</li>
+<li><strong>The capabilities approach.</strong> Sen, <em><a
+href="https://global.oup.com/academic/product/development-as-freedom-9780192893307">Development
+as Freedom</a></em> (1999), and Nussbaum, <em><a
+href="https://www.hup.harvard.edu/books/9780674072350">Creating
+Capabilities</a></em> (2011). Judge a society by what people are
+actually able to do and be, not by resources. Nussbaum's ten central
+capabilities include affiliation, play, practical reason and control
+over one's environment. Designed to be the object of cross-cultural
+agreement. See Robeyns &amp; Byskov, "<a
+href="https://plato.stanford.edu/entries/capability-approach/">The
+Capability Approach</a>" (SEP).</li>
+<li><strong>Practices and internal goods.</strong> MacIntyre, <em><a
+href="https://undpress.nd.edu/9780268035044/after-virtue/">After
+Virtue</a></em> (1981). Many goods, such as the satisfaction of craft,
+are only available to people who take part in a practice. If AI does the
+practice, those goods vanish even if the outputs improve.</li>
+<li><strong>Meaning in life.</strong> Wolf, <em><a
+href="https://press.princeton.edu/books/paperback/9780691154503/meaning-in-life-and-why-it-matters">Meaning
+in Life and Why It Matters</a></em> (2010): meaning arises "when
+subjective attraction meets objective attractiveness", active engagement
+with something worthwhile beyond oneself. See Metz, "<a
+href="https://plato.stanford.edu/entries/life-meaning/">The Meaning of
+Life</a>" (SEP).</li>
+<li><strong>Autonomy.</strong> Mill, <em>On Liberty</em> (1859), and
+Raz, <em>The Morality of Freedom</em> (1986), treat self-direction as
+part of the good itself, not just a route to it. This matters directly
+for disempowerment: a life where good outcomes are delivered but not
+chosen is worse on these views.</li>
+</ul>
+<h3 id="23-philosophy-of-post-work-and-solved-worlds">2.3 Philosophy of
+post-work and "solved" worlds</h3>
+<ul>
+<li>Keynes, "<a
+href="http://www.econ.yale.edu/smith/econ116a/keynes1.pdf">Economic
+Possibilities for our Grandchildren</a>" (1930). Predicted the main
+problem after abundance would be how to "occupy the leisure".</li>
+<li>Suits, <em><a
+href="https://broadviewpress.com/product/the-grasshopper-third-edition/">The
+Grasshopper: Games, Life and Utopia</a></em> (1978). In utopia,
+game-playing (voluntarily overcoming unnecessary obstacles) might be all
+that remains.</li>
+<li>Danaher, <em><a
+href="https://www.hup.harvard.edu/books/9780674984240">Automation and
+Utopia</a></em> (2019). Argues automation of work could be good, but
+that cognitive automation threatens the human capacity for understanding
+and agency.</li>
+<li>Bostrom, <em>Deep Utopia</em> (2024), cited above. Separates the
+loss of <em>instrumental</em> purpose from the question of whether life
+can still be meaningful.</li>
+<li>Vallor, <em><a
+href="https://global.oup.com/academic/product/the-ai-mirror-9780197759066">The
+AI Mirror</a></em> (2024). Argues AI reflects past human patterns back
+to us and can erode our capacity for moral self-cultivation.</li>
+</ul>
+<h3 id="24-the-case-against-a-shared-vision">2.4 The case against a
+shared vision</h3>
+<p>This is the strongest challenge to H2 and H3, and the article should
+engage it directly.</p>
+<ul>
+<li><strong>Liberal neutrality.</strong> Rawls, <em><a
+href="https://cup.columbia.edu/book/political-liberalism/9780231130899">Political
+Liberalism</a></em> (1993), argues that in a free society people will
+reasonably disagree about the good life, so public institutions should
+not impose one "comprehensive doctrine". Instead they should secure
+"primary goods" (rights, liberties, opportunities, income, the social
+bases of self-respect) that any life plan needs. Gabriel (2020) applies
+this directly to AI.</li>
+<li><strong>Value pluralism.</strong> Berlin argued genuine values can
+conflict without a single correct ranking. See Mason, "<a
+href="https://plato.stanford.edu/entries/value-pluralism/">Value
+Pluralism</a>" (SEP).</li>
+<li><strong>Lock-in risk.</strong> If the vision is specified by a lab
+or government and then optimised by a powerful system, it could
+disempower people more than drift would. MacAskill's "Better Futures"
+series and the pluralistic-alignment literature both make this
+point.</li>
+</ul>
+<p><strong>How to answer it.</strong> Rawls's primary goods and
+Nussbaum's capabilities are themselves <em>thin shared visions</em>.
+They specify the <em>conditions</em> any good life needs without
+dictating which good life to lead. This lets you argue for a shared
+vision without paternalism: alignment should protect the capabilities
+and primary goods that allow people to pursue their own conceptions of
+the good, and these go well beyond wealth and health.</p>
+<p><strong>Verdict.</strong> Philosophy <strong>strongly supports
+H1</strong>: no serious theory equates the good life with wealth and
+health. It <strong>supports H2</strong>: there is real convergence on a
+list of goods (relationships, knowledge, achievement, autonomy,
+meaning), but principled and probably permanent disagreement on how to
+rank them and on whether any authority should choose for others. It
+<strong>qualifies H3</strong>: the remedy is a thin vision of protected
+capabilities, not a thick vision of the ideal life.</p>
+<hr />
+<h2 id="3-psychology-what-creates-sustainable-happiness">3. Psychology:
+what creates sustainable happiness</h2>
+<h3 id="31-two-kinds-of-wellbeing">3.1 Two kinds of wellbeing</h3>
+<p>Psychology distinguishes <strong>hedonic</strong> wellbeing (positive
+feeling, life satisfaction) from <strong>eudaimonic</strong> wellbeing
+(meaning, growth, functioning well). See Ryan &amp; Deci, "<a
+href="https://doi.org/10.1146/annurev.psych.52.1.141">On Happiness and
+Human Potentials</a>" (<em>Annual Review of Psychology</em>, 2001).
+Measures include Diener's subjective wellbeing ("<a
+href="https://doi.org/10.1037/0033-2909.95.3.542">Subjective
+Well-Being</a>", 1984) and Ryff's six dimensions of psychological
+wellbeing: autonomy, environmental mastery, personal growth, positive
+relations, purpose in life, self-acceptance ("<a
+href="https://doi.org/10.1037/0022-3514.57.6.1069">Happiness is
+everything, or is it?</a>", 1989).</p>
+<h3
+id="32-money-necessary-not-sufficient-and-with-diminishing-returns">3.2
+Money: necessary, not sufficient, and with diminishing returns</h3>
+<ul>
+<li><strong>Easterlin paradox.</strong> Easterlin, "<a
+href="https://doi.org/10.1016/B978-0-12-205050-3.50008-7">Does Economic
+Growth Improve the Human Lot?</a>" (1974). Within a country, richer
+people are happier; over time, as whole countries grow richer, average
+happiness rises much less than expected.</li>
+<li><strong>Income and emotion.</strong> Kahneman &amp; Deaton, "<a
+href="https://doi.org/10.1073/pnas.1011492107">High income improves
+evaluation of life but not emotional well-being</a>" (<em>PNAS</em>,
+2010) suggested a plateau around $75k. Killingsworth, Kahneman &amp;
+Mellers, "<a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10068796/">Income and
+emotional well-being: A conflict resolved</a>" (<em>PNAS</em>, 2023)
+found happiness keeps rising with income for most people, except the
+least happy fifth, where it plateaus.</li>
+</ul>
+<p><strong>Be careful here.</strong> The modern evidence says money
+matters more than the popular "money doesn't buy happiness" line. The
+safe claim for your article is that income has <em>diminishing</em>
+returns (roughly logarithmic), that <em>relative</em> income and status
+matter, and that income cannot substitute for the other drivers
+below.</p>
+<h3 id="33-adaptation-why-material-gains-fade">3.3 Adaptation: why
+material gains fade</h3>
+<ul>
+<li>Brickman, Coates &amp; Janoff-Bulman, "<a
+href="https://doi.org/10.1037/0022-3514.36.8.917">Lottery winners and
+accident victims: Is happiness relative?</a>" (1978), introduced the
+"hedonic treadmill".</li>
+<li>Diener, Lucas &amp; Scollon, "<a
+href="https://doi.org/10.1037/0003-066X.61.4.305">Beyond the hedonic
+treadmill</a>" (2006), revised it: adaptation is real but not complete,
+and varies by person and event.</li>
+<li>Luhmann, Hofmann, Eid &amp; Lucas, "<a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3289759">Subjective
+well-being and adaptation to life events: a meta-analysis</a>"
+(<em>JPSP</em>, 2012). People adapt fairly well to many events, but
+adapt poorly or slowly to <strong>unemployment</strong> and to losing a
+partner.</li>
+</ul>
+<p><strong>Why this matters for your thesis.</strong> There is an
+asymmetry: people adapt to material gains, but losses of social roles,
+relationships and work persist. An AI transition that raises incomes
+while removing roles could therefore leave people worse off even as
+wealth rises. This is one of your strongest evidence-based
+arguments.</p>
+<h3 id="34-sustainable-happiness">3.4 Sustainable happiness</h3>
+<ul>
+<li>Lyubomirsky, Sheldon &amp; Schkade, "<a
+href="https://doi.org/10.1037/1089-2680.9.2.111">Pursuing Happiness: The
+Architecture of Sustainable Change</a>" (2005). Proposed that
+circumstances explain little of happiness and intentional activity a
+lot. <strong>Do not cite the famous "50/10/40 pie" as fact.</strong> It
+has been heavily criticised, notably by Brown &amp; Rohrer, "<a
+href="https://doi.org/10.1007/s10902-019-00128-4">Easy as (Happiness)
+Pie?</a>" (2020). The durable lesson is that activities people choose
+and engage in sustain wellbeing better than changes in
+circumstances.</li>
+<li>Sheldon &amp; Lyubomirsky, "<a
+href="https://doi.org/10.1177/0146167212436400">The Challenge of Staying
+Happier</a>" (2012). Positive changes last when they bring variety and
+are actively appreciated.</li>
+</ul>
+<h3 id="35-what-reliably-drives-wellbeing">3.5 What reliably drives
+wellbeing</h3>
+<ol type="1">
+<li><strong>Basic psychological needs: autonomy, competence,
+relatedness.</strong> Self-determination theory: Ryan &amp; Deci, "<a
+href="https://doi.org/10.1037/0003-066X.55.1.68">Self-Determination
+Theory and the Facilitation of Intrinsic Motivation, Social Development,
+and Well-Being</a>" (2000). Cross-cultural support in Chen et al., "<a
+href="https://doi.org/10.1007/s11031-014-9450-1">Basic psychological
+need satisfaction... across four cultures</a>" (2015). <strong>This is
+the single most useful framework for your article</strong>, because each
+need maps onto a specific AI risk: delegation erodes autonomy,
+deskilling erodes competence, AI companionship can substitute for
+relatedness.</li>
+<li><strong>Close relationships.</strong> The Harvard Study of Adult
+Development, running since 1938, finds relationship quality is the
+strongest predictor of later-life health and happiness (Waldinger &amp;
+Schulz, <em><a
+href="https://www.simonandschuster.com/books/The-Good-Life/Robert-Waldinger/9781982166694">The
+Good Life</a></em>, 2023). Holt-Lunstad, Smith &amp; Layton, "<a
+href="https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1000316">Social
+Relationships and Mortality Risk</a>" (2010), found strong social ties
+raise survival odds by about 50%, comparable to quitting smoking.
+Baumeister &amp; Leary, "<a
+href="https://doi.org/10.1037/0033-2909.117.3.497">The Need to
+Belong</a>" (1995).</li>
+<li><strong>Meaning and purpose.</strong> Martela &amp; Steger, "<a
+href="https://doi.org/10.1080/17439760.2015.1137623">The three meanings
+of meaning in life</a>" (2016): coherence, purpose, significance. Hill
+&amp; Turiano, "<a
+href="https://doi.org/10.1177/0956797614531799">Purpose in Life as a
+Predictor of Mortality</a>" (2014).</li>
+<li><strong>Work beyond income.</strong> Jahoda, "<a
+href="https://doi.org/10.1037/0003-066X.36.2.184">Work, employment, and
+unemployment</a>" (1981), identified the "latent functions" of work:
+time structure, social contact, shared purpose, status and identity, and
+regular activity. Paul &amp; Moser, "<a
+href="https://doi.org/10.1016/j.jvb.2009.01.001">Unemployment impairs
+mental health: Meta-analyses</a>" (2009). This is direct evidence that
+replacing income does not replace what work provides.</li>
+<li><strong>Mastery and flow.</strong> Csikszentmihalyi, <em><a
+href="https://www.harpercollins.com/products/flow-mihaly-csikszentmihalyi">Flow</a></em>
+(1990). Deep engagement in challenging, skilled activity.</li>
+<li><strong>Prosocial behaviour.</strong> Dunn, Aknin &amp; Norton, "<a
+href="https://doi.org/10.1126/science.1150952">Spending Money on Others
+Promotes Happiness</a>" (<em>Science</em>, 2008). <em><a
+href="https://worldhappiness.report/ed/2025/">World Happiness Report
+2025</a></em>, "Caring and Sharing", found benevolence, trust, and
+sharing meals predict happiness strongly, and that eating alone is
+rising.</li>
+<li><strong>Materialistic values hurt.</strong> Kasser &amp; Ryan, "<a
+href="https://doi.org/10.1037/0022-3514.65.2.410">A dark side of the
+American dream</a>" (1993); Dittmar et al., "<a
+href="https://doi.org/10.1037/a0037409">The relationship between
+materialism and personal well-being: A meta-analysis</a>" (2014).</li>
+</ol>
+<h3 id="36-population-level-evidence-rich-but-not-flourishing">3.6
+Population-level evidence: rich but not flourishing</h3>
+<ul>
+<li><strong>Global Flourishing Study.</strong> VanderWeele, Johnson et
+al. (<em>Nature Mental Health</em>, 2025), about 200,000 people in 22
+countries (<a
+href="https://hsph.harvard.edu/news/measuring-a-life-well-lived/">Harvard
+summary</a>; <a
+href="https://news.harvard.edu/gazette/story/2025/04/more-proof-that-money-isnt-everything">Harvard
+Gazette</a>). Wealthier countries scored higher on financial security
+but often lower on meaning, relationships and prosocial character.
+Indonesia ranked highest on overall flourishing; Japan lowest. Young
+adults are flourishing less than older adults in many countries.
+<strong>This is probably the single best empirical source for
+H1.</strong> The measurement framework is in VanderWeele, "<a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5547610">On the promotion
+of human flourishing</a>" (<em>PNAS</em>, 2017).</li>
+<li><strong>Deaths of despair.</strong> Case &amp; Deaton, <em><a
+href="https://press.princeton.edu/books/hardcover/9780691190785/deaths-of-despair-and-the-future-of-capitalism">Deaths
+of Despair and the Future of Capitalism</a></em> (2020). In the US,
+rising deaths from suicide, drugs and alcohol among people without
+degrees tracked the loss of good jobs, community and status, not simply
+income.</li>
+<li><strong>Social capital decline.</strong> Putnam, <em><a
+href="https://www.simonandschuster.com/books/Bowling-Alone/Robert-D-Putnam/9780743203043">Bowling
+Alone</a></em> (2000).</li>
+<li><strong>Optimising a proxy: the social media analogy.</strong>
+Engagement-optimised platforms are the closest existing case of
+technology optimising a proxy at scale. The evidence on harm is
+genuinely contested: compare Haidt, <em><a
+href="https://www.anxiousgeneration.com/book">The Anxious
+Generation</a></em> (2024), with Orben &amp; Przybylski, "<a
+href="https://doi.org/10.1038/s41562-018-0506-1">The association between
+adolescent well-being and digital technology use</a>" (2019). Use it as
+an analogy for proxy optimisation, not as settled proof of harm.</li>
+</ul>
+<p><strong>Verdict.</strong> Psychology <strong>strongly supports
+H1</strong>, with one correction: do not say money doesn't matter. Say
+it has diminishing returns and cannot substitute for autonomy,
+competence, relationships, meaning and contribution. The adaptation
+asymmetry and Jahoda's latent functions of work give you a concrete
+mechanism for how an AI-driven economy could raise wealth while
+degrading lives.</p>
+<hr />
+<h2 id="4-frameworks-for-breaking-down-human-experience">4. Frameworks
+for breaking down human experience</h2>
+<h3 id="41-the-main-candidates">4.1 The main candidates</h3>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Framework</th>
+<th>Origin</th>
+<th>Dimensions</th>
+<th>Fit for your article</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><a
+href="https://www.oecd.org/en/publications/how-s-life-2024_90ba854a-en">OECD
+Well-being Framework</a></strong> (How's Life?)</td>
+<td>OECD, 2011, revised 2020</td>
+<td>11 current-wellbeing dimensions: income and wealth; work and job
+quality; housing; health; knowledge and skills; environmental quality;
+subjective wellbeing; safety; work-life balance; social connections;
+civic engagement. Plus 4 capitals for the future: natural, economic,
+human, social</td>
+<td><strong>Most authoritative and measurable.</strong> Agreed across 38
+governments, with indicators. Weak on meaning, purpose, culture and
+autonomy</td>
+</tr>
+<tr class="even">
+<td><strong><a
+href="https://ec.europa.eu/eurostat/documents/8131721/8131772/Stiglitz-Sen-Fitoussi-Commission-report.pdf">Stiglitz-Sen-Fitoussi
+Commission</a></strong></td>
+<td>French government, 2009</td>
+<td>8: material living standards; health; education; personal activities
+including work; political voice and governance; social connections;
+environment; insecurity</td>
+<td><strong>The founding "Beyond GDP" text.</strong> Cite it for the
+argument that GDP misleads</td>
+</tr>
+<tr class="odd">
+<td><strong><a
+href="https://plato.stanford.edu/entries/capability-approach/">Capabilities
+approach</a></strong> (Nussbaum's list)</td>
+<td>Sen and Nussbaum, 1980s to 2011</td>
+<td>10: life; bodily health; bodily integrity; senses, imagination and
+thought; emotions; practical reason; affiliation; other species; play;
+control over one's environment</td>
+<td><strong>Best philosophical anchor.</strong> Designed for
+cross-cultural consensus, focuses on what people can do and be. Harder
+to measure</td>
+</tr>
+<tr class="even">
+<td><strong><a
+href="https://www.treasury.govt.nz/publications/tp/living-standards-framework-2021">NZ
+Living Standards Framework</a></strong></td>
+<td>NZ Treasury, 2021</td>
+<td>12 domains: cultural capability and belonging; engagement and voice;
+environmental amenity; family and friends; health; housing; income,
+consumption and wealth; knowledge and skills; leisure and play; safety;
+subjective wellbeing; work, care and volunteering. Plus institutions and
+wealth. Paired with the Māori <a
+href="https://www.oecd.org/en/publications/well-being-knowledge-exchange-platform-kep_93d45d63-en/new-zealand-s-living-standards-framework-and-he-ara-waiora-framework_dfce8af5-en.html">He
+Ara Waiora</a> framework</td>
+<td><strong>Strong on culture, belonging and voice.</strong> A real
+government using wellbeing in budgeting</td>
+</tr>
+<tr class="odd">
+<td><strong><a
+href="https://www.ons.gov.uk/peoplepopulationandcommunity/wellbeing">UK
+ONS Measuring National Well-being</a></strong></td>
+<td>ONS, 2010 onwards</td>
+<td>10: personal wellbeing; relationships; health; what we do; where we
+live; personal finance; economy; education and skills; governance;
+environment</td>
+<td>Good UK reference with long data series</td>
+</tr>
+<tr class="even">
+<td><strong><a href="https://ophi.org.uk/node/3258">Bhutan Gross
+National Happiness</a></strong></td>
+<td>Centre for Bhutan Studies, 2008 onwards</td>
+<td>9: psychological wellbeing; health; education; time use; cultural
+diversity and resilience; good governance; community vitality;
+ecological diversity; living standards</td>
+<td>Includes <strong>time use, culture and community vitality</strong>,
+which most Western frameworks miss</td>
+</tr>
+<tr class="odd">
+<td><strong><a href="https://www.socialprogress.org/methodology">Social
+Progress Index</a></strong></td>
+<td>Social Progress Imperative, 2013 onwards</td>
+<td>3 dimensions, 12 components: basic human needs; foundations of
+wellbeing; opportunity (rights, freedom and choice, inclusiveness,
+advanced education)</td>
+<td>Deliberately excludes economic indicators. Strong on freedom and
+opportunity</td>
+</tr>
+<tr class="even">
+<td><strong><a
+href="https://hfh.fas.harvard.edu/post/insights-from-the-global-flourishing-study">Harvard
+Human Flourishing</a></strong> (VanderWeele)</td>
+<td>Harvard, 2017</td>
+<td>5 core domains: happiness and life satisfaction; mental and physical
+health; meaning and purpose; character and virtue; close social
+relationships. Plus financial and material stability</td>
+<td>Used in the Global Flourishing Study and the Flourishing AI
+benchmark. Individual-level only</td>
+</tr>
+<tr class="odd">
+<td><strong>PERMA</strong></td>
+<td>Seligman, <em><a
+href="https://www.simonandschuster.com/books/Flourish/Martin-E-P-Seligman/9781439190760">Flourish</a></em>
+(2011)</td>
+<td>Positive emotion; engagement; relationships; meaning;
+accomplishment</td>
+<td>Popular and memorable. Weaker empirical structure</td>
+</tr>
+<tr class="even">
+<td><strong>Self-determination theory</strong></td>
+<td>Ryan &amp; Deci, 2000</td>
+<td>Autonomy; competence; relatedness</td>
+<td>Best evidence base for psychological <em>mechanisms</em></td>
+</tr>
+<tr class="odd">
+<td><strong>Max-Neef Human Scale Development</strong></td>
+<td>Max-Neef, <em>Human Scale Development</em> (<em>Development
+Dialogue</em> 1989:1, Dag Hammarskjöld Foundation; book 1991)</td>
+<td>9 needs (subsistence, protection, affection, understanding,
+participation, leisure, creation, identity, freedom) across 4 modes
+(being, having, doing, interacting)</td>
+<td><strong>Distinctive and very useful for AI.</strong> Separates fixed
+<em>needs</em> from changeable <em>satisfiers</em>, and names
+"pseudo-satisfiers" that seem to meet a need but don't. See 4.3</td>
+</tr>
+<tr class="even">
+<td><strong>Doyal &amp; Gough, <em>A Theory of Human
+Need</em></strong></td>
+<td>1991</td>
+<td>Basic needs: physical health and autonomy. 11 intermediate
+needs</td>
+<td>Rigorous argument that needs are universal and objective</td>
+</tr>
+<tr class="odd">
+<td><strong>Allardt's Having, Loving, Being</strong></td>
+<td>Allardt, 1976; in Nussbaum &amp; Sen, <em><a
+href="https://global.oup.com/academic/product/the-quality-of-life-9780198287971">The
+Quality of Life</a></em> (1993)</td>
+<td>Having (material); loving (social); being (self-realisation,
+political participation, meaning)</td>
+<td>Simple three-part structure, good for a headline</td>
+</tr>
+<tr class="even">
+<td><strong>Bourdieu's forms of capital</strong></td>
+<td>Bourdieu, "<a
+href="https://www.marxists.org/reference/subject/philosophy/works/fr/bourdieu-forms-capital.htm">The
+Forms of Capital</a>" (1986)</td>
+<td>Economic, social, cultural (later symbolic)</td>
+<td>Closest match to your "economic, social, intellectual, cultural"
+example. Strong on power and inequality, but a sociology of advantage,
+not of wellbeing</td>
+</tr>
+<tr class="odd">
+<td><strong><a
+href="https://doughnuteconomics.org/about-doughnut-economics">Doughnut
+Economics</a></strong> social foundation</td>
+<td>Raworth, 2017</td>
+<td>12: food; health; education; income and work; peace and justice;
+political voice; social equity; gender equality; housing; networks;
+energy; water</td>
+<td>Adds the planetary ceiling. Mostly a floor of basic needs</td>
+</tr>
+<tr class="even">
+<td><strong><a
+href="https://www.who.int/tools/whoqol">WHOQOL</a></strong></td>
+<td>WHO, 1990s</td>
+<td>6: physical; psychological; level of independence; social
+relationships; environment; spirituality and personal beliefs</td>
+<td>Validated, cross-cultural, health-centred</td>
+</tr>
+<tr class="odd">
+<td><strong>Maslow's hierarchy</strong></td>
+<td>Maslow, 1943</td>
+<td>Physiological, safety, belonging, esteem, self-actualisation</td>
+<td>Widely known but the <em>hierarchy</em> is not well supported. Tay
+&amp; Diener, "<a href="https://doi.org/10.1037/a0023779">Needs and
+subjective well-being around the world</a>" (2011), found the needs
+matter universally but not in fixed order. Use with care</td>
+</tr>
+</tbody>
+</table></div>
+<p>Others worth knowing: the <a
+href="https://hdr.undp.org/data-center/human-development-index">UN Human
+Development Index</a> (health, education, income only, so a useful
+<em>example</em> of the narrow view), the UN <a
+href="https://sdgs.un.org/goals">Sustainable Development Goals</a>,
+Wales's <a
+href="https://www.futuregenerations.wales/about-us/future-generations-act/">Well-being
+of Future Generations Act</a> (2015, which includes "vibrant culture"),
+the <a href="https://uwaterloo.ca/canadian-index-wellbeing/">Canadian
+Index of Wellbeing</a>, and Gallup's five elements of wellbeing (Rath
+&amp; Harter, <em>Wellbeing</em>, 2010).</p>
+<h3
+id="42-recommendation-adopt-a-composite-anchored-in-established-work">4.2
+Recommendation: adopt a composite, anchored in established work</h3>
+<p>No single framework covers everything your argument needs. The OECD
+framework is measurable but thin on meaning and agency. Capabilities is
+normatively strong but hard to measure. SDT explains mechanisms but is
+individual-level only.</p>
+<p>A defensible approach is to <strong>anchor on the OECD framework and
+the capabilities approach</strong>, then add the dimensions that the
+psychology evidence says matter and that AI specifically threatens. For
+example, eight domains:</p>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Domain</th>
+<th>Draws on</th>
+<th>What AI could do to it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Material security</strong></td>
+<td>OECD income and wealth, housing; Allardt "having"</td>
+<td>Likely improves on average; distribution is the risk</td>
+</tr>
+<tr class="even">
+<td><strong>Health and body</strong></td>
+<td>OECD health; Nussbaum life, bodily health</td>
+<td>Likely improves</td>
+</tr>
+<tr class="odd">
+<td><strong>Relationships and belonging</strong></td>
+<td>SDT relatedness; OECD social connections; Harvard Study</td>
+<td>AI companions may substitute for human ties</td>
+</tr>
+<tr class="even">
+<td><strong>Agency and voice</strong></td>
+<td>SDT autonomy; Nussbaum practical reason and control over
+environment; OECD civic engagement</td>
+<td>Delegated decisions; institutions that no longer need citizens
+(Kulveit)</td>
+</tr>
+<tr class="odd">
+<td><strong>Competence and understanding</strong></td>
+<td>SDT competence; OECD knowledge and skills; Nussbaum senses,
+imagination and thought</td>
+<td>Deskilling and cognitive offloading</td>
+</tr>
+<tr class="even">
+<td><strong>Meaning and contribution</strong></td>
+<td>Martela &amp; Steger; Jahoda's functions of work; Wolf</td>
+<td>Loss of roles in which people are needed</td>
+</tr>
+<tr class="odd">
+<td><strong>Culture, identity and play</strong></td>
+<td>NZ LSF cultural capability; GNH cultural diversity; Nussbaum play;
+Bourdieu</td>
+<td>Homogenised culture; AI-generated culture displacing human-made
+culture</td>
+</tr>
+<tr class="even">
+<td><strong>Shared environment and future</strong></td>
+<td>OECD capitals; Doughnut; GNH ecology</td>
+<td>Mixed</td>
+</tr>
+</tbody>
+</table></div>
+<p>Your article's core claim then becomes very concrete: <strong>current
+success metrics capture the first two rows; the other six are where the
+gradual degradation would happen, and they are the ones nobody is
+measuring.</strong></p>
+<p>This also lines up with the project's existing <em>Reasonable Path
+simulator</em>, which already tracks six areas: economic, political,
+cultural, cognitive, social and purpose. Mapping those to the domains
+above (and adding material security and health as the "rising"
+dimensions) would let the simulator show your H3 argument directly: two
+lines go up while six go down.</p>
+<h3 id="43-a-tool-worth-borrowing-max-neefs-satisfiers">4.3 A tool worth
+borrowing: Max-Neef's satisfiers</h3>
+<p>Max-Neef's most useful idea for AI is that <strong>needs stay
+constant across cultures and history; what changes is the "satisfiers"
+we use to meet them.</strong> He classifies satisfiers as:</p>
+<ul>
+<li><strong>Synergic:</strong> meet one need and support others (for
+example, community education meets understanding, participation and
+identity).</li>
+<li><strong>Singular:</strong> meet one need only.</li>
+<li><strong>Pseudo-satisfiers:</strong> create a false sense of meeting
+a need.</li>
+<li><strong>Inhibiting:</strong> over-satisfy one need and block
+others.</li>
+<li><strong>Violators or destroyers:</strong> claim to meet a need but
+end up undermining it.</li>
+</ul>
+<p>This gives you a clean test for any AI product: is it a synergic
+satisfier (an AI tutor that builds understanding <em>and</em>
+competence), a pseudo-satisfier (an AI companion that feels like
+affection without the mutual relationship), or an inhibiting satisfier
+(an assistant that meets the need for subsistence and protection while
+removing participation and creation)? It is a vivid, original lens that
+I have not found applied systematically in the AI safety literature.</p>
+<hr />
+<h2 id="5-where-the-real-disagreement-lies-weights">5. Where the real
+disagreement lies: weights</h2>
+<h3 id="51-same-dimensions-different-weights">5.1 Same dimensions,
+different weights</h3>
+<p>Political traditions rarely disagree about <em>whether</em> material
+security, equality, freedom, belonging or contribution matter. They
+disagree about how to trade them against each other. Capitalism versus
+socialism is the clearest case. Both value material security and human
+dignity. Market economies weight growth, choice, competition and
+individual achievement more heavily; socialist traditions weight
+equality, solidarity, security and collective contribution more
+heavily.</p>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Trade-off</th>
+<th>Weighted more by...</th>
+<th>Weighted more by...</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Growth vs equality</td>
+<td>Market liberal traditions</td>
+<td>Social democratic and socialist traditions</td>
+</tr>
+<tr class="even">
+<td>Individual freedom vs collective security</td>
+<td>Liberal and libertarian</td>
+<td>Communitarian and collectivist</td>
+</tr>
+<tr class="odd">
+<td>Competition and achievement vs solidarity and belonging</td>
+<td>Meritocratic cultures</td>
+<td>Egalitarian cultures</td>
+</tr>
+<tr class="even">
+<td>Consumption and choice vs sufficiency</td>
+<td>Growth economics</td>
+<td>Degrowth, Doughnut, Buddhist economics</td>
+</tr>
+<tr class="odd">
+<td>Tradition and identity vs openness and self-expression</td>
+<td>Conservative and "traditional" societies</td>
+<td>Liberal and "self-expression" societies</td>
+</tr>
+</tbody>
+</table></div>
+<p>The eight domains in section 4.2 can stay the same while each of
+these positions gives a very different answer to "is this AI-shaped
+society good for people?".</p>
+<h3 id="52-evidence-that-people-weight-dimensions-differently">5.2
+Evidence that people weight dimensions differently</h3>
+<ul>
+<li><strong>Political moral psychology.</strong> Graham, Haidt &amp;
+Nosek, "<a href="https://pubmed.ncbi.nlm.nih.gov/19379034/">Liberals and
+conservatives rely on different sets of moral foundations</a>"
+(<em>JPSP</em>, 2009). Liberals weight care and fairness most;
+conservatives spread weight more evenly across care, fairness, loyalty,
+authority and sanctity. Same moral vocabulary, different weights.</li>
+<li><strong>Cross-cultural values.</strong> Schwartz, "<a
+href="https://doi.org/10.9707/2307-0919.1116">An Overview of the
+Schwartz Theory of Basic Values</a>" (2012), finds the same ten basic
+values across cultures but different priorities among them. The World
+Values Survey's <a
+href="https://www.worldvaluessurvey.org/">Inglehart–Welzel cultural
+map</a> shows societies differ systematically on traditional versus
+secular values and on survival versus self-expression values, and that
+priorities shift as economic security rises.</li>
+<li><strong>Stated trade-offs between wellbeing dimensions.</strong>
+Benjamin, Heffetz, Kimball &amp; Szembrot, "<a
+href="https://www.nber.org/papers/w18374">Beyond Happiness and
+Satisfaction: Toward Well-Being Indices Based on Stated Preference</a>"
+(<em>American Economic Review</em>, 2014), asked people to trade off 136
+aspects of wellbeing. People value much more than happiness, and the
+relative weights vary across groups.</li>
+<li><strong>What people choose when they set the weights.</strong>
+Balestra, Boarini &amp; Tosetto, "<a
+href="https://www.oecd.org/en/publications/what-matters-the-most-to-people_edf9a89a-en.html">What
+Matters the Most to People?</a>" (OECD, 2018), analyse how users of the
+<a
+href="https://www.oecd.org/en/data/tools/oecd-better-life-index.html">OECD
+Better Life Index</a> weight its dimensions. Health, life satisfaction
+and education rank high overall, but rankings differ by country, age and
+gender.</li>
+<li><strong>The system shapes the weights.</strong> Alesina &amp;
+Fuchs-Schündeln, "<a href="https://www.nber.org/papers/w11700">Good-bye
+Lenin (or Not?): The Effect of Communism on People's Preferences</a>"
+(<em>American Economic Review</em>, 2007). After reunification, East
+Germans favoured state provision and redistribution much more than West
+Germans, an effect expected to take one to two generations to fade.
+Weights are not fixed facts about people; the economic system people
+live in produces them. This matters for AI, which may reshape weights in
+the same way.</li>
+<li><strong>Switching systems is not a simple win.</strong> Guriev &amp;
+Zhuravskaya, "<a
+href="https://ideas.repec.org/a/aea/jecper/v23y2009i2p143-68.html">(Un)Happiness
+in Transition</a>" (<em>Journal of Economic Perspectives</em>, 2009),
+found life satisfaction in post-communist countries fell during the
+transition to markets and stayed below comparable countries, linked to
+lost public goods, rising inequality and insecurity.</li>
+<li><strong>Even the facts about trade-offs are contested.</strong>
+Wilkinson &amp; Pickett, <em>The Spirit Level</em> (2009), argue more
+equal societies do better on almost every social outcome; critics
+dispute the data and causality (see <a
+href="https://sociology.berkeley.edu/sites/default/files/faculty/fischer/Fischer_Mind%20the%20Gap_Boston%20Review%202010.pdf">Fischer,
+<em>Boston Review</em>, 2010</a>). This is a useful example:
+disagreement about weights is often mixed with disagreement about
+evidence.</li>
+</ul>
+<h3 id="53-why-there-may-be-no-single-right-answer">5.3 Why there may be
+no single right answer</h3>
+<ul>
+<li><strong>No fair way to combine rankings.</strong> Arrow's
+impossibility theorem shows that no method of combining individual
+rankings into a social ranking satisfies a small set of reasonable
+fairness conditions at once. See Morreau, "<a
+href="https://plato.stanford.edu/entries/arrows-theorem/">Arrow's
+Theorem</a>" (SEP). Conitzer et al. (2024) apply this directly to
+alignment.</li>
+<li><strong>Reasonable disagreement is permanent.</strong> Rawls's
+"burdens of judgement" in <em>Political Liberalism</em> explain why free
+people will keep disagreeing about how to weigh values, even in good
+faith. Berlin's value pluralism (section 2.4) goes further: some values
+may be incommensurable.</li>
+<li><strong>But you can agree without a full ranking.</strong> Sen,
+<em>The Idea of Justice</em> (2009), argues we do not need a complete
+ranking to agree that some states of the world are clearly better than
+others. Partial agreement is enough to act on.</li>
+</ul>
+<h3 id="54-why-this-matters-more-for-ai-than-for-politics">5.4 Why this
+matters more for AI than for politics</h3>
+<ol type="1">
+<li><strong>Optimisation forces a weighting.</strong> A reward model, a
+ranking algorithm or a business KPI always turns many values into one
+number. Politics can leave weights unresolved and renegotiate them at
+elections; an optimiser cannot.</li>
+<li><strong>The default weighting is the measurable one.</strong> When
+no weighting is agreed, systems optimise what is easy to measure and
+monetise. This is Christiano's (2019) "proxy" failure. The result looks
+like an extreme growth-and-consumption weighting, chosen by no one.</li>
+<li><strong>AI can shift the weights themselves.</strong> If living
+under communism shifted East German preferences in a generation (Alesina
+&amp; Fuchs-Schündeln), living inside AI-mediated systems may shift what
+people value. This is the adaptive-preferences problem from Zhi-Xuan et
+al. (2024) at societal scale.</li>
+<li><strong>Lock-in.</strong> Weights embedded in infrastructure are
+hard to revisit. MacAskill's "Better Futures" series treats value
+lock-in as one of the main threats to a good future.</li>
+</ol>
+<h3
+id="55-options-for-handling-weights-without-settling-the-big-debates">5.5
+Options for handling weights without settling the big debates</h3>
+<p>The literature offers five approaches, which can be combined:</p>
+<ol type="1">
+<li><strong>Floors, not weights.</strong> Set a minimum threshold on
+every dimension and never trade below it. This is Nussbaum's threshold
+for each capability, Raworth's social foundation, and Doyal &amp;
+Gough's basic needs. Disagreement then only applies above the
+floors.</li>
+<li><strong>A dashboard, not an index.</strong> The <a
+href="https://ec.europa.eu/eurostat/documents/8131721/8131772/Stiglitz-Sen-Fitoussi-Commission-report.pdf">Stiglitz-Sen-Fitoussi
+report</a> and the OECD both recommend reporting each dimension
+separately rather than collapsing them into one score, so trade-offs
+stay visible.</li>
+<li><strong>Let people and communities set the weights.</strong> The
+Better Life Index model; "steerable" and "distributional" pluralism in
+Sorensen et al. (2024); subsidiarity, with decisions made at the most
+local level that works.</li>
+<li><strong>Deliberate on the weights.</strong> Citizens' assemblies,
+Collective Constitutional AI, and the Habermas machine (Tessler et al.,
+2024) are early methods.</li>
+<li><strong>Monitor the weights themselves.</strong> Track whether
+AI-mediated systems are shifting what people value, and flag it, as with
+any other drift.</li>
+</ol>
+<p><strong>A line for the article:</strong> we do not need to settle
+capitalism versus socialism to align AI. We need to stop letting the
+optimisation target settle it for us by default.</p>
+<hr />
+<h2 id="6-overall-assessment-and-suggested-article-structure">6. Overall
+assessment and suggested article structure</h2>
+<p><strong>What the evidence lets you claim confidently:</strong></p>
+<ol type="1">
+<li>Philosophy, psychology and national wellbeing frameworks converge on
+a stable set of dimensions of a good human life.</li>
+<li>Wealth and health are necessary but not sufficient. People adapt to
+material gains but not to losses of roles, relationships and purpose, so
+an AI transition that raises income while removing those things could
+make lives worse.</li>
+<li>AI progress is judged by capability and economic output, and
+alignment targets are framed as preferences and instructions. Neither
+refers to the multi-dimensional wellbeing that the wellbeing sciences
+describe.</li>
+<li>There is no consensus on how to weigh the dimensions, and that
+disagreement maps onto the deepest political divides.</li>
+<li>AI safety research has focused on extinction and control. The main
+work on gradual disempowerment is recent and largely conceptual.</li>
+</ol>
+<p><strong>Framing choices that make the argument harder to
+dismiss:</strong></p>
+<ol type="1">
+<li><strong>Call the measurement focus "a symptom that becomes a
+driver".</strong> It arises because output is easy to measure and is
+what markets and governments are rewarded for. Once it is the target, it
+crowds out the rest ("what we measure affects what we do",
+Stiglitz-Sen-Fitoussi).</li>
+<li><strong>Name the real proxies.</strong> Say "capability and economic
+output", not "wealth and health". Health is one of the few dimensions
+people already agree on, and in AI it appears more as a promise than a
+metric.</li>
+<li><strong>Don't make consensus a precondition.</strong> Argue that
+drift follows from neglected dimensions <em>plus</em> no legitimate way
+of handling disagreement. That avoids both "consensus is impossible, so
+drift is inevitable" and "you want to impose a vision".</li>
+<li><strong>Say what AI adds.</strong> Drift already happens without AI.
+AI adds speed, scale, and the loss of the human participation that keeps
+institutions answerable (Kulveit et al.). This is what makes it an AI
+safety argument rather than a critique of GDP.</li>
+<li><strong>Admit the measurement gap and turn it into an ask.</strong>
+Meaning, agency and belonging lack mature measures. Building them is a
+concrete research agenda.</li>
+<li><strong>State a testable prediction.</strong> Measured dimensions
+improve while unmeasured ones decline, and the gap widens.</li>
+<li><strong>Avoid the clichés.</strong> "Money doesn't buy happiness"
+and "40% of happiness is under your control" are both contested.</li>
+</ol>
+<p><strong>A possible structure:</strong></p>
+<ol type="1">
+<li>The extinction frame and its neglected half (Bostrom's "drastic
+destruction of potential").</li>
+<li>What we already know about a good human life (philosophy and
+psychology convergence).</li>
+<li><strong>H1:</strong> why AI progress tracks the wrong things.
+Capability and output are easy to measure and well rewarded; the rest is
+unmeasured or unmeasurable today (adaptation, Jahoda, Global Flourishing
+Study, the AI safety gap).</li>
+<li><strong>H2:</strong> we agree on the dimensions but not the weights.
+The capitalism versus socialism example, moral foundations, Arrow
+(section 5).</li>
+<li><strong>H3:</strong> how the two compound into drift, and what AI
+adds: speed, scale, and less need for human participation (Christiano,
+Kulveit, the eight-domain table, the testable prediction).</li>
+<li>Why "just ask people's preferences" is not enough (Zhi-Xuan et al.,
+adaptive preferences, Alesina &amp; Fuchs-Schündeln, Max-Neef's
+pseudo-satisfiers).</li>
+<li>What would stop the drift: measures for the neglected dimensions,
+minimums on every dimension, separate scores rather than one index, and
+deliberation over the weights above the minimums.</li>
+</ol>
+<hr />
+<p><em>Related project work: <em>The Quiet Handover</em> and
+<em>Decision Points</em> timelines, and the <em>Reasonable Path
+simulator</em>.</em></p></main>
+
+</div></div>
