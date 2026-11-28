@@ -34,7 +34,8 @@ These go into the drafting routine's prompt.
 8. Quote only words that appear in the source. Never paraphrase inside quotation marks.
 9. Report polls with fieldwork dates, sample size and the question as asked.
 10. Don't make claims about Anthropic or its models in our own voice. If they are relevant, quote others and flag the item for a second reviewer.
-11. Never auto-merge. Open a pull request with a summary of what changed and anything flagged.
+11. Mark each news item's `stream`: `safety` for AI safety news, `ai` for major AI news given for context (frontier model releases, companies, investment, markets). Both need a "why it matters for AI safety" line. When a profile has at least 3 items of each, the page shows them as two sections, AI Safety News and AI News; otherwise they appear together under News, with AI items tagged.
+12. Never auto-merge. Open a pull request with a summary of what changed and anything flagged.
 
 ## Review tiers
 

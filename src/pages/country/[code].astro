@@ -20,8 +20,21 @@ const base = '../';
 const idx = p.derived.sourceIndex;
 const byId = Object.fromEntries(p.sources.map((s: any) => [s.id, s]));
 const mix = p.derived.cultureMix;
-const development = p.news.items.filter((n: any) => n.kind === 'development');
-const foundational = p.news.items.filter((n: any) => n.kind === 'foundational');
+// News is one section, or two (AI Safety News and AI News) when a profile has enough of both.
+const NEWS_INTRO: Record<string, string> = {
+  safety:
+    'News that is about AI safety or affects it: policy, institutions, safety testing, incidents, public opinion and political change. Each item says why it matters for AI safety, not whether it is good or bad.',
+  ai: 'Major AI news: frontier model releases, companies, investment and markets. It is here for context, and each item says why it matters for AI safety.',
+  all: 'News about AI and AI safety: policy, institutions, frontier models, companies, public opinion and political change. Each item says why it matters for AI safety, not whether it is good or bad.',
+};
+const newsSections = p.derived.newsSections.map((s: any) => ({
+  ...s,
+  intro: NEWS_INTRO[s.stream],
+  groups: [
+    ['Recent developments', 'Last 90 days', s.items.filter((n: any) => n.kind === 'development')],
+    ['Foundational', 'Older stories that explain the current picture', s.items.filter((n: any) => n.kind === 'foundational')],
+  ].filter((g: any) => g[2].length > 0),
+}));
 const sections = [
   { id: 'attitudes', title: 'Public attitudes', meta: p.attitudes.meta, tier: 'Medium review: figures checked against the poll release' },
   { id: 'regulation', title: 'Frameworks and regulation', meta: p.regulation.meta, tier: 'Medium review: claims checked against primary sources' },
@@ -31,7 +44,7 @@ const sections = [
 const meta = Object.fromEntries(sections.map((s) => [s.id, s]));
 // The principles and areas for improvement sit between regulation and culture; contacts come after news.
 const extra = [
-  p.principles && { id: 'principles', title: 'Five principles' },
+  p.principles && { id: 'principles', title: p.principles.framework.nav },
   p.areas_for_improvement && { id: 'improvement', title: 'Areas for improvement' },
 ].filter(Boolean) as { id: string; title: string }[];
 const nav = [
@@ -39,7 +52,7 @@ const nav = [
   sections[1],
   ...extra,
   sections[2],
-  sections[3],
+  ...newsSections.map((s: any) => ({ id: s.id, title: s.title })),
   ...(p.contacts ? [{ id: 'contacts', title: 'AI safety contacts' }] : []),
 ];
 const commitStatus = (c: any) => LABELS.commitment_status[c.status];
@@ -266,58 +279,55 @@ const commitStatus = (c: any) => LABELS.commitment_status[c.status];
         {meta.culture.meta.gaps && <p class="gaps"><span class="label">Gaps</span> {meta.culture.meta.gaps}</p>}
       </section>
 
-      {/* ---------- News ---------- */}
-      <section id="news" class="section" aria-labelledby="h-news">
-        <header class="section-head">
-          <h2 id="h-news">News</h2>
-          <p class="section-meta mono">
-            Checked {fmtDate(meta.news.meta.checked)} · {LABELS.review[meta.news.meta.review]}
-          </p>
-        </header>
-        <p class="mix-note">
-          News that is about AI safety or affects it: policy, institutions, frontier models, public opinion and political change.
-          Each item says why it matters for AI safety, not whether it is good or bad.
-        </p>
-        {
-          [
-            ['Recent developments', 'Last 90 days', development],
-            ['Foundational', 'Older stories that explain the current picture', foundational],
-          ].map(([title, sub, items]: any) => (
-            <>
-              <h3 class="subhead">
-                {title} <span class="subhead-note">{sub}</span>
-              </h3>
-              <ol class="news">
-                {items.map((n: any) => (
-                  <li id={`news-${n.id}`} class="news-item">
-                    <div class="news-when">
-                      <span class="mono">{fmtDate(n.date)}</span>
-                      {n.kind === 'development' && isNew(n.date, p.news.meta.checked) && <span class="pill pill-new">New</span>}
-                    </div>
-                    <div class="news-what">
-                      <h4>{n.headline}</h4>
-                      <p>
-                        {n.summary}
-                        <Cite ids={n.sources} index={idx} />
-                      </p>
-                      <p class="why">
-                        <span class="label">Why it matters</span> {n.why_it_matters}
-                      </p>
-                      {n.topics.length > 0 && (
-                        <p class="tags">
-                          {n.topics.map((t: string) => (
-                            <span class="tag">{t}</span>
-                          ))}
+      {/* ---------- News: one section, or AI Safety News and AI News ---------- */}
+      {
+        newsSections.map((sec: any) => (
+          <section id={sec.id} class="section" aria-labelledby={`h-${sec.id}`}>
+            <header class="section-head">
+              <h2 id={`h-${sec.id}`}>{sec.title}</h2>
+              <p class="section-meta mono">
+                Checked {fmtDate(meta.news.meta.checked)} · {LABELS.review[meta.news.meta.review]}
+              </p>
+            </header>
+            <p class="mix-note">{sec.intro}</p>
+            {sec.groups.map(([title, sub, items]: any) => (
+              <>
+                <h3 class="subhead">
+                  {title} <span class="subhead-note">{sub}</span>
+                </h3>
+                <ol class="news">
+                  {items.map((n: any) => (
+                    <li id={`news-${n.id}`} class="news-item">
+                      <div class="news-when">
+                        <span class="mono">{fmtDate(n.date)}</span>
+                        {n.kind === 'development' && isNew(n.date, p.news.meta.checked) && <span class="pill pill-new">New</span>}
+                      </div>
+                      <div class="news-what">
+                        <h4>{n.headline}</h4>
+                        <p>
+                          {n.summary}
+                          <Cite ids={n.sources} index={idx} />
                         </p>
-                      )}
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </>
-          ))
-        }
-      </section>
+                        <p class="why">
+                          <span class="label">Why it matters</span> {n.why_it_matters}
+                        </p>
+                        {(n.topics.length > 0 || (sec.stream === 'all' && n.stream === 'ai')) && (
+                          <p class="tags">
+                            {sec.stream === 'all' && n.stream === 'ai' && <span class="tag tag-ai">AI news</span>}
+                            {n.topics.map((t: string) => (
+                              <span class="tag">{t}</span>
+                            ))}
+                          </p>
+                        )}
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </>
+            ))}
+          </section>
+        ))
+      }
 
       {p.contacts && <Contacts p={p} idx={idx} area={area} />}
 
@@ -373,6 +383,28 @@ const commitStatus = (c: any) => LABELS.commitment_status[c.status];
       </section>
     </div>
   </main>
+<script is:inline>
+  // Keep the section links and linked headings clear of the sticky masthead, whose height changes
+  // with screen width and with the preview ribbon.
+  (function () {
+    var root = document.documentElement;
+    var head = document.querySelector('.masthead');
+    var nav = document.querySelector('.section-nav');
+    if (!head || !nav) return;
+    function set() {
+      root.style.setProperty('--head-h', head.offsetHeight + 'px');
+      root.style.setProperty('--anchor-offset', head.offsetHeight + nav.offsetHeight + 16 + 'px');
+    }
+    set();
+    if ('ResizeObserver' in window) {
+      var ro = new ResizeObserver(set);
+      ro.observe(head);
+      ro.observe(nav);
+    } else {
+      window.addEventListener('resize', set);
+    }
+  })();
+</script>
 </Base>
 
 <style>
@@ -383,6 +415,7 @@ const commitStatus = (c: any) => LABELS.commitment_status[c.status];
     padding-left: var(--gutter);
     padding-right: var(--gutter-r);
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: 28px;
   }
   .profile-head {
@@ -458,7 +491,7 @@ const commitStatus = (c: any) => LABELS.commitment_status[c.status];
   }
   .section-nav {
     position: sticky;
-    top: calc(env(safe-area-inset-top, 0px) + 54px);
+    top: calc(env(safe-area-inset-top, 0px) + var(--head-h, 54px));
     z-index: 5;
     display: flex;
     gap: 6px 18px;
@@ -486,7 +519,7 @@ const commitStatus = (c: any) => LABELS.commitment_status[c.status];
   .section {
     display: grid;
     gap: 18px;
-    scroll-margin-top: 120px;
+    scroll-margin-top: var(--anchor-offset, 120px);
   }
   .section-head {
     display: grid;
@@ -565,7 +598,7 @@ const commitStatus = (c: any) => LABELS.commitment_status[c.status];
     gap: 16px;
     padding-block: 14px;
     border-top: 1px solid var(--rule);
-    scroll-margin-top: 120px;
+    scroll-margin-top: var(--anchor-offset, 120px);
   }
   .register-when {
     display: grid;
@@ -681,7 +714,7 @@ const commitStatus = (c: any) => LABELS.commitment_status[c.status];
     gap: 16px;
     padding-block: 16px;
     border-top: 1px solid var(--rule);
-    scroll-margin-top: 120px;
+    scroll-margin-top: var(--anchor-offset, 120px);
   }
   .news-item:target {
     background: color-mix(in srgb, var(--select) 12%, transparent);
@@ -725,7 +758,7 @@ const commitStatus = (c: any) => LABELS.commitment_status[c.status];
     gap: 10px;
     padding-block: 10px;
     border-top: 1px solid var(--rule);
-    scroll-margin-top: 120px;
+    scroll-margin-top: var(--anchor-offset, 120px);
   }
   .sources li:target {
     background: color-mix(in srgb, var(--select) 14%, transparent);
@@ -771,7 +804,17 @@ const commitStatus = (c: any) => LABELS.commitment_status[c.status];
       align-items: center;
     }
     .section-nav {
-      top: calc(env(safe-area-inset-top, 0px) + 84px);
+      top: calc(env(safe-area-inset-top, 0px) + var(--head-h, 84px));
+      /* one scrolling row on phones, so the sticky links take less of the screen */
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+      white-space: nowrap;
+      mask-image: linear-gradient(to right, #000 85%, transparent);
+      -webkit-mask-image: linear-gradient(to right, #000 85%, transparent);
+    }
+    .section-nav::-webkit-scrollbar {
+      display: none;
     }
   }
 </style>

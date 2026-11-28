@@ -151,6 +151,9 @@ export const NewsItem = z
     headline: z.string().min(10),
     date: PartialDate,
     kind: z.enum(['development', 'foundational']),
+    // 'safety' is AI safety news; 'ai' is major AI news (model releases, companies, markets) given for context.
+    // When a profile has enough of both, the page shows them as two sections; otherwise as one "News" section.
+    stream: z.enum(['safety', 'ai']).default('safety'),
     summary: z.string().min(10),
     why_it_matters: z.string().min(10),
     sources: z.array(z.string()).min(1),
@@ -161,15 +164,27 @@ export const NewsItem = z
 // ---------- Five principles, areas for improvement and contacts (optional, so profiles without them stay valid) ----------
 
 // The UK's five cross-sector principles. They frame the UK profile's areas for improvement.
-export const PRINCIPLE_KEYS = ['safety', 'transparency', 'fairness', 'accountability', 'contestability'];
+// Each country is framed by its own published AI principles. Where it has none, the OECD AI
+// Principles are used and the page says so. Keys are short slugs, unique within a profile.
+export const PrincipleKey = z.string().regex(/^[a-z0-9-]+$/, 'Principle keys are lowercase-with-hyphens');
+
+export const PrincipleFramework = z
+  .object({
+    name: z.string(), // read after "How regulation works:", e.g. "the five principles"
+    nav: z.string().max(24), // short name for the page's section menu, e.g. "Five principles"
+    basis: z.enum(['own', 'oecd']), // the country's own set, or the OECD fallback
+    about: Statement, // where the set comes from and what status it has
+  })
+  .strict();
 
 // How far a principle is backed by law. A classification, explained on the page, not a score.
 export const LEGAL_FOOTING = ['binding', 'partly_binding', 'guidance_only'];
 
 export const Principle = z
   .object({
-    key: z.enum(PRINCIPLE_KEYS),
+    key: PrincipleKey,
     name: z.string(),
+    short: z.string().max(18), // label on area-for-improvement chips
     asks: Statement, // what the principle asks of regulators, in the government's words
     footing: z.enum(LEGAL_FOOTING),
     footing_note: Statement, // why it is classified that way
@@ -196,7 +211,7 @@ export const ImprovementArea = z
     id: z.string().regex(/^[a-z0-9-]+$/),
     title: z.string(),
     kind: z.enum(IMPROVEMENT_KINDS),
-    principles: z.array(z.enum(PRINCIPLE_KEYS)).min(1),
+    principles: z.array(PrincipleKey).min(1), // keys from this profile's principles
     in_place: Statement, // what already exists, so each area reads in balance
     identified: Statement, // what a named source has identified
     elsewhere: z.array(ApproachElsewhere).default([]),
@@ -270,8 +285,9 @@ export const Profile = z
     principles: z
       .object({
         meta: SectionMeta,
+        framework: PrincipleFramework,
         intro: z.array(Statement).default([]),
-        items: z.array(Principle).length(5),
+        items: z.array(Principle).min(3).max(10),
       })
       .strict()
       .optional(),

@@ -12,6 +12,7 @@ const EDITORIAL = path.join(ROOT, 'editorial');
 const readYaml = (file) => yaml.load(fs.readFileSync(file, 'utf8'), { schema: yaml.JSON_SCHEMA });
 
 export const CULTURE_MIN_INSIDE_SHARE = 0.6;
+export const NEWS_SPLIT_MIN = 3; // items needed in each stream before AI news and AI safety news get separate sections
 export const DEVELOPMENT_WINDOW_DAYS = 90; // "development" news must be this recent at the last check
 export const NEW_BADGE_DAYS = 30; // shown as "new" on the site
 
@@ -99,6 +100,7 @@ export function checkProfile(p) {
   check('news', refs(p.news.items));
   if (p.principles)
     check('principles', [
+      ...refs(p.principles.framework.about),
       ...refs(p.principles.intro),
       ...p.principles.items.flatMap((i) => [...refs(i.asks), ...refs(i.footing_note), ...refs(i.how_it_works), ...refs(i.evidence)]),
     ]);
@@ -108,6 +110,20 @@ export function checkProfile(p) {
       ...p.areas_for_improvement.items.flatMap((g) => [...refs(g.in_place), ...refs(g.identified), ...refs(g.elsewhere)]),
     ]);
   if (p.contacts) check('contacts', [...refs(p.contacts.intro), ...p.contacts.items.flatMap((c) => refs(c.about))]);
+  // Areas for improvement point at this profile's own principles.
+  if (p.areas_for_improvement) {
+    const keys = new Set((p.principles?.items ?? []).map((i) => i.key));
+    for (const g of p.areas_for_improvement.items)
+      for (const k of g.principles)
+        if (!keys.has(k)) errors.push(`Area for improvement "${g.id}" names principle "${k}", which this profile does not define`);
+  }
+  if (p.principles) {
+    const seen = new Set();
+    for (const i of p.principles.items) {
+      if (seen.has(i.key)) errors.push(`Principle key "${i.key}" is used twice`);
+      seen.add(i.key);
+    }
+  }
   for (const id of ids) if (!used.has(id)) warnings.push(`Source "${id}" is listed but never cited`);
 
   // 2. Culture leans on voices from inside the country.
@@ -243,11 +259,24 @@ export function loadProfile(code) {
   }
   const p = parsed.data;
   const news = [...p.news.items].sort((a, b) => (a.date < b.date ? 1 : -1));
+  const safetyNews = news.filter((n) => n.stream === 'safety');
+  const aiNews = news.filter((n) => n.stream === 'ai');
+  const splitNews = safetyNews.length >= NEWS_SPLIT_MIN && aiNews.length >= NEWS_SPLIT_MIN;
+  const newsSections = splitNews
+    ? [
+        { id: 'news', title: 'AI Safety News', stream: 'safety', items: safetyNews },
+        { id: 'ai-news', title: 'AI News', stream: 'ai', items: aiNews },
+      ]
+    : [{ id: 'news', title: 'News', stream: 'all', items: news }];
+  const latest = (list) => list.filter((n) => n.kind === 'development').slice(0, 3);
   return {
     ...p,
     news: { ...p.news, items: news },
     derived: {
-      topStories: news.filter((n) => n.kind === 'development').slice(0, 3),
+      newsSections,
+      newsSectionOf: Object.fromEntries(newsSections.flatMap((s) => s.items.map((n) => [n.id, s]))),
+      // The summary card leads with AI safety news, topped up with AI news if there is not enough.
+      topStories: [...latest(safetyNews), ...latest(aiNews)].slice(0, 3),
       cultureMix: cultureMix(p),
       sourceMix: sourceMix(p),
       sourceIndex: Object.fromEntries(p.sources.map((s, i) => [s.id, i + 1])),
