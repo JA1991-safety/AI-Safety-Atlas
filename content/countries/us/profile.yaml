@@ -1,5 +1,6 @@
 # United States: country profile
-# Status: DRAFT, researched by Claude on 18 and 19 November 2026, awaiting editor review.
+# Status: APPROVED by the editor on 28 November 2026 (researched by Claude on 18 and 19 November 2026).
+# Sensitive-topic flags (Anthropic, elections) still need a second reviewer.
 # Every statement cites one or more sources from the list at the bottom of this file.
 # Direct quotes were copied from the source pages on the access date.
 # The principles section uses NIST's characteristics of trustworthy AI, the US government's own
@@ -8,8 +9,8 @@
 code: US
 name: United States
 status: draft
-last_reviewed: 2026-11-19
-editor_approved: false
+last_reviewed: 2026-11-28
+editor_approved: true
 reviewers: []
 
 summary:
@@ -81,7 +82,7 @@ attitudes:
   meta:
     checked: 2026-11-19
     evidence_depth: rich
-    review: draft
+    review: editor_approved
     gaps: >-
       Pew's 2026 report is the main national source. We have not yet read Pew's later 2026 releases
       or Gallup's AI surveys, and the poll on the Sanders and Casar proposal is reported through a
@@ -138,7 +139,7 @@ regulation:
   meta:
     checked: 2026-11-19
     evidence_depth: rich
-    review: draft
+    review: editor_approved
     gaps: >-
       Whether agencies have completed every task in the December 2025 order, such as the Commerce
       Department's list of state laws and the FTC's policy statement, is not yet confirmed from a
@@ -321,7 +322,7 @@ culture:
   meta:
     checked: 2026-11-19
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       No local reviewer yet. Views from state governments other than California, Colorado and New
       York, from AI researchers outside government, and from faith and community groups are not yet
@@ -436,7 +437,7 @@ news:
   meta:
     checked: 2026-11-19
     evidence_depth: rich
-    review: draft
+    review: editor_approved
   items:
     - id: california-sues-openai
       headline: California sues OpenAI over the testing of autonomous agents
@@ -687,7 +688,7 @@ principles:
   meta:
     checked: 2026-11-19
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       NIST is revising the framework, and the revised characteristics may differ. We have not read
       each federal agency's guidance on AI, and state laws are covered only for California, New
@@ -915,7 +916,7 @@ areas_for_improvement:
   meta:
     checked: 2026-11-19
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       Each area is one that a named source has identified. Several bills named here may change or
       lapse when the new Congress meets in January 2027. California's lawsuit makes allegations that
@@ -1088,7 +1089,7 @@ contacts:
   meta:
     checked: 2026-11-19
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       A starting list, described from each organisation's own pages. It leans towards organisations
       on the coasts. Regulators and state bodies are not yet listed.
