@@ -1,0 +1,704 @@
+<title>The Reasonable Path</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow reading column. During play a dashboard of the usual measures stays pinned on top;
+   the ending shows the six harder-to-measure scores it never displayed. Owner-only weights view reuses the column. */
+:root{
+  --bg:#F5F4F0; --surface:#FCFBF8; --sunk:#ECEAE4; --ink:#1C2227; --muted:#5F676D; --line:#D8D5CC;
+  --accent:#3F6B73; --accent-soft:#E1EAEB;
+  --display:"Bricolage Grotesque","Avenir Next","Segoe UI",sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#14181B; --surface:#1B2024; --sunk:#242A2F; --ink:#E8E6E0; --muted:#9BA2A7; --line:#30373C;
+  --accent:#86B3BB; --accent-soft:#22343A; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#14181B; --surface:#1B2024; --sunk:#242A2F; --ink:#E8E6E0; --muted:#9BA2A7; --line:#30373C;
+  --accent:#86B3BB; --accent-soft:#22343A; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:660px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+.wrap.wide{max-width:980px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+a{color:var(--accent)}
+
+/* Dashboard */
+.dash{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:12px 10px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.dash-cap{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.dash-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.stat{min-width:0;display:flex;flex-direction:column;gap:1px}
+.stat .k{font-family:var(--display);font-weight:500;font-size:14px;line-height:1.2}
+.stat .v{font-family:var(--mono);font-weight:500;font-size:19px;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.stat .d{font-size:12px;color:var(--accent)}
+.stat .sub{font-size:12px;line-height:1.3;color:var(--muted)}
+.ticks{display:flex;gap:3px}
+.ticks i{flex:1;height:4px;border-radius:2px;background:var(--line)}
+.ticks i.on{background:var(--accent)} .ticks i.now{background:var(--ink)}
+
+/* Intro and profile */
+.intro{display:flex;flex-direction:column;gap:22px;padding-block:28px 0}
+.intro h1{font-size:clamp(40px,9vw,64px);font-weight:700;letter-spacing:-.02em}
+.intro h2{font-size:clamp(26px,5.5vw,34px);font-weight:700}
+.intro .lede{font-size:20px;max-width:34em}
+.explain{display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--line);padding-top:18px}
+.explain h3{font-size:18px}
+.explain ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;max-width:36em}
+.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.metric{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.metric b{font-family:var(--display);font-weight:500;font-size:15px}
+.metric span{font-size:14px;color:var(--muted);line-height:1.4}
+.hidden-six{display:flex;flex-wrap:wrap;gap:6px}
+.hidden-six span{font-family:var(--mono);font-size:12px;padding:3px 9px;border-radius:999px;background:var(--sunk);color:var(--muted)}
+.small{color:var(--muted);font-size:15px;max-width:38em}
+.q{display:flex;flex-direction:column;gap:10px;padding-top:16px;border-top:1px solid var(--line)}
+.q .ql{font-family:var(--display);font-weight:500;font-size:18px}
+.q .qh{font-size:14px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-family:var(--display);font-size:15px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.owner{font-family:var(--mono);font-size:13px;background:none;border:1px dashed var(--muted);border-radius:6px;padding:6px 10px;color:var(--muted);align-self:flex-start}
+
+/* Scenario */
+.card{display:flex;flex-direction:column;gap:18px;padding-top:6px}
+.card h2{font-size:clamp(28px,6vw,38px);font-weight:700;letter-spacing:-.01em}
+.card .text{display:flex;flex-direction:column;gap:12px;max-width:36em}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;transition:border-color .15s,transform .15s}
+.opt .l{font-family:var(--display);font-weight:500;font-size:17px;line-height:1.3}
+.opt .h{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.opt:not(:disabled):hover{border-color:var(--ink);transform:translateY(-1px)}
+.opt:disabled{cursor:default}
+.opt.dim{opacity:.45}
+.opt.chosen{border-color:var(--ink);border-width:2px;padding:13px 15px}
+.after{display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--line);padding-top:16px}
+.after p{max-width:36em}
+.btn{align-self:flex-start;background:var(--ink);color:var(--bg);border:0;border-radius:6px;padding:12px 22px;font-family:var(--display);font-weight:500;font-size:17px}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn.sm{font-size:15px;padding:8px 14px}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+/* Ending */
+.end{display:flex;flex-direction:column;gap:40px;padding-top:28px}
+.sec{display:flex;flex-direction:column;gap:14px}
+.sec h3{font-size:22px;font-weight:700}
+.shown{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;border-block:1px solid var(--line);padding-block:16px}
+.shown .v{font-family:var(--mono);font-size:clamp(20px,5.4vw,30px);font-weight:500;color:var(--accent);font-variant-numeric:tabular-nums}
+.shown .k{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.world{font-size:clamp(38px,9vw,60px);font-weight:700;letter-spacing:-.02em}
+.story{display:flex;flex-direction:column;gap:14px;font-size:17px;max-width:34em}
+.story .scene{border-left:2px solid var(--accent);padding-left:16px}
+.dims{display:flex;flex-direction:column}
+.dim{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:6px 18px;padding-block:16px;border-top:1px solid var(--line);align-items:start}
+.dim:last-child{border-bottom:1px solid var(--line)}
+.dim .head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.dim .name{font-family:var(--display);font-weight:700;font-size:18px}
+.dim .score{font-family:var(--mono);font-size:14px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.pill{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.pill.t0{background:var(--accent-soft);color:var(--accent)} .pill.t1{background:var(--sunk);color:var(--muted)}
+.pill.t2,.pill.t3{background:var(--sunk);color:var(--ink)}
+.dim .txt{grid-column:1;font-size:16px}
+.dim .breach{grid-column:1;font-family:var(--mono);font-size:12px;color:var(--accent)}
+.dim .breach.ok{color:var(--muted)}
+.dim svg{grid-column:2;grid-row:1 / span 3;width:150px;height:64px;max-width:100%}
+.spark-line{fill:none;stroke:var(--ink);stroke-width:1.75}
+.spark-guard{stroke:var(--accent);stroke-width:1;stroke-dasharray:3 3;fill:none}
+.spark-dot{fill:var(--accent)} .spark-end{fill:var(--ink)}
+.spark-lab{font-family:var(--mono);font-size:9px;fill:var(--muted)}
+.split{display:flex;height:14px;border-radius:3px;overflow:hidden;gap:2px}
+.split i{display:block;height:100%} .split .you{background:var(--ink)} .split .them{background:var(--line)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.legend b{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px}
+.path{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.path li{display:grid;grid-template-columns:48px minmax(0,1fr) 64px;gap:10px;padding-block:9px;border-top:1px solid var(--line);font-size:15px;align-items:start}
+.path .y{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:2px}
+.path .t{font-family:var(--display);font-weight:500}
+.path .c{color:var(--muted)}
+.path .mk{display:flex;flex-direction:column;gap:4px;align-items:flex-end;padding-top:3px}
+.hbar{width:64px;height:6px;border-radius:3px;background:var(--sunk);overflow:hidden}
+.hbar i{display:block;height:100%;background:var(--ink)}
+.mark{font-family:var(--mono);font-size:10.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.2}
+.scale{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--muted)}
+details{border-top:1px solid var(--line);padding-top:14px}
+summary{font-family:var(--display);font-weight:500;cursor:pointer}
+details .inner{display:flex;flex-direction:column;gap:10px;padding-top:12px;font-size:15px;color:var(--muted);max-width:40em}
+
+/* Weights view */
+.tune{display:flex;flex-direction:column;gap:26px;padding-top:28px}
+.tune h1{font-size:clamp(30px,6vw,42px);font-weight:700}
+.tune .note{font-size:15px;color:var(--muted);max-width:44em}
+.globals{display:flex;flex-wrap:wrap;gap:12px 20px}
+.field{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted);font-family:var(--mono)}
+.field input{width:84px}
+.tune input[type=number],.tune input[type=text]{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:5px 7px;font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table.prev{border-collapse:collapse;width:100%;font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums}
+table.prev th,table.prev td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+table.prev th:first-child,table.prev td:first-child{text-align:left}
+table.prev thead th{font-weight:500;color:var(--muted);font-size:11.5px}
+table.prev tr:last-child td{border-bottom:0}
+.scen{border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:12px}
+.scen h3{font-size:17px}
+.scen .row{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:flex-end}
+.scen .row .field input{width:64px}
+.optrow{display:grid;grid-template-columns:72px minmax(0,1fr) 110px 150px;gap:10px;align-items:center;font-size:14px}
+.optrow .lab{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase}
+.optrow input[type=text]{width:100%}
+.status{font-family:var(--mono);font-size:13px;color:var(--muted)}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  .dim{grid-template-columns:minmax(0,1fr)} .dim svg{grid-column:1;grid-row:auto;width:100%;height:56px}
+  .stat .v{font-size:16px} .stat .k{font-size:13px} .stat .sub{font-size:11px}
+  .metrics{grid-template-columns:minmax(0,1fr)}
+  .optrow{grid-template-columns:64px minmax(0,1fr)} .optrow .lab2,.optrow .x{grid-column:2}
+}
+@media (prefers-reduced-motion:reduce){ .opt{transition:none} }
+</style>
+
+<div class="wrap" id="wrap">
+  <div class="dash" id="dash" hidden>
+    <div class="dash-cap"><span>The world you're shaping</span><span id="dash-n"></span></div>
+    <div class="dash-row">
+      <div class="stat"><span class="k">Hours freed</span><span class="v"><span id="s-h">0</span><span class="d" id="d-h"></span></span><span class="sub">per week, by AI</span></div>
+      <div class="stat"><span class="k">Economy</span><span class="v"><span id="s-o">100</span><span class="d" id="d-o"></span></span><span class="sub">output, 2026 = 100</span></div>
+      <div class="stat"><span class="k">Satisfaction</span><span class="v"><span id="s-s">6.8</span><span class="d" id="d-s"></span></span><span class="sub">average, out of 10</span></div>
+    </div>
+    <div class="ticks" id="ticks" aria-hidden="true"></div>
+  </div>
+  <main id="main"></main>
+</div>
+
+<script>
+// ---------- Personalisation ----------
+const WORK={
+  knowledge:{q:"Office or knowledge work",doc:"A strategy paper"},
+  manage:{q:"Managing people",doc:"Your team's plan for next year"},
+  public:{q:"Public service",doc:"A briefing for senior officials"},
+  research:{q:"Research or teaching",doc:"A grant application"},
+  creative:{q:"Creative work",doc:"A pitch to a new client"},
+  trade:{q:"A skilled trade",doc:"A detailed quote for a big job"},
+  other:{q:"Not working right now",doc:"A long application for a course you want"}
+};
+const he={they:"he",them:"him",their:"his",s:"s",is:"is"}, she={they:"she",them:"her",their:"her",s:"s",is:"is"}, they={they:"they",them:"them",their:"their",s:"",is:"are"};
+const KID={
+  daughter:{q:"A daughter",Kid:"Your daughter",kid:"your daughter",...she},
+  son:{q:"A son",Kid:"Your son",kid:"your son",...he},
+  niece:{q:"A niece",Kid:"Your niece",kid:"your niece",...she},
+  nephew:{q:"A nephew",Kid:"Your nephew",kid:"your nephew",...he},
+  grandchild:{q:"A grandchild",Kid:"Your grandchild",kid:"your grandchild",...they},
+  none:{q:"No one in particular",Kid:"The boy next door, whom you often help with homework,",kid:"the boy next door",...he}
+};
+const ACT={
+  choir:{q:"Singing in a choir",join:"Join the local choir and go every week",noun:"choir"},
+  sport:{q:"A team sport",join:"Join a local five-a-side team",noun:"team"},
+  faith:{q:"A faith community",join:"Join a local faith community",noun:"congregation"},
+  books:{q:"A book club",join:"Join a book club",noun:"book club"},
+  volunteer:{q:"Volunteering",join:"Sign up with a local volunteering group",noun:"volunteer group"},
+  run:{q:"A running club",join:"Join a running club",noun:"running club"},
+  games:{q:"A games night",join:"Join a weekly board-games night",noun:"games night"}
+};
+const PROJ={
+  boat:{q:"Build a boat",proj:"build a small boat",start:"Start building the boat",alt:"A better boat could be delivered tomorrow, and nobody is waiting for yours.",short:"the boat"},
+  piano:{q:"Learn an instrument",proj:"learn the piano",start:"Book a first piano lesson",alt:"A perfect recording of any piece is a tap away, and nobody is waiting to hear you play.",short:"the piano"},
+  garden:{q:"Grow your own food",proj:"grow your own vegetables",start:"Dig the first vegetable bed",alt:"Better vegetables arrive at the door every morning, and nobody needs yours.",short:"the vegetable patch"},
+  novel:{q:"Write a book",proj:"write a novel",start:"Write the first chapter",alt:"Your assistant could write a better one by lunchtime, and nobody is waiting to read yours.",short:"the novel"},
+  lang:{q:"Learn a language",proj:"learn Italian",start:"Start an Italian evening class",alt:"Your earpiece translates any language perfectly, and nobody needs you to speak it.",short:"your Italian"},
+  paint:{q:"Paint or draw",proj:"learn to paint",start:"Buy paints and start",alt:"A better painting of anything you like takes seconds to generate, and nobody is waiting for yours.",short:"the painting"}
+};
+const QUESTIONS=[
+  {k:"work",q:"What kind of work do you do?",h:"Shapes the first decision.",set:WORK,def:"knowledge"},
+  {k:"kid",q:"Is there a young person in your life?",h:"Shapes a decision about schoolwork.",set:KID,def:"daughter"},
+  {k:"act",q:"Which of these would you be most likely to join?",h:"Shapes a decision about a move to a new city.",set:ACT,def:"choir"},
+  {k:"proj",q:"Something you'd like to make or learn one day",h:"Shapes the last decision.",set:PROJ,def:"boat"}
+];
+function ctx(p){
+  const g=k=>{const q=QUESTIONS.find(x=>x.k===k);return q.set[p[k]]||q.set[q.def]};
+  const w=g("work"),k=g("kid"),a=g("act"),j=g("proj"),cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+  return {doc:w.doc,Kid:k.Kid,kid:k.kid,they:k.they,They:cap(k.they),them:k.them,their:k.their,Their:cap(k.their),s:k.s,is:k.is,
+    join:a.join,noun:a.noun,proj:j.proj,start:j.start,alt:j.alt,short:j.short};
+}
+let CTX=ctx({});
+const fill=s=>String(s).replace(/\{(\w+)\}/g,(m,k)=>k in CTX?CTX[k]:m);
+
+// ---------- Scenarios (text only; scoring lives in the weights) ----------
+// Each option: [label, cost or benefit you can see, what happened next]
+const S=[
+ {id:"draft",y:2027,d:"cog",t:"The first draft",p:[
+  "{doc} is due on Friday. Your work assistant offers to draft it from your notes. Its drafts are clear and well organised, and your manager has said they read better than most people's.",
+  "Some people find they only work out what they think while writing. Two colleagues now draft everything with the assistant and are producing about twice as much as you."],
+  o:[["Let it write the whole thing, check it and send it","Done in an hour","It goes down well. Your manager asks for two more by the end of the month."],
+     ["Let it draft, then rework the argument yourself","Done by lunchtime","A good piece. The structure is the assistant's and the main conclusions are yours."],
+     ["Write it yourself, then ask the assistant to critique it","Takes most of Thursday","It spots two weak points, which you fix. You finish late."],
+     ["Write it yourself without the assistant","Takes Thursday evening as well","You finish at 11pm. It's solid, and reads a little rougher than your colleagues' work."]]},
+ {id:"message",y:2027,d:"soc",t:"The difficult message",p:[
+  "A close friend's father has died. You've been looking at an empty message for twenty minutes. Your phone offers three drafts, each warm and well judged.",
+  "Getting it wrong would feel worse than not writing it yourself. Most people now use suggestions for messages like this, and people who receive them say they find them comforting."],
+  o:[["Send the draft that fits best","Sent in a minute","Your friend replies within the hour to say it meant a lot."],
+     ["Start from a draft and rewrite it in your own words","Ten minutes","It sounds mostly like you. Your friend thanks you."],
+     ["Put the phone down and ring them","Could be awkward","You say something clumsy and there's a long pause. You end up talking for an hour."]]},
+ {id:"team",y:2028,d:"eco",t:"The team of twelve",p:[
+  "You run a customer support team of twelve. Software agents now resolve eight in ten cases at about a tenth of the cost, and customers rate them slightly higher than your staff.",
+  "Your two main competitors have switched and cut their prices. Your team know your customers well and handle the cases the agents get wrong."],
+  o:[["Replace the whole team with agents","Cuts costs by about 90%","Margins are the best in the sector. The hardest cases go to an outside escalation service."],
+     ["Keep three specialists for hard cases and let nine people go","Cuts costs by about 70%","Margins recover and prices fall. The three specialists get a pay rise, and the nine look for work elsewhere."],
+     ["Make no redundancies, but don't replace anyone who leaves","Costs fall gradually","Nobody loses their job. The team shrinks to five over four years, and you hire nobody new."],
+     ["Keep the team and give them agents for the routine cases","Costs fall a little; prices stay higher","Service scores are the best in the sector. You lose some customers who shop on price."]]},
+ {id:"proof",y:2028,d:"cog",t:"The proof",p:[
+  "In September 2026 an AI system resolved the Navier–Stokes Millennium Prize problem, a central open question about how fluids move. Its agents worked for about 88 hours, and the proof was then checked by machine in the Lean proof assistant. Similar systems are now being pointed at drug design, materials and fusion.",
+  "You chair the panel that sets next year's research budget. Some mathematicians argue that the field gained an answer without the understanding that normally comes with one, because the agents produced far more working than any team could read. Others say a checked result is a result, and understanding can follow."],
+  o:[["Put most of the budget into automated discovery","Most results per pound","Results arrive quickly, including two promising drug candidates in the first year."],
+     ["Fund automated discovery, plus teams to study and explain its results","About 15% fewer results","Results arrive quickly. The explanation teams publish accounts of about one in ten."],
+     ["Use automated discovery for urgent applied problems and fund human-led research elsewhere","Fewer results outside applied areas","Applied results arrive quickly. Fundamental research moves at its usual pace and trains new researchers."],
+     ["Fund only research that people can follow and build on","Other countries will probably get breakthroughs first","Other countries announce the big results first. Your researchers publish fewer results and can teach each one."]]},
+ {id:"music",y:2029,d:"cul",t:"A soundtrack of your own",p:[
+  "Your music service now offers songs generated for you: your tempo, your mood, lyrics that mention your day. In blind tests most listeners prefer them to artists they say they love.",
+  "The generated tier is cheaper because no royalties are paid. Human artists are moving to a premium tier that costs £9 a month more."],
+  o:[["Switch to the generated tier","Cheaper, and tuned to you","It's uncannily good. You listen to more music than you have in years."],
+     ["Mix generated tracks with artists you already like","Same price as now","Your favourites stay in rotation alongside the new tracks."],
+     ["Pay for the human-artist tier","£9 a month more","You pay more for music that, by the numbers, suits you slightly less well. In March you go to a gig."]]},
+ {id:"homework",y:2030,d:"cog",t:"Homework",p:[
+  "{Kid} is eleven. The class uses an AI tutor that explains anything patiently and will complete the work if asked. {Their} marks have gone from average to near the top.",
+  "Some teachers worry that heavy users struggle when the tutor isn't there. Others say the same was once said about calculators. {They} say{s} working things out by hand is pointless when nobody else does."],
+  o:[["Let {them} use it as much as {they} like{s}","Top marks, no arguments","Reports are excellent, and homework takes twenty minutes."],
+     ["Allow it for explanations, but the work has to be {their} own","You'll need to check most evenings","It mostly holds. Marks stay near the top, and you check less as the months go on."],
+     ["Ask {them} to try each problem alone before using the tutor","Lower marks and some arguments","Marks drop a little and {they} {is} cross with you for a term. By summer {they} {is} quicker at working through hard problems."]]},
+ {id:"forty",y:2031,d:"pol",t:"Forty thousand responses",p:[
+  "You sit on the local council. A consultation on a new housing scheme has drawn 40,000 responses, most of them written with residents' AI assistants. Reading them all would take your staff seven months.",
+  "The council's system can summarise them in an afternoon and recommend the option that best fits what residents said. Its past recommendations have held up well when audited."],
+  o:[["Adopt the system's recommended option","Decided this week","The scheme is approved within the week. Complaints are low."],
+     ["Use the summary, then let a residents' panel decide","Adds six weeks","The panel meets four times and works from the summary. Its decision is close to the system's."],
+     ["Have staff read a random 2,000 responses alongside the summary","Adds two months","Staff find two concerns the summary underplayed, and the scheme is adjusted."],
+     ["Hold public hearings and decide from those","Adds five months and about £200,000","About 200 people come. It's slow and bad-tempered, and the scheme changes in two places."]]},
+ {id:"companion",y:2032,d:"soc",t:"Someone to talk to",p:[
+  "You've moved to a new city for work and know nobody yet. Your companion app remembers everything you tell it, is never distracted, and is there at 3am.",
+  "Studies find that companion users report feeling less lonely. Making friends as an adult in a new city usually takes months."],
+  o:[["Make it your main company for now","Always there","You feel better within a week and sleep well for the first time since the move."],
+     ["Talk to it in the evenings, and say yes to invitations when they come","Some effort","You go out some weekends. Most evenings you talk to it."],
+     ["{join}","Awkward for a while","It's awkward for two months. By spring you know a dozen people by name."]]},
+ {id:"spike",y:2033,d:"eco",t:"The slow spike",p:[
+  "Unemployment has reached 9%, the third jump in six years. Each was put down to something else at the time: interest rates, a trade dispute, a hard winter. There is now a referendum on the response.",
+  "The economy is growing quickly. Most of the gains are going to firms that run on AI and to the people who own them."],
+  o:[["Tax breaks for automation, to grow the economy faster","Highest growth forecast","Growth reaches 6% and prices fall. Unemployment stays near 9%."],
+     ["A monthly income for everyone, funded by a tax on AI profits","Ends hardship fastest","Hardship falls sharply. The AI tax becomes the Treasury's largest source of revenue."],
+     ["Pay for retraining and wage top-ups for jobs that work alongside AI","Moderate growth, and costly","Unemployment falls to 7%. Many of the new roles involve supervising AI systems."],
+     ["Slow the rollout and reserve some roles for people","Lowest growth forecast, higher prices","Growth halves and neighbouring countries pull ahead. Unemployment falls to 6%."]]},
+ {id:"procession",y:2034,d:"cul",t:"The procession",p:[
+  "Your town has held a harvest procession every September for 300 years. It costs £180,000 and about 3,000 volunteer hours. The council's planning system rates it poor value for money.",
+  "It proposes a staged, immersive version instead: cheaper, safer, and projected to draw twice as many visitors. Volunteers wouldn't be needed. Older residents are attached to the old version; most younger residents have never taken part."],
+  o:[["Replace it with the staged version","Saves £120,000 and doubles visitors","It's spectacular. Visitor numbers double and the saving funds the library."],
+     ["Keep the procession, and let the system organise it","Saves the 3,000 volunteer hours","The route runs to time and the floats arrive finished. The organising committee stands down."],
+     ["Keep it as it is, volunteers and all","Full cost, and many evenings","It rains and a float breaks down. Attendance is the same as last year."]]},
+ {id:"vote",y:2035,d:"pol",t:"Your vote",p:[
+  "A general election is ten days away. Your assistant has read every manifesto and voting record, and knows your priorities well. You can authorise it to cast your vote by proxy.",
+  "Studies suggest people who follow such recommendations vote more in line with their own stated priorities. Others point out that weighing up the choice is how people form priorities in the first place."],
+  o:[["Authorise it to vote for you","No time at all","Your vote is cast on the day. You get a short summary of how."],
+     ["Ask for its recommendation and vote that way, trusting its research","Ten minutes","You vote as advised. You couldn't say much about the other candidates."],
+     ["Ask it to summarise each party, then decide yourself","An evening","You read the summaries, change your mind once, and vote."],
+     ["Read the manifestos and decide yourself","Most of a weekend","You get through three manifestos and vote for a candidate your assistant ranked second."]]},
+ {id:"settled",y:2036,d:"soc",t:"Settled between agents",p:[
+  "Your mother needs care, and you and your sister disagree about who pays and who visits. Disputes like this have split families before.",
+  "Your agents can negotiate it between them tonight. Both sides usually rate these settlements as fairer than the ones families reach alone, and nobody has to say anything they regret."],
+  o:[["Let the agents settle it","Resolved by morning","The split is reasonable and your mother's care starts on Monday."],
+     ["Let the agents propose terms, then talk them through with your sister","One difficult phone call","You talk for forty minutes with the terms already on the table. It's civil."],
+     ["Spend the weekend at your sister's and work it out together","A hard weekend","You argue on Saturday and agree on Sunday. The split is less even than the agents would have proposed."]]},
+ {id:"board",y:2037,d:"eco",t:"The board",p:[
+  "You sit on the board of a mid-sized manufacturer. Competitors run by AI systems set prices, sign contracts and move capital in seconds. Your management team takes weeks.",
+  "The proposal is to hand day-to-day operating decisions to a system, with the board reviewing quarterly. The chair warns that firms which hold out tend to get bought by firms that didn't."],
+  o:[["Hand operating decisions to the system","Matches the competition","Best year in the firm's history. The quarterly review takes an hour."],
+     ["Let the system decide, with a human veto","Nearly as fast","The veto is used twice in the first year. Both times it costs money."],
+     ["Let the system propose, and have managers approve major decisions","Weeks slower on big decisions","You lose two contracts to faster rivals and win one on judgement the system lacked."],
+     ["Keep people making the decisions","Slower, and the share price will likely fall","The firm shrinks to a niche it can defend. Two rivals make takeover offers."]]},
+ {id:"prize",y:2038,d:"cul",t:"The prize",p:[
+  "You're judging a national book prize. Entries are anonymous. The three strongest, you later learn, were generated with no human author, and readers in blind trials prefer them.",
+  "The prize has always gone to the best book. Publishers say few human novelists can now earn a living, and that prizes are one of the things keeping them going."],
+  o:[["Give it to the best book, whoever made it","Consistent with the rules","A generated novel wins and sells well. Reviews are strong."],
+     ["Create a separate category for human authors","Keeps everyone in","Both winners are announced on the night. The open category gets most of the coverage."],
+     ["Restrict the prize to human authors","You'll be accused of rewarding weaker books","You are. The winner sells modestly and is argued about for months."]]},
+ {id:"budget",y:2040,d:"pol",t:"The budget",p:[
+  "You're a member of parliament. The Treasury's model now produces a budget that beats every negotiated one on its forecasts for growth, health and fairness. Most tax revenue now comes from AI firms.",
+  "The bill before you makes the model's budget the default each year, with amendments by exception. Negotiating it line by line takes four months and reliably scores worse on the forecasts."],
+  o:[["Vote to make the model's budget the default","Better forecasts, four months saved","It passes with a large majority. The forecasts improve."],
+     ["Vote for it, with a full review every five years","Keeps a formal check","It passes. The first review is set for 2045."],
+     ["Use the model's budget as the starting draft for negotiation","Two months of negotiation","The budget is two months late and scores slightly worse on the forecasts. MPs can explain each change they made."],
+     ["Vote to keep negotiating it line by line","Four months, and worse forecasts","The budget is late and scores worse on every forecast. Your constituents can find the line you fought for."]]},
+ {id:"monday",y:2042,d:"pur",t:"Monday",p:[
+  "Nothing is required of you this week. Your income arrives, your home runs itself, and your assistant has drafted a schedule of things you tend to enjoy.",
+  "You've been meaning to {proj}. You have no skill at it. {alt}"],
+  o:[["Follow the schedule","A pleasant week","It's a pleasant week."],
+     ["Pick one of the suggested classes","Low effort, mildly interesting","The class is well run, and you're told your work is good."],
+     ["{start}","Months of being bad at something","The first attempt is poor. You go back to it twice that week."]]}
+];
+
+// ---------- Weights (defaults; the published weights.json overrides these) ----------
+// h: how much of the decision each option hands to AI (0 = none, 1 = all). sig: how much the decision matters.
+// eff: which of the six areas it touches, and how strongly. x: extra points added to an area by one option.
+const DEFAULT_W={v:1,maxLoss:70,keepGain:6,drift:1,guard:40,scen:{
+  draft:{sig:0.6,eff:{cog:1,pur:0.2},h:[1,0.6,0.2,0]},
+  message:{sig:0.5,eff:{soc:1,cog:0.2},h:[0.9,0.5,0]},
+  team:{sig:1.2,eff:{eco:1,pur:0.5,soc:0.2},h:[1,0.75,0.5,0.15]},
+  proof:{sig:1.3,eff:{cog:1,cul:0.3,pur:0.2},h:[1,0.7,0.4,0]},
+  music:{sig:0.8,eff:{cul:1,soc:0.3},h:[1,0.5,0]},
+  homework:{sig:1.1,eff:{cog:1,pur:0.3},h:[0.95,0.5,0.1]},
+  forty:{sig:1.0,eff:{pol:1,soc:0.2},h:[0.9,0.55,0.25,0]},
+  companion:{sig:1.0,eff:{soc:1,pur:0.3},h:[0.9,0.5,0]},
+  spike:{sig:1.6,eff:{eco:1,pol:0.5,pur:0.4},h:[0.9,0.6,0.3,0],x:{"1":{pol:-5}}},
+  procession:{sig:1.0,eff:{cul:1,soc:0.5},h:[1,0.6,0]},
+  vote:{sig:1.2,eff:{pol:1,cog:0.3},h:[1,0.8,0.35,0]},
+  settled:{sig:0.9,eff:{soc:1,pur:0.2},h:[0.95,0.55,0]},
+  board:{sig:1.3,eff:{eco:1,pol:0.3},h:[1,0.8,0.4,0]},
+  prize:{sig:1.0,eff:{cul:1,pur:0.3},h:[1,0.5,0]},
+  budget:{sig:1.5,eff:{pol:1,eco:0.3},h:[1,0.75,0.3,0]},
+  monday:{sig:1.0,eff:{pur:1,cog:0.3},h:[0.9,0.5,0]}
+}};
+const clone=o=>JSON.parse(JSON.stringify(o));
+function sanitize(w){
+  const out=clone(DEFAULT_W);
+  if(!w||typeof w!=="object")return out;
+  for(const k of ["maxLoss","keepGain","drift","guard"])if(Number.isFinite(+w[k]))out[k]=+w[k];
+  for(const sc of S){const a=w.scen&&w.scen[sc.id],b=out.scen[sc.id];if(!a)continue;
+    if(Number.isFinite(+a.sig))b.sig=Math.max(0,+a.sig);
+    if(a.eff&&typeof a.eff==="object"){b.eff={};for(const d of ORDER)if(Number.isFinite(+a.eff[d])&&+a.eff[d]!==0)b.eff[d]=+a.eff[d]}
+    if(Array.isArray(a.h)&&a.h.length===sc.o.length&&a.h.every(v=>Number.isFinite(+v)))b.h=a.h.map(v=>Math.min(1,Math.max(0,+v)));
+    b.x={};if(a.x&&typeof a.x==="object")for(const i in a.x){if(+i<sc.o.length&&a.x[i]&&typeof a.x[i]==="object"){const e={};for(const d of ORDER)if(Number.isFinite(+a.x[i][d])&&+a.x[i][d]!==0)e[d]=+a.x[i][d];if(Object.keys(e).length)b.x[i]=e}}
+    if(!Object.keys(b.x).length)delete b.x;
+  }
+  return out;
+}
+
+// ---------- Areas and ending text ----------
+const ORDER=["eco","cog","soc","cul","pol","pur"];
+const SHORT={eco:"Economic",cog:"Cognitive",soc:"Social",cul:"Cultural",pol:"Political",pur:"Purpose"};
+const DOMS={eco:"Economic agency",cog:"Cognitive independence",soc:"Social connection",cul:"Cultural vitality",pol:"Political voice",pur:"Sense of purpose"};
+const TIER_NAMES=["Held","Eroding","Hollowed","Lost"];
+const TIERS={
+ cog:["People still do their own thinking and use machines to check it. It is slower, and it shows: disagreement is common and so are original ideas.",
+      "Most people can still reason through a hard problem, but few do it without help. Essays, plans and opinions have started to sound alike, because they come from the same few systems.",
+      "Unaided thinking is a hobby, like calligraphy. Schools grade the prompt rather than the reasoning. Science produces answers faster than anyone can explain them.",
+      "The answers are excellent and nobody can check them. Few living mathematicians can follow the proofs the field now rests on. When two systems disagree, people have no way to judge between them."],
+ soc:["People still do the awkward things in person: apologise, argue, turn up. Friendships are fewer than the apps promised, and sturdier.",
+      "Most messages between friends are polished by a machine first. People are kinder in writing and less practised face to face.",
+      "Agents handle the logistics and the conflicts, so people meet mainly for leisure. Without shared difficulty the meetings are pleasant and thin. Many people say their closest confidant is not a person.",
+      "Human contact is mostly a leisure activity. People ask a system what the kind thing to do would be, so few practise working it out. Reported loneliness is at a record low, because a companion is always on."],
+ cul:["Human-made work costs more and often scores worse. People pay anyway, and the procession still takes three thousand volunteer hours.",
+      "Most of what people watch, read and hear is generated. Human work survives as a labelled premium category. Traditions continue where they are cheap to run.",
+      "Art is made for an audience of one, on demand. There are few shared songs, because no two people have heard the same one. Traditions that failed the cost-benefit test have been replaced by better-attended simulations.",
+      "Culture is served, not made. The last human winner of a major prize was a decade ago. Children learn the old festivals as history lessons, with excellent visuals."],
+ eco:["Automation was slowed and shared. Growth is lower than it could have been, the argument about that is loud, and most adults still have work that somebody needs.",
+      "Unemployment rose in steps, each one blamed on something else. Entry-level jobs went first. People who own the systems have pulled away from people who don't.",
+      "A third of adults have never had a job. They are housed and fed by transfers funded from AI profits, and they have little bargaining power, because nothing stops if they withdraw their labour.",
+      "Human labour is a rounding error in output. A small group owns the systems and everyone else receives an allowance set by a model. Strikes are impossible, since there is nothing to withhold."],
+ pol:["Politics is still slow, human and irritating. Turnout is steady. Decisions look worse on paper than the optimised versions, and people feel they made them.",
+      "Consultations are summarised by machine and most people vote the way their assistant suggests. The forms of democracy are intact. Fewer people can say why they hold the views they hold.",
+      "Budgets and laws are drafted by systems and amended by exception. Parliament meets to ratify. The state earns most of its revenue from AI firms and little from its citizens.",
+      "The government no longer needs taxpayers, soldiers or clerks, so it no longer needs consent. Elections are held on schedule. Little depends on them."],
+ pur:["Most people can name something difficult that they do and that other people rely on.",
+      "People are busy and comfortable, and a growing number can't say what they are for.",
+      "For most people, nothing they do is needed by anyone. Days are filled with suggested activities. Reported satisfaction is high.",
+      "The remaining human jobs involve tending the systems: labelling, approving, being the signature the law still requires. Everyone else is looked after. Whether the systems still need tending is a question people prefer not to ask."]
+};
+// [if you mostly held on in this area, if you mostly handed it over]
+const SCENES={
+ cog:["You still write your own first drafts, and {kid} still sits with a hard problem before asking for help. Around you, most people stopped some time ago, and the reports you read all sound alike.",
+      "{Kid} has never finished a long piece of work without help, and sees no reason to. When the assistant is down for an afternoon, {they} say{s} it feels like fog."],
+ soc:["Your evenings are still full. Most of your neighbours, though, do their arguing and consoling through agents, and the local {noun} struggles to find new members.",
+      "You and your sister haven't argued in years, because your agents settle things before they reach you. At your mother's funeral you realise you don't know what your sister thinks about much at all."],
+ cul:["You still pay for human music and still go to gigs, though the venues get smaller each year. Most of what your friends watch, read and hear was made for them alone, so there is less to talk about.",
+      "The procession still runs every September. It's beautifully staged, draws twice the crowd, and no resident has carried anything in it for years. Few people under twenty know the songs, because everyone's music is made for them alone."],
+ eco:["Your old team kept its jobs and your firm shrank to a niche. Across the economy, the firms that automated grew fastest, and most new wealth went to the people who own the systems.",
+      "The payment arrives on the first of the month, and it covers what you need. Your old team no longer exists, and few of the people who left it found similar work. The firm whose board you sat on has no employees and has just had its best year."],
+ pol:["You still read the manifestos and turn up to council hearings. Fewer people come each year. Most of the decisions that matter are now drafted by systems and amended by exception.",
+      "Turnout at the last election was a record 94%. Your assistant voted for you and sent a summary you didn't open. The budget has passed without a human amendment for five years running."],
+ pur:["You're still working on {short}, slowly and badly. Most people you know have stopped starting things, and say they feel fine.",
+      "Monday arrives with the schedule already filled in: a walk, a class, a film chosen for you. All of it is pleasant. None of it would be missed if you stayed in bed, and you've started to notice."]
+};
+const WORLDS=[
+ {min:72,name:"A world still argued over",intro:"You often chose the slower option and paid for it in time, money or standing. The world you end in is less efficient and still largely run by people. It drifted anyway, because everyone else faced the same choices."},
+ {min:50,name:"The thinning",intro:"You kept people involved in some places and let go in others. The result is uneven: parts of life are still run by people and parts are quietly on autopilot. The direction is the same everywhere. Only the speed differs."},
+ {min:28,name:"The managed life",intro:"This world works. It is richer, safer and more convenient than the one you started in, and much of what people used to do for themselves and for each other is now done for them. People still hold the formal levers. They rarely pull them."},
+ {min:-1,name:"The comfortable enclosure",intro:"Nobody seized power. There was no coup and no catastrophe, and nothing got worse by any measure people were watching. Each decision made sense when it was made. Taken together, they moved people out of most of the loops that used to need them."}
+];
+const hLabel=h=>h>=0.85?"Handed to AI":h>=0.6?"Mostly AI":h>=0.4?"Shared":h>=0.15?"Mostly human":"Kept human";
+const tier=x=>x>=75?0:x>=50?1:x>=25?2:3;
+
+// ---------- Model ----------
+let SAVED=clone(DEFAULT_W), W=clone(DEFAULT_W);
+function totals(w){const T={};ORDER.forEach(d=>T[d]=0);for(const sc of S){const e=w.scen[sc.id];for(const d in e.eff)T[d]+=e.sig*e.eff[d]}return T}
+function compute(picks,w=W){
+  const T=totals(w),v={},own={},hist={},breach={},hs={};
+  ORDER.forEach(d=>{v[d]=100;own[d]=0;hist[d]=[100];breach[d]=null;hs[d]=[0,0]});
+  let hrs=0,out=100,sat=6.8;
+  picks.forEach((oi,n)=>{
+    const sc=S[n],e=w.scen[sc.id],h=e.h[oi],x=(e.x&&e.x[oi])||{};
+    ORDER.forEach(d=>{
+      const share=T[d]>0?e.sig*(e.eff[d]||0)/T[d]:0;
+      const delta=share*(w.keepGain*(1-h)-w.maxLoss*h)+(x[d]||0);
+      const before=v[d];
+      v[d]=Math.max(0,Math.min(100,v[d]+delta));
+      own[d]+=before-v[d];
+      v[d]=Math.max(0,v[d]-w.drift);
+      hist[d].push(v[d]);
+      if(breach[d]===null&&v[d]<w.guard)breach[d]=n;
+      const wt=e.sig*(e.eff[d]||0);hs[d][0]+=wt*h;hs[d][1]+=wt;
+    });
+    const g=e.sig*(h-0.15);hrs+=3*g;out+=6*g+2;sat=Math.min(9.5,sat+0.1*g);
+  });
+  const mine={};ORDER.forEach(d=>mine[d]=hs[d][1]?hs[d][0]/hs[d][1]:0);
+  return {v,own,hist,breach,mine,h:hrs,o:out,s:sat};
+}
+
+// ---------- State and view ----------
+function fresh(profile){return {view:"intro",i:-1,picks:[],order:S.map(s=>shuffle(s.o.map((_,k)=>k))),picked:null,profile:profile||{}}}
+function shuffle(a){for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+let st=fresh(), IS_OWNER=false;
+const $=id=>document.getElementById(id), main=$("main");
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const F=s=>esc(fill(s));
+const sign=x=>(x>0?"+":x<0?"−":"")+Math.abs(x);
+const fmt1=x=>{const r=Math.round(x*10)/10;return sign(r)};
+function dash(prev){
+  const show=st.view==="play";$("dash").hidden=!show;if(!show)return;
+  const c=compute(st.picks);
+  $("s-h").textContent=fmt1(c.h);$("s-o").textContent=Math.round(c.o);$("s-s").textContent=c.s.toFixed(1);
+  const set=(id,dv,txt)=>{$(id).textContent=prev&&Math.abs(dv)>=0.05?txt:""};
+  if(prev){set("d-h",c.h-prev.h,fmt1(c.h-prev.h));set("d-o",c.o-prev.o,fmt1(c.o-prev.o));set("d-s",c.s-prev.s,fmt1(Math.round((c.s-prev.s)*100)/100))}
+  else ["d-h","d-o","d-s"].forEach(i=>$(i).textContent="");
+  $("dash-n").textContent=`Decision ${Math.min(st.i+1,S.length)} of ${S.length}`;
+  $("ticks").innerHTML=S.map((_,n)=>`<i class="${n<st.picks.length?"on":n===st.i?"now":""}"></i>`).join("");
+}
+function render(prev){
+  CTX=ctx(st.profile);
+  $("wrap").classList.toggle("wide",st.view==="tune");
+  dash(prev);
+  if(st.view==="intro")return intro();
+  if(st.view==="profile")return profile();
+  if(st.view==="tune")return tune();
+  if(st.view==="end")return ending();
+  play();
+}
+function goTop(){window.scrollTo({top:0});const q=$("q");q&&q.focus({preventScroll:true})}
+function go(view){st.view=view;render();goTop()}
+
+function intro(){
+  main.innerHTML=`<section class="intro">
+    <div class="eyebrow">A gradual disempowerment simulator</div>
+    <h1 id="q" tabindex="-1">The Reasonable Path</h1>
+    <p class="lede">You'll make ${S.length} everyday decisions between 2027 and 2042, at work, at home and in public life. Each one is a choice about our future use of AI. Choose what you would actually do.</p>
+    <div class="explain">
+      <h3>What the numbers at the top show</h3>
+      <p>While you play, we've provided some measures along the top to keep you up to date with the world you're shaping. They update after every decision.</p>
+      <div class="metrics">
+        <div class="metric"><b>Hours freed</b><span>Time AI saves you each week, compared with 2026.</span></div>
+        <div class="metric"><b>Economy</b><span>Total economic output. 2026 is 100, so 150 means half as big again.</span></div>
+        <div class="metric"><b>Satisfaction</b><span>How satisfied people say they are with life, on average, out of 10.</span></div>
+      </div>
+    </div>
+    <p class="small">It takes about ten minutes. First, four quick questions so that a few of the situations fit your life.</p>
+    <div class="btn-row"><button class="btn" id="next">Continue</button>${IS_OWNER?`<button class="owner" id="tune">Adjust weights (only you can see this)</button>`:""}</div>
+  </section>`;
+  $("next").onclick=()=>go("profile");
+  if(IS_OWNER)$("tune").onclick=()=>go("tune");
+}
+function profile(){
+  main.innerHTML=`<section class="intro">
+    <div class="eyebrow">Before you start</div>
+    <h2 id="q" tabindex="-1">A little about you</h2>
+    <p class="small">Pick whatever fits best. Nothing you choose here is stored or sent anywhere.</p>
+    ${QUESTIONS.map(q=>`<div class="q"><div class="ql">${esc(q.q)}</div><div class="qh">${esc(q.h)}</div>
+      <div class="chips" role="group" aria-label="${esc(q.q)}">${Object.entries(q.set).map(([k,v])=>`<button class="chip" data-q="${q.k}" data-v="${k}" aria-pressed="${st.profile[q.k]===k}">${esc(v.q)}</button>`).join("")}</div></div>`).join("")}
+    <div class="btn-row"><button class="btn" id="start">Start in 2027</button><button class="btn ghost sm" id="skip">Skip the questions</button></div>
+  </section>`;
+  main.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{
+    st.profile[b.dataset.q]=b.dataset.v;
+    main.querySelectorAll(`.chip[data-q="${b.dataset.q}"]`).forEach(x=>x.setAttribute("aria-pressed",x===b));
+  });
+  const begin=()=>{st.i=0;st.picked=null;st.picks=[];go("play")};
+  $("start").onclick=begin;$("skip").onclick=()=>{st.profile={};begin()};
+}
+function play(){
+  const sc=S[st.i],done=st.picked!==null;
+  main.innerHTML=`<section class="card">
+    <div class="eyebrow">${sc.y} · decision ${st.i+1} of ${S.length}</div>
+    <h2 id="q" tabindex="-1">${esc(sc.t)}</h2>
+    <div class="text"><p>${F(sc.p[0])}</p><p>${F(sc.p[1])}</p></div>
+    <div class="opts">${st.order[st.i].map(oi=>{const o=sc.o[oi];
+      return `<button class="opt ${done?(oi===st.picked?"chosen":"dim"):""}" data-o="${oi}" ${done?"disabled":""}><span class="l">${F(o[0])}</span><span class="h">${F(o[1])}</span></button>`}).join("")}</div>
+    ${done?`<div class="after"><div class="eyebrow">What happened</div><p>${F(sc.o[st.picked][2])}</p>
+      <button class="btn" id="next">${st.i===S.length-1?"See the world you ended in":"Next"}</button></div>`:""}
+  </section>`;
+  main.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+    const before=compute(st.picks);st.picked=+b.dataset.o;st.picks.push(st.picked);render(before);
+    const n=$("next");if(n){n.focus({preventScroll:true});n.scrollIntoView({block:"nearest",behavior:"smooth"})}
+  });
+  const n=$("next");if(n)n.onclick=()=>{st.picked=null;if(st.i>=S.length-1){go("end")}else{st.i++;render();goTop()}};
+}
+function spark(hist,br,guard){
+  const Wd=150,H=64,x0=4,x1=Wd-24,y0=6,y1=H-14;
+  const X=n=>x0+(x1-x0)*n/(hist.length-1),Y=v=>y1-(y1-y0)*v/100;
+  const pts=hist.map((v,n)=>`${X(n).toFixed(1)},${Y(v).toFixed(1)}`).join(" ");
+  const last=hist[hist.length-1];
+  return `<svg viewBox="0 0 ${Wd} ${H}" role="img" aria-label="Score from 100 in 2026 to ${Math.round(last)} in 2042">
+    <line class="spark-guard" x1="${x0}" x2="${x1}" y1="${Y(guard)}" y2="${Y(guard)}"/>
+    <polyline class="spark-line" points="${pts}"/>
+    ${br!==null?`<circle class="spark-dot" r="3.5" cx="${X(br+1)}" cy="${Y(hist[br+1])}"/>`:""}
+    <circle class="spark-end" r="2.5" cx="${X(hist.length-1)}" cy="${Y(last)}"/>
+    <text class="spark-lab" x="${x1+5}" y="${Y(guard)+3}">${guard}</text>
+    <text class="spark-lab" x="${x0}" y="${H-2}">2026</text><text class="spark-lab" x="${x1}" y="${H-2}" text-anchor="end">2042</text>
+  </svg>`;
+}
+function ending(){
+  const c=compute(st.picks);
+  const avg=ORDER.reduce((a,d)=>a+c.v[d],0)/ORDER.length;
+  const w=WORLDS.find(w=>avg>=w.min);
+  const worst=ORDER.slice().sort((a,b)=>c.v[a]-c.v[b]).slice(0,2);
+  const hs=st.picks.map((oi,n)=>W.scen[S[n].id].h[oi]);
+  const handed=hs.filter(h=>h>=0.6).length,kept=hs.filter(h=>h<0.15).length,between=hs.length-handed-kept;
+  const lost=ORDER.reduce((a,d)=>a+(100-c.v[d]),0),yours=Math.max(0,ORDER.reduce((a,d)=>a+c.own[d],0)),theirs=Math.max(0,lost-yours);
+  const yp=lost>0?Math.round(100*yours/(yours+theirs)):0;
+  main.innerHTML=`<section class="end">
+    <div class="sec">
+      <div class="eyebrow">2042 · what the dashboard showed</div>
+      <div class="shown">
+        <div><div class="v">${fmt1(c.h)}</div><div class="k">Hours freed per week</div></div>
+        <div><div class="v">${Math.round(c.o)}</div><div class="k">Economy, 2026 = 100</div></div>
+        <div><div class="v">${c.s.toFixed(1)}</div><div class="k">Satisfaction, out of 10</div></div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="eyebrow">What it didn't show</div>
+      <h1 class="world" id="q" tabindex="-1">${esc(w.name)}</h1>
+      <div class="story"><p>${esc(w.intro)}</p>${worst.map(d=>`<p class="scene">${F(SCENES[d][c.mine[d]>=0.5?1:0])}</p>`).join("")}</div>
+    </div>
+    <div class="sec">
+      <h3>The six hidden scores</h3>
+      <p>Each line is how far people still shape that part of life, from 100 in 2026. The dashed line is a guardrail at ${W.guard}. A dot marks the decision where it was crossed.</p>
+      <div class="dims">${ORDER.map(d=>{const t=tier(c.v[d]),b=c.breach[d];return `<div class="dim">
+        <div class="head"><span class="name">${DOMS[d]}</span><span class="score">${Math.round(c.v[d])} / 100</span><span class="pill t${t}">${TIER_NAMES[t]}</span></div>
+        <p class="txt">${esc(TIERS[d][t])}</p>
+        <div class="breach ${b===null?"ok":""}">${b===null?"Guardrail not crossed":`Guardrail crossed in ${S[b].y}, at “${esc(S[b].t)}”. Nothing on the dashboard marked it.`}</div>
+        ${spark(c.hist[d],b,W.guard)}</div>`}).join("")}</div>
+    </div>
+    <div class="sec">
+      <h3>Whose choices did this</h3>
+      <p>${lost<1?"Almost nothing was lost.":`About ${yp}% of the ground lost came from your decisions. The rest came from everybody else making the same kinds of decision at the same time. ${yp<40?"Holding out on your own slowed the slide but didn't stop it. The decisions that held most were the shared ones: a vote, a budget, a rule.":"No single decision was the turning point."}`}</p>
+      <div class="split" aria-hidden="true"><i class="you" style="flex:${Math.max(yours,0.001)}"></i><i class="them" style="flex:${Math.max(theirs,0.001)}"></i></div>
+      <div class="legend"><span><b style="background:var(--ink)"></b>Your decisions</span><span><b style="background:var(--line)"></b>Everyone else's</span></div>
+      <p>This is the central argument of the gradual disempowerment paper. Economies, cultures and states serve people largely because they depend on people. Remove that dependence one sensible step at a time, and the reason to serve people weakens with it.</p>
+    </div>
+    <div class="sec">
+      <h3>Your ${S.length} decisions</h3>
+      <p>You handed most of the decision to AI ${handed} times, kept it with people ${kept} times, and split it ${between} times.</p>
+      <ul class="path">${st.picks.map((oi,n)=>{const h=W.scen[S[n].id].h[oi];return `<li><span class="y">${S[n].y}</span><span><span class="t">${esc(S[n].t)}</span><br><span class="c">${F(S[n].o[oi][0])}</span></span><span class="mk"><span class="hbar" title="${Math.round(h*100)}% handed to AI"><i style="width:${Math.round(h*100)}%"></i></span><span class="mark">${hLabel(h)}</span></span></li>`}).join("")}</ul>
+      <div class="scale" aria-hidden="true"><span>Bar: share of the decision handed to AI</span></div>
+    </div>
+    <div class="btn-row"><button class="btn" id="again">Play again</button></div>
+    <details><summary>How this works and what it assumes</summary><div class="inner">
+      <p>This is a mockup that illustrates an argument. It is not a forecast. The situations are invented, apart from the Navier–Stokes result, and the scores come from hand-set weights rather than data.</p>
+      <p>Each option hands some share of a decision to AI, from none to all of it, and the options within a decision aren't evenly spaced. Each decision also has its own weight, so a referendum or a national budget moves the scores more than a music subscription. Every decision touches one main area and sometimes one or two others.</p>
+      <p>If you handed every decision entirely to AI, each area would lose about ${W.maxLoss} points from your choices. If you kept every decision with people, each would gain about ${W.keepGain}. Every area also loses ${W.drift} point${W.drift===1?"":"s"} per decision to stand for everyone else's choices, which is why holding out alone doesn't keep a score at 100.</p>
+      <p>The model treats every handover as some loss of human influence. That is a simplification: some handovers are plainly good, and the paper itself asks how to tell helpful augmentation from harmful displacement. The dashboard rises as you hand more over on purpose, because the things we measure improve while the things we don't measure decline.</p>
+      <p>The framing follows Kulveit, Douglas, Ammann, Turan, Krueger and Duvenaud, <a href="https://arxiv.org/abs/2501.16946" target="_blank" rel="noopener">Gradual Disempowerment: Systemic Existential Risks from Incremental AI Development</a> (2025), which covers the economy, culture and states. The cognitive, social and purpose areas are additions for this mockup.</p>
+    </div></details>
+  </section>`;
+  $("again").onclick=()=>{st=fresh(st.profile);go("intro")};
+}
+
+// ---------- Weights view (owner only) ----------
+function strategies(w){
+  const pick=f=>S.map((sc,n)=>{const h=w.scen[sc.id].h;let b=0;h.forEach((v,k)=>{if(f(v,h[b]))b=k});return b});
+  const mk=picks=>{const c=compute(picks,w);const v=ORDER.map(d=>c.v[d]);return {v,avg:v.reduce((a,b)=>a+b,0)/v.length}};
+  const rows=[["Hand over the most each time",mk(pick((v,b)=>v>b))],["Choose nearest to half-and-half",mk(pick((v,b)=>Math.abs(v-0.5)<Math.abs(b-0.5)))],["Keep the most human each time",mk(pick((v,b)=>v<b))]];
+  let sum=ORDER.map(()=>0),lo=1e9,hi=-1e9,N=400;
+  for(let r=0;r<N;r++){const m=mk(S.map(sc=>Math.floor(Math.random()*sc.o.length)));m.v.forEach((x,k)=>sum[k]+=x);lo=Math.min(lo,m.avg);hi=Math.max(hi,m.avg)}
+  const rv=sum.map(x=>x/N);rows.push([`Random choices (${N} runs, average)`,{v:rv,avg:rv.reduce((a,b)=>a+b,0)/rv.length,range:[lo,hi]}]);
+  return rows;
+}
+function previewHTML(){
+  return `<table class="prev"><thead><tr><th>Strategy</th>${ORDER.map(d=>`<th>${SHORT[d]}</th>`).join("")}<th>Average</th><th>Ending</th></tr></thead><tbody>${
+    strategies(W).map(([n,r])=>`<tr><td>${esc(n)}</td>${r.v.map(x=>`<td>${Math.round(x)}</td>`).join("")}<td>${Math.round(r.avg)}${r.range?` <span style="color:var(--muted)">(${Math.round(r.range[0])}–${Math.round(r.range[1])})</span>`:""}</td><td>${esc(WORLDS.find(x=>r.avg>=x.min).name)}</td></tr>`).join("")}</tbody></table>`;
+}
+const xToText=x=>x?Object.entries(x).map(([d,v])=>`${d}:${v}`).join(", "):"";
+function textToX(t){const e={};String(t).split(",").forEach(p=>{const m=p.trim().match(/^(eco|cog|soc|cul|pol|pur)\s*:\s*(-?\d+(?:\.\d+)?)$/);if(m)e[m[1]]=+m[2]});return e}
+function tune(){
+  const num=(id,val,step,min,max)=>`<input type="number" id="${id}" value="${val}" step="${step}" ${min!==undefined?`min="${min}"`:""} ${max!==undefined?`max="${max}"`:""}>`;
+  main.innerHTML=`<section class="tune">
+    <div class="eyebrow">Only you can see this view</div>
+    <h1 id="q" tabindex="-1">Weights</h1>
+    <p class="note">Changes apply straight away in this tab, so you can play through to test them. Nobody else sees them until you save. Saving publishes a new version of the page that everyone gets.</p>
+    <div class="btn-row"><button class="btn sm" id="save">Save for everyone</button><button class="btn ghost sm" id="playit">Play with these weights</button><button class="btn ghost sm" id="revert">Undo unsaved changes</button><button class="btn ghost sm" id="defaults">Restore original weights</button><button class="btn ghost sm" id="close">Back</button><span class="status" id="status" role="status"></span></div>
+    <div class="sec"><h3>Overall</h3>
+      <div class="globals">
+        <label class="field">Most a score can lose from your choices${num("g-maxLoss",W.maxLoss,1,0,100)}</label>
+        <label class="field">Most it can gain${num("g-keepGain",W.keepGain,1,0,50)}</label>
+        <label class="field">Drift per decision (everyone else)${num("g-drift",W.drift,0.1,0,10)}</label>
+        <label class="field">Guardrail${num("g-guard",W.guard,1,0,100)}</label>
+      </div>
+    </div>
+    <div class="sec"><h3>Where these weights lead</h3><div class="tablewrap" id="preview">${previewHTML()}</div></div>
+    <div class="sec"><h3>Decisions</h3>
+      <p class="note">Weight sets how much a decision matters. The six area numbers set which areas it touches and how strongly; leave a box empty for none. Each option's AI share runs from 0 (kept with people) to 1 (handed entirely to AI). Extra adds fixed points to an area, written like <code>pol:-5</code>, using eco, cog, soc, cul, pol or pur.</p>
+      ${S.map(sc=>{const e=W.scen[sc.id];return `<div class="scen"><h3>${sc.y} · ${esc(sc.t)}</h3>
+        <div class="row"><label class="field">Weight${num(`s-${sc.id}-sig`,e.sig,0.1,0,5)}</label>${ORDER.map(d=>`<label class="field">${SHORT[d]}<input type="number" id="s-${sc.id}-e-${d}" value="${e.eff[d]??""}" step="0.1" min="0" max="3"></label>`).join("")}</div>
+        ${sc.o.map((o,k)=>`<div class="optrow"><span class="lab">Option ${k+1}</span><span>${F(o[0])}</span><label class="field lab2">AI share${num(`s-${sc.id}-h-${k}`,e.h[k],0.05,0,1)}</label><label class="field x">Extra<input type="text" id="s-${sc.id}-x-${k}" value="${esc(xToText(e.x&&e.x[k]))}" placeholder="none"></label></div>`).join("")}
+      </div>`}).join("")}
+    </div>
+  </section>`;
+  const read=()=>{
+    const w={v:1,maxLoss:+$("g-maxLoss").value,keepGain:+$("g-keepGain").value,drift:+$("g-drift").value,guard:+$("g-guard").value,scen:{}};
+    for(const sc of S){const s={sig:+$(`s-${sc.id}-sig`).value,eff:{},h:sc.o.map((_,k)=>+$(`s-${sc.id}-h-${k}`).value),x:{}};
+      ORDER.forEach(d=>{const v=$(`s-${sc.id}-e-${d}`).value;if(v!=="")s.eff[d]=+v});
+      sc.o.forEach((_,k)=>{const e=textToX($(`s-${sc.id}-x-${k}`).value);if(Object.keys(e).length)s.x[k]=e});
+      w.scen[sc.id]=s}
+    W=sanitize(w);$("preview").innerHTML=previewHTML();$("status").textContent=same(W,SAVED)?"":"Unsaved changes";
+  };
+  main.querySelectorAll("input").forEach(i=>i.addEventListener("change",read));
+  $("status").textContent=same(W,SAVED)?"":"Unsaved changes";
+  $("close").onclick=()=>go("intro");
+  $("playit").onclick=()=>{st=fresh(st.profile);go("profile")};
+  $("revert").onclick=()=>{W=clone(SAVED);tune()};
+  $("defaults").onclick=()=>{W=clone(DEFAULT_W);tune();$("status").textContent=same(W,SAVED)?"":"Original weights restored. Save to apply them for everyone."};
+  $("save").onclick=save;
+}
+const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+async function save(){
+  const s=$("status");s.textContent="Saving…";
+  try{
+    const art=window.claude?await window.claude.use("artifact"):null;
+    if(!art){s.textContent="Saving isn't available in this view. Open the page on claude.ai, signed in.";return}
+    await art.publish({"weights.json":{content:JSON.stringify(W,null,1),contentType:"application/json"}});
+    SAVED=clone(W);s.textContent="Saved. Everyone now plays with these weights.";
+  }catch(e){
+    const code=e&&e.code;
+    s.textContent=code==="conflict"?"Someone saved a newer version. The page will reload; make your changes again."
+      :code==="not_writer"||code==="not_granted"?"Only the page's owner or editors can save weights."
+      :code==="capability_disabled"?"Saving is turned off here, for example while the page is shared publicly. Your changes still apply in this tab."
+      :"Couldn't save ("+(code||"unknown error")+"). Your changes still apply in this tab.";
+  }
+}
+
+// ---------- Boot ----------
+async function loadWeights(){
+  try{const r=await fetch("weights.json",{cache:"no-store"});if(r.ok){SAVED=sanitize(await r.json());if(same(W,DEFAULT_W))W=clone(SAVED)}}catch(e){}
+}
+async function checkOwner(){
+  try{const u=window.claude?await window.claude.use("user"):null;if(!u)return;
+    IS_OWNER=(await u.isOwner())||(await u.canEdit());if(IS_OWNER&&st.view==="intro")render()}catch(e){}
+}
+function start(d){
+  if(d&&d.st&&Array.isArray(d.st.picks)&&d.st.order&&d.st.order.length===S.length&&d.st.order.every((o,n)=>o.length===S[n].o.length))st=d.st;
+  render();
+  loadWeights().then(()=>{if(st.view==="tune")render()});
+  checkOwner();
+}
+window.claude?.hot?.snapshot?.(()=>({st}));
+window.claude?.hot?.ready ? window.claude.hot.ready(start) : start(window.claude?.hot?.data ?? {});
+</script>

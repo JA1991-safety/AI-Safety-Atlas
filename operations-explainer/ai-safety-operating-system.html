@@ -1,0 +1,1050 @@
+<title>AI safety needs an operating system</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one spectrum, read left to right, from "enabling the organisation" to "delivering the mission".
+   Four bands as columns, tiles inside, a detail panel pinned beside. Colour encodes position on the spectrum. */
+:root{
+  --bg:#F2F4F7; --surface:#FFFFFF; --ink:#131C2E; --muted:#56617A; --line:#D5DAE3;
+  --a:#2F5C9E; --b:#12777A; --c:#96630A; --d:#98305F;
+  --yes:#1B7A4B; --no:#B03A3A;
+  --display:"Schibsted Grotesk","Segoe UI",system-ui,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1522; --surface:#182033; --ink:#E7EBF3; --muted:#9AA6BD; --line:#2C3650;
+    --a:#86AEEA; --b:#54C6C0; --c:#E2B152; --d:#EC8AB6; --yes:#5FCB94; --no:#F08A8A; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1522; --surface:#182033; --ink:#E7EBF3; --muted:#9AA6BD; --line:#2C3650;
+  --a:#86AEEA; --b:#54C6C0; --c:#E2B152; --d:#EC8AB6; --yes:#5FCB94; --no:#F08A8A; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:1280px;margin:0 auto;padding-block:28px 64px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.12}
+h1{font-size:clamp(1.9rem,4.4vw,3.1rem);font-weight:800;letter-spacing:-.02em;max-width:22ch}
+h2{font-size:1.45rem;font-weight:700}
+h3{font-size:1.05rem;font-weight:700}
+p{margin:0}
+.label{font-family:var(--mono);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+a{color:var(--a)}
+
+.top{display:flex;flex-direction:column;gap:14px}
+nav.tabs{display:flex;flex-wrap:wrap;gap:4px;border-bottom:1px solid var(--line);margin-top:22px}
+nav.tabs a{padding:10px 14px;text-decoration:none;color:var(--muted);font-weight:500;border-bottom:3px solid transparent;margin-bottom:-1px}
+nav.tabs a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ink)}
+.view{padding-top:28px;display:flex;flex-direction:column;gap:32px}
+
+.intro{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:36px;align-items:start}
+.intro .prose{display:flex;flex-direction:column;gap:12px;max-width:66ch}
+.claims{display:flex;flex-direction:column;gap:16px;list-style:none;margin:0;padding:0}
+.claims li{display:flex;flex-direction:column;gap:4px;padding-top:14px;border-top:1px solid var(--line)}
+.claims strong{font-family:var(--display);font-size:1.05rem}
+.claims span{color:var(--muted);font-size:.95rem}
+
+.filter{display:flex;flex-direction:column;gap:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:.92rem}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.summary{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.summary .count{font-family:var(--display);font-weight:700;font-size:1.1rem}
+.summary p{max-width:80ch;color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.86rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+
+.mapwrap{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:24px;align-items:start}
+.axis{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:10px}
+.axis .bar{flex:1;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--a),var(--b),var(--c),var(--d));min-width:30px}
+.axis .label{white-space:nowrap}
+.cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.col{display:flex;flex-direction:column;gap:8px;min-width:0}
+.col header{border-top:5px solid var(--band);padding-top:8px;display:flex;flex-direction:column;gap:3px;min-height:92px}
+.col header h3{color:var(--band)}
+.col header p{font-size:.84rem;color:var(--muted);line-height:1.35}
+.band-a{--band:var(--a)} .band-b{--band:var(--b)} .band-c{--band:var(--c)} .band-d{--band:var(--d)}
+.tile{display:flex;align-items:flex-start;gap:9px;text-align:left;width:100%;background:var(--surface);
+  border:1px solid var(--line);border-radius:4px;padding:10px 10px;font-size:.9rem;line-height:1.3;font-weight:500}
+.tile:hover{border-color:var(--band)}
+.dot{flex:none;width:12px;height:12px;border-radius:50%;border:2px solid var(--band);margin-top:3px;background:var(--band)}
+.lv1 .dot,.dot.lv1{background:linear-gradient(90deg,var(--band) 50%,transparent 50%)}
+.lv0 .dot,.dot.lv0{background:transparent}
+.tile.lv2{background:color-mix(in srgb,var(--band) 13%,var(--surface));border-color:var(--band)}
+.tile.lv1{border-style:dashed;border-color:var(--band)}
+.tile.lv0{color:var(--muted);background:transparent;font-weight:400}
+.tile[aria-pressed="true"]{outline:2px solid var(--ink);outline-offset:1px}
+
+.detail{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--band);border-radius:6px;
+  padding:20px;display:flex;flex-direction:column;gap:16px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);min-width:0}
+.detail .label{color:var(--band)}
+.detail ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:.92rem}
+.detail li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:6px}
+.does li::before{content:"✓";color:var(--yes);font-weight:700}
+.doesnt li::before{content:"✕";color:var(--no);font-weight:700}
+.block{display:flex;flex-direction:column;gap:7px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.82rem;border:1px solid var(--line);border-radius:3px;padding:3px 8px;background:var(--bg)}
+.own li{grid-template-columns:16px minmax(0,1fr) auto;align-items:start;font-size:.86rem}
+.own li::before{content:none}
+.own em{font-style:normal;color:var(--muted);text-align:right}
+.own .dot{margin-top:4px}
+.aisafety{font-size:.92rem;border-left:0;background:var(--bg);padding:12px;border-radius:4px}
+
+/* hiring guide */
+.guide{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:28px;align-items:start}
+.pick{display:flex;flex-direction:column;gap:14px}
+.problems{display:flex;flex-direction:column;gap:6px}
+.problem{text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:10px 12px;font-size:.92rem;line-height:1.35}
+.problem[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+textarea{width:100%;min-height:84px;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:10px;resize:vertical}
+.btn{background:var(--ink);color:var(--bg);border:0;border-radius:4px;padding:9px 16px;font-weight:600;align-self:flex-start}
+.note{font-size:.86rem;color:var(--muted)}
+.results{display:flex;flex-direction:column;gap:18px;min-width:0}
+.verdict{border:1px solid var(--line);border-radius:6px;padding:16px 18px;background:var(--surface);display:flex;flex-direction:column;gap:6px}
+.rcard{border:1px solid var(--line);border-radius:6px;background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:16px}
+.rcard .role{font-family:var(--display);font-size:1.3rem;font-weight:700}
+.rgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.rgrid ul{margin:0;padding-left:18px;font-size:.92rem;display:flex;flex-direction:column;gap:5px}
+.ask{background:var(--bg);border-radius:4px;padding:12px;font-size:.94rem}
+.maplink{border:1px solid var(--band);background:color-mix(in srgb,var(--band) 12%,var(--surface));border-radius:3px;padding:4px 9px;font-size:.84rem}
+
+.sources{max-width:72ch;display:flex;flex-direction:column;gap:14px}
+.sources ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}
+
+
+/* v2: the case */
+.big{font-family:var(--display);font-size:clamp(1.15rem,2.2vw,1.5rem);font-weight:500;line-height:1.35;max-width:46ch}
+.sect{display:flex;flex-direction:column;gap:18px;padding-top:28px;border-top:1px solid var(--line)}
+.secthead{display:flex;flex-direction:column;gap:8px;max-width:70ch}
+.bridgebox{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:16px}
+.bridge{display:flex;align-items:stretch;height:150px;border-bottom:10px solid color-mix(in srgb,var(--a) 35%,var(--surface))}
+.bank{flex:none;width:84px;background:var(--ink);color:var(--bg);display:flex;align-items:flex-start;justify-content:center;padding-top:44px;margin-top:40px;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;border-radius:4px 0 0 0}
+.bank.end{border-radius:0 4px 0 0}
+.bank.fail{background:var(--no)}
+.span{flex:1;min-width:0;position:relative;background:none;border:0;padding:0}
+.span .slabel{position:absolute;inset:0 2px auto 2px;height:38px;display:flex;align-items:center;justify-content:center;gap:6px;font-size:.84rem;font-weight:600;line-height:1.1;text-align:center}
+.span .slabel b{font-family:var(--mono);font-weight:500;color:var(--muted)}
+.span .slabel em{font-style:normal}
+.span .deck{position:absolute;left:0;right:0;top:40px;height:16px;background:var(--ink)}
+.span .arch{position:absolute;left:7%;right:7%;top:56px;bottom:0;border:5px solid var(--ink);border-bottom:0;border-radius:50% 50% 0 0/100% 100% 0 0}
+.span.out .deck{background:transparent;border:2px dashed var(--no)}
+.span.out .arch{border-color:var(--line);border-style:dashed}
+.span.out .slabel{color:var(--no);text-decoration:line-through}
+.ends{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.endcard{display:flex;flex-direction:column;gap:5px}
+.endcard strong{font-family:var(--display);font-size:1.08rem;line-height:1.25}
+.endcard.fail strong{color:var(--no)}
+.endcard ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.spancards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.scard{border:1px solid var(--line);border-radius:4px;padding:14px;display:flex;flex-direction:column;gap:9px;background:var(--bg);min-width:0}
+.scard.out{border:1px dashed var(--no)}
+.scard p{font-size:.92rem}
+.toggle{align-self:flex-start;background:none;border:1px solid var(--ink);border-radius:4px;padding:5px 11px;font-size:.86rem;font-weight:600;margin-top:auto}
+.cycle{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;list-style:none;margin:0;padding:0}
+.cycle li{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px;display:flex;flex-direction:column;gap:5px;position:relative}
+.cycle li strong{font-family:var(--display);font-size:1.15rem}
+.cycle li span{font-size:.92rem;color:var(--muted)}
+.pillars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;list-style:none;margin:0;padding:0}
+.pillars li{border-top:4px solid var(--ink);padding-top:10px;display:flex;flex-direction:column;gap:5px}
+.pillars li strong{font-family:var(--display);font-size:1.1rem}
+.pillars li span{font-size:.92rem;color:var(--muted)}
+.cycle li:not(:last-child)::after{content:"→";position:absolute;right:-13px;top:14px;font-weight:700;z-index:1}
+.netwrap{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:24px;align-items:start}
+.netscroll{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+.netscroll svg{display:block;width:100%;min-width:640px;height:auto}
+.lk{fill:none;stroke:var(--line);stroke-width:1}
+.lk.hot{stroke:var(--ink);stroke-width:2}
+.spoke{stroke:var(--ink);stroke-width:1.2;stroke-dasharray:3 4}
+.node{cursor:pointer}
+.node circle{fill:var(--band);stroke:var(--surface);stroke-width:2}
+.node text{fill:var(--muted);font-family:var(--body);font-size:13.5px}
+.node.lit text{fill:var(--ink);font-weight:600}
+.node.lit circle{r:9px}
+.node.sel circle{stroke:var(--ink);stroke-width:3}
+.node.dim{opacity:.8}
+.hub{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+.hubt{fill:var(--ink);font-family:var(--display);font-weight:700;font-size:17px;text-anchor:middle}
+.lanebox{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.lanesteps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.lanesteps div{display:flex;gap:10px;align-items:flex-start}
+.lanesteps b{flex:none;width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--surface);display:grid;place-items:center;font-family:var(--mono);font-size:.8rem}
+.lanesteps p{font-size:.92rem}
+.lanescroll{overflow-x:auto}
+.lanescroll svg{display:block;width:100%;min-width:760px;height:auto}
+.ln-lane{fill:var(--bg)}
+.ln-name{fill:var(--ink);font-family:var(--body);font-size:13px;font-weight:500}
+.ln-stage{fill:var(--ink);font-family:var(--display);font-size:14px;font-weight:700}
+.ln-num{fill:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.06em}
+.ln-col{stroke:var(--line);stroke-dasharray:2 4}
+.ln-track{stroke:var(--line);stroke-width:2}
+.ln-node{fill:var(--band);stroke:var(--surface);stroke-width:2}
+.ln-link{fill:none;stroke:var(--ink);stroke-width:1.6}
+.ln-badge{fill:var(--surface);stroke:var(--ink);stroke-width:1.4}
+.ln-badget{fill:var(--ink);font-family:var(--mono);font-size:11px;font-weight:500;text-anchor:middle}
+.ln-arrow{fill:var(--ink)}
+.handoffs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;list-style:none;margin:0;padding:0}
+.handoffs li{display:grid;grid-template-columns:24px minmax(0,1fr);gap:8px;font-size:.9rem;align-items:start}
+.handoffs li i{font-style:normal;width:22px;height:22px;border:1.4px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:.72rem}
+.handoffs li b{display:block;font-weight:600}
+.handoffs li span{color:var(--muted)}
+.netpanel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.netpanel ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-size:.92rem}
+.netpanel li{display:flex;flex-direction:column;gap:2px;padding-top:10px;border-top:1px solid var(--line)}
+.netpanel li b{font-weight:600}
+.netpanel li span{color:var(--muted)}
+.tracks{display:grid;grid-template-columns:150px repeat(2,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:6px;background:var(--surface);overflow:hidden}
+.tracks>div{padding:14px;border-top:1px solid var(--line);font-size:.94rem;min-width:0}
+.tracks>.th{border-top:0;font-family:var(--display);font-weight:700}
+.tracks>.th.later{color:var(--no)} .tracks>.th.early{color:var(--yes)}
+.tracks>.stage{font-family:var(--mono);font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.next{display:flex;flex-wrap:wrap;gap:10px}
+.next a{background:var(--ink);color:var(--bg);text-decoration:none;border-radius:4px;padding:10px 16px;font-weight:600}
+@media (max-width:1080px){.netwrap{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:820px){
+  .cycle,.pillars{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cycle li::after{content:none!important}
+  .tracks{grid-template-columns:minmax(0,1fr)}
+  .tracks>.th.first{display:none}
+  .tracks>.stage{background:var(--bg)}
+  .tracks>.later::before{content:"Operations added later";display:block;font-weight:700;color:var(--no);font-size:.84rem}
+  .tracks>.early::before{content:"Operations from the outset";display:block;font-weight:700;color:var(--yes);font-size:.84rem}
+  .tracks>.th{display:none}
+}
+@media (max-width:560px){
+  .pillars{grid-template-columns:minmax(0,1fr)}
+  .bank{width:52px;font-size:.6rem}
+  .span .slabel em{display:none}
+  .ends{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:1080px){
+  .mapwrap{grid-template-columns:minmax(0,1fr)}
+  .detail{position:static}
+  .guide{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:820px){
+  .intro{grid-template-columns:minmax(0,1fr);gap:20px}
+  .cols{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rgrid{grid-template-columns:minmax(0,1fr)}
+  .axis .label{white-space:normal;max-width:12ch}
+}
+@media (max-width:480px){
+  .cols{grid-template-columns:minmax(0,1fr)}
+  .col header{min-height:0}
+}
+@media (prefers-reduced-motion:no-preference){.tile,.chip,.problem{transition:background-color .15s,border-color .15s,opacity .15s}}
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <span class="label">Mockup, version 2 · Operations context for AI safety founders</span>
+    <h1>AI safety needs an operating system.</h1>
+    <p class="label">By James Armitage and Dani Raymond</p>
+  </div>
+  <nav class="tabs" aria-label="Sections">
+    <a href="#map" data-tab="map">The field map</a>
+    <a href="#practice" data-tab="practice">In practice</a>
+    <a href="#hiring" data-tab="hiring">What should I hire for?</a>
+    <a href="#sources" data-tab="sources">Sources and assumptions</a>
+  </nav>
+
+  <section class="view" id="view-map">
+    <p class="big">An organisation is only as impactful as the change it creates in the real world.</p>
+    <div class="intro">
+      <div class="prose">
+        <p>AI safety recruiters often talk about giving operations people <em>context</em> on AI safety. This page does the reverse. It gives people in AI safety context on operations: what the profession covers, where its edges are, and how its meaning shifts from one kind of organisation to another.</p>
+        <p>Knowing what an organisation should do is different from having the capability to do it consistently, at scale and under pressure. Operations is the discipline that builds that capability, and it is what turns research, policy ideas and good intentions into results.</p>
+        <p>Operations is not one job. In a five-person research group it can mean everything that is not the research. In a large company or a government department it usually means the opposite end of the spectrum: the people who deliver the service to customers, while finance, HR and IT are separate professions. Both uses are correct. They describe different parts of the same field.</p>
+        <p>What connects them is a way of working. Operations people care about whether the thing happens in the real world, at the quality and cost intended, and whether the organisation is set up so that it keeps happening. They build the conditions for success and they see delivery through. That is why a good operations hire multiplies the output of everyone around them.</p>
+      </div>
+      <ul class="claims">
+        <li><strong>It is a broad field.</strong><span>The map below has 31 areas across four bands. No single person is expert in all of them, and most roles cover a slice.</span></li>
+        <li><strong>It is not only back office.</strong><span>Much of the map is direct delivery and change: running programmes, serving customers, leading transformation, investigating fraud.</span></li>
+        <li><strong>It oversees specialists without replacing them.</strong><span>An operations lead will often run finance but will not file the tax return. Each tile shows where that line usually sits.</span></li>
+      </ul>
+    </div>
+
+    <div class="sect">
+      <div class="secthead">
+        <span class="label">What operations is</span>
+        <h2>The discipline of designing, building, running and improving how an organisation works</h2>
+        <p>Operations people ask the same four questions of any commitment an organisation makes. The loop never finishes, because the organisation and its risks keep changing.</p>
+      </div>
+      <ol class="cycle">
+        <li><strong>Design</strong><span>Decide how the work should flow, who decides what, and what good looks like.</span></li>
+        <li><strong>Build</strong><span>Put the people, systems, contracts and budgets in place to make that design real.</span></li>
+        <li><strong>Execute</strong><span>Run it every day, at the quality intended, including on the bad days.</span></li>
+        <li><strong>Improve</strong><span>Measure what happened, learn from it, and change the design.</span></li>
+      </ol>
+    </div>
+
+    <div class="sect">
+      <div class="secthead">
+        <span class="label">The functions operations connects</span>
+        <h2>Specific disciplines, working as one system</h2>
+        <p>Operations is the connective tissue that lets an organisation work as one system rather than a set of separate teams. It is still made of specific functions, each with its own skills and its own limits. Select any area to see what operations typically does and does not do there. The In practice tab shows how the areas depend on each other in real AI safety work.</p>
+      </div>
+    <div class="filter">
+      <span class="label" id="orglabel">Show what "operations" usually covers in</span>
+      <div class="chips" id="orgchips" role="group" aria-labelledby="orglabel"></div>
+    </div>
+    <div class="summary" id="summary" aria-live="polite"></div>
+
+    <div class="mapwrap">
+      <div>
+        <div class="axis" aria-hidden="true">
+          <span class="label">Creates the environment for success</span><span class="bar"></span><span class="label">Delivers in the real world</span>
+        </div>
+        <div class="cols" id="cols"></div>
+        <div class="legend" id="legend" style="margin-top:14px"></div>
+      </div>
+      <aside class="detail" id="detail" aria-live="polite"></aside>
+    </div>
+    </div>
+
+    <div class="sect">
+      <div class="secthead">
+        <span class="label">Timing</span>
+        <h2>Embedding operations early</h2>
+        <p>Many founders bring in operations once something has started to hurt. By then, habits, contracts and funding terms have often formed around the gaps, and fixing them means unpicking what is already there. Building some operational foundations early is usually cheaper. It does not require a large team. It requires a few deliberate choices.</p>
+      </div>
+      <ul class="pillars">
+        <li><strong>Structure</strong><span>Clear owners, decision rights and a regular planning rhythm, so people know who decides and what matters now.</span></li>
+        <li><strong>Foundations for growth</strong><span>Finance, people, legal and systems set up so they can take much more volume without being rebuilt.</span></li>
+        <li><strong>Delivery and value focus</strong><span>Work planned around the outcomes that matter most, with honest measures of whether they are happening.</span></li>
+        <li><strong>Continuous improvement</strong><span>A habit of reviewing what happened and changing how things work as a result.</span></li>
+      </ul>
+      <div class="secthead">
+        <h3>What it changes</h3>
+        <p>Researchers and founders spend more of their time on the work only they can do. Decisions are quicker because the routes and owners already exist. Growth adds capacity rather than confusion, because new people join systems that work. Funders, partners and governments find it easier to rely on the organisation because it can show what it delivers.</p>
+        <p>Early operations should be proportionate. Too much process too soon slows a small team down. The aim is the minimum structure the next stage of growth will need, reviewed as the organisation changes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="view-practice" hidden>
+    <div class="secthead">
+      <h2>Operations in practice</h2>
+      <p>Knowing what an organisation should do is different from having the capability to do it consistently, at scale and under pressure. These examples show what that capability consists of for common AI safety work, and what happens when part of it is missing.</p>
+    </div>
+    <div class="sect">
+      <div class="secthead">
+        <span class="label">From intention to real-world change</span>
+        <h2>An organisation is only as impactful as the change it creates in the real world</h2>
+        <p>Each example below starts as something an AI safety organisation intends and has to cross to a real-world result. The spans of the bridge are operational capabilities. Choose an example, then take a span away to see what happens to the result.</p>
+      </div>
+      <div class="chips" id="casechips" role="group" aria-label="Safety commitment"></div>
+      <div class="bridgebox">
+        <div class="bridge" id="bridge"></div>
+        <div class="ends" id="ends" aria-live="polite"></div>
+        <div class="spancards" id="spancards"></div>
+      </div>
+    </div>
+
+    <div class="sect">
+      <div class="secthead">
+        <span class="label">One connected system</span>
+        <h2>How the functions come together</h2>
+        <p>No result rests on a single function. Choose an example to see it as a process map. Read it in two steps: first what needs to happen, left to right, and then the hand-offs between functions that each step relies on.</p>
+      </div>
+      <div class="chips" id="netchips" role="group" aria-label="Show the elements behind an example"></div>
+      <div class="lanebox" id="lanebox"></div>
+      <div class="secthead"><h3>Where this sits in the whole system</h3><p>The ring shows all 31 areas. The highlighted areas and dark lines are the ones in the process map above. Select any area on the ring to see everything it connects to.</p></div>
+      <div class="netwrap">
+        <div class="netscroll" id="net"></div>
+        <aside class="netpanel" id="netpanel" aria-live="polite"></aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="view-hiring" hidden>
+    <div class="prose" style="max-width:68ch;display:flex;flex-direction:column;gap:10px">
+      <h2>Start from the problem, not the job title</h2>
+      <p>"We need an ops person" can describe a dozen different hires. Pick the problems that sound like yours, or describe the situation in your own words. The guide shows what kind of operations professional solves each one, what to test for, and which backgrounds tend to be a good sign.</p>
+    </div>
+    <div class="guide">
+      <div class="pick">
+        <div class="block">
+          <label class="label" for="freetext">Describe your problem</label>
+          <textarea id="freetext" placeholder="e.g. We are growing from 8 to 25 people next year and I am still approving every expense and running payroll myself."></textarea>
+          <button class="btn" id="matchbtn" type="button">Find the closest problems</button>
+          <p class="note" id="matchnote">In this mockup the text box matches keywords against the list below. A full version could interpret free text properly.</p>
+        </div>
+        <div class="block">
+          <span class="label" id="problabel">Or pick one or more</span>
+          <div class="problems" id="problems" role="group" aria-labelledby="problabel"></div>
+        </div>
+      </div>
+      <div class="results" id="results" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="view" id="view-sources" hidden>
+    <div class="sources">
+      <h2>Sources and assumptions</h2>
+      <p>This is a mockup to test the format. The structure and interactions are meant to be final-ish. The content is a first draft for an experienced operations professional to correct.</p>
+      <h3>What the AI safety examples draw on</h3>
+      <ul>
+        <li><a href="https://80000hours.org/career-reviews/scaling-organisations/" target="_blank" rel="noopener">80,000 Hours, "Scaling organisations making AI go well"</a>. Reports that COOs, chiefs of staff, operations directors and senior programme and people managers are among the hardest roles for AI safety organisations to fill, and notes that work like payroll and tax is usually delegated to staff or consultants.</li>
+        <li><a href="https://matsprogram.org/careers/operations-generalist-berkeley" target="_blank" rel="noopener">MATS, Operations Generalist</a>. Fellow and mentor support, events, office and programme logistics, internal systems and automation, office security procedures, with housing, people ops, finance and IT as growth areas.</li>
+        <li>BlueDot Impact, Head of Operations (read through a job aggregator, so it may be out of date). Scaling the team, people ops, managing accountants and lawyers, disbursing grants to hundreds of people across countries, setting up a new office, and coordinating visas and accommodation for a residency programme.</li>
+        <li>Center for AI Safety, Operations Associate (aggregator listing). Office and facilities, IT and systems administration, people operations and team support.</li>
+        <li>Apollo Research, operations expression of interest (aggregator listing). Generalist people operations: hiring, onboarding, HR systems, and using AI tools to cut manual work.</li>
+      </ul>
+      <h3>Assumptions to check</h3>
+      <ul>
+        <li>The five examples in the In practice tab come from the brief for this version. The spans under each, and which operational elements carry them, are a first draft.</li>
+        <li>The connections in the system diagram are illustrative. They show the kind of dependency that exists, and are not a complete list.</li>
+        <li>Marketing and investor relations were added in this version. Investor relations is written to cover both investors in companies and major funders of non-profits.</li>
+        <li>The ownership ratings for each organisation type are judgement calls based on common practice, not survey data. They show the typical pattern and real organisations vary.</li>
+        <li>Research operations (compute, model access, research project management) is included from general knowledge of the field. The job adverts read for this draft did not describe it in detail.</li>
+        <li>The public-sector end of the map (front-line delivery, investigation and counter-fraud, policy implementation) is written generically. It has not been checked against any individual's career history.</li>
+        <li>The six organisation types are a starting set. Frontier AI labs are grouped with large companies.</li>
+        <li>The hiring guide's backgrounds and interview questions are suggestions, not validated predictors.</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<script>
+const BANDS=[
+ {id:"a",name:"Corporate foundations",desc:"The functions every organisation needs in order to exist legally, pay people and keep the lights on."},
+ {id:"b",name:"Running the organisation",desc:"The machinery that keeps people aligned, resourced and informed."},
+ {id:"c",name:"Building and changing",desc:"Turning strategy into plans, and plans into a different organisation."},
+ {id:"d",name:"Delivering the mission",desc:"Direct execution for the people the organisation exists to serve."}
+];
+const ORGS=[
+ {id:"all",name:"The whole field",text:"Across all organisation types, operations spans every area on this map. Pick an organisation type to see how much of it one team would usually hold."},
+ {id:"s",name:"Early-stage startup",text:"Operations means almost everything that is not the core research or product. One or two people cover finance, people, legal, IT, the office and often delivery too. Breadth and judgement matter more than depth, and most specialist work is bought in."},
+ {id:"r",name:"Scaling research organisation",text:"Operations becomes a team. Specialists appear in people, recruiting and finance, and the operations lead moves from doing the work to building systems, managing managers and removing blockers for researchers."},
+ {id:"p",name:"Programme or field-building organisation",text:"Operations is the product. The quality of a fellowship, course or residency is largely the quality of its delivery, so programme operations sits at the centre and corporate functions support it."},
+ {id:"f",name:"Grantmaker or funder",text:"A lean corporate core plus grant operations: moving money quickly, safely and compliantly, and keeping reliable records of what was funded and why."},
+ {id:"c",name:"Large company or frontier lab",text:"Finance, HR, IT, legal and procurement are separate functions with their own professions and their own executives. Operations means the part of the business that delivers to customers, and the people who improve how it runs."},
+ {id:"g",name:"Government department",text:"Operational delivery is the largest profession in the UK civil service: front-line services, casework, compliance and enforcement. Corporate services, project delivery and policy are separate professions."}
+];
+const LV=["Usually someone else's job, or not present","Shared, or overseen by operations","Usually owned by operations"];
+// cov order: s r p f c g
+const AREAS=[
+ {id:"finance",b:"a",n:"Finance and budgets",cov:"222100",
+  s:"Keeping the organisation solvent, in control of its spending and able to explain it.",
+  does:["Builds and tracks the budget, runway and scenarios","Runs payroll, expenses and payments through providers","Sets financial controls and approval limits","Manages the accountants, bookkeepers and auditors"],
+  not:["Prepare or sign off statutory accounts","File tax returns or give tax advice","Audit the organisation's own books"],
+  sk:["Budgeting and forecasting","Financial controls","Managing professional advisers"],
+  ai:"Typical extras are tracking restricted grants, reporting to a small number of large funders, and paying people in several countries."},
+ {id:"people",b:"a",n:"People and HR",cov:"222100",
+  s:"The systems that employ people properly and help them do good work.",
+  does:["Runs onboarding, contracts, payroll inputs and benefits","Writes and maintains people policies","Designs pay frameworks and performance cycles","Is the first port of call for people problems"],
+  not:["Give employment law advice","Make hiring decisions on research quality","Replace line management"],
+  sk:["Discretion and judgement","Policy design","Coaching managers"],
+  ai:"Several AI safety organisations advertise generalist people operations roles covering hiring, onboarding and HR systems for a technical workforce."},
+ {id:"legal",b:"a",n:"Legal, governance and compliance",cov:"222100",
+  s:"Keeping the entity in good standing and its decisions properly made.",
+  does:["Keeps registrations, filings and insurance up to date","Prepares board papers and maintains the policy set","Manages outside lawyers and routine contracts","Owns data protection and conflicts-of-interest processes"],
+  not:["Practise law or draft complex agreements","Represent the organisation in disputes","Decide the organisation's legal risk appetite alone"],
+  sk:["Reading contracts critically","Governance","Knowing when to call a lawyer"],
+  ai:"Common issues are charitable status, fiscal sponsorship, operating entities in both the US and UK, and conflicts of interest with AI labs."},
+ {id:"it",b:"a",n:"IT and internal systems",cov:"222100",
+  s:"The tools people work in every day, and the glue between them.",
+  does:["Chooses and administers tools, accounts and devices","Provides first-line support","Builds automations between systems, increasingly with AI tools","Keeps data organised and access tidy"],
+  not:["Build production software","Run the research computing stack","Do specialist security engineering"],
+  sk:["Systems thinking","No-code and automation tools","Patience with users"],
+  ai:"Job adverts name tools such as Airtable, Notion, Slack and Google Workspace, and ask for comfort automating workflows with AI."},
+ {id:"workplace",b:"a",n:"Workplace and facilities",cov:"222210",
+  s:"Somewhere good to work, whether that is an office or a remote setup.",
+  does:["Finds, leases and fits out offices with advisers","Manages vendors, catering, supplies and guests","Owns health and safety and office procedures","Sets up people working remotely"],
+  not:["Act as surveyor, architect or landlord","Negotiate a lease without legal support"],
+  sk:["Vendor management","Service mindset","Attention to detail"],
+  ai:"Offices double as community space for fellows and visitors, so the job is closer to hosting than to building management."},
+ {id:"security",b:"a",n:"Security and information protection",cov:"211100",
+  s:"Protecting people, premises and sensitive information in proportion to the risk.",
+  does:["Sets security policy and access rules","Manages devices, physical access and travel security","Runs incident procedures and staff training","Coordinates specialist security staff or contractors"],
+  not:["Do penetration testing or security engineering","Produce threat intelligence","Guarantee security alone, without technical owners"],
+  sk:["Risk assessment","Policy that people will follow","Calm incident handling"],
+  ai:"Organisations with pre-release model access or sensitive findings carry obligations to labs and governments that make this a core operational duty."},
+
+ {id:"planning",b:"b",n:"Planning and operating rhythm",cov:"222211",
+  s:"The regular cycle of setting priorities, deciding and following up.",
+  does:["Runs annual and quarterly planning","Designs the meeting and decision cadence","Tracks commitments and chases them","Makes trade-offs visible to leadership"],
+  not:["Set the mission or research agenda","Decide priorities on leadership's behalf"],
+  sk:["Facilitation","Prioritisation","Follow-through"],
+  ai:"Fast-growing research groups often have strong ideas and no shared way to choose between them. This is the fix."},
+ {id:"talent",b:"b",n:"Recruiting and talent",cov:"222100",
+  s:"A hiring process that is fast, fair and good at finding the right people.",
+  does:["Designs hiring rounds and work tests","Runs sourcing, scheduling and candidate communication","Trains hiring managers and keeps the process fair","Tracks pipeline data and time to hire"],
+  not:["Judge research taste or the technical bar","Make the final hiring call"],
+  sk:["Process design","Candidate judgement","Stakeholder management"],
+  ai:"Talent and recruiting leads are among the roles 80,000 Hours reports as hardest to fill in the field."},
+ {id:"immigration",b:"b",n:"Immigration, relocation and global employment",cov:"122100",
+  s:"Getting people legally employed and physically where they need to be.",
+  does:["Coordinates immigration lawyers and visa timelines","Sets up employer-of-record and contractor arrangements","Arranges relocation and accommodation"],
+  not:["Give immigration or tax advice","Decide which jurisdictions to employ in without advice"],
+  sk:["Managing advisers","Deadline discipline","Care for the individual"],
+  ai:"A defining feature of the field. Teams and fellows are international, and adverts explicitly mention visas, housing and cross-border work."},
+ {id:"knowledge",b:"b",n:"Internal communication and knowledge",cov:"222100",
+  s:"Making sure people know what is going on and can find what they need.",
+  does:["Owns the handbook and documentation","Runs all-hands and internal updates","Builds onboarding material"],
+  not:["Write the organisation's external voice","Document research on researchers' behalf"],
+  sk:["Clear writing","Information architecture"],
+  ai:"Matters early in remote and hybrid teams where context otherwise lives in the founder's head."},
+ {id:"procurement",b:"b",n:"Procurement and suppliers",cov:"222100",
+  s:"Buying well and keeping suppliers performing.",
+  does:["Negotiates and renews supplier contracts","Manages contractors and agencies","Checks value for money and supplier risk"],
+  not:["Run specialist category sourcing at scale","Sign commitments beyond delegated limits"],
+  sk:["Negotiation","Contract management","Commercial sense"],
+  ai:"Cloud and compute agreements are often the largest non-salary cost, and contractor researchers are common."},
+ {id:"data",b:"b",n:"Performance data and reporting",cov:"222211",
+  s:"Knowing whether the organisation is doing what it set out to do.",
+  does:["Defines measures and builds dashboards","Produces board and funder reports","Runs reviews of what worked"],
+  not:["Carry out formal research evaluation","Decide what counts as impact alone"],
+  sk:["Analytical thinking","Honest reporting","Spreadsheet and data fluency"],
+  ai:"Impact is hard to measure in safety work, which makes disciplined reporting on inputs, outputs and learning more valuable."},
+ {id:"risk",b:"b",n:"Risk and resilience",cov:"221111",
+  s:"Anticipating what could go wrong and being ready when it does.",
+  does:["Maintains the risk register and mitigations","Plans for continuity and key-person dependency","Leads the response when incidents happen"],
+  not:["Own every risk personally","Provide specialist insurance or legal advice"],
+  sk:["Structured thinking under pressure","Scenario planning"],
+  ai:"Dependence on a few funders, a few key researchers and a few lab relationships are the typical concentrated risks."},
+ {id:"fundops",b:"b",n:"Fundraising and grant management",cov:"222000",
+  s:"The work behind winning funding and keeping funders' trust.",
+  does:["Builds application budgets and manages submissions","Tracks grant conditions and reporting deadlines","Keeps funder relationships well serviced"],
+  not:["Own the vision or the pitch, which is usually the founder's","Promise outcomes on researchers' behalf"],
+  sk:["Budget narrative","Deadline management","Relationship care"],
+  ai:"Most organisations in the field are grant funded, so this is rarely optional."},
+ {id:"marketing",b:"b",n:"Marketing and external communications",cov:"112000",
+  s:"How the organisation explains itself and its work to the outside world.",
+  does:["Runs the website, newsletters and publication launches","Plans outreach to fill programmes and roles","Coordinates press handling and prepared statements","Keeps public messages consistent with what the organisation does"],
+  not:["Decide the research message or policy positions","Speak on researchers' behalf without them","Promise results the work does not support"],
+  sk:["Clear writing for non-specialists","Audience insight","Judgement about what to say publicly"],
+  ai:"Findings only shape decisions if the right people read and understand them, and an incident is the worst time to work out who speaks for the organisation."},
+ {id:"investor",b:"b",n:"Investor and funder relations",cov:"111100",
+  s:"Keeping the people who finance the organisation informed, aligned and realistic.",
+  does:["Prepares investor and funder updates and data rooms","Tracks commitments, terms and reporting duties","Coordinates due diligence","Flags where funder expectations pull against safety commitments"],
+  not:["Own the relationship or the pitch, which sits with the founder","Negotiate valuation or deal terms alone","Make promises about research results"],
+  sk:["Accurate, candid reporting","Understanding governance terms","Managing expectations"],
+  ai:"Funding terms decide how much authority a board has and how much commercial pressure reaches safety decisions, so safety commitments belong in them from the first round."},
+
+ {id:"strategy",b:"c",n:"Strategy and business cases",cov:"121211",
+  s:"Turning goals into costed options that leadership can choose between.",
+  does:["Frames options with costs, benefits and risks","Builds investment and business cases","Connects the theory of change to a resourced plan"],
+  not:["Own the mission or research direction","Substitute analysis for leadership judgement"],
+  sk:["Structured problem solving","Financial modelling","Persuasive writing"],
+  ai:"Useful when deciding whether to open an office, start a programme, or grow a team, each of which commits scarce funding."},
+ {id:"delivery",b:"c",n:"Programme and project delivery",cov:"222212",
+  s:"Getting defined pieces of work done on time, to quality and within budget.",
+  does:["Plans, resources and tracks the work","Manages dependencies, risks and stakeholders","Unblocks teams and escalates early"],
+  not:["Do the specialist work inside each workstream","Own the benefits once the project closes"],
+  sk:["Planning","Stakeholder management","Risk management"],
+  ai:"Applies to research projects with deadlines too, such as evaluations promised to a lab or a government before a model release."},
+ {id:"change",b:"c",n:"Transformation and change leadership",cov:"121122",
+  s:"Changing how the organisation works and bringing people with it.",
+  does:["Designs the new operating model","Sequences the change and manages the transition","Wins commitment from the people affected"],
+  not:["Impose change without a leadership mandate","Treat change as a communications exercise"],
+  sk:["Leadership","Organisational insight","Resilience"],
+  ai:"Shows up when a research group has to become an institution: new management layers, new norms, less informality."},
+ {id:"process",b:"c",n:"Process design and continuous improvement",cov:"222222",
+  s:"Making recurring work simpler, faster and more reliable.",
+  does:["Maps how work flows today","Removes steps, hand-offs and delays","Writes procedures and automates them"],
+  not:["Add process for its own sake","Redesign specialist work without the specialists"],
+  sk:["Process mapping","Root-cause analysis","Automation"],
+  ai:"The one area that is operations in every kind of organisation on this map."},
+ {id:"orgdesign",b:"c",n:"Organisation design and scaling",cov:"221111",
+  s:"Deciding the shape of the organisation as it grows.",
+  does:["Defines teams, roles and reporting lines","Advises when to specialise and when to stay generalist","Plans headcount against the strategy"],
+  not:["Decide structure without the leaders affected","Design purely on paper"],
+  sk:["Systems thinking","Workforce planning","Managing managers"],
+  ai:"80,000 Hours highlights experience scaling an organisation from around 30 to 100 people as especially useful."},
+ {id:"cos",b:"c",n:"Chief of staff and leadership support",cov:"221111",
+  s:"Extending what the founder or leadership team can get done.",
+  does:["Prepares decisions and drives follow-through","Leads special projects with no natural owner","Acts as a trusted proxy for the leader"],
+  not:["Hold a permanent functional remit","Make the leader's decisions for them"],
+  sk:["Judgement","Versatility","Trust building"],
+  ai:"Named by 80,000 Hours as one of the hardest roles for AI safety organisations to fill."},
+
+ {id:"programmes",b:"d",n:"Programme operations",cov:"112101",
+  s:"Running fellowships, courses and residencies for participants.",
+  does:["Runs applications, selection logistics and onboarding","Supports participants and mentors day to day","Arranges housing, stipends and schedules","Collects feedback and improves each cohort"],
+  not:["Design the curriculum or research agenda","Mentor the research itself"],
+  sk:["Service design","Logistics","Participant care"],
+  ai:"The core of organisations such as MATS and BlueDot Impact, whose adverts centre on fellow support, events, housing and residency logistics."},
+ {id:"events",b:"d",n:"Events and convenings",cov:"222200",
+  s:"Bringing people together and making it worth their time.",
+  does:["Plans and runs conferences, workshops and retreats","Manages venues, suppliers and budgets","Looks after attendees and speakers"],
+  not:["Set the intellectual agenda","Choose who should be in the room alone"],
+  sk:["Planning under deadline","Supplier management","Calm on the day"],
+  ai:"Seminars, symposia and retreats are a main way the field shares work and builds trust."},
+ {id:"researchops",b:"d",n:"Research operations",cov:"121010",
+  s:"Everything researchers need in order to do research, apart from the research.",
+  does:["Secures and allocates compute and model access","Manages research projects, timelines and publication logistics","Coordinates data, tooling and contractor or annotator workforces"],
+  not:["Set research questions","Do the science or the core engineering"],
+  sk:["Technical literacy","Project management","Negotiating access"],
+  ai:"For evaluation and technical research groups this is often the highest-leverage operational work, because researcher time is the scarce resource."},
+ {id:"service",b:"d",n:"Customer and participant service",cov:"212122",
+  s:"Answering, helping and resolving for the people the organisation serves.",
+  does:["Handles enquiries, requests and complaints","Sets service standards and measures them","Feeds what users say back into design"],
+  not:["Change policy case by case","Promise what the organisation cannot deliver"],
+  sk:["Empathy","Clear communication","Service measurement"],
+  ai:"For a course provider or advisory service, applicants and participants are the customers."},
+ {id:"partnerships",b:"d",n:"Partnerships, sales and account management",cov:"211100",
+  s:"Winning and keeping the external relationships the mission depends on.",
+  does:["Builds and manages a pipeline of partners or customers","Takes agreements from first conversation to delivery","Keeps existing partners well served"],
+  not:["Set policy positions","Commit research capacity without the researchers"],
+  sk:["Commercial judgement","Relationship building","Negotiation"],
+  ai:"Relationships with labs, governments and funders are often held personally by founders until someone operational takes them on."},
+ {id:"grantops",b:"d",n:"Grantmaking operations",cov:"011201",
+  s:"Getting money to recipients quickly, safely and compliantly.",
+  does:["Runs application intake and due diligence","Makes payments across countries and tracks them","Monitors grant conditions and reporting"],
+  not:["Decide what to fund, which is the grant investigator's call","Give recipients tax or legal advice"],
+  sk:["Controls","Process at volume","International payments"],
+  ai:"BlueDot Impact describes deploying millions of dollars in grants to hundreds of people across countries as part of its operations lead's remit."},
+ {id:"frontline",b:"d",n:"Front-line delivery at scale",cov:"000022",
+  s:"Running large teams that process cases, claims, calls or transactions.",
+  does:["Plans workforce and capacity against demand","Manages quality, productivity and backlogs","Leads large teams through team leaders"],
+  not:["Write the policy the service delivers","Build the IT systems it runs on"],
+  sk:["People leadership at scale","Demand and capacity planning","Performance management"],
+  ai:"In large organisations this is what operations means. It becomes relevant to AI safety as evaluation, auditing and oversight bodies grow."},
+ {id:"enforcement",b:"d",n:"Investigation, compliance and counter-fraud",cov:"000022",
+  s:"Running teams that detect and respond to abuse, non-compliance and crime.",
+  does:["Directs investigations using intelligence and risk","Manages caseloads and case quality","Works with law enforcement and partner agencies"],
+  not:["Prosecute or set the law","Act outside legal powers and safeguards"],
+  sk:["Risk-based tasking","Evidential discipline","Multi-agency working"],
+  ai:"The closest existing parallels are trust and safety and misuse response at AI labs, and any future regime for verifying compliance with AI rules."},
+ {id:"policydelivery",b:"d",n:"Policy implementation",cov:"010012",
+  s:"Turning a policy decision into a service that works.",
+  does:["Tests whether a policy can be delivered","Stands up the teams, processes and guidance","Reports back on what happens in practice"],
+  not:["Make the policy decision","Draft legislation"],
+  sk:["Translating intent into process","Working with policy makers","Pragmatism"],
+  ai:"New AI safety institutes and regulators need this skill to move from mandate to working organisation."}
+];
+const BYID=Object.fromEntries(AREAS.map(a=>[a.id,a]));
+const ORDER=["s","r","p","f","c","g"];
+const lvl=(a,org)=>org==="all"?2:+a.cov[ORDER.indexOf(org)];
+
+const PROBLEMS=[
+ {id:"admin",l:"I am doing all the admin myself and it is eating my research time",kw:["admin","myself","payroll","expense","time","everything","drowning","founder","first ops","first hire"],
+  role:"First operations generalist",level:"Mid-level, hands-on, reports to the founder",
+  why:"You need breadth and ownership across the corporate foundations, with specialist work bought in from accountants and lawyers.",
+  sk:["Takes a messy area and owns it end to end","Builds simple systems rather than heroics","Knows when to call a specialist"],
+  good:["Operations or chief of staff at a startup under 30 people","Ran something real with little support: a programme, an office, a large student society","Consulting or project roles with visible delivery"],
+  weak:["Deep specialist in one function only","Experience only in very large organisations with strong support teams"],
+  ask:"Tell me about a time you inherited something disorganised with no handover. What did you do in the first month?",
+  areas:["finance","people","legal","it","workplace"]},
+ {id:"scale",l:"We are about to grow fast, from around 10 people to 40 or more",kw:["grow","scale","scaling","headcount","double","bigger","growth","hiring plan","managers"],
+  role:"Head of Operations or COO",level:"Senior, with experience managing managers",
+  why:"The job shifts from doing operations to designing the organisation: structure, management layers, planning and the people systems that hold at larger size.",
+  sk:["Has built a team and delegated well","Designs structures and operating rhythms","Balances founder vision with what the organisation can absorb"],
+  good:["Scaled a startup or non-profit through a similar size jump","Senior consulting plus an operating role afterwards","General management with budget and people responsibility"],
+  weak:["Strong individual operator who has never managed managers","Large-company executive with no experience of building from little"],
+  ask:"What broke when your last organisation doubled, and what would you put in place earlier next time?",
+  areas:["orgdesign","planning","people","talent","change"]},
+ {id:"execution",l:"We have a strategy but things do not get delivered",kw:["deliver","delivery","execution","execute","deadline","slip","late","strategy","priorit","follow through","nothing gets done"],
+  role:"Programme delivery lead or chief of staff",level:"Mid to senior, with authority across teams",
+  why:"The gap is between intent and action. You need someone who turns goals into owned plans and holds the organisation to them.",
+  sk:["Breaks ambiguous goals into owned, dated work","Surfaces trade-offs and bad news early","Influences without line authority"],
+  good:["Programme or project delivery in complex organisations","Chief of staff to a demanding leader","Operational leadership with targets to hit"],
+  weak:["Certifications without delivery stories","Strategy experience with no accountability for implementation"],
+  ask:"Describe a project that was failing when you picked it up. How did you find out why, and what did you change?",
+  areas:["delivery","planning","cos","data"]},
+ {id:"programme",l:"We run a fellowship or course and the logistics are overwhelming us",kw:["fellowship","course","cohort","participants","fellows","mentors","programme","program","residency","applications","housing"],
+  role:"Programme operations lead",level:"Mid-level, with a small team as cohorts grow",
+  why:"Delivery is your product. You need someone who designs a repeatable participant experience and improves it each round.",
+  sk:["Service design and logistics","Cares about participants while keeping to process","Uses feedback and data to improve each cohort"],
+  good:["Ran fellowships, education programmes or accelerators","Events or hospitality operations at volume","University or study-abroad programme administration"],
+  weak:["Pure event planning with no ongoing participant relationship","Research background with interest in operations but no delivery record"],
+  ask:"Walk me through a cohort you ran from applications to close. What did you change for the next one, and why?",
+  areas:["programmes","events","service","immigration","process"]},
+ {id:"money",l:"Money, compliance and legal structure worry me",kw:["finance","money","legal","tax","entity","charity","controls","budget","accounts","payroll","bookkeep"],
+  role:"Finance and operations manager",level:"Mid to senior, with outsourced accountants and lawyers",
+  why:"You want oversight and control, not an in-house accountant. The hire runs the function, manages advisers and keeps the board informed.",
+  sk:["Budgeting, forecasting and controls","Manages professional advisers firmly","Explains finances plainly to non-specialists"],
+  good:["Finance and operations lead at a grant-funded organisation","Finance business partner who has moved into general operations","Charity or non-profit operations with board exposure"],
+  weak:["Technical accountant with no interest in the wider organisation","Generalist who has never owned a budget"],
+  ask:"How would you find out, in your first two weeks, whether our financial controls are adequate?",
+  areas:["finance","legal","risk","fundops"]},
+ {id:"hiring",l:"We need to hire a lot of researchers quickly and well",kw:["recruit","hire","hiring","talent","candidates","researchers","pipeline","sourcing","interview"],
+  role:"Talent or recruiting lead",level:"Mid to senior, working closely with research leads",
+  why:"You need a hiring machine, with research leads still setting the bar. This is a specialism within operations.",
+  sk:["Designs hiring rounds and work tests","Sources actively and keeps candidates warm","Coaches hiring managers and uses pipeline data"],
+  good:["In-house technical recruiting at a growing company","Ran hiring rounds at a research or mission-led organisation","People generalist with a strong recruiting record"],
+  weak:["Agency recruiting only, with no process ownership","HR administration without sourcing or assessment experience"],
+  ask:"Show me a hiring process you designed. Where did candidates drop out, and what did you do about it?",
+  areas:["talent","people","immigration","orgdesign"]},
+ {id:"research",l:"Researchers are blocked on compute, tooling, access or coordination",kw:["compute","gpu","cluster","tooling","access","blocked","research manager","infrastructure","api","model access","coordination"],
+  role:"Research operations or research manager",level:"Mid-level, technically literate",
+  why:"Researcher time is your scarcest resource. You need someone who removes friction and runs research projects without directing the science.",
+  sk:["Enough technical fluency to understand what researchers need","Project management for uncertain work","Negotiates with vendors and model providers"],
+  good:["Technical programme manager in a research or engineering team","Lab manager or research administrator","Former researcher or engineer who prefers enabling others"],
+  weak:["Generalist with no technical curiosity","Researcher who wants this as a route back into research"],
+  ask:"A team says they are blocked on compute. How do you work out whether that is the real constraint?",
+  areas:["researchops","procurement","delivery","security"]},
+ {id:"security",l:"We handle sensitive models or information and security is ad hoc",kw:["security","sensitive","weights","confidential","leak","breach","access control","infosec","threat"],
+  role:"Security operations lead",level:"Senior, with specialist engineers or contractors alongside",
+  why:"You need proportionate policy, access discipline and incident readiness that staff will follow, backed by technical specialists.",
+  sk:["Risk assessment and proportionate policy","Incident response","Brings sceptical staff along"],
+  good:["Security operations or governance, risk and compliance roles","Government or defence backgrounds with protective security experience","IT lead who has taken an organisation through a security accreditation"],
+  weak:["Pure policy writers with no operational experience","Engineers with no interest in people and process"],
+  ask:"What are the first three controls you would put in place here, and what would you leave until later?",
+  areas:["security","it","risk","legal"]},
+ {id:"grants",l:"We move money to many people or organisations across countries",kw:["grant","grants","regrant","stipend","disburse","payments","recipients","funding out","international payments"],
+  role:"Grants operations manager",level:"Mid-level, process and controls focused",
+  why:"Volume, speed and compliance at the same time. Decisions about what to fund stay with investigators, and operations makes the money move safely.",
+  sk:["Process design at volume","Controls and due diligence","International payments and record keeping"],
+  good:["Grants management at a foundation","Payments, banking or financial operations","Programme finance in international development"],
+  weak:["Grant writing experience, which is the other side of the table","Finance generalist with no process ownership"],
+  ask:"How would you cut our time from decision to payment in half without weakening checks?",
+  areas:["grantops","finance","legal","process"]},
+ {id:"external",l:"Nobody owns our relationships with labs, governments or customers",kw:["partner","partnership","customers","clients","government","labs","sales","contracts","relationship","business development","revenue"],
+  role:"Partnerships or business development lead",level:"Mid to senior, credible with external counterparts",
+  why:"Relationships held personally by a founder do not scale. You need someone who builds a pipeline and carries agreements through to delivery.",
+  sk:["Commercial judgement and negotiation","Builds trust with senior counterparts","Hands over cleanly to delivery teams"],
+  good:["Sales or account management for complex services","Partnerships at a research or policy organisation","Public-sector roles working across agencies"],
+  weak:["Transactional sales with short cycles","Policy expertise with no record of closing agreements"],
+  ask:"Tell me about an agreement that took months to land. What nearly killed it?",
+  areas:["partnerships","strategy","delivery","legal"]},
+ {id:"clarity",l:"We do not know what is working or where to put our money",kw:["metrics","measure","impact","data","dashboard","what is working","prioritise","business case","invest","options","evidence"],
+  role:"Strategy and performance lead",level:"Mid to senior, analytical",
+  why:"You need options framed with costs and benefits, and honest measurement of results, so leadership can choose.",
+  sk:["Structured problem solving","Financial and business case modelling","Reports uncomfortable results plainly"],
+  good:["Strategy consulting followed by an operating role","Business case and investment appraisal roles in government or industry","Performance or analytics lead in an operational business"],
+  weak:["Analysts who have never had to act on their own analysis","Dashboard builders without a view on what matters"],
+  ask:"Pick one of our programmes. How would you decide whether to double it or stop it?",
+  areas:["strategy","data","planning"]},
+ {id:"expand",l:"We are opening a new office or setting up in a new country",kw:["office","new country","expand","lease","entity","relocat","visa","immigration","international","san francisco","london","move"],
+  role:"Operations lead for expansion",level:"Mid to senior, comfortable with many moving parts",
+  why:"A time-bound build with legal, people and property strands running in parallel, each needing outside advisers.",
+  sk:["Runs parallel workstreams to a date","Manages lawyers, agents and landlords","Sets up something that works on day one"],
+  good:["Opened an office or country for a growing organisation","Workplace or expansion lead at a scale-up","Project delivery roles with property or legal strands"],
+  weak:["Office management in an established site only","Advisers who recommend but have not delivered"],
+  ask:"List everything that has to be true on the day the first person walks in. What would you start this week?",
+  areas:["workplace","legal","immigration","delivery","people"]},
+ {id:"change",l:"The way we work has stopped working and needs to change",kw:["change","restructure","transformation","culture","reorgan","not working","dysfunction","turnaround","reset"],
+  role:"Transformation lead or interim COO",level:"Senior, with a clear mandate from the founder",
+  why:"This is change leadership. It needs someone who has redesigned how an organisation works and kept people with them through it.",
+  sk:["Diagnoses root causes, not symptoms","Leads people through uncertainty","Sequences change so the organisation keeps delivering"],
+  good:["Led a transformation or turnaround with accountable results","Senior operational leader in a large delivery organisation","Interim executive roles"],
+  weak:["Change consultants who left before implementation","Process improvers with no people leadership"],
+  ask:"Tell me about a change you led that people resisted. What did you get wrong at first?",
+  areas:["change","orgdesign","process","planning"]},
+ {id:"funding",l:"We need to raise money and are not sure which kind of funding suits us",kw:["fundrais","raise","raising","investor","investment","venture","vc","philanthrop","donor","funding","financing","runway","seed","series","dilution","revenue model"],
+  role:"Head of funding and investor relations, or a finance-minded COO",level:"Senior, working alongside the founder on every raise",
+  why:"The choice between grants, philanthropy, investment, debt and earned revenue shapes your independence and your safety commitments for years. You need someone who can compare the options, run the process and keep funders informed afterwards.",
+  sk:["Compares funding routes on control, conditions and cost, not only on amount","Builds the financial model, data room and reporting that funders expect","Spots terms that would weaken safety commitments or board authority"],
+  good:["Ran fundraising or investor relations at a mission-led startup or non-profit","Corporate finance, venture or foundation experience followed by an operating role","Finance lead who has taken an organisation through due diligence"],
+  weak:["Grant writers with no exposure to investment terms","Bankers who have only advised on deals and never had to live with the terms"],
+  ask:"We have offers of a large grant with reporting conditions and an equity investment with a board seat. How would you compare them?",
+  areas:["investor","fundops","finance","strategy","legal"]},
+ {id:"complaints",l:"Complaints and service problems are piling up, or we have no way to handle them",kw:["complaint","complaints","customer","customers","service","unhappy","feedback","support","tickets","escalation","users","participants","refund","response time"],
+  role:"Customer service and complaints lead",level:"Mid-level, growing into a team as volume rises",
+  why:"Complaints are early warning data. You need a clear route for people to raise problems, fair and timely resolution, and a habit of fixing the cause rather than each case.",
+  sk:["Designs a complaints process with clear stages, timescales and escalation","Handles upset people calmly and fairly","Turns complaint data into fixes elsewhere in the organisation"],
+  good:["Complaints or customer experience lead in a regulated sector","Contact centre or casework management","Service design roles with responsibility for outcomes"],
+  weak:["Front-line agents with no process ownership","Marketing-led customer experience with no case handling"],
+  ask:"What would you look at to tell whether a complaint is a one-off or a sign of something broken?",
+  areas:["service","process","data","marketing"]},
+ {id:"board",l:"Our board does not work well, or we need to set one up properly",kw:["board","governance","trustee","trustees","directors","chair","oversight","constitution","charter","accountab","non-executive"],
+  role:"Governance lead or company secretary, often within a COO remit",level:"Senior, trusted by the founder and the chair",
+  why:"Governance only works when the board has real authority, sees candid information and can intervene. That depends on how papers, decisions, conflicts and powers are set up.",
+  sk:["Designs board structures, committees and delegations of authority","Prepares clear, candid board papers","Manages conflicts of interest and keeps records that would stand up to scrutiny"],
+  good:["Company secretary or governance roles in charities or regulated firms","Chief of staff to a chair or chief executive","Senior operations leads who have rebuilt a board's reporting"],
+  weak:["Purely legal backgrounds with no feel for how boards behave","Administrators who take minutes but have not shaped decisions"],
+  ask:"How would you make sure the board hears bad news before it becomes a crisis?",
+  areas:["legal","investor","data","risk","cos"]},
+ {id:"culture",l:"Our team culture is strained, with friction, burnout or people leaving",kw:["culture","team","morale","burnout","conflict","friction","leaving","retention","turnover","toxic","trust","engagement","wellbeing","values","management"],
+  role:"Head of people and culture",level:"Senior, with standing to challenge leaders",
+  why:"Culture problems usually trace back to unclear roles, weak management, unfair processes or overload. You need someone who can diagnose the cause and change the systems, not only run engagement activities.",
+  sk:["Diagnoses culture problems from data and conversations","Coaches managers and handles difficult people issues","Designs fair processes for performance, pay and progression"],
+  good:["People lead who has steadied a team through rapid growth or a crisis","Experienced line manager of managers who moved into people work","Organisational development roles with measurable results"],
+  weak:["HR administration only","Culture as perks and events, with no process change"],
+  ask:"Three good people have left in six months. How would you find out why, and what would you do first?",
+  areas:["people","orgdesign","change","knowledge"]},
+ {id:"comms",l:"Our communication is not landing, inside the team or with the outside world",kw:["communicat","message","messaging","comms","internal comms","press","media","stakeholders","misunderstand","explain","reputation","public","newsletter","website"],
+  role:"Communications lead",level:"Mid to senior, depending on public profile",
+  why:"Research and safety commitments only change things if the right people understand them. You need someone who makes sure staff, partners, funders and the public hear a clear and consistent account.",
+  sk:["Clear writing for different audiences","Plans communications around decisions and launches","Prepares for difficult moments before they happen"],
+  good:["Communications lead at a research, policy or technical organisation","Journalism or science communication followed by an in-house role","Internal communications in a growing or changing organisation"],
+  weak:["Social media management only","Promotional marketing with no experience of complex or sensitive subjects"],
+  ask:"Take one of our recent findings. Who needs to know about it, and how would you tell each of them?",
+  areas:["marketing","knowledge","partnerships","risk"]},
+ {id:"regulation",l:"We need to manage risk and keep up with regulation",kw:["risk","regulat","regulation","regulatory","compliance","law","eu ai act","legislation","policy changes","audit","liability","insurance","standards","reporting obligations"],
+  role:"Risk and compliance lead",level:"Mid to senior, with outside legal support",
+  why:"AI regulation is changing quickly in several jurisdictions. You need someone who tracks what applies to you, builds proportionate controls, and makes sure leaders see the main risks and make deliberate decisions about them.",
+  sk:["Translates regulation into practical obligations and controls","Runs a risk register that leaders actually use","Builds working relationships with regulators and advisers"],
+  good:["Risk or compliance roles in financial services, health or other regulated technology","Government or regulator experience followed by an operating role","Operations leads who have taken an organisation through an audit or accreditation"],
+  weak:["Box-ticking compliance with no judgement about proportion","Policy experts who have never had to implement a rule"],
+  ask:"A new regulation might apply to us. Walk me through how you would decide what we need to do, and by when.",
+  areas:["risk","legal","policydelivery","security","data"]}
+];
+
+let org="all", sel="finance", picked=new Set(["admin"]);
+const $=id=>document.getElementById(id);
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+
+function renderChips(){
+  $("orgchips").innerHTML=ORGS.map(o=>`<button type="button" class="chip" id="org-${o.id}" data-org="${o.id}" aria-pressed="${o.id===org}">${o.name}</button>`).join("");
+}
+function renderSummary(){
+  const o=ORGS.find(x=>x.id===org);
+  let count;
+  if(org==="all"){count=`${AREAS.length} areas across four bands`;}
+  else{
+    const own=AREAS.filter(a=>lvl(a,org)===2).length, sh=AREAS.filter(a=>lvl(a,org)===1).length;
+    count=`Operations usually owns ${own} of ${AREAS.length} areas and shares ${sh} more`;
+  }
+  $("summary").innerHTML=`<span class="label">${o.name}</span><span class="count">${count}</span><p>${o.text}</p>`;
+  $("legend").innerHTML=org==="all"?`<span>Select any area to see what operations typically does and does not do there.</span>`:
+    [2,1,0].map(l=>`<span class="band-a"><i class="dot lv${l}" style="--band:var(--muted)"></i>${LV[l]}</span>`).join("");
+}
+function renderMap(){
+  $("cols").innerHTML=BANDS.map(b=>`<div class="col band-${b.id}"><header><h3>${b.name}</h3><p>${b.desc}</p></header>`+
+    AREAS.filter(a=>a.b===b.id).map(a=>`<button type="button" class="tile lv${lvl(a,org)}${org==="all"?" plain":""}" id="tile-${a.id}" data-area="${a.id}" aria-pressed="${a.id===sel}"><i class="dot"></i><span>${a.n}</span></button>`).join("")+`</div>`).join("");
+  if(org==="all")document.querySelectorAll(".tile").forEach(t=>t.classList.remove("lv2"));
+}
+function renderDetail(){
+  const a=BYID[sel], band=BANDS.find(b=>b.id===a.b), d=$("detail");
+  d.className="detail band-"+a.b;
+  const li=x=>x.map(t=>`<li><span>${t}</span></li>`).join("");
+  d.innerHTML=`<div class="block"><span class="label">${band.name}</span><h2>${a.n}</h2><p>${a.s}</p></div>
+  <div class="block"><h3>What operations typically does</h3><ul class="does">${a.does.map(t=>`<li>${t}</li>`).join("")}</ul></div>
+  <div class="block"><h3>What it typically does not do</h3><ul class="doesnt">${a.not.map(t=>`<li>${t}</li>`).join("")}</ul></div>
+  <div class="block"><h3>Skills that matter here</h3><div class="tags">${a.sk.map(t=>`<span class="tag">${t}</span>`).join("")}</div></div>
+  <div class="block"><h3>In AI safety organisations</h3><p class="aisafety">${a.ai}</p></div>
+  <div class="block"><h3>Who usually owns it</h3><ul class="own">${ORGS.slice(1).map(o=>{const l=lvl(a,o.id);return `<li><i class="dot lv${l}"></i><span>${o.name}</span><em>${["Someone else","Shared","Operations"][l]}</em></li>`}).join("")}</ul></div>`;
+}
+function renderAll(){renderChips();renderSummary();renderMap();renderDetail();}
+
+function renderProblems(){
+  $("problems").innerHTML=PROBLEMS.map(p=>`<button type="button" class="problem" id="prob-${p.id}" data-prob="${p.id}" aria-pressed="${picked.has(p.id)}">${p.l}</button>`).join("");
+}
+function renderResults(){
+  const ps=PROBLEMS.filter(p=>picked.has(p.id));
+  if(!ps.length){$("results").innerHTML=`<div class="verdict"><h3>Pick a problem to see the profile</h3><p class="note">Choose from the list, or describe your situation and match it.</p></div>`;return;}
+  const bands=new Set(ps.flatMap(p=>p.areas.map(id=>BYID[id].b)));
+  let verdict="";
+  if(ps.length>1){
+    const names=BANDS.filter(b=>bands.has(b.id)).map(b=>b.name.toLowerCase());
+    const wide=ps.length>=3||bands.size>=3;
+    verdict=`<div class="verdict"><span class="label">Reading these together</span><h3>${wide?"This is probably a senior generalist, or more than one hire":"These could sit with one person"}</h3>
+    <p>${ps.length} problems covering ${names.join(", ")}. ${wide?"When the list spans this much of the map, a single specialist will not cover it. Consider a Head of Operations who can own the breadth and bring in specialists, or split it into two roles and hire for the most urgent first.":"The areas overlap enough that one strong hire could own them. Decide which problem matters most and weight the interview towards it."}</p></div>`;
+  }
+  $("results").innerHTML=verdict+ps.map(p=>`<article class="rcard">
+    <div class="block"><span class="label">${p.l}</span><span class="role">${p.role}</span><span class="note">${p.level}</span><p>${p.why}</p></div>
+    <div class="rgrid">
+      <div class="block"><h3>Skills to test for</h3><ul>${p.sk.map(t=>`<li>${t}</li>`).join("")}</ul></div>
+      <div class="block"><h3>Backgrounds that are a good sign</h3><ul>${p.good.map(t=>`<li>${t}</li>`).join("")}</ul></div>
+      <div class="block"><h3>Weaker signals</h3><ul>${p.weak.map(t=>`<li>${t}</li>`).join("")}</ul></div>
+    </div>
+    <div class="block"><h3>A question to ask</h3><p class="ask">${p.ask}</p></div>
+    <div class="block"><h3>Where this sits on the map</h3><div class="tags">${p.areas.map(id=>`<button type="button" class="maplink band-${BYID[id].b}" data-goto="${id}">${BYID[id].n}</button>`).join("")}</div></div>
+  </article>`).join("");
+}
+function match(){
+  const t=$("freetext").value.toLowerCase().trim(), note=$("matchnote");
+  if(!t){note.textContent="Type a sentence or two about the problem first.";return;}
+  const scored=PROBLEMS.map(p=>({p,s:p.kw.filter(k=>t.includes(k)).length})).filter(x=>x.s>0).sort((a,b)=>b.s-a.s).slice(0,3);
+  if(!scored.length){note.textContent="No close match found. Pick the nearest problem from the list below.";return;}
+  picked=new Set(scored.map(x=>x.p.id));
+  note.textContent=`Matched ${scored.length} problem${scored.length>1?"s":""}. Adjust the selection below if it is not quite right.`;
+  renderProblems();renderResults();
+}
+
+function show(){
+  const TABS=["map","practice","hiring","sources"], h=(location.hash||"#map").slice(1), tab=TABS.includes(h)?h:"map";
+  TABS.forEach(v=>{$("view-"+v).hidden=v!==tab;});
+  document.querySelectorAll("nav.tabs a").forEach(a=>{if(a.dataset.tab===tab)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");});
+}
+
+
+const SHORT={finance:"Finance",people:"People and HR",legal:"Legal and governance",it:"IT and systems",workplace:"Workplace",security:"Security",planning:"Planning rhythm",talent:"Recruiting",immigration:"Immigration",knowledge:"Internal comms",procurement:"Procurement",data:"Performance data",risk:"Risk and resilience",fundops:"Fundraising",marketing:"Marketing and comms",investor:"Investor relations",strategy:"Strategy",delivery:"Project delivery",change:"Change leadership",process:"Process design",orgdesign:"Organisation design",cos:"Chief of staff",programmes:"Programme operations",events:"Events",researchops:"Research operations",service:"Customer service",partnerships:"Partnerships",grantops:"Grantmaking",frontline:"Front-line delivery",enforcement:"Investigation",policydelivery:"Policy implementation"};
+const CASES=[
+ {id:"policy",chip:"A safety policy",intent:"We have a written safety policy.",outcome:"People act safely by default, including under deadline pressure.",spans:[
+  {t:"Understood",how:"Onboarding, training and plain-language guidance mean each person knows what the policy asks of them in their own job.",fail:"The policy is a document most staff have never opened.",areas:["people","knowledge"]},
+  {t:"Followed",how:"The safe route is built into everyday tools and workflows, so following the policy is easier than working around it.",fail:"People work around the policy because it does not fit how the work is done.",areas:["process","it"]},
+  {t:"Accountable",how:"Each requirement has a named owner, compliance is measured, and breaches have consequences.",fail:"Breaches go unnoticed, and nothing happens when they are noticed.",areas:["orgdesign","data"]}]},
+ {id:"eval",chip:"An evaluation process",intent:"We evaluate our models before release.",outcome:"Evaluation results change what ships, and when.",spans:[
+  {t:"In the release decision",how:"The release plan has a gate that cannot be passed without the evaluation result, and time for it is scheduled from the start.",fail:"Results arrive after the launch decision has already been made.",areas:["planning","delivery"]},
+  {t:"Escalation route",how:"A concerning result goes to a named person with a deadline to respond, and upwards if they do not.",fail:"A worrying result is raised in a chat channel and goes nowhere.",areas:["risk","legal"]},
+  {t:"Resourced",how:"Compute, model access and evaluator time are secured before they are needed.",fail:"Evaluations are cut short because compute or people were not available in time.",areas:["researchops","procurement"]}]},
+ {id:"incident",chip:"An incident response framework",intent:"We have an incident response framework.",outcome:"When something goes wrong, the first hour goes on the response.",spans:[
+  {t:"Clear roles",how:"Everyone knows in advance who leads, who decides and who supports, including out of hours.",fail:"The first hour is spent working out who is in charge.",areas:["orgdesign","people"]},
+  {t:"Channels ready",how:"Internal channels, contact lists and pre-agreed external messages exist before they are needed.",fail:"Staff, partners and the press hear different stories at different times.",areas:["knowledge","marketing"]},
+  {t:"Authority agreed",how:"The incident lead already has the authority to pause work, spend money and inform partners.",fail:"The response stalls while people seek permission.",areas:["legal","risk"]},
+  {t:"Rehearsed",how:"The plan has been exercised, and what was learned has changed it.",fail:"The plan meets reality for the first time during a real incident.",areas:["risk","process"]}]},
+ {id:"research",chip:"A research finding",intent:"Our research has produced an important finding.",outcome:"The finding changes decisions, inside the organisation and beyond it.",spans:[
+  {t:"Route to decisions",how:"Findings enter the planning cycle and reach the people who set priorities.",fail:"The finding is published and the organisation's own plans do not change.",areas:["planning","cos"]},
+  {t:"Translated",how:"The finding is rewritten for the people who must act on it: executives, partners and policy makers.",fail:"The people who could act on the finding cannot tell what it asks of them.",areas:["marketing","partnerships"]},
+  {t:"Owned and tracked",how:"Someone owns each recommended action and reports on whether it happened.",fail:"Everyone agrees the finding matters and nobody is responsible for acting on it.",areas:["delivery","data"]}]},
+ {id:"governance",chip:"A governance structure",intent:"We have a board and a governance structure.",outcome:"Governance can stop something, and does when it needs to.",spans:[
+  {t:"Genuine authority",how:"The board's powers are written into the constitution, contracts and funding terms.",fail:"The board advises, and can be ignored or replaced when it objects.",areas:["legal","investor"]},
+  {t:"Visibility",how:"Candid reporting on performance, money and risk reaches the board without being filtered.",fail:"The board learns about problems from the press.",areas:["data","finance"]},
+  {t:"Ability to intervene",how:"There are working mechanisms to pause, escalate or reverse a decision, and they have been tested.",fail:"The board can object, and has no practical way to stop anything.",areas:["risk","planning"]}]},
+ {id:"verify",chip:"Implementing a verification system",intent:"We will verify that AI developers keep to an agreement on compute or model training.",outcome:"Developers are checked reliably and fairly, breaches are found and acted on, and the parties trust the results.",spans:[
+  {t:"Workable procedures",how:"Inspection procedures and evidence standards are written with the parties and tested on real sites before launch.",fail:"Inspectors arrive with rules that cannot be applied consistently, and every finding is disputed.",areas:["policydelivery","process","partnerships"]},
+  {t:"Trained, vetted people",how:"Inspectors with technical and investigative skills are recruited, security vetted and trained before checks begin.",fail:"There are too few qualified inspectors, so checks are late, shallow or skipped.",areas:["talent","people","security"]},
+  {t:"Risk-based checking",how:"Intelligence and data decide which sites and activities are checked, with capacity planned against demand.",fail:"Effort is spread thinly and the riskiest activity goes unchecked.",areas:["data","enforcement","frontline"]},
+  {t:"Escalation with teeth",how:"Findings follow a defined route to people with the authority to act, and developers can appeal.",fail:"Breaches are found and nothing happens, so the system loses its credibility.",areas:["enforcement","legal","risk"]}],
+  hand:[["partnerships","policydelivery","Procedures are workable only if the developers being checked help test them."],
+   ["process","frontline","At volume, small flaws in the inspection process become large backlogs."],
+   ["people","security","Vetting happens during onboarding, before inspectors see sensitive sites."],
+   ["talent","frontline","Inspection capacity is only as large as the hiring pipeline behind it."],
+   ["data","enforcement","Intelligence and data decide which sites and activities are checked."],
+   ["frontline","enforcement","Inspectors on site spot the patterns that investigators follow up."],
+   ["security","enforcement","Evidence from inspections is sensitive and has to be protected."],
+   ["enforcement","legal","Findings need a sound legal basis before anyone acts on them."],
+   ["legal","risk","Serious breaches go to people with the authority to act, by an agreed route."]]}
+];
+const LINKS=[
+ ["finance","planning","Budgets only mean something when they follow the plan's priorities."],
+ ["finance","investor","Funders can trust the numbers only if the controls behind them are real."],
+ ["finance","procurement","Compute and supplier commitments are the largest calls on the budget."],
+ ["finance","grantops","Every grant paid out has to reconcile to the books."],
+ ["finance","fundops","Grant budgets and funder reports come from the same ledger."],
+ ["people","talent","Recruiting promises a job that people operations then has to deliver."],
+ ["people","security","A security policy reaches staff through onboarding and training."],
+ ["people","orgdesign","Roles and reporting lines become contracts, pay bands and managers."],
+ ["people","immigration","An offer is not a hire until the visa and relocation work."],
+ ["people","knowledge","People follow what they were shown when they joined."],
+ ["legal","risk","Governance gets its force from knowing the risks it must oversee."],
+ ["legal","investor","Investor terms define what a board can and cannot stop."],
+ ["legal","partnerships","Agreements with labs and governments set what researchers may see and say."],
+ ["legal","security","Confidentiality duties in contracts become security controls."],
+ ["legal","enforcement","Investigations work within legal powers and safeguards."],
+ ["it","security","Access rules live in the tools people use."],
+ ["it","process","Processes hold when they are built into systems, not only written down."],
+ ["it","researchops","Research tooling and corporate IT share accounts, access and data."],
+ ["workplace","security","Physical access is part of protecting sensitive work."],
+ ["workplace","events","The office doubles as the venue for seminars and visitors."],
+ ["planning","strategy","Strategy becomes real when it enters the quarterly plan."],
+ ["planning","delivery","Plans name the projects, and delivery lands them."],
+ ["planning","data","Each planning cycle starts from what the measures say."],
+ ["planning","researchops","Research priorities need compute, people and time allocated to them."],
+ ["planning","cos","The chief of staff carries decisions from the leadership meeting to the people who act."],
+ ["planning","risk","A decision to pause or escalate needs a forum with the power to take it."],
+ ["knowledge","change","People adopt a change they have been told about clearly and often."],
+ ["knowledge","risk","In an incident, internal channels decide who knows what, and when."],
+ ["knowledge","marketing","Staff and the public should hear the same account."],
+ ["marketing","researchops","Findings reach decision-makers when publication is planned, not improvised."],
+ ["marketing","risk","What is said publicly in an incident has to be agreed before one happens."],
+ ["marketing","programmes","Programmes fill with the right applicants through outreach."],
+ ["marketing","partnerships","Public messages and partner commitments have to match."],
+ ["marketing","investor","Funders and the public should hear the same account of the mission."],
+ ["investor","strategy","Funding terms shape which strategies are possible, so safety commitments belong in them early."],
+ ["investor","data","Honest reporting to funders depends on honest internal measures."],
+ ["fundops","data","Funder reports draw on performance data."],
+ ["procurement","researchops","Compute and model access are bought through contracts."],
+ ["data","service","Complaints and feedback are the earliest data on what is failing."],
+ ["data","orgdesign","Accountability needs a named owner and a measure."],
+ ["data","delivery","Actions are tracked until someone can show they happened."],
+ ["risk","security","Security incidents follow the same escalation route as any other risk."],
+ ["risk","researchops","A concerning evaluation result needs an escalation path that already exists."],
+ ["risk","process","Rehearsals turn a response plan into a working process."],
+ ["strategy","partnerships","Which labs and governments to work with is a strategic choice with delivery consequences."],
+ ["delivery","researchops","Evaluations promised before a release are projects with deadlines."],
+ ["delivery","policydelivery","A policy decision becomes a working service through delivery."],
+ ["change","orgdesign","A new structure only works if people move into it willingly."],
+ ["process","frontline","At volume, small process flaws become large backlogs."],
+ ["process","grantops","Fast, safe payments are a process design problem."],
+ ["orgdesign","talent","The hiring plan follows the structure."],
+ ["programmes","immigration","Fellows arrive only if visas and housing are arranged."],
+ ["programmes","service","Participant support is the programme as fellows experience it."],
+ ["programmes","events","Seminars and symposia are part of how a cohort learns."],
+ ["events","partnerships","Convenings are where partnerships start."],
+ ["partnerships","delivery","A signed agreement is a delivery commitment."],
+ ["frontline","enforcement","Front-line staff spot the patterns that investigators follow up."],
+ ["enforcement","policydelivery","Rules matter when someone checks they are followed."],
+ ["data","enforcement","Risk-based checking depends on good intelligence and data."],
+ ["risk","enforcement","Serious findings follow the escalation route that risk management set up."],
+ ["security","enforcement","Inspectors handle sensitive evidence that has to be protected."],
+ ["partnerships","policydelivery","Procedures are workable only if the parties being checked help test them."],
+ ["talent","frontline","Front-line capacity is only as large as the hiring pipeline behind it."]
+];
+let curCase="verify", removed=new Set(), net={type:"case",id:"verify"}, lastCase="verify";
+const linkBtn=id=>`<button type="button" class="maplink band-${BYID[id].b}" data-goto="${id}">${BYID[id].n}</button>`;
+function renderBridge(){
+  const c=CASES.find(x=>x.id===curCase), out=c.spans.filter((s,i)=>removed.has(i));
+  $("casechips").innerHTML=CASES.map(x=>`<button type="button" class="chip" id="case-${x.id}" data-case="${x.id}" aria-pressed="${x.id===curCase}">${x.chip}</button>`).join("");
+  $("bridge").innerHTML=`<div class="bank"><span>Intent</span></div>`+c.spans.map((s,i)=>`<button type="button" class="span${removed.has(i)?" out":""}" id="span-${i}" data-span="${i}" aria-pressed="${!removed.has(i)}" aria-label="${s.t}: ${removed.has(i)?"removed":"in place"}"><span class="slabel"><b>${i+1}</b><em>${s.t}</em></span><i class="deck"></i><i class="arch"></i></button>`).join("")+`<div class="bank end${out.length?" fail":""}"><span>${out.length?"Fails":"Outcome"}</span></div>`;
+  $("ends").innerHTML=`<div class="endcard"><span class="label">What the organisation says</span><strong>${c.intent}</strong></div>`+
+    (out.length?`<div class="endcard fail"><span class="label">What happens without ${out.length>1?"those spans":"that span"}</span><strong>The intention does not reach the real world.</strong><ul>${out.map(s=>`<li>${s.fail}</li>`).join("")}</ul></div>`
+      :`<div class="endcard"><span class="label">What happens when every span holds</span><strong>${c.outcome}</strong></div>`);
+  $("spancards").innerHTML=c.spans.map((s,i)=>`<div class="scard${removed.has(i)?" out":""}"><span class="label">Span ${i+1}</span><h3>${s.t}</h3><p>${removed.has(i)?s.fail:s.how}</p><div class="tags">${s.areas.map(linkBtn).join("")}</div><button type="button" class="toggle" id="toggle-${i}" data-span="${i}">${removed.has(i)?"Put it back":"Take it away"}</button></div>`).join("");
+}
+
+function renderLanes(c){
+  const order=AREAS.map(a=>a.id), used=[...new Set(c.spans.flatMap(sp=>sp.areas))].sort((x,y)=>order.indexOf(x)-order.indexOf(y));
+  const n=c.spans.length,LW=200,W=1000,HH=64,RH=44,colW=(W-LW)/n,H=HH+used.length*RH+12;
+  const X=i=>LW+colW*(i+.5),Y=id=>HH+used.indexOf(id)*RH+RH/2;
+  const spansOf=id=>c.spans.map((sp,i)=>sp.areas.includes(id)?i:-1).filter(i=>i>=0);
+  const links=(c.hand||LINKS.filter(l=>used.includes(l[0])&&used.includes(l[1]))).map(l=>{
+    let best=null;spansOf(l[0]).forEach(i=>spansOf(l[1]).forEach(j=>{const d=Math.abs(i-j);if(!best||d<best.d)best={d,i,j};}));
+    let [a,b,i,j]=[l[0],l[1],best.i,best.j]; if(j<i||(j===i&&used.indexOf(b)<used.indexOf(a))){[a,b,i,j]=[b,a,j,i];}
+    return {a,b,i,j,why:l[2]};}).sort((p,q)=>p.i-q.i||p.j-q.j);
+  let g=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Process map for ${c.chip.toLowerCase()}: ${n} steps across ${used.length} functions, with ${links.length} hand-offs"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ln-arrow" d="M0,0 L10,5 L0,10 z"/></marker></defs>`;
+  used.forEach((id,k)=>{if(k%2===0)g+=`<rect class="ln-lane" x="0" y="${HH+k*RH}" width="${W}" height="${RH}"/>`;
+    g+=`<text class="ln-name" x="12" y="${Y(id)}" dy=".35em">${SHORT[id]}</text>`;
+    const sp=spansOf(id); if(sp.length>1)g+=`<line class="ln-track" x1="${X(sp[0])}" y1="${Y(id)}" x2="${X(sp[sp.length-1])}" y2="${Y(id)}"/>`;});
+  c.spans.forEach((sp,i)=>{g+=`<text class="ln-num" x="${X(i)}" y="20" text-anchor="middle">STEP ${i+1}</text><text class="ln-stage" x="${X(i)}" y="42" text-anchor="middle">${sp.t}</text>`;
+    if(i>0)g+=`<line class="ln-col" x1="${LW+colW*i}" y1="8" x2="${LW+colW*i}" y2="${H-6}"/>`;});
+  const sameCount={};
+  links.forEach((L,k)=>{const x1=X(L.i),y1=Y(L.a),x2=X(L.j),y2=Y(L.b);let d,mx,my;
+    if(L.i===L.j){const key=L.i;sameCount[key]=(sameCount[key]||0)+1;const off=26+sameCount[key]*16, sgn=sameCount[key]%2?1:-1, bx=x1+sgn*off;
+      d=`M${x1+sgn*9},${y1} C${bx},${y1} ${bx},${y2} ${x2+sgn*9},${y2}`;mx=x1+sgn*(off*.75);my=(y1+y2)/2;}
+    else{const dx=(x2-x1)*.5;d=`M${x1+9},${y1} C${x1+dx},${y1} ${x2-dx},${y2} ${x2-11},${y2}`;mx=(x1+x2)/2;my=(y1+y2)/2;}
+    L.mx=mx;L.my=my;g+=`<path class="ln-link" d="${d}" marker-end="url(#ah)"/>`;});
+  c.spans.forEach((sp,i)=>sp.areas.forEach(id=>{g+=`<circle class="ln-node band-${BYID[id].b}" style="--band:var(--${BYID[id].b})" cx="${X(i)}" cy="${Y(id)}" r="8"/>`;}));
+  links.forEach((L,k)=>{g+=`<circle class="ln-badge" cx="${L.mx}" cy="${L.my}" r="10"/><text class="ln-badget" x="${L.mx}" y="${L.my}" dy=".35em">${k+1}</text>`;});
+  g+="</svg>";
+  $("lanebox").innerHTML=`<div class="block"><span class="label">${c.chip}</span><h3>${c.outcome}</h3></div>
+  <div class="lanesteps"><div><b>1</b><p><strong>What needs to happen.</strong> The ${n} steps run left to right. A dot shows each function that does part of that step.</p></div><div><b>2</b><p><strong>What it relies on.</strong> Each numbered arrow is a hand-off between functions. If a hand-off fails, the step fails, even when each function does its own part well.</p></div></div>
+  <div class="lanescroll">${g}</div>
+  <ul class="handoffs">${links.map((L,k)=>`<li><i>${k+1}</i><span><b>${SHORT[L.a]} to ${SHORT[L.b].toLowerCase()}</b>${L.why}</span></li>`).join("")}</ul>`;
+}
+function renderNet(){
+  const N=AREAS.length,cx=430,cy=430,R=250,pos={};
+  AREAS.forEach((a,i)=>{const t=-Math.PI/2+2*Math.PI*i/N;pos[a.id]={x:cx+R*Math.cos(t),y:cy+R*Math.sin(t),t};});
+  const lit=new Set();let hot=[],c=null;
+  if(net.type==="case"){c=CASES.find(x=>x.id===net.id);c.spans.forEach(s=>s.areas.forEach(id=>lit.add(id)));hot=LINKS.filter(l=>lit.has(l[0])&&lit.has(l[1]));}
+  else{lit.add(net.id);hot=LINKS.filter(l=>l[0]===net.id||l[1]===net.id);hot.forEach(l=>{lit.add(l[0]);lit.add(l[1]);});}
+  const path=l=>{const p=pos[l[0]],q=pos[l[1]],mx=(p.x+q.x)/2,my=(p.y+q.y)/2;return `M${p.x.toFixed(1)},${p.y.toFixed(1)} Q${(mx+(cx-mx)*.6).toFixed(1)},${(my+(cy-my)*.6).toFixed(1)} ${q.x.toFixed(1)},${q.y.toFixed(1)}`;};
+  let s=`<svg viewBox="0 0 860 860" role="group" aria-label="Ring of ${N} operational elements with the connections between them">`;
+  s+=LINKS.filter(l=>!hot.includes(l)).map(l=>`<path class="lk" d="${path(l)}"/>`).join("");
+  if(c)s+=[...lit].map(id=>`<line class="spoke" x1="${pos[id].x.toFixed(1)}" y1="${pos[id].y.toFixed(1)}" x2="${cx}" y2="${cy}"/>`).join("");
+  s+=hot.map(l=>`<path class="lk hot" d="${path(l)}"/>`).join("");
+  s+=`<circle class="hub" cx="${cx}" cy="${cy}" r="62"/><text class="hubt" x="${cx}" y="${cy-4}">Real-world</text><text class="hubt" x="${cx}" y="${cy+17}">impact</text>`;
+  s+=AREAS.map(a=>{const p=pos[a.id],deg=p.t*180/Math.PI,left=Math.cos(p.t)<-0.001,lx=cx+(R+16)*Math.cos(p.t),ly=cy+(R+16)*Math.sin(p.t);
+    return `<g class="node band-${a.b}${lit.has(a.id)?" lit":" dim"}${net.type==="node"&&net.id===a.id?" sel":""}" data-node="${a.id}" tabindex="0" role="button" aria-label="${a.n}"><circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="7"/><text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" dy=".35em" text-anchor="${left?"end":"start"}" transform="rotate(${(left?deg+180:deg).toFixed(1)} ${lx.toFixed(1)} ${ly.toFixed(1)})">${SHORT[a.id]}</text></g>`;}).join("");
+  $("net").innerHTML=s+"</svg>";
+  $("netchips").innerHTML=CASES.map(x=>`<button type="button" class="chip" id="net-${x.id}" data-netcase="${x.id}" aria-pressed="${net.type==="case"&&net.id===x.id}">${x.chip}</button>`).join("");
+  if(c){
+    renderLanes(c);
+    $("netpanel").innerHTML=`<div class="block"><span class="label">${c.chip}</span><h3>${lit.size} of ${AREAS.length} areas involved</h3><p>Every highlighted area also connects to others on the ring. Pressure on any of them, such as a hiring freeze or an overloaded legal adviser, reaches this work too.</p></div><p class="note">Select any area on the ring to see its connections.</p>`;
+  }else{
+    renderLanes(CASES.find(x=>x.id===lastCase));
+    const a=BYID[net.id],band=BANDS.find(b=>b.id===a.b);
+    $("netpanel").innerHTML=`<div class="block band-${a.b}"><span class="label">${band.name}</span><h2>${a.n}</h2><p>${a.s}</p></div>
+    <div class="block"><h3>Connected to ${hot.length} other element${hot.length===1?"":"s"}</h3><ul>${hot.map(l=>{const o=l[0]===a.id?l[1]:l[0];return `<li><b>${BYID[o].n}</b><span>${l[2]}</span></li>`;}).join("")}</ul></div>
+    <div class="tags">${linkBtn(a.id)}</div><p class="note">Opens this element in the field map, with what operations does and does not do.</p>`;
+  }
+}
+document.addEventListener("keydown",e=>{const n=e.target.closest&&e.target.closest("[data-node]");if(n&&(e.key==="Enter"||e.key===" ")){e.preventDefault();net={type:"node",id:n.dataset.node};renderNet();}});
+
+document.addEventListener("click",e=>{
+  const cs=e.target.closest("[data-case]"); if(cs){curCase=cs.dataset.case;removed=new Set();renderBridge();return;}
+  const sp=e.target.closest("[data-span]"); if(sp){const i=+sp.dataset.span;removed.has(i)?removed.delete(i):removed.add(i);renderBridge();return;}
+  const nc=e.target.closest("[data-netcase]"); if(nc){net={type:"case",id:nc.dataset.netcase};lastCase=net.id;renderNet();return;}
+  const nd=e.target.closest("[data-node]"); if(nd){net={type:"node",id:nd.dataset.node};renderNet();return;}
+  const c=e.target.closest("[data-org]"); if(c){org=c.dataset.org;store.set("ofm-org",org);renderAll();return;}
+  const t=e.target.closest("[data-area]"); if(t){sel=t.dataset.area;renderMap();renderDetail();
+    if(window.matchMedia("(max-width:1080px)").matches)$("detail").scrollIntoView({behavior:"smooth",block:"start"});return;}
+  const p=e.target.closest("[data-prob]"); if(p){const id=p.dataset.prob;picked.has(id)?picked.delete(id):picked.add(id);renderProblems();renderResults();return;}
+  const g=e.target.closest("[data-goto]"); if(g){sel=g.dataset.goto;renderMap();renderDetail();location.hash="#map";show();
+    $("detail").scrollIntoView({block:"nearest"});return;}
+});
+$("matchbtn").addEventListener("click",match);
+window.addEventListener("hashchange",show);
+const saved=store.get("ofm-org"); if(saved&&ORGS.some(o=>o.id===saved))org=saved;
+renderAll();renderProblems();renderResults();renderBridge();renderNet();show();
+</script>
