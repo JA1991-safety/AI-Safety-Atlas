@@ -1,0 +1,1098 @@
+# Japan: area profile
+# Status: DRAFT, researched by Claude on 19 November 2026, awaiting editor review.
+# Every statement cites one or more sources from the list at the bottom of this file.
+# Direct quotes were copied from the source pages on the access date.
+# Sources from the Government of Japan, its agencies, and organisations and media based in Japan
+# count as "inside".
+# The principles section uses the ten common guiding principles of the AI Guidelines for Business
+# (Ministry of Internal Affairs and Communications and Ministry of Economy, Trade and Industry,
+# version 1.2, March 2026) as Japan's own set, following the editor's decision of 18 Nov 2026 to use
+# each country's own principles.
+
+code: JP
+name: Japan
+status: draft
+last_reviewed: 2026-11-19
+editor_approved: false
+reviewers: []
+
+summary:
+  overview:
+    - text: >-
+        Japan's AI Act, fully in force since September 2025, promotes the research and use of AI. It
+        set up an AI Strategic Headquarters and a national AI Basic Plan, and places duties on
+        businesses "with no described penalty".
+      sources: [whitecase-ai-act-2026, cliffordchance-2026]
+    - text: >-
+        Detailed expectations are set in voluntary guidelines, including the AI Guidelines for Business,
+        whose ten principles include safety, fairness, transparency and accountability. The Japan AI
+        Safety Institute, set up in February 2024, publishes guides on evaluating AI and on red
+        teaming.
+      sources: [mic-meti-guidelines-2026, aisi-deck-2026]
+    - text: >-
+        A 2026 revision of the AI Basic Plan responds to frontier AI models that can find and exploit
+        software vulnerabilities, with stronger cyber defences and a larger role for the safety
+        institute in evaluating advanced models.
+      sources: [computerweekly-plan-2026, sbsstar-plan-2026]
+    - text: >-
+        In a Kioicho Strategy Institute survey in June 2026, 58% said some regulation of AI is needed
+        but should not be strengthened too much, and 20% said it should be strengthened.
+      sources: [ksi-poll-2026]
+  regulation_line:
+    text: >-
+      A law that promotes AI and sets no penalties, a national AI Basic Plan, voluntary guidelines for
+      businesses, and a safety institute that publishes evaluation guides.
+    sources: [whitecase-ai-act-2026, cao-plan-2026, mic-meti-guidelines-2026, aisi-deck-2026]
+
+facets:
+  regulatory_approach: voluntary_guidance
+  safety_institute:
+    status: "yes"
+    name: Japan AI Safety Institute (J-AISI)
+    sources: [aisi-deck-2026]
+  frontier_developers:
+    status: "yes"
+    note: >-
+      Sakana AI, which signed the Paris Call for AI Safety and Security in November 2026, said in
+      October 2026 that it is training its own large language model. A company set up by SoftBank,
+      NEC, Honda and Sony in April 2026 aims to build a trillion-parameter-class model for physical AI.
+    sources: [elysee-paris-call-2026, lds-sakana-2026, lilting-foundation-2026]
+  national_polling: "yes"
+  commitments:
+    - key: bletchley_declaration
+      status: signed
+      date: 2023-11-01
+      sources: [gov-bletchley-2023]
+    - key: seoul_declaration
+      status: signed
+      date: 2024-05-21
+      sources: [gov-seoul-2024]
+    - key: coe_convention
+      status: signed
+      date: 2025-02-11
+      sources: [gac-coe-2025]
+    - key: paris_statement
+      status: signed
+      date: 2025-02-11
+      sources: [elysee-paris-2025]
+    - key: new_delhi_declaration
+      status: endorsed
+      date: 2026-02
+      sources: [theprint-new-delhi-2026]
+
+attitudes:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      The Kioicho Strategy Institute release gives the fieldwork day but not the year; it was released
+      in July 2026. The KPMG summary for Japan does not give fieldwork dates or a sample size. The
+      Yomiuri figure is about AI-generated misinformation only, and is from 2024. Survey wording
+      differs, so figures from different polls should not be compared directly.
+  headline_figures:
+    - value: "58%"
+      label: >-
+        say some regulation of AI is needed but should not be strengthened too much; 20% say it should
+        be strengthened, 11% want minimal rules and 4% none
+      fieldwork: 21 June 2026
+      sample: 1,000 adults aged 18 and over, online (Kioicho Strategy Institute)
+      source: ksi-poll-2026
+    - value: "71%"
+      label: >-
+        name the spread of disinformation and fake news as a risk of AI, the answer chosen most often
+      fieldwork: 21 June 2026
+      sample: 1,000 adults aged 18 and over, online (Kioicho Strategy Institute)
+      source: ksi-poll-2026
+  statements:
+    - text: >-
+        In the KPMG and University of Melbourne global study published in 2025, 68% of respondents in
+        Japan said AI regulation is required and 23% that current safeguards are sufficient. 28% said
+        they were willing to trust AI, and 70% were concerned about negative outcomes from AI.
+      sources: [kpmg-trust-2025]
+    - text: >-
+        In a Yomiuri Shimbun mail survey in March and April 2024, 89% said the government should
+        regulate AI-generated misinformation by law.
+      sources: [yomiuri-poll-2024]
+    - text: >-
+        In the Kioicho survey, 78% said they use AI services, and 73% said Japan needs to develop
+        high-performance AI models of its own.
+      sources: [ksi-poll-2026]
+    - text: >-
+        A Sasakawa Peace Foundation analysis of international surveys found opinion of AI in Japan more
+        pessimistic than in most other countries, and linked this to economic worries and low trust in
+        authorities.
+      sources: [spf-pessimism-2026]
+
+regulation:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      The AI Act and the December 2025 guidelines are described from law firm briefings. The 2026
+      revision of the AI Basic Plan is described from a provisional English translation dated 14 July
+      2026 and news reports; we could not confirm the date of Cabinet approval. How the personal
+      information law, copyright law and sector rules apply to AI is not covered in this draft.
+  items:
+    - kind: law
+      title: Act on Promotion of Research and Development and Utilization of Artificial Intelligence-Related Technologies (AI Act)
+      date: 2025-05-28
+      status: Passed 28 May 2025; fully in force since 1 September 2025
+      text: >-
+        Sets basic principles, creates the AI Strategic Headquarters and requires an AI Basic Plan. It
+        places duties on businesses, framed as efforts, "with no described penalty". The headquarters
+        can request cooperation from any entity when especially necessary.
+      sources: [whitecase-ai-act-2026, cliffordchance-2026]
+    - kind: strategy
+      title: Artificial Intelligence Basic Plan
+      date: 2025-12-23
+      status: Decided by the Cabinet; to be updated, in principle, every year
+      text: >-
+        Japan's first national plan under the AI Act. It sets four directions: adopting AI, building AI
+        capabilities, making AI trustworthy, and building an AI-powered society. It includes more staff
+        for the AI Safety Institute and AI education in schools.
+      sources: [babl-plan-2025, cao-plan-2026]
+    - kind: strategy
+      title: Revision of the AI Basic Plan
+      date: 2026-06-19
+      status: Draft published for comment in June 2026; English text dated 14 July 2026
+      text: >-
+        Responds to high-performance AI that can be used for cyber attacks. It strengthens cyber
+        defences, expands the AI Safety Institute's role in evaluating advanced models, and prioritises
+        technology to detect AI-generated disinformation.
+      sources: [computerweekly-plan-2026, sbsstar-plan-2026, cao-plan-2026]
+    - kind: guidance
+      title: Guidelines for Ensuring the Appropriateness of Research and Development and Utilisation of AI-Related Technology
+      date: 2025-12-19
+      status: Issued by the AI Strategic Headquarters; not binding
+      text: >-
+        Ask businesses to set up AI governance, explain training data sources and outputs, and take
+        measures such as watermarking against misuse. They "do not introduce legally binding
+        obligations or penalties".
+      sources: [cliffordchance-2026]
+    - kind: guidance
+      title: AI Guidelines for Business, version 1.2
+      date: 2026-03-31
+      status: Voluntary; first published in April 2024
+      text: >-
+        Published by the Ministry of Internal Affairs and Communications and the Ministry of Economy,
+        Trade and Industry. Sets ten common guiding principles and asks businesses to follow the
+        Hiroshima AI Process guiding principles.
+      sources: [mic-meti-guidelines-2026, iba-japan-2025]
+    - kind: institution
+      title: Japan AI Safety Institute (J-AISI)
+      date: 2024-02
+      status: Operating
+      text: >-
+        Set up after the G7 Hiroshima AI Process, with 12 ministries and agencies and five related
+        organisations taking part. It publishes guides on evaluation, red teaming, incident response
+        and data quality, and an annual report on AI safety in Japan.
+      sources: [aisi-deck-2026]
+    - kind: international
+      title: Hiroshima AI Process reporting framework
+      date: 2025-02
+      status: Operating; reporting is voluntary
+      text: >-
+        A framework for organisations to report voluntarily on how they follow the Hiroshima Process
+        International Code of Conduct for Organizations Developing Advanced AI Systems, agreed through
+        the G7 under Japan's presidency.
+      sources: [mic-meti-guidelines-2026, aisi-deck-2026]
+    - kind: international
+      title: International agreements
+      date: 2026-02
+      status: See filters
+      text: >-
+        Japan signed the 2023 Bletchley Declaration and the 2024 Seoul Declaration, signed the Council
+        of Europe AI convention and joined the Paris AI Action Summit statement in February 2025, and
+        endorsed the New Delhi Declaration in February 2026.
+      sources: [gov-bletchley-2023, gov-seoul-2024, gac-coe-2025, elysee-paris-2025, theprint-new-delhi-2026]
+
+culture:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      No local reviewer yet. Most sources are in English, and several are translations; Japanese-
+      language debate is under-represented. No minister, member of the Diet or labour voice is quoted
+      directly.
+  summary:
+    - text: >-
+        Government policy puts promotion first. The AI Basic Plan says Japan aims to become "the most
+        AI-friendly country in the world", while ensuring safety.
+      sources: [cao-plan-2026]
+    - text: >-
+        Public opinion is more cautious. A Sasakawa Peace Foundation researcher describes it as
+        pessimistic compared with other countries, and most people in surveys want at least some
+        regulation.
+      sources: [spf-pessimism-2026, ksi-poll-2026, yomiuri-poll-2024]
+    - text: >-
+        Japan led the G7 Hiroshima AI Process in 2023, and its business guidelines ask companies to
+        follow the process's guiding principles. Its AI Safety Institute was set up afterwards.
+      sources: [mic-meti-guidelines-2026, aisi-deck-2026]
+    - text: >-
+        Building AI in Japan is a theme for both government and industry. SoftBank, NEC, Honda and Sony
+        set up a company in April 2026 to build a foundation model for physical AI, with support from
+        the Ministry of Economy, Trade and Industry.
+      sources: [lilting-foundation-2026]
+    - text: >-
+        Sexual deepfakes of children are a growing concern. The National Police Agency reported that
+        cases more than doubled in the first half of 2026, most involving classmates or schoolmates of
+        the victims.
+      sources: [adnkronos-deepfakes-2026]
+  own_words:
+    - quote: "Japan will continue to aim to become “the most AI-friendly country in the world”"
+      speaker: Government of Japan
+      role: Second Artificial Intelligence Basic Plan (provisional translation)
+      date: 2026-07-14
+      source: cao-plan-2026
+      voice: government
+    - quote: "J-AISI's role is to support public and private sector initiatives"
+      speaker: Japan AI Safety Institute
+      role: Overview of the institute
+      date: 2026-07-01
+      source: aisi-deck-2026
+      voice: public_body
+    - quote: "Japan's public opinion on AI is strikingly pessimistic, especially when compared to other countries and global trends."
+      speaker: Diletta Fabiani
+      role: Research Fellow, Sasakawa Peace Foundation
+      date: 2026-03-06
+      source: spf-pessimism-2026
+      voice: civil_society
+    - quote: "voluntary compliance offers weak protection against rare, high-impact events"
+      speaker: Shuo Wang and Hiromi M. Yokoyama
+      role: Researchers at Tsinghua University and the University of Tokyo, writing in Risk Sciences
+      date: 2026-10-19
+      source: keai-japan-2026
+      voice: civil_society
+    - quote: "Our priority remains building a generational AI company that serves as Japan's national AI champion."
+      speaker: Sakana AI
+      role: Company statement
+      date: 2026-11-10
+      source: lds-sakana-2026
+      voice: industry
+  outside_analysis: []
+
+news:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+  items:
+    - id: paris-call-sakana
+      headline: Sakana AI signs the Paris Call for AI Safety and Security
+      date: 2026-11-09
+      kind: development
+      summary: >-
+        Sakana AI was one of ten AI companies to sign, alongside 18 governments. The Government of Japan
+        is not among the signatories. Signatories committed to "establishing a common framework for the
+        evaluation and risk management of frontier models".
+      why_it_matters: >-
+        It is a commitment on frontier AI safety by a Japanese company that is now training its own
+        large language model.
+      sources: [elysee-paris-call-2026, lds-sakana-2026]
+      topics: [frontier AI, commitments, companies]
+    - id: nict-testing
+      headline: National research institute and companies to build a system for testing AI safety
+      date: 2026-10-14
+      kind: development
+      summary: >-
+        NICT, a public research institute under the Ministry of Internal Affairs and Communications,
+        Sakura Internet and Preferred Networks will build a system to test generative AI models for
+        risks such as misinformation, discriminatory content and outputs inconsistent with Japanese law
+        and culture. "The partners aim to begin operating the system during the fiscal year starting
+        April 2027."
+      why_it_matters: >-
+        It would give Japan its own capacity to test AI models, alongside the guides published by the
+        AI Safety Institute.
+      sources: [mlex-nict-2026, aisi-deck-2026]
+      topics: [testing, evaluation]
+    - id: child-deepfakes
+      headline: Sexual deepfakes of children more than double in the first half of 2026
+      date: 2026-08-04
+      kind: foundational
+      summary: >-
+        The National Police Agency handled 123 cases from January to June, compared with 60 a year
+        earlier. Most victims were junior high school students. "The agency said it will step up public
+        awareness campaigns on the illegal use of AI".
+      why_it_matters: >-
+        Cases are handled by the police; the AI Act itself sets no penalties.
+      sources: [adnkronos-deepfakes-2026, whitecase-ai-act-2026]
+      topics: [deepfakes, children, policing]
+    - id: plan-revision
+      headline: Government revises the AI Basic Plan in response to frontier AI cyber risks
+      date: 2026-06-19
+      kind: foundational
+      summary: >-
+        Six months after the first plan, the government published a draft revision with stronger
+        defences against cyber attacks that "weaponise high-performance AI", a larger role for the AI
+        Safety Institute, and support for detecting AI-generated disinformation. Japanese media reported
+        that the government would also begin discussions on penalties for developers of high-risk AI.
+      why_it_matters: >-
+        It marks a shift towards managing risks from the most capable AI models, within a law focused on
+        promotion.
+      sources: [computerweekly-plan-2026, sbsstar-plan-2026]
+      topics: [strategy, frontier AI, cybersecurity]
+    - id: ldp-penalties
+      headline: Governing party subcommittee proposes penalties under the AI Act
+      date: 2026-04-23
+      kind: foundational
+      summary: >-
+        A Liberal Democratic Party subcommittee chaired by former digital minister Masaaki Taira
+        proposed powers to compel reporting and to sanction AI operators that ignore information
+        requests, citing deepfakes and copyright infringement. "The measures are proposals; they will be
+        submitted to the government for consideration."
+      why_it_matters: >-
+        It would add enforcement to a law that currently relies on voluntary cooperation.
+      sources: [lds-ldp-2026, whitecase-ai-act-2026]
+      topics: [legislation, enforcement, deepfakes]
+    - id: business-guidelines
+      headline: Ministries publish version 1.2 of the AI Guidelines for Business
+      date: 2026-03-31
+      kind: foundational
+      summary: >-
+        The Ministry of Internal Affairs and Communications and the Ministry of Economy, Trade and
+        Industry updated the voluntary guidelines, which set ten common guiding principles for
+        businesses.
+      why_it_matters: >-
+        They are the main statement of what Japan expects from businesses that develop, provide or use
+        AI.
+      sources: [mic-meti-guidelines-2026]
+      topics: [guidance, principles]
+    - id: basic-plan
+      headline: Cabinet adopts Japan's first AI Basic Plan
+      date: 2025-12-23
+      kind: foundational
+      summary: >-
+        The first plan under the AI Act sets four directions for AI policy, including making AI
+        trustworthy, and includes more staff for the AI Safety Institute. Guidelines on the appropriate
+        development and use of AI had been issued under the Act four days earlier.
+      why_it_matters: >-
+        It sets the government's priorities under the AI Act, which works through plans and guidance
+        rather than penalties.
+      sources: [babl-plan-2025, cliffordchance-2026]
+      topics: [strategy, AI Act]
+    - id: sakana-ipo
+      headline: Sakana AI reported to be weighing a 2027 share listing
+      date: 2026-11-10
+      kind: development
+      stream: ai
+      summary: >-
+        Nikkei reported that Sakana AI is considering a listing in Tokyo, on Nasdaq or both. The company
+        said it has no near-term plans to list. In October it said it is training its own large language
+        model from scratch.
+      why_it_matters: >-
+        Sakana AI is one of the AI companies that signed the Paris Call's commitments on frontier AI
+        safety.
+      sources: [lds-sakana-2026, elysee-paris-call-2026]
+      topics: [companies, investment]
+    - id: foundation-model-company
+      headline: SoftBank, NEC, Honda and Sony launch a company to build a Japanese foundation model
+      date: 2026-04-12
+      kind: foundational
+      stream: ai
+      summary: >-
+        The company aims to build a trillion-parameter-class model for physical AI, trained on Japanese
+        industrial data, with Preferred Networks as technical partner. The Ministry of Economy, Trade and
+        Industry is backing the project with about ¥1 trillion over five years.
+      why_it_matters: >-
+        It is a large public investment in AI models built in Japan, which most people in one survey
+        said the country needs.
+      sources: [lilting-foundation-2026, ksi-poll-2026]
+      topics: [foundation models, physical AI, investment]
+    - id: sb-oai-japan
+      headline: SoftBank and OpenAI form a joint venture for business AI in Japan
+      date: 2025-11
+      kind: foundational
+      stream: ai
+      summary: >-
+        "SoftBank and OpenAI have formed SB OAI Japan, a jointly owned entity that will commercialize"
+        an enterprise AI offering called Crystal intelligence. SoftBank is its first customer.
+      why_it_matters: >-
+        It brings a US developer's models into large Japanese companies, where the
+        voluntary business guidelines apply.
+      sources: [tecknexus-sboai-2025, mic-meti-guidelines-2026]
+      topics: [companies, adoption]
+
+principles:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      The principles are quoted from the government's provisional English translation of the outline
+      of the guidelines. How the personal information law, competition law and anti-discrimination law
+      apply to AI is not covered in this draft.
+  framework:
+    name: the ten common guiding principles of the AI Guidelines for Business
+    nav: Ten principles
+    basis: own
+    about:
+      text: >-
+        The Ministry of Internal Affairs and Communications and the Ministry of Economy, Trade and
+        Industry first published the AI Guidelines for Business in April 2024, and version 1.2 in March
+        2026. They set ten common guiding principles for businesses involved with AI. The guidelines are
+        not binding: "It is important that these initiatives are pursued voluntarily".
+      sources: [mic-meti-guidelines-2026, iba-japan-2025]
+  intro:
+    - text: >-
+        Japan's AI Act promotes AI and sets no penalties. Its "focus is on establishing basic policies
+        and principles rather than creating detailed prescriptions and prohibitions".
+      sources: [whitecase-ai-act-2026]
+    - text: >-
+        Below, each principle is shown with what the guidelines ask, how far the law backs it, the bodies
+        and tools that carry it today, and evidence on how it works in practice.
+      sources: [mic-meti-guidelines-2026]
+  items:
+    - key: human-centric
+      name: Human-Centric
+      short: Human-centric
+      asks:
+        text: >-
+          "Act so that AI expands human abilities and enables diverse people to seek diverse well-being."
+        sources: [mic-meti-guidelines-2026]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          Only the voluntary guidelines ask for this. The AI Act's duties on businesses carry no
+          described penalty.
+        sources: [mic-meti-guidelines-2026, whitecase-ai-act-2026]
+      how_it_works:
+        - text: >-
+            Businesses are asked to follow the Hiroshima Process International Guiding Principles for
+            All AI Actors, agreed through the G7.
+          sources: [mic-meti-guidelines-2026]
+      regulators: []
+
+    - key: safety
+      name: Safety
+      short: Safety
+      asks:
+        text: >-
+          "Conduct appropriate risk analyses to take countermeasures against risks."
+        sources: [mic-meti-guidelines-2026]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          The guidelines issued under the AI Act in December 2025 "do not introduce legally binding
+          obligations or penalties".
+        sources: [cliffordchance-2026]
+      how_it_works:
+        - text: >-
+            The Japan AI Safety Institute publishes guides on evaluation perspectives and red teaming,
+            and an approach book on responding to AI incidents.
+          sources: [aisi-deck-2026]
+        - text: >-
+            NICT, Sakura Internet and Preferred Networks are building a system to test generative AI
+            models, due to begin operating in the fiscal year from April 2027.
+          sources: [mlex-nict-2026]
+      regulators: []
+
+    - key: fairness
+      name: Fairness
+      short: Fairness
+      asks:
+        text: >-
+          "Attempt to eliminate unfair and harmful bias and discrimination against any specific
+          individuals or groups".
+        sources: [mic-meti-guidelines-2026]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          We found no rule in our sources that sets fairness duties specific to AI. How general
+          anti-discrimination law applies is not covered in this draft.
+        sources: [mic-meti-guidelines-2026]
+      how_it_works:
+        - text: >-
+            The testing system being built by NICT and its partners will check generative AI models for
+            discriminatory content.
+          sources: [mlex-nict-2026]
+      regulators: []
+
+    - key: privacy
+      name: Privacy Protection
+      short: Privacy
+      asks:
+        text: >-
+          "Observe relevant laws, including the Act on the Protection of Personal Information".
+        sources: [mic-meti-guidelines-2026]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          The Act on the Protection of Personal Information is binding law where AI uses personal data.
+          The guidelines add no further duties.
+        sources: [mic-meti-guidelines-2026]
+      how_it_works:
+        - text: >-
+            The December 2025 guidelines under the AI Act ask businesses to consider the rights of those
+            who hold data used in AI.
+          sources: [cliffordchance-2026]
+      regulators: []
+      evidence:
+        - text: >-
+            47% of respondents to a June 2026 survey named misuse of personal information as a risk of AI.
+          sources: [ksi-poll-2026]
+
+    - key: security
+      name: Ensuring Security
+      short: Security
+      asks:
+        text: >-
+          "Maintain the confidentiality, integrity, and availability of AI systems and services".
+        sources: [mic-meti-guidelines-2026]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          Our sources describe plans and guidance, not legal duties, on the security of AI systems.
+        sources: [computerweekly-plan-2026, cliffordchance-2026]
+      how_it_works:
+        - text: >-
+            The 2026 revision of the AI Basic Plan strengthens defences against cyber attacks that
+            "weaponise high-performance AI", including alerts to critical infrastructure operators and
+            inspections of key government systems.
+          sources: [computerweekly-plan-2026]
+      regulators: []
+      evidence:
+        - text: >-
+            42% of respondents to the June 2026 survey named misuse of AI for cyber attacks as a risk.
+          sources: [ksi-poll-2026]
+
+    - key: transparency
+      name: Transparency
+      short: Transparency
+      asks:
+        text: >-
+          "Provide stakeholders with information to the reasonable extent necessary and technically
+          possible".
+        sources: [mic-meti-guidelines-2026]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          Only guidance asks for this. We found no law in our sources that requires AI-generated content
+          to be labelled.
+        sources: [cliffordchance-2026]
+      how_it_works:
+        - text: >-
+            The December 2025 guidelines ask businesses to explain the sources of training data and the
+            basis of outputs, and to use measures such as watermarking and provenance against misuse.
+          sources: [cliffordchance-2026]
+      regulators: []
+
+    - key: accountability
+      name: Accountability
+      short: Accountability
+      asks:
+        text: >-
+          "Establish and publicly report policies on AI governance or privacy."
+        sources: [mic-meti-guidelines-2026]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          Reporting is voluntary. Following the guidelines may count in a company's favour when
+          directors' duties are assessed after an AI incident, according to Clifford Chance.
+        sources: [mic-meti-guidelines-2026, cliffordchance-2026]
+      how_it_works:
+        - text: >-
+            Since February 2025, organisations developing advanced AI can report voluntarily on how they
+            follow the Hiroshima AI Process code of conduct.
+          sources: [mic-meti-guidelines-2026]
+      regulators: []
+
+    - key: literacy
+      name: Education and Literacy
+      short: AI literacy
+      asks:
+        text: >-
+          Those involved with AI should "acquire AI literacy of the level sufficient for the engagement."
+        sources: [mic-meti-guidelines-2026]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          This principle is pursued through education policy and guidance rather than rules.
+        sources: [babl-plan-2025]
+      how_it_works:
+        - text: >-
+            The first AI Basic Plan includes AI education in elementary and junior high schools.
+          sources: [babl-plan-2025]
+        - text: >-
+            The AI Safety Institute has published a guidebook for chief AI officers.
+          sources: [aisi-deck-2026]
+      regulators: []
+
+    - key: fair-competition
+      name: Ensuring Fair Competition
+      short: Fair competition
+      asks:
+        text: >-
+          "Each AI business actor is expected to maintain the fair competitive environment surrounding
+          AI".
+        sources: [mic-meti-guidelines-2026]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          We found no source on how competition law applies to AI, so this is classed on the guidelines
+          alone.
+        sources: [mic-meti-guidelines-2026]
+      how_it_works:
+        - text: >-
+            The guidelines are revised as a "Living Document"; version 1.2 was published in March 2026.
+          sources: [mic-meti-guidelines-2026]
+      regulators: []
+
+    - key: innovation
+      name: Innovation
+      short: Innovation
+      asks:
+        text: >-
+          "Promote internationalization, diversification, collaboration among industry, academia, and
+          government sectors".
+        sources: [mic-meti-guidelines-2026]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          The AI Act promotes the research and use of AI through policy rather than duties.
+        sources: [whitecase-ai-act-2026]
+      how_it_works:
+        - text: >-
+            The Ministry of Economy, Trade and Industry is backing a domestic foundation model project
+            led by SoftBank, NEC, Honda and Sony.
+          sources: [lilting-foundation-2026]
+      regulators: []
+
+areas_for_improvement:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      Each area is one that a named source has identified. The proposals on penalties are reported
+      through secondary sources, and their current status is not confirmed.
+  intro:
+    - text: >-
+        Japan relies on a law that promotes AI, plans and voluntary guidelines. A governing party
+        subcommittee, researchers, the police and the government's own plan point to areas where this
+        could be strengthened.
+      sources: [lds-ldp-2026, keai-japan-2026, adnkronos-deepfakes-2026, computerweekly-plan-2026]
+  items:
+    - id: enforcement
+      title: Enforcement powers under the AI Act
+      kind: legal_power
+      principles: [safety, accountability, transparency]
+      in_place:
+        text: >-
+          The AI Act places duties on businesses with no described penalty, and the AI Strategic
+          Headquarters can request cooperation from any entity when especially necessary.
+        sources: [whitecase-ai-act-2026]
+      identified:
+        text: >-
+          In April 2026 a Liberal Democratic Party subcommittee proposed powers to compel reporting and to
+          sanction operators that ignore information requests. In June, Japanese media reported that the
+          government would begin discussions on penalties for developers of high-risk AI.
+        sources: [lds-ldp-2026, sbsstar-plan-2026]
+      elsewhere:
+        - text: >-
+            A general AI law with duties set by level of risk.
+          used_in: [EU]
+          sources: [ec-ai-act-page]
+        - text: >-
+            A general AI law with duties for high-impact AI systems.
+          used_in: [KR]
+          sources: [cooley-korea-2026]
+
+    - id: deepfakes
+      title: Sexual deepfakes and other misuse of AI images
+      kind: coverage
+      principles: [human-centric, safety, transparency]
+      in_place:
+        text: >-
+          The December 2025 guidelines ask for measures such as watermarking against misuse, and the
+          revised AI Basic Plan supports technology to detect AI-generated disinformation, led for
+          deepfakes by the National Police Agency.
+        sources: [cliffordchance-2026, computerweekly-plan-2026, sbsstar-plan-2026]
+      identified:
+        text: >-
+          The National Police Agency reported that sexual deepfakes of children more than doubled in the
+          first half of 2026. Diletta Fabiani of the Sasakawa Peace Foundation recommends regulating
+          non-consensual deepfakes.
+        sources: [adnkronos-deepfakes-2026, spf-pessimism-2026]
+      elsewhere:
+        - text: >-
+            Duties to mark AI-generated content and label deepfakes, under a general AI law.
+          used_in: [EU]
+          sources: [ec-ai-act-page]
+
+    - id: high-impact-testing
+      title: Testing advanced AI for high-impact risks
+      kind: technical
+      principles: [safety, security]
+      in_place:
+        text: >-
+          The AI Safety Institute publishes evaluation and red-teaming guides, and a national testing
+          system is due to begin operating in the fiscal year from April 2027.
+        sources: [aisi-deck-2026, mlex-nict-2026]
+      identified:
+        text: >-
+          Researchers Shuo Wang and Hiromi M. Yokoyama write that "voluntary compliance offers weak
+          protection against rare, high-impact events". The government's 2026 plan revision expands the
+          safety institute's role in evaluating advanced models.
+        sources: [keai-japan-2026, computerweekly-plan-2026]
+      elsewhere:
+        - text: >-
+            Accreditation of independent firms that test AI systems.
+          used_in: [SG]
+          sources: [ag-imda-2026]
+        - text: >-
+            Mandatory testing of frontier AI models before release, and independent evaluation.
+          proposed_by: A Call for Control of Frontier AI Models (September 2026), signed by 20 countries and the European Commission
+          sources: [nl-frontier-call-2026]
+
+contacts:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: limited
+    review: draft
+    gaps: >-
+      A starting list. Japanese civil society groups working on AI safety, and university research
+      groups, are not yet listed because we did not find sources on them in English.
+  items:
+    - name: Japan AI Safety Institute (J-AISI)
+      type: government
+      url: https://aisi.go.jp/
+      about:
+        text: >-
+          Set up in February 2024 after the Hiroshima AI Process. It says its "role is to support public
+          and private sector initiatives" on AI safety, and publishes evaluation and red-teaming guides.
+        sources: [aisi-deck-2026]
+      links:
+        - label: Evaluation guide
+          url: https://aisi.go.jp/output/output_framework/guide_to_evaluation_perspective_on_ai_safety/
+    - name: Ministry of Economy, Trade and Industry (METI)
+      type: government
+      url: https://www.meti.go.jp/english/
+      about:
+        text: >-
+          Publishes the AI Guidelines for Business with the Ministry of Internal Affairs and
+          Communications.
+        sources: [mic-meti-guidelines-2026]
+    - name: Ministry of Internal Affairs and Communications (MIC)
+      type: government
+      url: https://www.soumu.go.jp/english/
+      about:
+        text: >-
+          Publishes the AI Guidelines for Business with the Ministry of Economy, Trade and Industry.
+        sources: [mic-meti-guidelines-2026]
+    - name: National Institute of Information and Communications Technology (NICT)
+      type: research_institute
+      url: https://www.nict.go.jp/en/
+      about:
+        text: >-
+          A public research institute under the Ministry of Internal Affairs and Communications. It is
+          building a system to test the safety of generative AI models with Japanese partners.
+        sources: [mlex-nict-2026]
+    - name: Sasakawa Peace Foundation
+      type: civil_society
+      url: https://www.spf.org/en/
+      based: Tokyo
+      about:
+        text: >-
+          Publishes analysis of AI and society through its International Information Network Analysis
+          series, including on public attitudes to AI in Japan.
+        sources: [spf-pessimism-2026]
+
+sources:
+  # Government of Japan and its agencies
+  - id: cao-plan-2026
+    title: "Japan's Second Artificial Intelligence Basic Plan (provisional translation)"
+    publisher: Cabinet Office, Government of Japan
+    url: https://www8.cao.go.jp/cstp/ai/ai_plan/aiplan_eng_20260714.pdf
+    published: 2026-07-14
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+    note: Marked "As of July 14, 2026". Only part of the document could be read.
+  - id: mic-meti-guidelines-2026
+    title: "Outline of 'AI Guidelines for Business Ver1.2'"
+    publisher: Ministry of Internal Affairs and Communications and Ministry of Economy, Trade and Industry
+    url: https://www.soumu.go.jp/main_content/001064309.pdf
+    published: 2026-03-31
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+    note: Provisional English translation.
+  - id: aisi-deck-2026
+    title: Japan AI Safety Institute (J-AISI)
+    publisher: Japan AI Safety Institute
+    url: https://aisi.go.jp/assets/pdf/20260708_AISI_en.pdf
+    published: 2026-07-01
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: en
+    note: Overview slides.
+  # Polls and research
+  - id: ksi-poll-2026
+    title: AI規制「必要だが過度な強化不要」58％、高性能国産のモデル開発「必要」72％
+    publisher: Kioicho Strategy Institute (via PR TIMES)
+    url: https://prtimes.jp/main/html/rd/p/000000157.000065702.html
+    published: 2026-07-09
+    accessed: 2026-11-19
+    origin: inside
+    type: poll
+    language: ja
+    note: "Title in English: AI regulation 'needed but no excessive tightening' 58%; development of high-performance domestic models 'needed' 72%."
+  - id: kpmg-trust-2025
+    title: "Trust, attitudes and use of artificial intelligence: A global study 2025 (Japan insights)"
+    publisher: KPMG and The University of Melbourne
+    url: https://assets.kpmg.com/content/dam/kpmgsites/xx/pdf/2025/05/trust-attitudes-and-use-of-ai-japan-snapshot.pdf
+    published: 2025-05
+    accessed: 2026-11-19
+    origin: outside
+    type: poll
+    language: en
+  - id: yomiuri-poll-2024
+    title: 89% seek regulation of AI-generated misinformation in Japan
+    publisher: The Yomiuri Shimbun (via Asia News Network)
+    url: https://asianews.network/?p=145749
+    published: 2024-05-07
+    accessed: 2026-11-19
+    origin: inside
+    type: poll
+    language: en
+  - id: spf-pessimism-2026
+    title: AI Pessimism in Japan – Possible causes and solutions
+    publisher: Sasakawa Peace Foundation (International Information Network Analysis)
+    url: https://www.spf.org/iina/en/articles/diletta_03.html
+    published: 2026-03-06
+    accessed: 2026-11-19
+    origin: inside
+    type: civil_society
+    language: en
+    note: By Diletta Fabiani, Research Fellow.
+  - id: keai-japan-2026
+    title: Why Japan chose to promote AI rather than regulate it, and where that strategy hits its limits
+    publisher: KeAi Publishing (Risk Sciences)
+    url: https://www.keaipublishing.com/en/journals/risk-sciences/news/why-japan-chose-to-promote-ai-rather-than-regulate-it-and-where-that-strategy-hits-its-limits/
+    published: 2026-10-19
+    accessed: 2026-11-19
+    origin: outside
+    type: academic
+    language: en
+    note: News summary of an article by Shuo Wang (Tsinghua University) and Hiromi M. Yokoyama (University of Tokyo) in Risk Sciences, 2026.
+  # Law firms and analysis
+  - id: whitecase-ai-act-2026
+    title: "Japan's first AI legislation becomes law – Focus is on promoting research and development; no monetary penalties"
+    publisher: White & Case
+    url: https://www.whitecase.com/insight-alert/japans-first-ai-legislation-becomes-law-focus-promoting-research-and-development-no
+    published: 2026-04-14
+    accessed: 2026-11-19
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing; the date shown on the page.
+  - id: cliffordchance-2026
+    title: "Still No Fines, Still No Mandates: Japan's Continued Soft-Law Approach to AI"
+    publisher: Clifford Chance
+    url: https://www.cliffordchance.com/content/dam/cliffordchance/briefings/2026/04/japan-ai-act-guidelines-april-2026.pdf
+    published: 2026-04
+    accessed: 2026-11-19
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing.
+  - id: iba-japan-2025
+    title: "Japan's emerging framework for responsible AI: legislation, guidelines and guidance"
+    publisher: International Bar Association
+    url: https://www.ibanet.org/japan-emerging-framework-ai-legislation-guidelines
+    published: 2025-07-16
+    accessed: 2026-11-19
+    origin: outside
+    type: civil_society
+    language: en
+    note: By Kensuke Inoue (Anderson Mori & Tomotsune) and Chika Kamata (SmartNews), Tokyo.
+  # Media
+  - id: computerweekly-plan-2026
+    title: Japan revises AI strategy amid frontier AI threats
+    publisher: Computer Weekly
+    url: https://www.computerweekly.com/news/366645374/Japan-revises-AI-strategy-amid-frontier-AI-threats
+    published: 2026-06
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: The page gives no date; it reports the draft released on 19 June 2026.
+  - id: sbsstar-plan-2026
+    title: "Japan to Revise AI Strategy in Six Months: Penalties for Developing 'High-Risk' AI"
+    publisher: SBS Star
+    url: https://sbsstar.net/article/N1008618564/japan-to-revise-ai-strategy-in-six-months-penalties-for-developing-highrisk-ai
+    published: 2026-06-19
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: Machine-translated article by Gwak Sang-eun, citing Yomiuri Shimbun reports.
+  - id: babl-plan-2025
+    title: Japan Adopts First National AI Plan to Boost Development and Public Trust
+    publisher: BABL AI
+    url: https://babl.ai/japan-adopts-first-national-ai-plan-to-boost-development-and-public-trust/
+    published: 2025-12-23
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: Citing The Japan Times.
+  - id: mlex-nict-2026
+    title: "Japan's NICT, companies to develop AI safety-testing system"
+    publisher: MLex
+    url: https://www.mlex.com/mlex/articles/2538189
+    published: 2026-10-15
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: Summary of a joint statement made on 14 October 2026.
+  - id: lds-ldp-2026
+    title: Japan ruling party proposes AI operator penalties
+    publisher: Let's Data Science
+    url: https://letsdatascience.com/news/japan-ruling-party-proposes-ai-operator-penalties-139e43a2
+    published: 2026-04-23
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: Summary of reports by UPI, MarketWatch and The Japan News (Yomiuri).
+  - id: lds-sakana-2026
+    title: Sakana AI reportedly weighs 2027 IPO in Tokyo or on Nasdaq
+    publisher: Let's Data Science
+    url: https://letsdatascience.com/news/sakana-ai-reportedly-weighs-2027-ipo-in-tokyo-or-on-nasdaq-58d5128e
+    published: 2026-11-10
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: Summary of reporting by Nikkei and The Japan Times.
+  - id: adnkronos-deepfakes-2026
+    title: Child Sexual Deepfakes More than Double in Japan in 1st Half
+    publisher: Adnkronos English (from Jiji Press)
+    url: https://english.adnkronos.com/2026/08/04/child-sexual-deepfakes-more-than-double-in-japan-in-1st-half/
+    published: 2026-08-04
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+  - id: lilting-foundation-2026
+    title: SoftBank, NEC, Honda, and Sony launch Japan AI Foundation Model Development for domestic physical AI
+    publisher: lilting channel
+    url: https://lilting.ch/en/articles/japan-ai-foundation-model-development-company
+    published: 2026-04-12
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: Translated from a Japanese article.
+  - id: tecknexus-sboai-2025
+    title: SoftBank-OpenAI JV launches localized enterprise AI in Japan
+    publisher: TeckNexus
+    url: https://tecknexus.com/softbank-openai-jv-launches-localized-enterprise-ai-in-japan/
+    published: 2025-11-07
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+  # International
+  - id: elysee-paris-call-2026
+    title: Paris Call for AI Safety and Security
+    publisher: Élysée (Presidency of the French Republic)
+    url: https://www.elysee.fr/en/emmanuel-macron/2026/11/10/paris-call-for-ai-safety-and-security
+    published: 2026-11-10
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+  - id: gov-bletchley-2023
+    title: "The Bletchley Declaration by Countries Attending the AI Safety Summit, 1-2 November 2023"
+    publisher: Prime Minister's Office, 10 Downing Street
+    url: https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023
+    published: 2023-11-01
+    accessed: 2026-11-18
+    origin: outside
+    type: government
+    language: en
+  - id: gov-seoul-2024
+    title: "Seoul Declaration for safe, innovative and inclusive AI by participants attending the Leaders' Session: AI Seoul Summit, 21 May 2024"
+    publisher: Department for Science, Innovation and Technology (UK)
+    url: https://gov.uk/government/publications/seoul-declaration-for-safe-innovative-and-inclusive-ai-ai-seoul-summit-2024/seoul-declaration-for-safe-innovative-and-inclusive-ai-by-participants-attending-the-leaders-session-ai-seoul-summit-21-may-2024
+    published: 2024-05-21
+    accessed: 2026-11-18
+    origin: outside
+    type: government
+    language: en
+  - id: gac-coe-2025
+    title: Canada signs the Council of Europe Framework Convention on Artificial Intelligence and Human Rights, Democracy and the Rule of Law
+    publisher: Global Affairs Canada
+    url: https://www.canada.ca/en/global-affairs/news/2025/02/canada-signs-the-council-of-europe-framework-convention-on-artificial-intelligence-and-human-rights-democracy-and-the-rule-of-law.html
+    published: 2025-02-11
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+    note: Records that Japan signed at the same ceremony.
+  - id: elysee-paris-2025
+    title: Statement on Inclusive and Sustainable Artificial Intelligence for People and the Planet
+    publisher: Élysée (Presidency of the French Republic)
+    url: https://www.elysee.fr/en/emmanuel-macron/2025/02/11/statement-on-inclusive-and-sustainable-artificial-intelligence-for-people-and-the-planet
+    published: 2025-02-11
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+  - id: theprint-new-delhi-2026
+    title: AI Summit ends with 88 nations adopting New Delhi Declaration, calls for cooperation, sovereignty
+    publisher: ThePrint
+    url: https://theprint.in/tech/ai-summit-ends-with-88-nations-adopting-new-delhi-declaration-calls-for-cooperation-sovereignty/2860446
+    published: 2026-02-21
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+  - id: nl-frontier-call-2026
+    title: A Call for Control of Frontier AI Models
+    publisher: Government of the Netherlands
+    url: https://www.government.nl/documents/2026/09/22/a-call-for-control-of-frontier-ai-models
+    published: 2026-09-22
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+    note: Joint statement by leaders of 20 countries and the European Commission. Japan is not a signatory.
+  # Approaches elsewhere
+  - id: ec-ai-act-page
+    title: AI Act
+    publisher: European Commission
+    url: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+  - id: cooley-korea-2026
+    title: "South Korea's AI Basic Act: Overview and Key Takeaways"
+    publisher: Cooley
+    url: https://www.cooley.com/news/insight/2026/2026-01-27-south-koreas-ai-basic-act-overview-and-key-takeaways
+    published: 2026-01-27
+    accessed: 2026-11-18
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing.
+  - id: ag-imda-2026
+    title: IMDA introduces new AI testing and cybersecurity initiatives
+    publisher: Allen & Gledhill
+    url: https://www.allenandgledhill.com/sg/publication/articles/34742/imda-introduces-new-ai-testing-and-cybersecurity-initiatives
+    published: 2026-10-28
+    accessed: 2026-11-19
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing on Singapore.
