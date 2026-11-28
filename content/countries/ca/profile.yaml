@@ -1,5 +1,5 @@
 # Canada: area profile
-# Status: DRAFT, researched by Claude on 19 November 2026, awaiting editor review.
+# Status: APPROVED by the editor on 28 November 2026 (researched by Claude on 19 November 2026).
 # Every statement cites one or more sources from the list at the bottom of this file.
 # Direct quotes were copied from the source pages on the access date.
 # Sources from Canadian governments, Parliament, regulators, and organisations and media based in
@@ -11,8 +11,8 @@
 code: CA
 name: Canada
 status: draft
-last_reviewed: 2026-11-19
-editor_approved: false
+last_reviewed: 2026-11-28
+editor_approved: true
 reviewers: []
 
 summary:
@@ -86,7 +86,7 @@ attitudes:
   meta:
     checked: 2026-11-19
     evidence_depth: rich
-    review: draft
+    review: editor_approved
     gaps: >-
       The Leger and North Poll figures are reported through news coverage, not the pollsters' own
       releases. The North Poll report does not state the year of fieldwork; it was published in
@@ -130,7 +130,7 @@ regulation:
   meta:
     checked: 2026-11-19
     evidence_depth: rich
-    review: draft
+    review: editor_approved
     gaps: >-
       The text of the national strategy and of Bills C-34 and C-36 has not been read in full; they
       are described from government releases, Parliament's bill page, law firm briefings and
@@ -218,7 +218,7 @@ culture:
   meta:
     checked: 2026-11-19
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       No local reviewer yet. Most sources are in English; French-language debate in Quebec, and
       Indigenous perspectives, are under-represented. No industry voice is quoted.
@@ -302,7 +302,7 @@ news:
   meta:
     checked: 2026-11-19
     evidence_depth: rich
-    review: draft
+    review: editor_approved
   items:
     - id: paris-call
       headline: Canada signs the Paris Call for AI Safety and Security
@@ -472,7 +472,7 @@ principles:
   meta:
     checked: 2026-11-19
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       How federal and provincial human rights law, consumer protection law and Quebec's privacy law
       apply to AI is not covered in this draft. The federal Directive on Automated Decision-Making,
@@ -660,7 +660,7 @@ areas_for_improvement:
   meta:
     checked: 2026-11-19
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       Each area is one that a named source has identified. Bills C-34 and C-36 may change in
       Parliament. Provincial approaches are not yet covered.
@@ -821,7 +821,7 @@ contacts:
   meta:
     checked: 2026-11-19
     evidence_depth: moderate
-    review: draft
+    review: editor_approved
     gaps: >-
       A starting list, described from each organisation's own pages. CIFAR, provincial regulators and
       Quebec-based groups other than Mila and LawZero are not yet listed.
