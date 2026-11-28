@@ -1,0 +1,1207 @@
+# Brazil: area profile
+# Status: DRAFT, researched by Claude on 19 November 2026, awaiting editor review.
+# Every statement cites one or more sources from the list at the bottom of this file.
+# Direct quotes were copied from the source pages on the access date. Quotes in Portuguese are given
+# in the original with an English translation by Claude.
+# Sources from the Government of Brazil, its agencies, and organisations and media based in Brazil
+# count as "inside".
+# The principles section uses the OECD AI Principles. Brazil has no set of AI principles of its own in
+# force: its 2021 national AI strategy follows the OECD Recommendation on AI, and the principles in the
+# AI bill, PL 2338/2023, are not law. This follows the editor's decision of 18 Nov 2026 to use each
+# country's own principles, with the OECD set as the fallback.
+
+code: BR
+name: Brazil
+status: draft
+last_reviewed: 2026-11-19
+editor_approved: false
+reviewers: []
+
+summary:
+  overview:
+    - text: >-
+        Brazil has no general AI law. The AI bill, PL 2338/2023, passed the Senate in December 2024 and
+        is before the Chamber of Deputies, where a vote was postponed several times in 2026. The
+        government has said it wants the bill passed in 2026.
+      sources: [casrai-pl2338-2026, chambarelli-2026, brasil247-2026]
+    - text: >-
+        Without a general law, existing laws and sector regulators cover some uses of AI. The data
+        protection authority, the ANPD, runs a pilot regulatory sandbox for AI, and the government has
+        proposed making it the coordinator of a national system for AI regulation.
+      sources: [tozzini-2026, legismap-sandbox-2026, dplnews-sia-2025]
+    - text: >-
+        Brazil has no AI safety institute. Two think tanks have proposed one, and the national metrology
+        institute, Inmetro, works on methods for testing AI systems.
+      sources: [cebri-aiso-2025, agenciagov-forum-2026]
+    - text: >-
+        Brazilians are divided about AI. In a 2026 Ipsos survey, 56% said AI brings more benefits than
+        drawbacks; in a Datafolha survey, 79% said using AI to decide on hiring and firing is
+        inadequate.
+      sources: [ipsos-br-2026, bahia-datafolha-2026]
+  regulation_line:
+    text: >-
+      No general AI law: a bill passed by the Senate is before the Chamber of Deputies, while data
+      protection law, sector rules and a regulatory sandbox apply in the meantime.
+    sources: [casrai-pl2338-2026, tozzini-2026, legismap-sandbox-2026]
+
+facets:
+  regulatory_approach: sector_and_existing_law
+  safety_institute:
+    status: "no"
+    sources: [cebri-aiso-2025, agenciagov-forum-2026]
+  frontier_developers:
+    status: "no"
+    note: >-
+      We found no developer of frontier AI models based in Brazil in our sources. The government is
+      funding supercomputers, one of them mainly for large language models, and its national AI plan
+      aims to develop advanced models in Portuguese.
+    sources: [cdo-supercomputer-2026, folha-pbia-2024]
+  national_polling: "yes"
+  commitments:
+    - key: bletchley_declaration
+      status: signed
+      date: 2023-11-01
+      sources: [gov-bletchley-2023]
+    - key: seoul_declaration
+      status: not_signed
+      sources: [gov-seoul-2024]
+    - key: paris_statement
+      status: signed
+      date: 2025-02-11
+      sources: [elysee-paris-2025]
+    - key: new_delhi_declaration
+      status: endorsed
+      date: 2026-02-21
+      sources: [theprint-new-delhi-2026]
+
+attitudes:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      We found no government survey of public attitudes to AI. The Datafolha survey is reported through
+      a Folhapress article republished by Bahia Notícias, and the Pew Research Center figures through
+      Times Brasil, which does not give fieldwork dates or sample sizes. Survey wording differs, so
+      figures from different polls should not be compared directly.
+  headline_figures:
+    - value: "79%"
+      label: >-
+        say using AI models to decide on hiring and firing is inadequate
+      fieldwork: 17 and 18 June 2026
+      sample: 2,004 people aged 16 and over across Brazil, interviewed face to face (Datafolha, reported by Folhapress)
+      source: bahia-datafolha-2026
+    - value: "56%"
+      label: >-
+        agree that AI products and services have more benefits than drawbacks, 2 points fewer than in 2025
+      fieldwork: 20 March to 3 April 2026
+      sample: About 1,000 adults aged 16 to 74 in Brazil, online, in the Ipsos AI Monitor survey of 32 countries
+      source: ipsos-br-2026
+  statements:
+    - text: >-
+        In the Datafolha survey, 48% of those who had heard of AI were afraid their profession would be
+        replaced by it, down from 56% a year earlier. 68% disapproved of AI in decisions on medical
+        treatment, and 67% of automated decisions on credit.
+      sources: [bahia-datafolha-2026]
+    - text: >-
+        In the Ipsos survey, 52% of Brazilians said AI products and services make them excited and 41%
+        nervous. 42% thought AI was likely to replace their current job within five years, against 35%
+        across all 32 countries.
+      sources: [ipsos-br-2026]
+    - text: >-
+        In a Pew Research Center survey reported in September 2026, 52% of Brazilians said they were
+        more worried than excited about the growing use of AI, and 8% were optimistic. Among
+        those aged 18 to 34, the share who were worried rose from 32% to 44% in a year.
+      sources: [timesbrasil-pew-2026]
+
+regulation:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      We did not read the text of PL 2338/2023 or the government's bill on a national AI system; both
+      are described from law firm briefings, a CASRAI guide and news reports. Sector rules are described
+      from a law firm briefing. We could not read Brazil's national AI plan or a report on how much of
+      it has been delivered.
+  items:
+    - kind: bill
+      title: AI bill (PL 2338/2023)
+      date: 2024-12-10
+      status: Passed by the Senate on 10 December 2024; awaiting a committee report in the Chamber of Deputies when checked
+      text: >-
+        As passed by the Senate, the bill would ban some uses of AI judged to carry excessive risk, such
+        as certain manipulative techniques and some uses of biometric identification, with exceptions.
+        High-risk systems would need impact assessments, human oversight, documentation and transparency.
+        People would gain rights to information and to contest some decisions. A national system for
+        regulating AI would be coordinated by the ANPD with sector regulators. The bill also sets rules on
+        the use of copyrighted works to train AI, and penalties of up to R$50 million.
+      sources: [chambarelli-2026, brasil247-2026, casrai-pl2338-2026]
+    - kind: bill
+      title: Bill on a national system for AI development, regulation and governance (SIA)
+      date: 2025-12
+      status: Sent to Congress by the government in December 2025
+      text: >-
+        Would create a national system led by a Brazilian Council for AI, made up of up to five
+        ministries and the ANPD. The ANPD would set general rules on transparency, impact assessments
+        and incident reporting, regulate areas that have no specialised regulator, and be able to
+        accredit institutions to audit AI. Sector regulators would keep regulating their own markets.
+      sources: [dplnews-sia-2025, tozzini-2026]
+    - kind: law
+      title: Sector rules on AI
+      date: 2026-08-26
+      status: In force
+      text: >-
+        A 2025 resolution of the telecoms regulator, Anatel, sets eight mandatory principles for AI in
+        the sector, including reliability, fairness, non-discrimination, privacy, transparency and
+        explainability. Since 26 August 2026 a resolution of the Federal Council of Medicine treats AI as
+        a support tool, keeps final authority with the physician, and bars AI from communicating
+        diagnoses directly to patients.
+      sources: [tozzini-2026]
+    - kind: institution
+      title: ANPD regulatory sandbox for AI
+      date: 2026-03-18
+      status: Pilot; its first testing cycle began in March 2026 and runs until December 2026
+      text: >-
+        The ANPD and the University of São Paulo's Centre for AI and Machine Learning (Ciaam/USP) follow
+        three companies as they develop and test AI that uses personal data in finance, mobility and
+        health. The focus is on transparency, explainability and compliance with data protection law.
+        Monitoring reports were published in July and October 2026.
+      sources: [legismap-sandbox-2026, tozzini-2026]
+    - kind: guidance
+      title: Ethical impact self-assessment for AI in government (AIE)
+      date: 2026-11-13
+      status: Made available to federal government bodies in November 2026
+      text: >-
+        The Ministry of Management and Innovation in Public Services made a web version of an ethical
+        impact self-assessment for AI available to more than 250 federal bodies. It helps them identify
+        AI risks and assess their ethics and governance practices. The World Bank advised on it, and it
+        is open source.
+      sources: [cd-aie-2026]
+    - kind: strategy
+      title: Brazilian AI Plan 2024-2028, "AI for the Good of All"
+      date: "2024"
+      status: Government plan
+      text: >-
+        Drafted by the National Council for Science and Technology and received by Luiz Inácio Lula da
+        Silva in 2024. Its aims include advanced language models in Portuguese and a supercomputer among
+        the world's most powerful. The summary we read refers to responsible use of AI and to clear
+        regulation, with no section on AI safety.
+      sources: [folha-pbia-2024]
+    - kind: strategy
+      title: Brazilian AI Strategy (EBIA)
+      date: 2021-04-09
+      status: Published by the Ministry of Science, Technology and Innovation
+      text: >-
+        The strategy, published after a public consultation, sets ethical and human rights principles for
+        AI. It states that it follows the OECD Recommendation on AI, to which Brazil adheres.
+      sources: [teletime-ebia-2021]
+    - kind: machinery
+      title: Mixed parliamentary front on AI, data protection and digital security
+      date: 2026-07-10
+      status: Created by Senate resolution
+      text: >-
+        A permanent group of members of both houses of Congress that follows public policy on AI and
+        contributes to drafting laws for "ethical, transparent and safe" use of AI. It has no power to
+        make decisions and no budget of its own.
+      sources: [cd-front-2026]
+    - kind: international
+      title: International agreements
+      date: 2026-11
+      status: See filters
+      text: >-
+        Brazil signed the 2023 Bletchley Declaration and the Paris AI Action Summit statement in February
+        2025, and endorsed the New Delhi Declaration in February 2026. It was not among the participants
+        in the Seoul Declaration in May 2024. In July 2026 Brazil was among 29 founding members of an
+        international AI cooperation organisation launched by China, and in November 2026 it joined the
+        Antalya Pledge on AI at the COP31 climate conference.
+      sources: [gov-bletchley-2023, elysee-paris-2025, theprint-new-delhi-2026, gov-seoul-2024, gazeta-waico-2026, brasildefato-antalya-2026]
+
+culture:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      No local reviewer yet. Most sources are in Portuguese, and the translations are our own;
+      debate in academic journals and among Indigenous and regional groups is not covered. Creators'
+      groups are described through a single article.
+  summary:
+    - text: >-
+        Government speaks of AI in terms of digital sovereignty, and of not depending on any single
+        company, technology or country.
+      sources: [brasil247-2026, cdo-supercomputer-2026]
+    - text: >-
+        Debate on the AI bill has centred on copyright: how far AI developers may train on protected
+        works, and whether creators are paid. Creators' groups ask for express permission; a software
+        industry association has asked for the most restrictive articles to be removed.
+      sources: [aimagine-2026, chambarelli-2026]
+    - text: >-
+        Officials and regulators stress transparency and testing. The ANPD's director has called
+        algorithmic transparency central to responsible AI, and Inmetro has hosted a forum with
+        European experts on testing AI.
+      sources: [legismap-telebrasil-2026, agenciagov-forum-2026]
+    - text: >-
+        Jobs are a common theme. Surveys find concern about AI replacing work, and Brazil's
+        representative at COP31 said it defended keeping jobs when it joined the Antalya Pledge.
+      sources: [bahia-datafolha-2026, brasildefato-antalya-2026]
+    - text: >-
+        Think tanks have argued for a dedicated public body on AI safety, drawing on the experience of the
+        safety institutes set up elsewhere.
+      sources: [cebri-aiso-2025]
+  own_words:
+    - quote: "A garantia de soberania digital depende de leis claras que fortaleçam as condições para o desenvolvimento de IA no país"
+      speaker: João Brant
+      role: Secretary of Digital Policies, Secretariat of Social Communication of the Presidency
+      date: 2026-11-01
+      source: brasil247-2026
+      original_language: pt
+      translation: >-
+        Digital sovereignty depends on clear laws that strengthen the conditions for developing AI in the
+        country.
+      voice: government
+    - quote: "The strategy is not to depend on a single company, technology or country,"
+      speaker: Government of Brazil
+      role: Statement on investment in AI supercomputers, as reported by CDO Magazine
+      date: 2026-08
+      source: cdo-supercomputer-2026
+      voice: government
+    - quote: "há certa tendência de convergência no debate regulatório"
+      speaker: Lorena Coutinho
+      role: Director, National Data Protection Authority (ANPD), at the TeleBrasil Summit
+      date: 2026-05-19
+      source: legismap-telebrasil-2026
+      original_language: pt
+      translation: >-
+        There is a certain tendency towards convergence in the regulatory debate.
+      voice: public_body
+    - quote: "Você precisa ter referências para comparar suas soluções de IA"
+      speaker: Charles Prado
+      role: Coordinator of Inmetro's AI centre (CIAI)
+      date: 2026-11-10
+      source: agenciagov-forum-2026
+      original_language: pt
+      translation: >-
+        You need to have references to compare your AI solutions.
+      voice: public_body
+    - quote: "The goal is to contribute to a safe and trustworthy AI ecosystem aligned with the public interest"
+      speaker: CEBRI and ITS Rio
+      role: Policy paper proposing an AI safety and opportunities institute for Brazil
+      date: 2025-07-08
+      source: cebri-aiso-2025
+      voice: civil_society
+    - quote: "devastating for fintechs, healthtechs and agritechs"
+      speaker: Brazilian Association of Software Companies (ABES)
+      role: On the most restrictive articles of the AI bill, as reported by AIMAGINE
+      date: 2026-04
+      source: aimagine-2026
+      voice: industry
+    - quote: "If Brazil wanted to be a player in the data center space, it had to do this tax law change,"
+      speaker: Christopher Torto
+      role: Chief executive, Ascenty, a data centre operator
+      date: 2026-11-01
+      source: fortune-redata-2026
+      voice: industry
+  outside_analysis:
+    - text: >-
+        CASRAI, a research administration standards body, wrote in September 2026 that "Brazil is routinely
+        listed as a jurisdiction with an AI law. It does not have one."
+      sources: [casrai-pl2338-2026]
+    - text: >-
+        Writing in Fortune, Mia Osmonbekov reported that industry figures see Brazil as a possible
+        "release valve" for limits on building data centres in the United States, while officials are
+        split on whether electricity prices will rise.
+      sources: [fortune-redata-2026]
+
+news:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+  items:
+    - id: antalya-pledge
+      headline: Brazil joins the Antalya Pledge on AI at COP31
+      date: 2026-11-16
+      kind: development
+      summary: >-
+        The pledge, launched by Türkiye's COP31 presidency with the International Telecommunication Union
+        and UNESCO, encourages responsible use of AI, with attention to the energy and water used by data
+        centres and to changes in work from automation. Hermano Tercius of the Ministry of Communications
+        represented Brazil.
+      why_it_matters: >-
+        It is Brazil's most recent international commitment on AI. It does not refer to safety.
+      sources: [brasildefato-antalya-2026, timesbrasil-antalya-2026]
+      topics: [international, sustainability, jobs]
+    - id: ethics-self-assessment
+      headline: Federal bodies get a tool to assess the ethical impact of their AI
+      date: 2026-11-13
+      kind: development
+      summary: >-
+        The Ministry of Management and Innovation in Public Services launched a web version of its
+        ethical impact self-assessment for AI, developed with advice from the World Bank, for federal
+        government bodies.
+      why_it_matters: >-
+        It is one of the few AI risk tools in use across the federal government; the article does not say
+        that its use is mandatory.
+      sources: [cd-aie-2026]
+      topics: [public sector, risk assessment]
+    - id: brazil-europe-forum
+      headline: Inmetro hosts a Brazil-Europe forum on AI standards and testing
+      date: 2026-11-11
+      kind: development
+      summary: >-
+        The two-day forum at the Ministry of Foreign Affairs covered how to check whether AI meets quality
+        and safety requirements, including testing methods, failure detection, robustness and reference
+        standards. The ANPD and the health regulator, Anvisa, took part.
+      why_it_matters: >-
+        Brazil has no AI safety institute; Inmetro's AI centre is one of the public bodies working on how
+        AI is tested.
+      sources: [agenciagov-forum-2026]
+      topics: [testing, standards, international]
+    - id: ai-bill-chamber
+      headline: Government seeks a vote on the AI bill in the Chamber of Deputies this year
+      date: 2026-11-01
+      kind: development
+      summary: >-
+        Brasil 247 reported that the government wants the bill passed in 2026. The rapporteur in the
+        Chamber is Aguinaldo Ribeiro. In August the rapporteur said a vote should come at the end of the
+        year; the vote had been postponed several times.
+      why_it_matters: >-
+        Until the Chamber votes, Brazil has no general AI law; if it amends the text, the bill returns to
+        the Senate.
+      sources: [brasil247-2026, chambarelli-2026]
+      topics: [regulation, AI bill]
+    - id: sandbox-report
+      headline: ANPD publishes its second monitoring report on the AI regulatory sandbox
+      date: 2026-10-09
+      kind: development
+      summary: >-
+        The report covers the testing of three companies' AI systems. The ANPD says the main aim of the
+        sandbox is to produce evidence for regulatory policy. The project was a finalist in the 2026
+        Global Privacy Assembly awards.
+      why_it_matters: >-
+        Under the government's proposals, the ANPD would coordinate AI regulation.
+      sources: [legismap-sandbox-2026, dplnews-sia-2025]
+      topics: [sandbox, transparency, data protection]
+    - id: medical-rules
+      headline: Rules on AI in medicine take effect
+      date: 2026-08-26
+      kind: development
+      summary: >-
+        The Federal Council of Medicine's resolution keeps final authority over diagnosis and treatment
+        with physicians, and bars AI from communicating diagnoses, prognoses or treatment decisions
+        directly to patients.
+      why_it_matters: >-
+        It is one of the sector rules that apply to AI while there is no general law.
+      sources: [tozzini-2026]
+      topics: [health, human oversight]
+    - id: waico
+      headline: Brazil becomes a founding member of a China-led AI cooperation organisation
+      date: 2026-07-17
+      kind: foundational
+      summary: >-
+        At the World AI Conference in Shanghai, Brazil was one of 29 countries that signed the founding
+        agreement of the World AI Cooperation Organization. According to Gazeta do Povo, its stated aims
+        include safe, inclusive and human-centred AI and harmonising regulatory frameworks.
+      why_it_matters: >-
+        Brazil takes part in AI governance forums led by different countries.
+      sources: [gazeta-waico-2026]
+      topics: [international, governance]
+    - id: parliamentary-front
+      headline: Senate creates a parliamentary front on AI, data protection and digital security
+      date: 2026-07-10
+      kind: foundational
+      summary: >-
+        The front is to follow public policy on AI, monitor the ANPD and the national AI strategy, and
+        align Brazil with guidelines from the OECD, the G20 and the UN.
+      why_it_matters: >-
+        It gives members of both houses a standing forum on AI while the AI bill is pending.
+      sources: [cd-front-2026]
+      topics: [parliament, governance]
+    - id: sia-bill
+      headline: Government sends Congress a bill on a national AI system
+      date: 2025-12-11
+      kind: foundational
+      summary: >-
+        The bill would put the ANPD at the centre of a national system for regulating AI, alongside
+        ministries and sector regulators, and fund research, model development and training.
+      why_it_matters: >-
+        It complements the AI bill on who would oversee AI.
+      sources: [dplnews-sia-2025, tozzini-2026]
+      topics: [regulation, governance]
+    - id: aiso-proposal
+      headline: Think tanks propose an AI safety and opportunities institute for Brazil
+      date: 2025-07-08
+      kind: foundational
+      summary: >-
+        CEBRI and ITS Rio proposed an independent, technical body with multisector governance that would
+        promote best practice and international cooperation without overlapping with regulators.
+      why_it_matters: >-
+        It is the main published proposal for an AI safety institute in Brazil.
+      sources: [cebri-aiso-2025]
+      topics: [safety institute]
+    - id: senate-passes
+      headline: Senate passes the AI bill
+      date: 2024-12-10
+      kind: foundational
+      summary: >-
+        The Senate approved PL 2338/2023 with amendments and sent it to the Chamber of Deputies, which set
+        up a special committee to examine it.
+      why_it_matters: >-
+        It is the closest Brazil has come to a general AI law.
+      sources: [casrai-pl2338-2026, chambarelli-2026]
+      topics: [regulation, AI bill]
+    - id: chip-licences
+      headline: US rule requiring licences for some AI chip shipments to Brazil takes effect
+      date: 2026-11-19
+      kind: development
+      stream: ai
+      summary: >-
+        Shipments of certain advanced AI chips from the United States to Brazil, Singapore, Malaysia,
+        Thailand and Indonesia now need a US government licence, which can take up to 90 days to
+        process. Convergência Digital notes that the rule does not stop Brazil from buying US chips. The
+        Brazilian government has set up a task force.
+      why_it_matters: >-
+        Access to advanced chips affects the data centres and supercomputers Brazil is building.
+      sources: [tvsim-chips-2026, cd-chips-2026]
+      topics: [chips, compute, trade]
+    - id: aicube
+      headline: Brazilian AI start-up signs computing contracts with AWS and Oracle
+      date: 2026-11-13
+      kind: development
+      stream: ai
+      summary: >-
+        AI.CUBE signed contracts worth R$270 million for GPU capacity to run AI agents, mainly for federal
+        government bodies, banks and other regulated companies.
+      why_it_matters: >-
+        It shows AI agents being adopted by government and regulated sectors in Brazil.
+      sources: [cd-aicube-2026]
+      topics: [companies, AI agents, compute]
+    - id: data-centres
+      headline: Data centre projects worth R$90 billion under construction
+      date: 2026-10-26
+      kind: development
+      stream: ai
+      summary: >-
+        According to JLL figures reported by FurtherBrazil, 24 data centre projects were under
+        construction. ByteDance began building a data centre in Ceará in January 2026.
+      why_it_matters: >-
+        Data centres provide the computing power AI depends on; the government links them to its aim of
+        processing more Brazilian data in Brazil.
+      sources: [furtherbrazil-2026, fortune-redata-2026]
+      topics: [data centres, investment]
+    - id: redata
+      headline: Tax breaks for data centres become law
+      date: 2026-09-15
+      kind: development
+      stream: ai
+      summary: >-
+        The REDATA law suspends federal taxes on qualifying data centre equipment. In return, companies
+        must offer at least 10% of qualifying computing services to Brazilian customers and invest 2% of
+        the value of the equipment in research in Brazil.
+      why_it_matters: >-
+        The government says 60% of Brazilian digital data is processed abroad.
+      sources: [fortune-redata-2026]
+      topics: [data centres, investment, law]
+    - id: supercomputers
+      headline: Government announces R$2.3 billion for AI supercomputers
+      date: 2026-08-24
+      kind: development
+      stream: ai
+      summary: >-
+        About R$1.3 billion is for supercomputing in Rio de Janeiro, developed with Huawei and iFlytek
+        mainly for large language models. About R$1 billion is for a supercomputer in Rio Grande do Norte
+        that Brazil expects to rank among the 10 most powerful AI supercomputers. The plan also includes a
+        national centre for algorithmic transparency and trustworthy AI at the Federal University of
+        Minas Gerais.
+      why_it_matters: >-
+        Computing power is needed to build and test large AI models in Brazil.
+      sources: [cdo-supercomputer-2026]
+      topics: [compute, investment]
+    - id: pbia
+      headline: Brazilian AI Plan presented
+      date: "2024"
+      kind: foundational
+      stream: ai
+      summary: >-
+        The plan for 2024 to 2028, "AI for the Good of All", sets out aims in areas including agriculture,
+        education, health, the environment and public services.
+      why_it_matters: >-
+        It is the government's main plan for developing AI in Brazil.
+      sources: [folha-pbia-2024]
+      topics: [strategy, investment]
+
+principles:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      The OECD AI Principles are used because Brazil has no set of AI principles of its own in force; we
+      searched again on 19 November 2026.
+      Sector rules are described from a law firm briefing; we did not read the resolutions themselves.
+      How general consumer and anti-discrimination law apply to AI is not covered in this draft.
+  framework:
+    name: the OECD AI Principles
+    nav: OECD AI Principles
+    basis: oecd
+    about:
+      text: >-
+        Brazil has no set of AI principles of its own in force. It adheres to the OECD AI Principles,
+        adopted in 2019 and updated in May 2024, and its 2021 national AI strategy states that it follows
+        them. The proposed Brazilian AI Plan 2024-2028, "IA para o Bem de Todos", lists ten premises, such
+        as ethics and responsibility in the use of AI, but does not define them as principles. The AI bill,
+        PL 2338/2023, sets out its own principles, but it is not law.
+      sources: [oecd-principles, oecd-recommendation, teletime-ebia-2021, pbia-2024, casrai-pl2338-2026]
+  intro:
+    - text: >-
+        Brazil has no general AI law. Some principles are backed by data protection law and by rules in
+        particular sectors, such as telecoms and medicine; the others rest on plans, guidance and pilots.
+      sources: [tozzini-2026, legismap-sandbox-2026]
+    - text: >-
+        Below, each principle is shown with what it asks, how far Brazilian law backs it, the bodies and
+        tools that carry it today, and evidence on how it works in practice.
+      sources: [oecd-recommendation]
+  items:
+    - key: wellbeing
+      name: Inclusive growth, sustainable development and well-being
+      short: Well-being
+      asks:
+        text: >-
+          "Stakeholders should proactively engage in responsible stewardship of trustworthy AI in pursuit
+          of beneficial outcomes for people and the planet", such as inclusion and reducing inequalities.
+        sources: [oecd-recommendation]
+      footing: guidance_only
+      footing_note:
+        text: >-
+          Set out in national plans and an international pledge, not in law.
+        sources: [folha-pbia-2024, brasildefato-antalya-2026]
+      how_it_works:
+        - text: >-
+            The national AI plan is called "AI for the Good of All" and sets aims in health, education,
+            agriculture, the environment and public services.
+          sources: [folha-pbia-2024]
+        - text: >-
+            In joining the Antalya Pledge, Brazil committed to attend to the environmental impact of data
+            centres and to the effects of automation on work.
+          sources: [brasildefato-antalya-2026]
+      regulators: [Ministry of Science, Technology and Innovation]
+
+    - key: rights
+      name: Respect for the rule of law, human rights and democratic values, including fairness and privacy
+      short: Rights & fairness
+      asks:
+        text: >-
+          "AI actors should respect the rule of law, human rights, democratic and human-centred values"
+          throughout the life of an AI system, including non-discrimination, privacy and fairness.
+        sources: [oecd-recommendation]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          Data protection law applies to AI that uses personal data, and the telecoms regulator has made
+          principles including fairness, non-discrimination and privacy mandatory in its sector. There is
+          no general AI law.
+        sources: [legismap-sandbox-2026, tozzini-2026]
+      how_it_works:
+        - text: >-
+            The ANPD's sandbox tests whether AI systems that use personal data comply with data protection
+            law.
+          sources: [legismap-sandbox-2026]
+        - text: >-
+            Anatel's 2025 resolution sets principles for AI in telecoms that operators must follow.
+          sources: [tozzini-2026]
+      regulators: [National Data Protection Authority (ANPD), Anatel]
+
+    - key: transparency
+      name: Transparency and explainability
+      short: Transparency
+      asks:
+        text: >-
+          "AI Actors should commit to transparency and responsible disclosure regarding AI systems."
+        sources: [oecd-recommendation]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          Transparency and explainability are among the mandatory principles for AI in telecoms. Outside
+          that sector we found no general duty in our sources.
+        sources: [tozzini-2026]
+      how_it_works:
+        - text: >-
+            Transparency and explainability are the focus of the ANPD's sandbox, whose testing method was
+            developed with the University of São Paulo.
+          sources: [legismap-sandbox-2026]
+        - text: >-
+            The ANPD's director has described algorithmic transparency as central to responsible AI.
+          sources: [legismap-telebrasil-2026]
+      regulators: [National Data Protection Authority (ANPD), Anatel]
+
+    - key: safety
+      name: Robustness, security and safety
+      short: Safety
+      asks:
+        text: >-
+          "AI systems should be robust, secure and safe throughout their entire lifecycle", and it should
+          be possible to override, repair or decommission them safely if they risk causing undue harm.
+        sources: [oecd-recommendation]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          In telecoms, the mandatory principles include reliability. We found no other binding duty on the
+          safety of AI systems, and Brazil has no AI safety institute.
+        sources: [tozzini-2026, cebri-aiso-2025]
+      how_it_works:
+        - text: >-
+            Inmetro's AI centre works on reference standards and methods for testing AI, including failure
+            detection and robustness.
+          sources: [agenciagov-forum-2026]
+        - text: >-
+            Federal bodies can use an ethical impact self-assessment to identify the risks of the AI they
+            develop and use.
+          sources: [cd-aie-2026]
+      regulators: [Inmetro, Anatel]
+
+    - key: accountability
+      name: Accountability
+      short: Accountability
+      asks:
+        text: >-
+          "AI actors should be accountable for the proper functioning of AI systems and for the respect of
+          the above principles", including by making datasets, processes and decisions traceable.
+        sources: [oecd-recommendation]
+      footing: partly_binding
+      footing_note:
+        text: >-
+          Sector rules assign responsibility in some fields: in medicine, the physician keeps final
+          authority over decisions supported by AI. The AI bill's rules on liability are not law.
+        sources: [tozzini-2026, casrai-pl2338-2026]
+      how_it_works:
+        - text: >-
+            The Federal Council of Medicine's resolution treats AI as a support tool for physicians.
+          sources: [tozzini-2026]
+        - text: >-
+            The securities regulator, CVM, created a financial technology division in July 2026 that will
+            set guidelines for AI-based analytical tools.
+          sources: [tozzini-2026]
+      regulators: [Federal Council of Medicine, Securities and Exchange Commission of Brazil (CVM), National Data Protection Authority (ANPD)]
+
+areas_for_improvement:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: moderate
+    review: draft
+    gaps: >-
+      Each area is one that a named source has identified. The government's bill on a national AI system
+      is described from news reports; we did not read its text.
+  intro:
+    - text: >-
+        Brazil has data protection law, sector rules, a regulatory sandbox and work on AI testing. Lawyers,
+        think tanks, public bodies and the government itself point to areas where these could be
+        strengthened.
+      sources: [casrai-pl2338-2026, cebri-aiso-2025, agenciagov-forum-2026, dplnews-sia-2025]
+  items:
+    - id: general-law
+      title: A general legal framework for AI
+      kind: legal_power
+      principles: [accountability, rights, safety]
+      in_place:
+        text: >-
+          Data protection law and rules in some sectors apply to AI. The AI bill passed the Senate in
+          December 2024 and is before the Chamber of Deputies.
+        sources: [tozzini-2026, casrai-pl2338-2026]
+      identified:
+        text: >-
+          CASRAI notes that nothing in the bill is in force or "creates an obligation for anyone today".
+          João Brant, Secretary of Digital Policies, has said that digital sovereignty depends on clear
+          laws.
+        sources: [casrai-pl2338-2026, brasil247-2026]
+      elsewhere:
+        - text: >-
+            A general AI law that sorts AI systems by risk, with duties for high-risk systems and for
+            general-purpose AI models.
+          used_in: [EU]
+          sources: [ec-ai-act-page]
+
+    - id: safety-institute
+      title: A public body for AI safety
+      kind: capacity
+      principles: [safety]
+      in_place:
+        text: >-
+          Inmetro's AI centre, created in 2025, works on methods for testing AI. Brazil has no AI safety
+          institute.
+        sources: [agenciagov-forum-2026, cebri-aiso-2025]
+      identified:
+        text: >-
+          CEBRI and ITS Rio have proposed a Brazilian Institute for AI Safety and Opportunities: a
+          technical, advisory body with independent, multisector governance.
+        sources: [cebri-aiso-2025]
+      elsewhere:
+        - text: >-
+            Public AI safety institutes, studied in the CEBRI and ITS Rio paper.
+          used_in: [GB, US, EU, JP]
+          sources: [cebri-aiso-2025]
+        - text: >-
+            Mandatory testing of frontier AI models before release, and independent evaluation.
+          proposed_by: A Call for Control of Frontier AI Models (September 2026), signed by 20 countries and the European Commission
+          sources: [nl-frontier-call-2026]
+
+    - id: testing-standards
+      title: Reference standards for testing AI
+      kind: technical
+      principles: [safety, transparency]
+      in_place:
+        text: >-
+          Inmetro hosted a forum with European experts on testing methods and standards in November 2026,
+          and the ANPD's sandbox uses a testing method developed with the University of São Paulo.
+        sources: [agenciagov-forum-2026, legismap-sandbox-2026]
+      identified:
+        text: >-
+          Charles Prado, coordinator of Inmetro's AI centre, said organisations need references against
+          which to compare their AI.
+        sources: [agenciagov-forum-2026]
+      elsewhere:
+        - text: >-
+            Accreditation of independent firms that test AI systems.
+          used_in: [SG]
+          sources: [ag-imda-2026]
+
+    - id: incident-reporting
+      title: Reporting of AI incidents
+      kind: legal_power
+      principles: [safety, accountability]
+      in_place:
+        text: >-
+          We found no duty to report AI incidents in Brazilian law in our sources.
+        sources: [tozzini-2026, casrai-pl2338-2026]
+      identified:
+        text: >-
+          The government's bill on a national AI system would let the ANPD set general rules on incident
+          reporting.
+        sources: [dplnews-sia-2025]
+      elsewhere:
+        - text: >-
+            A state law requiring large frontier developers to publish safety frameworks and report
+            critical safety incidents.
+          used_in: [US]
+          sources: [fpf-sb53-2025]
+
+contacts:
+  meta:
+    checked: 2026-11-19
+    evidence_depth: limited
+    review: draft
+    gaps: >-
+      A starting list. University research groups and organisations outside Rio de Janeiro and Brasília
+      are under-represented.
+  items:
+    - name: National Data Protection Authority (ANPD)
+      type: regulator
+      url: https://www.gov.br/anpd/pt-br
+      based: Brasília
+      about:
+        text: >-
+          The data protection authority. It runs the regulatory sandbox for AI and would coordinate AI
+          regulation under the government's proposals.
+        sources: [legismap-sandbox-2026, dplnews-sia-2025]
+    - name: Ministry of Science, Technology and Innovation (MCTI)
+      type: government
+      url: https://www.gov.br/mcti/pt-br
+      based: Brasília
+      about:
+        text: >-
+          Published the Brazilian AI Strategy and is responsible for the national AI plan.
+        sources: [teletime-ebia-2021, folha-pbia-2024]
+    - name: National Institute of Metrology, Quality and Technology (Inmetro)
+      type: government
+      url: https://www.gov.br/inmetro/pt-br
+      about:
+        text: >-
+          The national metrology institute. Its AI centre works on methods and standards for testing AI.
+        sources: [agenciagov-forum-2026]
+    - name: Institute for Technology and Society of Rio (ITS Rio)
+      type: research_institute
+      url: https://itsrio.org/en/en-home
+      based: Rio de Janeiro
+      about:
+        text: >-
+          A research institute on technology and society. It co-wrote the proposal for an AI safety and
+          opportunities institute for Brazil.
+        sources: [cebri-aiso-2025]
+    - name: Brazilian Center for International Relations (CEBRI)
+      type: research_institute
+      url: https://cebri.org/en
+      based: Rio de Janeiro
+      about:
+        text: >-
+          A think tank on international relations. It co-wrote the proposal for an AI safety and
+          opportunities institute for Brazil.
+        sources: [cebri-aiso-2025]
+
+sources:
+  # Government of Brazil and its agencies
+  - id: agenciagov-forum-2026
+    title: Brasília recebe evento para debater segurança e desenvolvimento da IA no Brasil
+    publisher: Agência Gov (EBC), via Inmetro
+    url: https://agenciagov.ebc.com.br/noticias/202611/brasilia-recebe-evento-para-debater-seguranca-e-desenvolvimento-da-inteligencia-artificial-no-brasil-1
+    published: 2026-11-10
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: pt
+    note: "Announcement of the Brazil-Europe Forum on Data Governance, Regulation and AI Standards, 11 and 12 November 2026."
+  - id: legismap-sandbox-2026
+    title: ANPD publica 2º Relatório Parcial de Monitoramento do Sandbox Regulatório em Inteligência Artificial
+    publisher: Legismap (republishing an ANPD news item)
+    url: https://legismap.com.br/conteudos/artigos-e-noticias/anpd-publica-2-relatorio-parcial-de-monitoramento-do-sandbox-regulatorio-em-inteligencia-artificial
+    published: 2026-10-09
+    accessed: 2026-11-19
+    origin: inside
+    type: regulator
+    language: pt
+  - id: legismap-telebrasil-2026
+    title: "ANPD | Regulação da Inteligência Artificial em pauta no Painel TeleBrasil Summit 2026"
+    publisher: Legismap (republishing an ANPD news item)
+    url: https://legismap.com.br/conteudos/artigos-e-noticias/regulacao-da-inteligencia-artificial-em-pauta-no-painel-telebrasil-summit-2026
+    published: 2026-05-20
+    accessed: 2026-11-19
+    origin: inside
+    type: regulator
+    language: pt
+    note: The article gives the director's name once as Lorena Giuberti and elsewhere as Lorena Coutinho.
+  # Brazilian media and organisations
+  - id: brasil247-2026
+    title: Governo Lula acelera regulamentação da inteligência artificial e das big techs no Congresso
+    publisher: Brasil 247
+    url: https://www.brasil247.com/tecnologia/governo-lula-acelera-regulamentacao-da-inteligencia-artificial-e-das-big-techs-no-congresso/
+    published: 2026-11-01
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: pt
+  - id: chambarelli-2026
+    title: "AI regulation in Brazil: the status of Bill 2338/2023"
+    publisher: Chambarelli Advogados
+    url: https://chambarelli.com.br/en/ai-regulation-in-brazil-the-status-of-bill-2338-2023/
+    published: 2026-10-28
+    accessed: 2026-11-19
+    origin: inside
+    type: industry
+    language: en
+    note: Law firm briefing, by Guilherme Chambarelli.
+  - id: tozzini-2026
+    title: Without a Legal Framework, ANPD and other sectors are moving forward with AI regulation.
+    publisher: TozziniFreire Advogados
+    url: https://tozzinifreire.com.br/en/publicacoes/boletins/Without-a-legal-framework--ANPD-and-other-sectors-are-moving-forward-with-AI-regulation./
+    published: 2026-08-21
+    accessed: 2026-11-19
+    origin: inside
+    type: industry
+    language: en
+    note: Law firm briefing, by Carla do Couto Hellu Battilana, Luiza Sato and Stephanie Consonni of Schryver. Updated 15 September 2026.
+  - id: aimagine-2026
+    title: Brazil votes on its AI law within weeks — with Europe as an example and its data protection law as a warning
+    publisher: AIMAGINE (ResenhAI)
+    url: https://www.aimagine.com.br/en/insights/2026-04-05-pl-2338-votacao-marco-regulatorio-ia-brasil
+    published: 2026-04-05
+    accessed: 2026-11-19
+    origin: inside
+    type: industry
+    language: en
+    note: By Fabrício Bindi. The vote it expected had not taken place when we checked.
+  - id: cebri-aiso-2025
+    title: "An AI Safety and Opportunities Institute for Brazil: A sketch of characteristics, functions and potential challenges"
+    publisher: CEBRI (Brazilian Center for International Relations) with ITS Rio
+    url: https://cebri.org/en/doc/375/an-ai-safety-and-opportunities-institute-for-brazil-a-sketch-of-characteristics-functions-and-potential-challenges
+    published: 2025-07-08
+    accessed: 2026-11-19
+    origin: inside
+    type: civil_society
+    language: en
+    note: Policy paper.
+  - id: cd-aie-2026
+    title: Governo adota sistema de autoavaliação do impacto ético em Inteligência Artificial
+    publisher: Convergência Digital
+    url: https://convergenciadigital.com.br/governo/governo-adota-sistema-de-autoavaliacao-do-impacto-etico-em-inteligencia-artificial/
+    published: 2026-11-13
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: pt
+    note: By Ana Paula Lobo.
+  - id: cd-front-2026
+    title: Senado cria Frente Parlamentar Mista de Inteligência Artificial, Proteção de Dados e Segurança Digital
+    publisher: Convergência Digital
+    url: https://convergenciadigital.com.br/governo/senado-cria-frente-parlamentar-mista-de-inteligencia-artificial-protecao-de-dados-e-seguranca-digital/
+    published: 2026-07-10
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: pt
+    note: By Ana Paula Lobo.
+  - id: cd-chips-2026
+    title: EUA colocam o Brasil na lista de países com restrições para importar chips de IA
+    publisher: Convergência Digital
+    url: https://convergenciadigital.com.br/governo/eua-colocam-o-brasil-na-lista-de-paises-com-restricoes-para-importar-chips-de-ia/
+    published: 2026-11-16
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: pt
+    note: By Ana Paula Lobo.
+  - id: cd-aicube-2026
+    title: Startup brasileira de IA agêntica assina contratos de R$ 270 milhões com AWS e Oracle
+    publisher: Convergência Digital
+    url: https://convergenciadigital.com.br/inovacao/startup-brasileira-de-ia-agentica-assina-contratos-de-r-270-milhoes-com-aws-e-oracle/
+    published: 2026-11-13
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: pt
+  - id: tvsim-chips-2026
+    title: Regra dos EUA para chips de IA entra em vigor e afeta empresas no Brasil
+    publisher: TV Sim Brasil
+    url: https://tvsimbrasil.com.br/brasil/tecnologia/noticia/2026/11/19/regra-eua-chips-ia-entra-vigor-brasil
+    published: 2026-11-19
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: pt
+  - id: brasildefato-antalya-2026
+    title: Brasil assina na COP31 pacto global por IA sustentável e empregos
+    publisher: Brasil de Fato (Agência Brasil)
+    url: https://www.brasildefato.com.br/2026/11/16/brasil-assina-na-cop31-pacto-global-por-ia-sustentavel-e-empregos/
+    published: 2026-11-16
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: pt
+    note: By Wellton Máximo. The text names the pledge as the Antalya Pledge on Artificial Intelligence.
+  - id: timesbrasil-antalya-2026
+    title: Brasil adere a pacto internacional na COP31 para IA sustentável
+    publisher: Times Brasil (CNBC)
+    url: https://timesbrasil.com.br/mundo/brasil-adere-a-pacto-internacional-na-cop31-para-ia-sustentavel/
+    published: 2026-11-16
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: pt
+    note: By Cauê Rigamonti, crediting Agência Brasil.
+  - id: gazeta-waico-2026
+    title: Brasil adere à aliança de IA da China que reúne países autoritários
+    publisher: Gazeta do Povo
+    url: https://www.gazetadopovo.com.br/republica/brasil-adere-a-alianca-de-ia-da-china-que-reune-paises-autoritarios/
+    published: 2026-07-17
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: pt
+    note: By Diógenes Freire Feitosa. The headline's description of the member countries is the newspaper's own; this profile uses the article only for the facts of Brazil's membership.
+  - id: pbia-2024
+    title: "IA para o Bem de Todos: Proposta de Plano Brasileiro de Inteligência Artificial 2024-2028"
+    publisher: Conselho Nacional de Ciência e Tecnologia
+    url: https://boletim.sbq.org.br/anexos/IA_para_o_Bem_de_Todos.pdf
+    published: 2024-07-29
+    accessed: 2026-11-19
+    origin: inside
+    type: government
+    language: pt
+    note: Proposal presented to the National Science and Technology Council; copy hosted by the Sociedade Brasileira de Química. Lists ten "premissas" (premises).
+  - id: teletime-ebia-2021
+    title: Governo cria a Estratégia Brasileira de Inteligência Artificial, EBIA
+    publisher: TELETIME News (Mobile Time)
+    url: https://teletime.com.br/09/04/2021/governo-cria-a-estrategia-brasileira-de-inteligencia-artificial-ebia/
+    published: 2021-04-09
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: pt
+    note: By Fernando Paiva.
+  - id: folha-pbia-2024
+    title: Brasil lança plano nacional de inteligência artificial
+    publisher: Folha Artificial (newsletter)
+    url: https://folhaartificial.substack.com/p/brasil-lanca-plano-nacional-de-inteligencia
+    published: 2024-08-06
+    accessed: 2026-11-19
+    origin: inside
+    type: journalism
+    language: pt
+    note: By Pablo Mascarenhas. A newsletter summary of the plan, citing the Ministry of Science, Technology and Innovation; we could not read the government's own page.
+  # Polls
+  - id: bahia-datafolha-2026
+    title: Uso de IA no trabalho cresce, e medo de substituição cai entre os brasileiros, diz Datafolha
+    publisher: Bahia Notícias (Folhapress)
+    url: https://www.bahianoticias.com.br/folha/noticia/398581-uso-de-ia-no-trabalho-cresce-e-medo-de-substituicao-cai-entre-os-brasileiros-diz-datafolha
+    published: 2026-06-28
+    accessed: 2026-11-19
+    origin: inside
+    type: poll
+    language: pt
+    note: By Pedro S. Teixeira. Reports a Datafolha survey with a margin of error of 2 percentage points.
+  - id: ipsos-br-2026
+    title: Para 6 em cada 10 brasileiros, IA vai transformar profundamente suas vidas nos próximos anos
+    publisher: Ipsos
+    url: https://www.ipsos.com/pt-br/ia-vai-transformar-as-vidas-nos-proximos-anos
+    published: 2026-06-03
+    accessed: 2026-11-19
+    origin: inside
+    type: poll
+    language: pt
+    note: Brazil results of the Ipsos AI Monitor 2026.
+  - id: timesbrasil-pew-2026
+    title: O que preocupa os brasileiros sobre a IA? Pesquisa revela resposta
+    publisher: Times Brasil (CNBC)
+    url: https://timesbrasil.com.br/empresas-e-negocios/tecnologia-e-inovacao/entenda-a-preocupacao-dos-brasileiros-com-a-inteligencia-artificial/
+    published: 2026-09-22
+    accessed: 2026-11-19
+    origin: inside
+    type: poll
+    language: pt
+    note: By Andre Amadei. Reports a Pew Research Center survey; fieldwork dates and sample size are not given.
+  # Outside Brazil
+  - id: casrai-pl2338-2026
+    title: "Brazil's AI Bill PL 2338: Approved, Not Law"
+    publisher: CASRAI
+    url: https://casrai.org/guides/brazil-ai-bill-pl-2338-status
+    published: 2026-09-25
+    accessed: 2026-11-19
+    origin: outside
+    type: civil_society
+    language: en
+    note: By the CASRAI Editorial Board. Reports the Chamber of Deputies record, whose latest entry was dated 2 September 2026.
+  - id: dplnews-sia-2025
+    title: "Brasil | Gobierno propone sistema nacional de IA y fortalecer papel de la autoridad de protección de datos"
+    publisher: DPL News
+    url: https://dplnews.com/brasil-gobierno-propone-sistema-nacional-de-ia/
+    published: 2025-12-11
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: es
+    note: By Mayara Figueiredo.
+  - id: fortune-redata-2026
+    title: As Americans turn against data centers, Brazil offers tax breaks and cheap power to attract them
+    publisher: Fortune
+    url: https://fortune.com/2026/11/01/data-centers-brazil-lula-redata-amazon-google-microsoft-openai/
+    published: 2026-11-01
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: By Mia Osmonbekov.
+  - id: cdo-supercomputer-2026
+    title: Brazil Announces $444M AI Investment Plan
+    publisher: CDO Magazine
+    url: https://www.cdomagazine.tech/aiml/brazil-announces-444m-ai-investment-plan
+    published: 2026-08-24
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    via: Reuters
+    note: By Neelakshi Chakraborty.
+  - id: furtherbrazil-2026
+    title: Brazil data centres draw US$16B as AI demand surges
+    publisher: FurtherBrazil
+    url: https://furtherbrazil.com/brazil-data-centres-draw-us16b-as-ai-demand-surges/
+    published: 2026-10-26
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+    note: Cites JLL figures reported by Veja.
+  # International
+  - id: oecd-recommendation
+    title: Recommendation of the Council on Artificial Intelligence
+    publisher: OECD
+    url: https://legalinstruments.oecd.org/public/doc/648/648.en.pdf
+    published: 2024-05-03
+    accessed: 2026-11-19
+    origin: international
+    type: government
+    language: en
+    note: OECD/LEGAL/0449. Adopted on 22 May 2019 and revised on 3 May 2024.
+  - id: oecd-principles
+    title: AI Principles Overview
+    publisher: OECD.AI
+    url: https://oecd.ai/principles/
+    accessed: 2026-11-19
+    origin: international
+    type: government
+    language: en
+    note: Lists Brazil among the non-member governments that have committed to the principles.
+  - id: gov-bletchley-2023
+    title: "The Bletchley Declaration by Countries Attending the AI Safety Summit, 1-2 November 2023"
+    publisher: Prime Minister's Office, 10 Downing Street
+    url: https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023
+    published: 2023-11-01
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+  - id: gov-seoul-2024
+    title: "Seoul Declaration for safe, innovative and inclusive AI by participants attending the Leaders' Session: AI Seoul Summit, 21 May 2024"
+    publisher: Department for Science, Innovation and Technology (UK)
+    url: https://gov.uk/government/publications/seoul-declaration-for-safe-innovative-and-inclusive-ai-ai-seoul-summit-2024/seoul-declaration-for-safe-innovative-and-inclusive-ai-by-participants-attending-the-leaders-session-ai-seoul-summit-21-may-2024
+    published: 2024-05-21
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+    note: Brazil is not among the participants listed.
+  - id: elysee-paris-2025
+    title: Statement on Inclusive and Sustainable Artificial Intelligence for People and the Planet
+    publisher: Élysée (Presidency of the French Republic)
+    url: https://www.elysee.fr/en/emmanuel-macron/2025/02/11/statement-on-inclusive-and-sustainable-artificial-intelligence-for-people-and-the-planet
+    published: 2025-02-11
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+  - id: theprint-new-delhi-2026
+    title: AI Summit ends with 88 nations adopting New Delhi Declaration, calls for cooperation, sovereignty
+    publisher: ThePrint
+    url: https://theprint.in/tech/ai-summit-ends-with-88-nations-adopting-new-delhi-declaration-calls-for-cooperation-sovereignty/2860446
+    published: 2026-02-21
+    accessed: 2026-11-19
+    origin: outside
+    type: journalism
+    language: en
+  - id: nl-frontier-call-2026
+    title: A Call for Control of Frontier AI Models
+    publisher: Government of the Netherlands
+    url: https://www.government.nl/documents/2026/09/22/a-call-for-control-of-frontier-ai-models
+    published: 2026-09-22
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+    note: Joint statement by leaders of 20 countries and the European Commission. Brazil is not a signatory.
+  # Approaches elsewhere
+  - id: ec-ai-act-page
+    title: AI Act
+    publisher: European Commission
+    url: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai
+    accessed: 2026-11-19
+    origin: outside
+    type: government
+    language: en
+    note: Page last updated 19 October 2026.
+  - id: ag-imda-2026
+    title: IMDA introduces new AI testing and cybersecurity initiatives
+    publisher: Allen & Gledhill
+    url: https://www.allenandgledhill.com/sg/publication/articles/34742/imda-introduces-new-ai-testing-and-cybersecurity-initiatives
+    published: 2026-10-28
+    accessed: 2026-11-19
+    origin: outside
+    type: industry
+    language: en
+    note: Law firm briefing on Singapore.
+  - id: fpf-sb53-2025
+    title: "California's SB 53: The First Frontier AI Law, Explained"
+    publisher: Future of Privacy Forum
+    url: https://fpf.org/blog/californias-sb-53-the-first-frontier-ai-law-explained/
+    published: 2025-10-03
+    accessed: 2026-11-19
+    origin: outside
+    type: civil_society
+    language: en
